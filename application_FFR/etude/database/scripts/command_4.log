@@ -1,0 +1,32 @@
+INSERT INTO public.equipe(type_rugby,genre,categorie_age) VALUES ('15','masculin','senior') ;
+INSERT 0 1
+INSERT INTO public.equipe(type_rugby,genre,categorie_age) VALUES ('15','feminin','senior');
+INSERT 0 1
+INSERT INTO public.equipe(type_rugby,genre,categorie_age) VALUES ('15','masculin','U20');
+INSERT 0 1
+INSERT INTO public.equipe(type_rugby,genre,categorie_age) VALUES ('15','feminin','U20');
+INSERT 0 1
+INSERT INTO public.equipe(type_rugby,genre,categorie_age) VALUES ('15','masculin','U18');
+INSERT 0 1
+INSERT INTO public.equipe(type_rugby,genre,categorie_age) VALUES ('15','feminin','U18');
+INSERT 0 1
+INSERT INTO public.equipe(type_rugby,genre,categorie_age) VALUES ('15','masculin','U16');
+INSERT 0 1
+INSERT INTO public.equipe(type_rugby,genre,categorie_age) VALUES ('15','feminin','U16');
+INSERT 0 1
+INSERT INTO public.equipe(type_rugby,genre,categorie_age) VALUES ('7','masculin','senior');
+INSERT 0 1
+INSERT INTO public.equipe(type_rugby,genre,categorie_age) VALUES ('7','feminin','senior');
+INSERT 0 1
+INSERT INTO public.equipe(type_rugby,genre,categorie_age) VALUES ('7','masculin','U20');
+INSERT 0 1
+INSERT INTO public.equipe(type_rugby,genre,categorie_age) VALUES ('7','feminin','U20');
+INSERT 0 1
+INSERT INTO public.equipe(type_rugby,genre,categorie_age) VALUES ('7','masculin','U18');
+INSERT 0 1
+INSERT INTO public.equipe(type_rugby,genre,categorie_age) VALUES ('7','feminin','U18');
+INSERT 0 1
+INSERT INTO public.equipe(type_rugby,genre,categorie_age) VALUES ('7','masculin','U16');
+INSERT 0 1
+INSERT INTO public.equipe(type_rugby,genre,categorie_age) VALUES ('7','feminin','U16');
+INSERT 0 1

@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.3" use-changelog="false" last-position="20,102" last-zoom="0.45" max-obj-count="13"
+	 default-schema="public" default-owner="postgres">
+<role name="dev_role">
+</role>
+
+<database name="new_database" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layer="0" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="produit" layer="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="dev_role"/>
+	<position x="1580" y="320"/>
+	<column name="id_produit" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="nom_produit">
+		<type name="varchar" length="50"/>
+	</column>
+	<constraint name="produit_pk" type="pk-constr" table="public.produit">
+		<columns names="id_produit" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="produit_unique" type="uq-constr" table="public.produit">
+		<columns names="nom_produit" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="categorie_produit" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="dev_role"/>
+	<position x="1580" y="100"/>
+	<column name="id_categorie_produit" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="nom_categorie_produit">
+		<type name="varchar" length="50"/>
+	</column>
+	<constraint name="categorie_produit_pk" type="pk-constr" table="public.categorie_produit">
+		<columns names="id_categorie_produit" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="categorie_produit_has_many_produit" type="rel1n" layer="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#8c1934"
+	 src-table="public.categorie_produit"
+	 dst-table="public.produit"
+	 src-required="false" dst-required="false"/>
+
+<table name="stock" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="dev_role"/>
+	<position x="640" y="80"/>
+	<column name="id_stock" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="nom_stock">
+		<type name="varchar" length="50"/>
+	</column>
+	<constraint name="stock_pk" type="pk-constr" table="public.stock">
+		<columns names="id_stock" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="stock_unique" type="uq-constr" table="public.stock">
+		<columns names="nom_stock" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="liste_utilisateur" layer="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="public"/>
+	<role name="dev_role"/>
+	<position x="540" y="360"/>
+	<column name="id_liste_utilisateur" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="date_liste">
+		<type name="date" length="0"/>
+	</column>
+	<column name="destination">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="en_cours">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="liste_utilisateur_pk" type="pk-constr" table="public.liste_utilisateur">
+		<columns names="id_liste_utilisateur" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_liste_depart" index="2"/>
+		<object name="id_utilisateur" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="liste_depart_fk" index="2"/>
+		<object name="utilisateur_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="deplacement" layer="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="dev_role"/>
+	<position x="120" y="940"/>
+	<column name="id_deplacement" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="nombre_joueurs">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="duree_deplacement">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="nombre_match">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="deplacement_pk" type="pk-constr" table="public.deplacement">
+		<columns names="id_deplacement" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="deplacement_unique" type="uq-constr" table="public.deplacement">
+		<columns names="nombre_joueurs,duree_deplacement,nombre_match" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="utilisateur" layer="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="public"/>
+	<role name="dev_role"/>
+	<position x="120" y="100"/>
+	<column name="id_utilisateur" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="nom">
+		<type name="varchar" length="20"/>
+	</column>
+	<column name="prenom">
+		<type name="varchar" length="20"/>
+	</column>
+	<column name="mail">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="mot_de_passe">
+		<type name="varchar" length="15"/>
+	</column>
+	<column name="is_admin">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="utilisateur_pk" type="pk-constr" table="public.utilisateur">
+		<columns names="id_utilisateur" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="identifiant_utilisateur_unique" type="uq-constr" table="public.utilisateur">
+		<columns names="mail,mot_de_passe" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="association_stock_produit" layer="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="dev_role"/>
+	<position x="1020" y="160"/>
+	<column name="id_association_stock_produit" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="quantite">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="association_stock_produit_pk" type="pk-constr" table="public.association_stock_produit">
+		<columns names="id_association_stock_produit" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_produit" index="2"/>
+		<object name="id_stock" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="produit_fk" index="2"/>
+		<object name="stock_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="stock_has_many_association_stock_produit" type="rel1n" layer="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#125c97"
+	 src-table="public.stock"
+	 dst-table="public.association_stock_produit"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="produit_has_many_association_stock_produit" type="rel1n" layer="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a894bf"
+	 src-table="public.produit"
+	 dst-table="public.association_stock_produit"
+	 src-required="false" dst-required="false"/>
+
+<table name="association_liste_utilisateur_produit" layer="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="dev_role"/>
+	<position x="1020" y="440"/>
+	<column name="id_association_liste_utilisateur_produit" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="quantite_depart">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="quantite_retour">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="association_liste_utilisateur_produit_pk" type="pk-constr" table="public.association_liste_utilisateur_produit">
+		<columns names="id_association_liste_utilisateur_produit" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_liste_utilisateur" index="1"/>
+		<object name="id_produit" index="2"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="liste_utilisateur_fk" index="1"/>
+		<object name="produit_fk" index="2"/>
+	</customidxs>
+</table>
+
+<table name="equipe" layer="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="dev_role"/>
+	<position x="1140" y="960"/>
+	<column name="id_equipe" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="type_rugby">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="genre">
+		<type name="varchar" length="10"/>
+	</column>
+	<column name="categorie_age">
+		<type name="varchar" length="10"/>
+	</column>
+	<constraint name="equipe_pk" type="pk-constr" table="public.equipe">
+		<columns names="id_equipe" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="association_liste_depart_produit" layer="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="dev_role"/>
+	<position x="1360" y="700"/>
+	<column name="id_association_liste_depart_produit" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="quantite_depart">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="quantite_retour">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="association_liste_depart_produit_pk" type="pk-constr" table="public.association_liste_depart_produit">
+		<columns names="id_association_liste_depart_produit" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_liste_depart" index="1"/>
+		<object name="id_produit" index="2"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="liste_depart_fk" index="2"/>
+		<object name="produit_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="produit_has_many_association_liste_depart_produit" type="rel1n" layer="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#57e613"
+	 src-table="public.produit"
+	 dst-table="public.association_liste_depart_produit"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="3.97847" y="-8.12651"/>
+	</label>
+</relationship>
+
+<relationship name="liste_utilisateur_has_many_association_liste_utilisateur_produi" type="rel1n" layer="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#f3de04"
+	 src-table="public.liste_utilisateur"
+	 dst-table="public.association_liste_utilisateur_produit"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="produit_has_many_association_liste_utilisateur_produit" type="rel1n" layer="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#76693d"
+	 src-table="public.produit"
+	 dst-table="public.association_liste_utilisateur_produit"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="utilisateur_has_many_liste_utilisateur" type="rel1n" layer="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#e51951"
+	 src-table="public.utilisateur"
+	 dst-table="public.liste_utilisateur"
+	 src-required="false" dst-required="false"/>
+
+<table name="liste_depart" layer="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="dev_role"/>
+	<position x="620" y="860"/>
+	<column name="id_liste_depart" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="liste_depart_pk" type="pk-constr" table="public.liste_depart">
+		<columns names="id_liste_depart" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="deplacement_has_many_liste_depart" type="rel1n" layer="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#25d967"
+	 src-table="public.deplacement"
+	 dst-table="public.liste_depart"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="equipe_has_many_liste_depart" type="rel1n" layer="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#691065"
+	 src-table="public.equipe"
+	 dst-table="public.liste_depart"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="liste_depart_has_many_liste_utilisateur" type="rel1n" layer="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#1926d2"
+	 src-table="public.liste_depart"
+	 dst-table="public.liste_utilisateur"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="liste_depart_has_many_association_liste_depart_produit" type="rel1n" layer="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#8d935a"
+	 src-table="public.liste_depart"
+	 dst-table="public.association_liste_depart_produit"
+	 src-required="false" dst-required="false"/>
+
+<constraint name="liste_depart_unique" type="uq-constr" table="public.liste_depart">
+	<columns names="id_deplacement,id_equipe" ref-type="src-columns"/>
+</constraint>
+
+<constraint name="association_liste_depart_produit_unique" type="uq-constr" table="public.association_liste_depart_produit">
+	<columns names="id_liste_depart,id_produit" ref-type="src-columns"/>
+</constraint>
+
+<constraint name="association_liste_utilisateur_produit_unique" type="uq-constr" table="public.association_liste_utilisateur_produit">
+	<columns names="id_liste_utilisateur,id_produit" ref-type="src-columns"/>
+</constraint>
+
+<constraint name="liste_utilisateur_unique" type="uq-constr" table="public.liste_utilisateur">
+	<columns names="id_utilisateur,id_liste_depart,date_liste" ref-type="src-columns"/>
+</constraint>
+
+</dbmodel>

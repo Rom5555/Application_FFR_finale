@@ -1,0 +1,13 @@
+INSERT INTO public.stock(nom_stock) VALUES ('CONSOMMABLE') ;
+INSERT 0 1
+INSERT INTO public.stock(nom_stock) VALUES ('ATELLE');
+INSERT 0 1
+INSERT INTO public.stock(nom_stock) VALUES ('GAMES_READY');
+INSERT 0 1
+INSERT INTO public.stock(nom_stock) VALUES ('PRESSOTHERAPIE');
+INSERT 0 1
+INSERT INTO public.stock(nom_stock) VALUES ('SAC');
+INSERT 0 1
+INSERT INTO public.stock(nom_stock) VALUES ('TABLE');
+INSERT 0 1
+

@@ -1,0 +1,73 @@
+{% extends 'logistique_service_medical/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="columns is-centered">
+        <div class="column is-three-quarters">
+            <div class="box">
+                <h1 class="title is-3 has-text-centered mb-5">Liste des produits</h1>
+                <ul class="user-list">
+                    {% for produit in produits %}
+                        <li class="user-item">
+                            <div class="columns is-vcentered">
+                                <div class="column is-one-quarter">
+                                    <!-- Ici, vous pouvez afficher une image utilisateur si disponible -->
+                                    <!-- <img src="{{ user.profile.picture.url }}" alt="User Picture" class="user-picture"> -->
+                                </div>
+                                <div class="column">
+                                    <p class="user-info">{{ produit.nom_produit }}</p>
+                                </div>
+                                <div class="column">
+                                    <form id="delete-form-{{ produit.id_produit }}" action="{% url 'logistique_service_medical:delete_produit' %}" method="post" style="display: none;">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="id_produit" value="{{ produit.id_produit }}">
+                                    </form>
+                                    <div class="column">
+                                        <button class="button is-danger is-small" onclick="confirmDelete('{{ produit.id_produit }}')">Supprimer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="columns is-centered">
+        <div class="column is-half">
+            <div class="box">
+                <h2 class="title is-4 has-text-centered mb-3">Ajouter un produit</h2>
+                <form action="{% url 'logistique_service_medical:add_produit' %}" method="post">
+                    {% csrf_token %}
+                    <div class="container">
+                        <div class="mt-6 mx-6">
+                            {% crispy add_produit_form %}
+                            <button class="button is-primary" type="submit" value="Ajouter">Ajouter</button>
+                        </div>
+                    </div>
+                </form>
+                {% if save_error %}
+                    <p class="has-text-danger">Une erreur s'est produite lors de l'enregistrement du produit en base de données</p>
+                {% endif %}
+                {% if not is_create and not save_error %}
+                    <p class="has-text-success">Le produit a bien été enregistré en base de données</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function confirmDelete(id_produit) {
+        if (confirm("Êtes-vous sûr de vouloir supprimer ce produit?")) {
+            document.getElementById('delete-form-' + id_produit).submit();
+        }
+    }
+</script>
+
+{% endblock content %}
