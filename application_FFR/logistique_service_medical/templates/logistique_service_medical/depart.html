@@ -2,9 +2,12 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<h1 class="title is-3 has-text-grey-dark has-text-centered mb-5">Création d'une liste type</h1>
 <div class="box">
-<form action="{% url 'logistique_service_medical:liste_depart' %}" method="post" class="mb-5">
+<h1 class="title is-2 has-text-grey-dark has-text-centered mb-5">Preparer un depart</h1>
+</div>
+<div class="box">
+<h2 class="subtitle is-4 has-text-grey-dark mb-6">Construire un deplacement</h2>
+<form action="{% url 'logistique_service_medical:depart' %}" method="post" class="mb-5">
 {% csrf_token %}
     <div class="container">
     {% crispy equipe_form %}
@@ -14,7 +17,8 @@
 </div>
 
 {% if produits_stock %}
-<h2 class="subtitle is-4 has-text-centered has-text-dark-grey mb-6">Construire la liste</h2>
+<div class="box">
+<h2 class="subtitle is-4 has-text-dark-grey mb-6">Construire la liste depart</h2>
 
 <div class="columns is-multiline">
     {% for produit in produits_stock %}
@@ -40,6 +44,22 @@
         </div>
     {% endfor %}
 </div>
+</div>
+{% if utilisateur_choice_form %}
+
+<div class="box">
+    <h2 class="subtitle is-4 has-text-grey-dark mb-6">Attribuer la liste à un utilisateur</h2>
+    <form action="{% url 'logistique_service_medical:create_liste_utilisateur' id_liste_depart=id_liste_depart %}" method="post">
+        {% csrf_token %}
+        <div class="container">
+        {% crispy utilisateur_choice_form %}
+        <button class="button is-primary" type="submit">Valider la liste utilisateur (mise à jour du stock)</button>
+        </div>
+    </form>
+<div id="message-container"></div>
+</div>
+
+{% endif %}
 {% endif %}
 
 <script>
@@ -72,9 +92,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Display the error message
                 form.querySelector('#message').innerHTML = responseText;
             }
+
+             if (response.ok) {
+                let jsonResponse = await response.json();
+                let messageContainer = document.getElementById('message-container');
+                messageContainer.innerHTML = '<div class="success">' + jsonResponse.message + '</div>';
+            } else {
+                let errorMessage = await response.text();
+                let messageContainer = document.getElementById('message-container');
+                messageContainer.innerHTML = '<div class="error">' + errorMessage + '</div>';
+            }
         });
     });
 });
 </script>
+
 
 {% endblock %}

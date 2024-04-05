@@ -72,9 +72,9 @@ class Gestion_stock(Ifonction_get):
         for row in rows:
             print("id:", row[0], "nom:", row[1])
 
-    def ajouter_quantite_stock(self,nombre_ajoute):
+    def ajouter_quantite_stock(self,nombre_ajoute,id_produit):
 
-        self._data_stock.ajouter_quantite_stock(nombre_ajoute,self.produit.id)
+        self._data_stock.ajouter_quantite_stock(nombre_ajoute,id_produit)
 
     def retirer_quantite_stock(self, nombre_retire,id_produit):
 

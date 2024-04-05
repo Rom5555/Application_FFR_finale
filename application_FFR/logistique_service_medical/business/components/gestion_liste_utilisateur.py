@@ -32,14 +32,30 @@ class Gestion_liste_utilisateur(Ifonction_get,Ifonction_create,Ifonction_update)
 
     def get_id_liste_utilisateur_en_cours(self):
 
-        return self._data_liste_utilisateur.get_id_liste_utilisateur_en_cours(self.utilisateur.id)[0]
+        row = self._data_liste_utilisateur.get_id_liste_utilisateur_en_cours(self.utilisateur.id)
+        if row:
+            print(row)
+            return row[0]
+        else:
+            return None
 
     def get_1(self):
 
         rows = self._data_liste_utilisateur.get_liste_utilisateur(self.liste_utilisateur.id)
         for row in rows:
             print("id_liste_depart:", row[0], "id_stock:", row[1], "nom_stock:", row[2], "id_produit:", row[3],"nom_produit:", row[4], "quantite_depart:", row[5], "quantite_retour:", row[6])
-        return rows
+        produits = []
+        for row in rows:
+            produit = {
+                'id_produit': row[3],
+                'nom_produit': row[4],
+                'quantite_depart': row[5],
+                'quantite_retour': row[6],
+            }
+            produits.append(produit)
+        print(produits)
+        return produits
+
 
     def get_all(self):
 
@@ -57,3 +73,6 @@ class Gestion_liste_utilisateur(Ifonction_get,Ifonction_create,Ifonction_update)
 
     def get_id_utilisateur(self):
         return self._data_utilisateur.get_id_utilisateur(self.utilisateur.nom,self.utilisateur.prenom)[0]
+
+    def valider_liste_retour(self):
+        return self._data_liste_utilisateur.valider_liste_retour(self.liste_utilisateur.id)

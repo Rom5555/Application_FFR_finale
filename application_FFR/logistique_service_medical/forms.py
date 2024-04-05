@@ -120,3 +120,24 @@ class EquipeForm(forms.Form):
         unique_values = set(equipe['categorie_age'] for equipe in equipes)
         return [(value, value) for value in unique_values]
 
+class UtilisateurChoiceForm(forms.Form):
+    utilisateur = forms.ChoiceField(choices=[])
+    date_depart = forms.DateField(label='date_depart', required=True)
+    destination = forms.CharField(label='destination', required=True, max_length=60)
+
+    def __init__(self, *args, **kwargs):
+        super(UtilisateurChoiceForm, self).__init__(*args, **kwargs)
+        # Récupérer la liste des utilisateurs depuis la base de données
+        utilisateurs = User.objects.all().values_list('id', 'username')  # username est le nom d'utilisateur par défaut de Django
+        # Mettre à jour les choix du ChoiceField
+        self.fields['utilisateur'].choices = utilisateurs
+
+class ListeUtilisateurForm(forms.Form):
+    utilisateur = forms.ChoiceField(choices=[])
+
+    def __init__(self, *args, **kwargs):
+        super(ListeUtilisateurForm, self).__init__(*args, **kwargs)
+        # Récupérer la liste des utilisateurs depuis la base de données
+        utilisateurs = User.objects.all().values_list('id', 'username')  # username est le nom d'utilisateur par défaut de Django
+        # Mettre à jour les choix du ChoiceField
+        self.fields['utilisateur'].choices = utilisateurs

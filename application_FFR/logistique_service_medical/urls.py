@@ -19,8 +19,13 @@ urlpatterns = [
     path('register/', views.RegisterView.as_view(), name='register'),  # Utilisation de votre vue d'inscription personnalisée
     path('favoris/', views.favoris, name='favoris'),
     path('update_quantity/<int:id_produit>/', views.update_quantity, name='update_quantity'),
-    path('liste_depart/', views.liste_depart, name='liste_depart'),
-    path('logistique_service_medical/remplir_liste_depart/<int:id_liste_depart>/<int:id_produit>/', views.remplir_liste_depart, name='remplir_liste_depart'),
+    path('depart/', views.depart, name='depart'),
+    path('remplir_liste_depart/<int:id_liste_depart>/<int:id_produit>/', views.remplir_liste_depart, name='remplir_liste_depart'),
+    path('create_liste_utilisateur/<int:id_liste_depart>/', views.create_liste_utilisateur, name='create_liste_utilisateur'),
+    path('depart_retour/', views.depart_retour, name='depart_retour'),
+    path('retour/', views.retour, name='retour'),
+    path('verifier_liste_retour/<int:id_liste_utilisateur>/<int:id_produit>/', views.verifier_liste_retour, name='verifier_liste_retour'),
+    path('valider_liste_retour/<int:id_liste_utilisateur>/', views.valider_liste_retour, name='valider_liste_retour'),
 ]
 
 

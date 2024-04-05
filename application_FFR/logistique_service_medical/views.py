@@ -1,8 +1,9 @@
-from django.shortcuts import render,redirect,get_object_or_404
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.template import loader
-from .models import Stock, Produit, AssociationStockProduit
 from django.contrib.auth.decorators import login_required
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 from .forms import *
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
@@ -12,8 +13,13 @@ from .business.components.gestion_stock import Gestion_stock
 from .business.components.gestion_equipe import Gestion_equipe
 from .business.components.gestion_deplacement import Gestion_deplacement
 from .business.components.gestion_liste_depart import Gestion_liste_depart
+from .business.components.gestion_liste_utilisateur import Gestion_liste_utilisateur
 logger = logging.getLogger("django")
 
+
+
+
+# Gestion utilisateur
 class RegisterView(CreateView):
     form_class = RegisterForm
     success_url = reverse_lazy('login')  # Redirection vers la page de connexion après inscription
@@ -27,15 +33,6 @@ def user_list(request):
     delete_user_form = DeleteUserForm()
     return render(request, 'logistique_service_medical/user_list.html',
                   {'users': users, 'add_user_form': add_user_form, 'delete_user_form': delete_user_form})
-
-
-
-
-from django.views.generic.edit import CreateView
-from django.urls import reverse_lazy
-from django.contrib.messages.views import SuccessMessageMixin
-from django.contrib import messages
-from .forms import RegisterForm
 
 class AddUserView(SuccessMessageMixin, CreateView):
     template_name = 'logistique_service_medical/user_list.html'
@@ -60,6 +57,7 @@ def delete_user(request):
                 user_to_delete.delete()
     return redirect('logistique_service_medical:user_list')
 
+# Page acceuil
 @login_required(login_url=f'/logistique_service_medical/login/?next=/logistique_service_medical/login/')
 def index(request):
     logger.debug("entrée dans la view 'Index'")
@@ -75,10 +73,11 @@ def index(request):
 
     return HttpResponse(template.render(context, request))
 
-gestion_stock = Gestion_stock()
+# Gestion stock
 
 @login_required(login_url=f'/logistique_service_medical/login/?next=/logistique_service_medical/login/')
 def stock_consommables(request):
+    gestion_stock = Gestion_stock()
     consommables = gestion_stock.get_1()
     context = {'consommables': consommables}
     return render(request, 'logistique_service_medical/stock_consommables.html', context)
@@ -86,6 +85,7 @@ def stock_consommables(request):
 
 @login_required(login_url=f'/logistique_service_medical/login/?next=/logistique_service_medical/login/')
 def select_stock(request):
+    gestion_stock = Gestion_stock()
     liste_stocks = gestion_stock.get_all()  # Utilise la méthode get_all de Gestion_stock
     context = {
         'liste_stocks': liste_stocks,
@@ -95,6 +95,7 @@ def select_stock(request):
 
 @login_required(login_url=f'/logistique_service_medical/login/?next=/logistique_service_medical/login/')
 def display_produits(request):
+    gestion_stock = Gestion_stock()
     liste_stocks = gestion_stock.get_all()
     produitsStock = None
     selected_stock_id = ''
@@ -121,6 +122,7 @@ def display_produits(request):
 
 @login_required(login_url=f'/logistique_service_medical/login/?next=/logistique_service_medical/login/')
 def update_quantity(request, id_produit):
+    gestion_stock = Gestion_stock()
     if request.method == 'POST':
         if id_produit:
             new_quantity_key = f'quantity_{id_produit}'
@@ -141,9 +143,9 @@ def update_quantity(request, id_produit):
     return HttpResponse('Méthode de requête invalide', status=405)
 
 
-from django.contrib import messages
 
 def produit_list(request):
+    gestion_stock=Gestion_stock()
     produits = gestion_stock.get_all_produit()
     add_produit_form = ProduitForm()
     delete_produit_form = DeleteProduitForm()
@@ -161,6 +163,7 @@ def produit_list(request):
 
 @login_required(login_url='/logistique_service_medical/login/')
 def add_produit(request):
+    gestion_stock= Gestion_stock()
     save_error = False
     is_create = True
     add_produit_form = ProduitForm()
@@ -206,6 +209,7 @@ def add_produit(request):
 
 @login_required(login_url='/logistique_service_medical/login/')
 def delete_produit(request):
+    gestion_stock=Gestion_stock()
     if request.method == 'POST':
         delete_produit_form = DeleteProduitForm(request.POST)
         if delete_produit_form.is_valid():
@@ -227,9 +231,19 @@ def favoris(request):
     return render(request, 'logistique_service_medical/favoris.html', context)
 
 
-  # Adapter cet import en fonction de la structure de votre projet
+#Gestion Liste
 
-def liste_depart(request):
+@login_required(login_url=f'/logistique_service_medical/login/?next=/logistique_service_medical/login/')
+def depart_retour(request):
+
+    template = loader.get_template('logistique_service_medical/depart_retour.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
+
+
+# Preparer un depart
+@login_required(login_url=f'/logistique_service_medical/login/?next=/logistique_service_medical/login/')
+def depart(request):
     # Initialisation de vos classes métier
     gestion_equipe = Gestion_equipe()
     gestion_deplacement = Gestion_deplacement()
@@ -293,13 +307,14 @@ def liste_depart(request):
         # Création d'une instance du formulaire vide
         equipe_form = EquipeForm()
 
+    utilisateur_choice_form = UtilisateurChoiceForm()
 
-    context = {'equipes': equipes, 'equipe_form': equipe_form,'produits_stock' : produits_stock, 'produits_liste' : produits_liste, 'id_liste_depart': id_liste_depart }
+    context = {'equipes': equipes, 'equipe_form': equipe_form,'produits_stock' : produits_stock, 'produits_liste' : produits_liste, 'id_liste_depart': id_liste_depart, 'utilisateur_choice_form': utilisateur_choice_form}
 
     # Affichage de la page avec le formulaire
-    return render(request, 'logistique_service_medical/liste_depart.html', context)
+    return render(request, 'logistique_service_medical/depart.html', context)
 
-
+@login_required(login_url=f'/logistique_service_medical/login/?next=/logistique_service_medical/login/')
 def remplir_liste_depart(request, id_liste_depart, id_produit):
     gestion_liste_depart = Gestion_liste_depart()
     if request.method == 'POST':
@@ -330,6 +345,121 @@ def remplir_liste_depart(request, id_liste_depart, id_produit):
             return HttpResponse('Aucun ID d\'association de stock-produit spécifié dans la requête', status=400)
     return HttpResponse('Méthode de requête invalide', status=405)
 
+@login_required(login_url=f'/logistique_service_medical/login/?next=/logistique_service_medical/login/')
+def create_liste_utilisateur(request, id_liste_depart):
+
+    gestion_liste_utilisateur = Gestion_liste_utilisateur()
+
+    if request.method == 'POST':
+        # Création d'une instance du formulaire avec les données soumises par l'utilisateur
+        utilisateur_choice_form = UtilisateurChoiceForm(request.POST)
+
+        # Vérification si le formulaire est valide
+        if utilisateur_choice_form.is_valid():
+            # Récupération des données du formulaire
+            id_utilisateur = utilisateur_choice_form.cleaned_data['utilisateur']
+            date_depart = utilisateur_choice_form.cleaned_data['date_depart']
+            destination = utilisateur_choice_form.cleaned_data['destination']
+
+            # Création de la liste utilisateur pour le depart avec les 4 paramètres
+
+            try:
+                gestion_liste_utilisateur.liste_depart.id = id_liste_depart
+                gestion_liste_utilisateur.utilisateur.id = int(id_utilisateur)
+                gestion_liste_utilisateur.liste_utilisateur.date = date_depart
+                gestion_liste_utilisateur.liste_utilisateur.destination = destination
+
+                gestion_liste_utilisateur.create()
+                gestion_liste_utilisateur.liste_utilisateur.id = gestion_liste_utilisateur.get_id()
+                # Remplissage de la liste utilisateur
+                gestion_liste_utilisateur.create_association_liste_utilisateur_produit()
+                gestion_liste_utilisateur.get_1()
+
+                produits_liste_utilisateur=gestion_liste_utilisateur.get_1()
+
+                for produit in produits_liste_utilisateur:
+                    gestion_stock.retirer_quantite_stock(produit[5], produit[3])
+
+                # Construire le message de réponse
+                message = 'La liste utilisateur a bien été créée.'
+                return HttpResponse(message, status=200)  # Retourner une réponse HTTP avec le message et le code 200
+
+            except Exception as e:
+                return HttpResponse('Erreur lors de la création de la liste utilisateur.', status=500)
+
+        return HttpResponse('Méthode non autorisée.', status=405)
 
 
+def retour(request):
+    gestion_liste_utilisateur = Gestion_liste_utilisateur()
+    produits_liste_utilisateur = []
+    id_liste_utilisateur = 0
+
+    if request.method == 'POST':
+        # Création d'une instance du formulaire avec les données soumises par l'utilisateur
+        liste_utilisateur_form = ListeUtilisateurForm(request.POST)
+
+        # Vérification si le formulaire est valide
+        if liste_utilisateur_form.is_valid():
+            # Récupération des données du formulaire
+            id_utilisateur = liste_utilisateur_form.cleaned_data['utilisateur']
+            gestion_liste_utilisateur.utilisateur.id = int(id_utilisateur)
+            gestion_liste_utilisateur.liste_utilisateur.id = gestion_liste_utilisateur.get_id_liste_utilisateur_en_cours()
+            produits_liste_utilisateur = gestion_liste_utilisateur.get_1()
+            id_liste_utilisateur = gestion_liste_utilisateur.liste_utilisateur.id
+    else:
+        liste_utilisateur_form = ListeUtilisateurForm()
+
+    context = {'liste_utilisateur_form': liste_utilisateur_form, 'produits_liste_utilisateur': produits_liste_utilisateur, 'id_liste_utilisateur': id_liste_utilisateur}
+
+    return render(request, 'logistique_service_medical/retour.html', context)
+
+def verifier_liste_retour(request, id_liste_utilisateur,id_produit):
+    gestion_liste_utilisateur = Gestion_liste_utilisateur()
+    if request.method == 'POST':
+        if id_produit:
+            quantite_retour_key = f'quantity_{id_produit}'
+            quantite_retour = request.POST.get(quantite_retour_key)
+            if quantite_retour is not None:
+                try:
+                    gestion_liste_utilisateur.liste_utilisateur.id = id_liste_utilisateur
+                    gestion_liste_utilisateur.produit.id = id_produit
+                    gestion_liste_utilisateur.produit.quantite_retour = int(quantite_retour)
+
+                    gestion_liste_utilisateur.update()
+
+                    response_message = 'Quantité mise à jour avec succès'
+                    return HttpResponse(response_message, status=200)
+
+
+                except Exception as e:
+                    return HttpResponse('Erreur lors de la mise à jour de la quantité', status=400)
+            else:
+                return HttpResponse('Aucune quantité spécifiée dans la requête', status=400)
+        else:
+            return HttpResponse('Aucun ID d\'association de stock-produit spécifié dans la requête', status=400)
+    return HttpResponse('Méthode de requête invalide', status=405)
+
+def valider_liste_retour(request, id_liste_utilisateur):
+
+    gestion_liste_utilisateur = Gestion_liste_utilisateur()
+    gestion_stock = Gestion_stock()
+    produits_retour_verifies = []
+
+    if request.method == 'POST':
+
+        try:
+            gestion_liste_utilisateur.liste_utilisateur.id = id_liste_utilisateur
+            produits_retour_verifies = gestion_liste_utilisateur.get_1()
+            for produit in produits_retour_verifies:
+                gestion_stock.ajouter_quantite_stock(produit['quantite_retour'],produit['id_produit'])
+
+            gestion_liste_utilisateur.valider_liste_retour()
+
+            response_message = 'Le stock a été mis à jour'
+            return HttpResponse(response_message, status=200)
+
+        except Exception as e:
+
+            return HttpResponse("Erreur lors de la validation " + str(e), status=500)
 

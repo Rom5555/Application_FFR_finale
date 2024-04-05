@@ -24,13 +24,6 @@
     <input type="hidden" name="selected_stock_id" value="{{ selected_stock_id }}">
 </form>
 
-{% if selected_stock_id %}
-    <p>Stock sélectionné avec l'ID : {{ selected_stock_id }}</p>
-{% else %}
-    <p>Aucun stock sélectionné</p>
-{% endif %}
-
-
 {% if produitsStock %}
 <h2 class="subtitle is-4 has-text-centered has-text-dark-grey mb-6">Liste des produits pour le stock de {{ selected_stock_nom }}</h2>
 
@@ -47,7 +40,7 @@
                             value="{{ produit.quantite_stock }}" class="input is-small">
                     </div>
                 </div>
-                <div class="field is-grouped is-justify-content-center">
+                <div class="field is-grouped">
                     <div class="control">
                         <button class="button is-primary" name="quantity_updated" type="submit">Enregistrer</button>
                     </div>
@@ -57,13 +50,13 @@
         </div>
     </div>
 {% endfor %}
+</div>
 {% endif %}
 
 <div class="field is-grouped is-justify-content-center">
     <div class="control">
-        <a href="{% url 'logistique_service_medical:produit_list' %}" class="button is-primary">Ajouter/Supprimer produit</a>
+        <a href="{% url 'logistique_service_medical:produit_list' %}" class="button is-danger">Ajouter/Supprimer produit</a>
     </div>
-</div>
 </div>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
