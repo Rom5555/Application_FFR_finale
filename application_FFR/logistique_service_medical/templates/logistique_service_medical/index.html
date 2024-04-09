@@ -8,7 +8,7 @@
         <hr>
         <div class="columns is-centered">
             <div class="column is-half has-text-centered">
-                <a href="{% url 'logistique_service_medical:user_list' %}" class="button is-success is-large is-fullwidth mb-1">
+                <a href="{% url 'logistique_service_medical:user_list' %}" class="button has-text-info is-focused is-large is-fullwidth mb-1">
                     <span class="icon">
                     <i class="fas fa-users"></i>
                     </span>
@@ -19,9 +19,9 @@
         </div>
         <div class="columns is-centered">
             <div class="column is-half has-text-centered">
-                <button class="button is-primary is-large is-fullwidth mb-1" data-url="{% url 'logistique_service_medical:display_produits' %}" onclick="window.location.href = this.getAttribute('data-url')">
+                <button class="button has-text-primary is-focused is-large is-fullwidth mb-1" data-url="{% url 'logistique_service_medical:display_produits' %}" onclick="window.location.href = this.getAttribute('data-url')">
                     <span class="icon">
-                        <i class="fas fa-box-open"></i>
+                        <i class="fas fa-box"></i>
                     </span>
                     <span>Gestion Stock</span>
                 </button>
@@ -29,7 +29,7 @@
         </div>
         <div class="columns is-centered">
             <div class="column is-half has-text-centered">
-                <a href="{% url 'logistique_service_medical:depart_retour' %}" class="button is-success is-large is-fullwidth mb-1">
+                <a href="{% url 'logistique_service_medical:depart_retour' %}" class="button has-text-danger is-focused is-large is-fullwidth mb-1">
                     <span class="icon">
                         <i class="fas fa-tasks"></i>
                     </span>

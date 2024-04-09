@@ -5,6 +5,7 @@ from . import views
 app_name = 'logistique_service_medical'
 
 urlpatterns = [
+
     path('index/', views.index, name='index'),
     path('user_list/', views.user_list, name='user_list'),
     path('add_user/', views.AddUserView.as_view(), name='add_user'),
@@ -26,6 +27,11 @@ urlpatterns = [
     path('retour/', views.retour, name='retour'),
     path('verifier_liste_retour/<int:id_liste_utilisateur>/<int:id_produit>/', views.verifier_liste_retour, name='verifier_liste_retour'),
     path('valider_liste_retour/<int:id_liste_utilisateur>/', views.valider_liste_retour, name='valider_liste_retour'),
+    path('liste_utilisateur_creee/', views.liste_utilisateur_creee, name='liste_utilisateur_creee'),
+    path('mise_a_jour_stock/', views.mise_a_jour_stock, name='mise_a_jour_stock'),
+    path('index_utilisateur/', views.index_utilisateur, name='index_utilisateur'),
+    path('ma_liste/', views.ma_liste, name='ma_liste'),
+    path('remplir_liste_retour/', views.remplir_liste_retour, name='remplir_liste_retour')
 ]
 
 

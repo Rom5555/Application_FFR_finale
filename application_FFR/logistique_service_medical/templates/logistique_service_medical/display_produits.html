@@ -2,7 +2,16 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<h1 class="title is-3 has-text-grey-dark has-text-centered mb-5">Consultation des produits en stock</h1>
+
+<section class="section has-background-primary-75 is-mobile">
+<div class="box">
+<h1 class="title is-3 has-text-info has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
+    <span class="icon is-large">
+        <i class="fas fa-box-open"></i>
+    </span>
+    <span class="ml-3">Gestion des produits en stock</span>
+</h1>
+
 
 <form action="{% url 'logistique_service_medical:display_produits'%}" method="post" class="mb-5">
     {% csrf_token %}
@@ -18,14 +27,14 @@
             </div>
         </div>
         <div class="control">
-            <button class="button is-primary" type="submit">Afficher les produits</button>
+            <button class="button has-text-info is-focused" type="submit">Afficher les produits</button>
         </div>
     </div>
     <input type="hidden" name="selected_stock_id" value="{{ selected_stock_id }}">
 </form>
-
+</div>
 {% if produitsStock %}
-<h2 class="subtitle is-4 has-text-centered has-text-dark-grey mb-6">Liste des produits pour le stock de {{ selected_stock_nom }}</h2>
+<h2 class="title is-4 has-text-centered has-text-light mb-6">{{ selected_stock_nom }}</h2>
 
 <div class="columns is-multiline">
    {% for produit in produitsStock %}
@@ -34,7 +43,7 @@
             <form hx-post="{% url 'logistique_service_medical:update_quantity' id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
                 {% csrf_token %}
                 <div class="field">
-                    <label class="label has-text-grey-dark has-text-weight-semibold">{{ produit.nom_produit }}</label>
+                    <label class="label has-text-info has-text-weight-semibold">{{ produit.nom_produit }}</label>
                     <div class="control">
                         <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
                             value="{{ produit.quantite_stock }}" class="input is-small">
@@ -42,7 +51,7 @@
                 </div>
                 <div class="field is-grouped">
                     <div class="control">
-                        <button class="button is-primary" name="quantity_updated" type="submit">Enregistrer</button>
+                        <button class="button is-info is-focused is-small has-text-light" name="quantity_updated" type="submit">Enregistrer</button>
                     </div>
                 </div>
             </form>
@@ -52,12 +61,14 @@
 {% endfor %}
 </div>
 {% endif %}
-
+<div class="box">
 <div class="field is-grouped is-justify-content-center">
     <div class="control">
-        <a href="{% url 'logistique_service_medical:produit_list' %}" class="button is-danger">Ajouter/Supprimer produit</a>
+        <a href="{% url 'logistique_service_medical:produit_list' %}" class="button has-text-primary is-focused">Ajouter/Supprimer produit</a>
     </div>
 </div>
+</div>
+</section>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     // Get all forms with the 'hx-post' attribute

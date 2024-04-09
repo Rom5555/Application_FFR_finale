@@ -2,11 +2,18 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+
+<section class="section has-background-warning-85 is-mobile">
 <div class="box">
-<h1 class="title is-2 has-text-grey-dark has-text-centered mb-5">Preparer un depart</h1>
+<h1 class="title is-3 has-text-primary-30 has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
+    <span class="icon is-large">
+        <i class="fas fa-plane-departure"></i>
+    </span>
+    <span class="ml-3">Preparer un depart</span>
+</h1>
 </div>
 <div class="box">
-<h2 class="subtitle is-4 has-text-grey-dark mb-6">Construire un deplacement</h2>
+<h2 class="title is-4 has-text-primary-30 mb-6">Construire un deplacement</h2>
 <form action="{% url 'logistique_service_medical:depart' %}" method="post" class="mb-5">
 {% csrf_token %}
     <div class="container">
@@ -18,7 +25,7 @@
 
 {% if produits_stock %}
 <div class="box">
-<h2 class="subtitle is-4 has-text-dark-grey mb-6">Construire la liste depart</h2>
+<h2 class="title is-4 has-text-primary-30 mb-6">Construire la liste depart</h2>
 
 <div class="columns is-multiline">
     {% for produit in produits_stock %}
@@ -27,15 +34,15 @@
                 <form hx-post="{% url 'logistique_service_medical:remplir_liste_depart' id_liste_depart=id_liste_depart id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
                     {% csrf_token %}
                     <div class="field">
-                        <label class="label has-text-grey-dark has-text-weight-semibold">{{ produit.nom_produit }}</label>
+                        <label class="label has-text-primary-30 has-text-weight-semibold">{{ produit.nom_produit }}</label>
                         <div class="control">
                             <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
                                    value="{{ produit.quantite_depart }}" class="input is-small">
                         </div>
                     </div>
-                    <div class="field is-grouped is-justify-content-center">
+                    <div class="field is-grouped is-justify-content-end">
                         <div class="control">
-                            <button class="button is-primary" name="quantity_depart" type="submit">Enregistrer</button>
+                            <button class="button is-primary is-small" name="quantity_depart" type="submit">Enregistrer</button>
                         </div>
                     </div>
                 </form>
@@ -48,7 +55,7 @@
 {% if utilisateur_choice_form %}
 
 <div class="box">
-    <h2 class="subtitle is-4 has-text-grey-dark mb-6">Attribuer la liste à un utilisateur</h2>
+    <h2 class="title is-4 has-text-primary-30 mb-6">Attribuer la liste à un utilisateur</h2>
     <form action="{% url 'logistique_service_medical:create_liste_utilisateur' id_liste_depart=id_liste_depart %}" method="post">
         {% csrf_token %}
         <div class="container">
@@ -61,7 +68,7 @@
 
 {% endif %}
 {% endif %}
-
+</section>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     // Get all forms with the 'hx-post' attribute

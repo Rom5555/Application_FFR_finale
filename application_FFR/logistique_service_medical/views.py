@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.template import loader
+from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
@@ -17,6 +18,15 @@ from .business.components.gestion_liste_utilisateur import Gestion_liste_utilisa
 logger = logging.getLogger("django")
 
 
+
+
+class CustomLoginView(LoginView):
+    def get_success_url(self):
+        user = self.request.user
+        if user.is_superuser:
+            return 'logistique_service_medical/index'  # Rediriger l'administrateur vers la page d'administration
+        else:
+            return 'logistique_service_medical/index_utilisateur'  # Rediriger l'utilisateur standard vers une autre page après la connexion
 
 
 # Gestion utilisateur
@@ -361,34 +371,49 @@ def create_liste_utilisateur(request, id_liste_depart):
             date_depart = utilisateur_choice_form.cleaned_data['date_depart']
             destination = utilisateur_choice_form.cleaned_data['destination']
 
+
             # Création de la liste utilisateur pour le depart avec les 4 paramètres
 
             try:
                 gestion_liste_utilisateur.liste_depart.id = id_liste_depart
+                print(gestion_liste_utilisateur.liste_depart.id)
                 gestion_liste_utilisateur.utilisateur.id = int(id_utilisateur)
+                print(gestion_liste_utilisateur.utilisateur.id)
                 gestion_liste_utilisateur.liste_utilisateur.date = date_depart
+                print(gestion_liste_utilisateur.liste_utilisateur.date)
                 gestion_liste_utilisateur.liste_utilisateur.destination = destination
+                print(gestion_liste_utilisateur.liste_utilisateur.destination)
 
-                gestion_liste_utilisateur.create()
-                gestion_liste_utilisateur.liste_utilisateur.id = gestion_liste_utilisateur.get_id()
-                # Remplissage de la liste utilisateur
-                gestion_liste_utilisateur.create_association_liste_utilisateur_produit()
-                gestion_liste_utilisateur.get_1()
+                if gestion_liste_utilisateur.test_liste_en_cours():
 
-                produits_liste_utilisateur=gestion_liste_utilisateur.get_1()
+                    print("Une liste est deja en cours pour cet utilisateur")
 
-                for produit in produits_liste_utilisateur:
-                    gestion_stock.retirer_quantite_stock(produit[5], produit[3])
+                else:
 
-                # Construire le message de réponse
-                message = 'La liste utilisateur a bien été créée.'
-                return HttpResponse(message, status=200)  # Retourner une réponse HTTP avec le message et le code 200
+                    gestion_liste_utilisateur.create()
+                    gestion_liste_utilisateur.liste_utilisateur.id = gestion_liste_utilisateur.get_id()
+                    # Remplissage de la liste utilisateur
+                    gestion_liste_utilisateur.create_association_liste_utilisateur_produit()
+                    gestion_liste_utilisateur.get_1()
+
+                    produits_liste_utilisateur=gestion_liste_utilisateur.get_1()
+                    print("La liste utilisateur:", produits_liste_utilisateur)
+
+                    for produit in produits_liste_utilisateur:
+                        gestion_stock.retirer_quantite_stock(produit['quantite_depart'], produit['id_produit'])
+
+                    # Construire le message de réponse
+                    message = 'La liste utilisateur a bien été créée.'
+                    return redirect('logistique_service_medical:liste_utilisateur_creee')  # Retourner une réponse HTTP avec le message et le code 200
 
             except Exception as e:
                 return HttpResponse('Erreur lors de la création de la liste utilisateur.', status=500)
 
         return HttpResponse('Méthode non autorisée.', status=405)
 
+def liste_utilisateur_creee(request):
+
+    return render(request, 'logistique_service_medical/liste_utilisateur_creee.html')
 
 def retour(request):
     gestion_liste_utilisateur = Gestion_liste_utilisateur()
@@ -457,9 +482,68 @@ def valider_liste_retour(request, id_liste_utilisateur):
             gestion_liste_utilisateur.valider_liste_retour()
 
             response_message = 'Le stock a été mis à jour'
-            return HttpResponse(response_message, status=200)
+            return redirect('logistique_service_medical:mise_a_jour_stock')  # Retourner une réponse HTTP avec le message et le code 200
+
 
         except Exception as e:
 
             return HttpResponse("Erreur lors de la validation " + str(e), status=500)
 
+def mise_a_jour_stock(request):
+
+    return render(request, 'logistique_service_medical/mise_a_jour_stock.html')
+
+def index_utilisateur(request):
+    template = loader.get_template('logistique_service_medical/index_utilisateur.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
+
+
+def ma_liste(request):
+
+    gestion_liste_utilisateur = Gestion_liste_utilisateur()
+    produits_liste_utilisateur = []
+    id_liste_utilisateur = 0
+    utilisateur = request.user
+    # Vérifier si l'utilisateur est authentifié
+    if utilisateur.is_authenticated:
+        # Récupérer l'ID de l'utilisateur
+        gestion_liste_utilisateur.utilisateur.id = int(utilisateur.id)
+        print(gestion_liste_utilisateur.utilisateur.id)
+        gestion_liste_utilisateur.liste_utilisateur.id = gestion_liste_utilisateur.get_id_liste_utilisateur_en_cours()
+        produits_liste_utilisateur = gestion_liste_utilisateur.get_1()
+        id_liste_utilisateur = gestion_liste_utilisateur.liste_utilisateur.id
+
+        context = {'produits_liste_utilisateur': produits_liste_utilisateur,'id_liste_utilisateur': id_liste_utilisateur}
+
+        return render(request, 'logistique_service_medical/ma_liste.html', context)
+
+    else:
+        return redirect('logistique_service_medical:login')
+
+
+def remplir_liste_retour(request, id_liste_utilisateur,id_produit):
+    gestion_liste_utilisateur = Gestion_liste_utilisateur()
+    if request.method == 'POST':
+        if id_produit:
+            quantite_retour_key = f'quantity_{id_produit}'
+            quantite_retour = request.POST.get(quantite_retour_key)
+            if quantite_retour is not None:
+                try:
+                    gestion_liste_utilisateur.liste_utilisateur.id = id_liste_utilisateur
+                    gestion_liste_utilisateur.produit.id = id_produit
+                    gestion_liste_utilisateur.produit.quantite_retour = int(quantite_retour)
+
+                    gestion_liste_utilisateur.update()
+
+                    response_message = 'Quantité mise à jour avec succès'
+                    return HttpResponse(response_message, status=200)
+
+
+                except Exception as e:
+                    return HttpResponse('Erreur lors de la mise à jour de la quantité', status=400)
+            else:
+                return HttpResponse('Aucune quantité spécifiée dans la requête', status=400)
+        else:
+            return HttpResponse('Aucun ID d\'association de stock-produit spécifié dans la requête', status=400)
+    return HttpResponse('Méthode de requête invalide', status=405)

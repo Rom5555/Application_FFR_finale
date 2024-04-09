@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.views import LoginView
+from logistique_service_medical.views import CustomLoginView
 
 
 admin.site.site_header = 'Gestion des comptes'
@@ -26,7 +27,7 @@ admin.site.index_title = ''
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', LoginView.as_view(),name='login'),
+    path('', CustomLoginView.as_view(),name='login'),
     path('logistique_service_medical/', include('logistique_service_medical.urls')),
 ]
 

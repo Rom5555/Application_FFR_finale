@@ -74,5 +74,10 @@ class Gestion_liste_utilisateur(Ifonction_get,Ifonction_create,Ifonction_update)
     def get_id_utilisateur(self):
         return self._data_utilisateur.get_id_utilisateur(self.utilisateur.nom,self.utilisateur.prenom)[0]
 
+    def test_liste_en_cours(self):
+
+        return self._data_liste_utilisateur.test_liste_en_cours(self.utilisateur.id)
+
+
     def valider_liste_retour(self):
         return self._data_liste_utilisateur.valider_liste_retour(self.liste_utilisateur.id)

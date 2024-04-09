@@ -175,4 +175,6 @@ LOGGING = {
 }
 
 
-LOGIN_REDIRECT_URL = '/logistique_service_medical/index/'
+LOGIN_REDIRECT_URL = '/logistique_service_medical/index_utilisateur/'
+
+LOGIN_REDIRECT_URL_FOR_ADMIN = '/logistique_service_medical/index/'
