@@ -1,0 +1,106 @@
+{% extends 'logistique_service_medical/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<section class="section has-background-info-85 is-mobile">
+<div class="box">
+<h1 class="title is-2 has-text-grey-dark has-text-centered mb-5">Ma liste</h1>
+</div>
+
+
+{% if produits_liste_utilisateur %}
+
+<div class="box">
+<h2 class="title is-4 has-text-dark-grey mb-6">Verifier les quantites retour</h2>
+
+<div class="columns is-multiline">
+    {% for produit in produits_liste_utilisateur %}
+        <div class="column is-half">
+            <div class="box">
+                <form hx-post="{% url 'logistique_service_medical:verifier_liste_retour' id_liste_utilisateur=id_liste_utilisateur id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
+                    {% csrf_token %}
+                    <div class="field">
+                        <label class="label has-text-grey-dark has-text-weight-semibold">{{ produit.nom_produit }}</label>
+                        <div class="control">
+                            <div class="table-container">
+                                <table class="table is-fullwidth is-striped">
+                                    <tbody>
+                                        <tr>
+                                            <th class="has-text-primary">quantité départ :</th>
+                                            <td>{{ produit.quantite_depart }}</td> <!-- Affichage de la quantité de départ -->
+                                        </tr>
+                                        <tr>
+                                            <th class="has-text-info">quantité retour :</th>
+                                        <td>
+                                            <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
+                                            value="{{ produit.quantite_retour }}" class="input is-small">
+                                        </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field is-grouped is-justify-content-end">
+                        <div class="control">
+                            <button class="button is-primary is-small" name="quantity_retour" type="submit">Enregistrer</button>
+                        </div>
+                    </div>
+                </form>
+                <div id="message_{{ produit.id_produit }}"></div> <!-- Message d'erreur/succès -->
+            </div>
+        </div>
+    {% endfor %}
+</div>
+</div>
+{% endif %}
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // Get all forms with the 'hx-post' attribute
+    let forms = document.querySelectorAll('[hx-post]');
+
+    // Loop through each form and add submit event listener
+    forms.forEach((form) => {
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            // Prepare the form data
+            let formData = new FormData(form);
+
+            // Send the form data asynchronously
+            let response = await fetch(form.getAttribute('hx-post'), {
+                method: 'POST',
+                body: formData
+            });
+
+            // Parse the response as plain text
+            let responseText = await response.text();
+
+            // Check if the response was successful
+            if (response.ok) {
+                // Update the message div with the response message
+                form.querySelector('#message').innerHTML = responseText;
+            } else {
+                // Display the error message
+                form.querySelector('#message').innerHTML = responseText;
+            }
+
+             if (response.ok) {
+                let jsonResponse = await response.json();
+                let messageContainer = document.getElementById('message-container');
+                messageContainer.innerHTML = '<div class="success">' + jsonResponse.message + '</div>';
+            } else {
+                let errorMessage = await response.text();
+                let messageContainer = document.getElementById('message-container');
+                messageContainer.innerHTML = '<div class="error">' + errorMessage + '</div>';
+            }
+        });
+    });
+});
+</script>
+
+
+{% endblock %}
