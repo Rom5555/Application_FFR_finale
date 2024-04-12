@@ -33,7 +33,18 @@ class Gestion_deplacement(Ifonction_get,Ifonction_create, Ifonction_update):
 
     def get_all(self):
 
-        return self._data_deplacement.get_all_deplacement()
+        rows = self._data_deplacement.get_all_deplacement()
+        deplacements = []
+        for row in rows:
+            deplacement = {
+                'id': row[0],
+                'nombre_joueurs': row[1],
+                'duree_deplacement': row[2],
+                'nombre_match': row[3],
+            }
+            deplacements.append(deplacement)
+        print(deplacements)
+        return deplacements
 
 
 

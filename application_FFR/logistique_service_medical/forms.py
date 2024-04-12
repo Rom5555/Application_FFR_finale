@@ -1,12 +1,12 @@
-from django import forms
-from .models import Stock
 from django.forms.models import ModelChoiceField
 from django import forms
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Field, Fieldset, ButtonHolder, Submit
+from crispy_forms.layout import Layout, Field, Submit
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Equipe
+from .business.components.gestion_stock import Gestion_stock
+from .business.components.gestion_equipe import Gestion_equipe
+from .business.components.gestion_deplacement import Gestion_deplacement
 
 
 class RegisterForm(UserCreationForm):
@@ -45,17 +45,18 @@ class StockModelChoiceField(ModelChoiceField):
     def label_from_instance(self, obj):
         return obj.nom_stock
 
-from .business.components.gestion_stock import Gestion_stock
 
-gestion_stock = Gestion_stock()
+
 
 class ProduitForm(forms.Form):
+
     nom_produit = forms.CharField(label='Nom', max_length=60, required=True)
     quantite = forms.IntegerField(widget=forms.TextInput, label="Quantite", required=True)
     id_stock = forms.ChoiceField(label="Stock", required=True, choices=[])
 
     def __init__(self, *args, **kwargs):
         super(ProduitForm, self).__init__(*args, **kwargs)
+        gestion_stock = Gestion_stock()
         stocks = gestion_stock.get_all()
         choices = [(stock['id_stock'], stock['nom_stock']) for stock in stocks]
         self.fields['id_stock'].choices = [("", "(Choisir un stock)")] + choices
@@ -83,12 +84,13 @@ class ProductQuantityForm(forms.Form):
 class DeleteProduitForm(forms.Form):
     id_produit = forms.IntegerField(label='ID du produit à supprimer')
 
-from .business.components.gestion_equipe import Gestion_equipe
 
-gestion_equipe = Gestion_equipe()
+
+
 
 
 class EquipeForm(forms.Form):
+
     type_rugby = forms.ChoiceField(choices=[])
     genre = forms.ChoiceField(choices=[])
     categorie_age = forms.ChoiceField(choices=[])
@@ -141,3 +143,59 @@ class ListeUtilisateurForm(forms.Form):
         utilisateurs = User.objects.all().values_list('id', 'username')  # username est le nom d'utilisateur par défaut de Django
         # Mettre à jour les choix du ChoiceField
         self.fields['utilisateur'].choices = utilisateurs
+
+
+
+
+class ArchiveForm(forms.Form):
+    type_rugby = forms.ChoiceField(choices=[])
+    genre = forms.ChoiceField(choices=[])
+    categorie_age = forms.ChoiceField(choices=[])
+    nombre_joueurs = forms.ChoiceField(choices=[])
+    duree_deplacement = forms.ChoiceField(choices=[])
+    nombre_match = forms.ChoiceField(choices=[])
+
+    def __init__(self, *args, **kwargs):
+        super(ArchiveForm, self).__init__(*args, **kwargs)
+        self.fields['type_rugby'].choices = self.get_type_rugby_choices()
+        self.fields['genre'].choices = self.get_genre_choices()
+        self.fields['categorie_age'].choices = self.get_categorie_age_choices()
+        self.fields['nombre_joueurs'].choices = self.get_nombre_joueurs_choices()
+        self.fields['duree_deplacement'].choices = self.get_duree_deplacement_choices()
+        self.fields['nombre_match'].choices = self.get_nombre_match_choices()
+
+    def get_type_rugby_choices(self):
+        gestion_equipe = Gestion_equipe()
+        equipes = gestion_equipe.get_all()
+        unique_values = set(equipe['type_rugby'] for equipe in equipes)
+        return [(value, value) for value in unique_values]
+
+    def get_genre_choices(self):
+        gestion_equipe = Gestion_equipe()
+        equipes = gestion_equipe.get_all()
+        unique_values = set(equipe['genre'] for equipe in equipes)
+        return [(value, value) for value in unique_values]
+
+    def get_categorie_age_choices(self):
+        gestion_equipe = Gestion_equipe()
+        equipes = gestion_equipe.get_all()
+        unique_values = set(equipe['categorie_age'] for equipe in equipes)
+        return [(value, value) for value in unique_values]
+
+    def get_nombre_joueurs_choices(self):
+        gestion_deplacement = Gestion_deplacement()
+        deplacements = gestion_deplacement.get_all()
+        unique_values = set(deplacement['nombre_joueurs'] for deplacement in deplacements)
+        return [(value, value) for value in unique_values]
+
+    def get_duree_deplacement_choices(self):
+        gestion_deplacement = Gestion_deplacement()
+        deplacements = gestion_deplacement.get_all()
+        unique_values = set(deplacement['duree_deplacement'] for deplacement in deplacements)
+        return [(value, value) for value in unique_values]
+
+    def get_nombre_match_choices(self):
+        gestion_deplacement = Gestion_deplacement()
+        deplacements = gestion_deplacement.get_all()
+        unique_values = set(deplacement['nombre_match'] for deplacement in deplacements)
+        return [(value, value) for value in unique_values]

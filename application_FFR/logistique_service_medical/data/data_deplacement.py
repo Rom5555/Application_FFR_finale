@@ -112,9 +112,8 @@ class Data_deplacement:
             # create a new cursor
             cursor = connection.cursor()
             cursor.execute(sql)
-            rows=cursor.fetchall()
-            for row in rows:
-                print(row)
+            rows = cursor.fetchall()
+            return rows
             # commit the changes to the database
             connection.commit()
             # close communication with the database

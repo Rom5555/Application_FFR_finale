@@ -31,7 +31,9 @@ urlpatterns = [
     path('mise_a_jour_stock/', views.mise_a_jour_stock, name='mise_a_jour_stock'),
     path('index_utilisateur/', views.index_utilisateur, name='index_utilisateur'),
     path('ma_liste/', views.ma_liste, name='ma_liste'),
-    path('remplir_liste_retour/', views.remplir_liste_retour, name='remplir_liste_retour')
+    path('remplir_liste_retour/', views.remplir_liste_retour, name='remplir_liste_retour'),
+    path('recherche_archive/', views.recherche_archive, name='recherche_archive'),
+    path('display_archive/', views.display_archive, name='display_archive'),
 ]
 
 

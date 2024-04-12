@@ -302,3 +302,30 @@ class Data_liste_utilisateur:
             if connection is not None:
                 connection.close()
 
+    def get_id_liste_archivee(self,id_liste_depart):
+
+        sql = "SELECT * FROM liste_utilisateur WHERE id_liste_depart = %s;"
+
+        connection = None
+        try:
+            # obtention de la connexion à la base de données
+            connection = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER, password=self._PASSWORD, port=self._PORT)
+            # create a new cursor
+            cursor = connection.cursor()
+
+            cursor.execute(sql,(id_liste_depart,))
+            row = cursor.fetchall()
+            print(row)
+            return row
+            # commit the changes to the database
+            connection.commit()
+            # close communication with the database
+            cursor.close()
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            print("Erreur get_id_liste_archivee")
+            print(sql)
+            print(error)
+        finally:
+            if connection is not None:
+                connection.close()

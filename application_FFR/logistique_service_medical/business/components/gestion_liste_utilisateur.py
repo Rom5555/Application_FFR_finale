@@ -81,3 +81,21 @@ class Gestion_liste_utilisateur(Ifonction_get,Ifonction_create,Ifonction_update)
 
     def valider_liste_retour(self):
         return self._data_liste_utilisateur.valider_liste_retour(self.liste_utilisateur.id)
+
+    def get_id_liste_archivee(self):
+
+        rows = self._data_liste_utilisateur.get_id_liste_archivee(self.liste_depart.id)
+        listes_archivees = []
+        for row in rows:
+            liste_archivee = {
+                'id_liste_utilisateur':row[0],
+                'date_liste': row[1],
+                'destination': row[2],
+                'en_cours': row[3],
+                'id_liste_depart': row[4],
+                'id_utilisateur': row[5]
+            }
+            listes_archivees.append(liste_archivee)
+        print(listes_archivees)
+        return listes_archivees
+

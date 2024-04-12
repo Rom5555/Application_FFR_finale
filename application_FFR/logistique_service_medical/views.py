@@ -1,5 +1,9 @@
+from django.contrib.auth.decorators import user_passes_test
+from .permissions import is_admin, is_standard_user
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from datetime import datetime
 from django.template import loader
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
@@ -36,13 +40,14 @@ class RegisterView(CreateView):
     template_name = 'registration/register.html'  #
 
 
-# views.py
+@user_passes_test(is_admin)
 def user_list(request):
     users = User.objects.all()
     add_user_form = RegisterForm()
     delete_user_form = DeleteUserForm()
     return render(request, 'logistique_service_medical/user_list.html',
                   {'users': users, 'add_user_form': add_user_form, 'delete_user_form': delete_user_form})
+
 
 class AddUserView(SuccessMessageMixin, CreateView):
     template_name = 'logistique_service_medical/user_list.html'
@@ -56,7 +61,7 @@ class AddUserView(SuccessMessageMixin, CreateView):
         context['add_user_form'] = self.get_form()  # Ajouter le formulaire au contexte
         return context
 
-
+@user_passes_test(is_admin)
 def delete_user(request):
     if request.method == 'POST':
         delete_user_form = DeleteUserForm(request.POST)
@@ -68,7 +73,7 @@ def delete_user(request):
     return redirect('logistique_service_medical:user_list')
 
 # Page acceuil
-@login_required(login_url=f'/logistique_service_medical/login/?next=/logistique_service_medical/login/')
+@user_passes_test(is_admin)
 def index(request):
     logger.debug("entrée dans la view 'Index'")
     template = loader.get_template('logistique_service_medical/index.html')
@@ -85,15 +90,14 @@ def index(request):
 
 # Gestion stock
 
-@login_required(login_url=f'/logistique_service_medical/login/?next=/logistique_service_medical/login/')
+@user_passes_test(is_admin)
 def stock_consommables(request):
     gestion_stock = Gestion_stock()
     consommables = gestion_stock.get_1()
     context = {'consommables': consommables}
     return render(request, 'logistique_service_medical/stock_consommables.html', context)
 
-
-@login_required(login_url=f'/logistique_service_medical/login/?next=/logistique_service_medical/login/')
+@user_passes_test(is_admin)
 def select_stock(request):
     gestion_stock = Gestion_stock()
     liste_stocks = gestion_stock.get_all()  # Utilise la méthode get_all de Gestion_stock
@@ -103,7 +107,7 @@ def select_stock(request):
     return render(request, 'logistique_service_medical/select_stock.html', context)
 
 
-@login_required(login_url=f'/logistique_service_medical/login/?next=/logistique_service_medical/login/')
+@user_passes_test(is_admin)
 def display_produits(request):
     gestion_stock = Gestion_stock()
     liste_stocks = gestion_stock.get_all()
@@ -130,7 +134,7 @@ def display_produits(request):
     return render(request, 'logistique_service_medical/display_produits.html', context)
 
 
-@login_required(login_url=f'/logistique_service_medical/login/?next=/logistique_service_medical/login/')
+@user_passes_test(is_admin)
 def update_quantity(request, id_produit):
     gestion_stock = Gestion_stock()
     if request.method == 'POST':
@@ -153,7 +157,7 @@ def update_quantity(request, id_produit):
     return HttpResponse('Méthode de requête invalide', status=405)
 
 
-
+@user_passes_test(is_admin)
 def produit_list(request):
     gestion_stock=Gestion_stock()
     produits = gestion_stock.get_all_produit()
@@ -171,7 +175,7 @@ def produit_list(request):
                    'delete_produit_form': delete_produit_form, 'success_message': success_message})
 
 
-@login_required(login_url='/logistique_service_medical/login/')
+@user_passes_test(is_admin)
 def add_produit(request):
     gestion_stock= Gestion_stock()
     save_error = False
@@ -217,7 +221,7 @@ def add_produit(request):
     return render(request, 'logistique_service_medical/produit_list.html',
                   {'add_produit_form': add_produit_form, 'save_error': save_error, 'is_create': is_create})
 
-@login_required(login_url='/logistique_service_medical/login/')
+@user_passes_test(is_admin)
 def delete_produit(request):
     gestion_stock=Gestion_stock()
     if request.method == 'POST':
@@ -232,8 +236,7 @@ def delete_produit(request):
                 messages.error(request, 'Erreur lors de la suppression du produit.')
     return redirect('logistique_service_medical:produit_list')
 
-
-@login_required(login_url=f'/logistique_service_medical/login/?next=/logistique_service_medical/login/')
+@user_passes_test(is_admin)
 def favoris(request):
     liste_villes_favorites = ['Paris', 'Lyon', 'Strasbourg']
     request.session['favoris'] = liste_villes_favorites
@@ -243,7 +246,7 @@ def favoris(request):
 
 #Gestion Liste
 
-@login_required(login_url=f'/logistique_service_medical/login/?next=/logistique_service_medical/login/')
+@user_passes_test(is_admin)
 def depart_retour(request):
 
     template = loader.get_template('logistique_service_medical/depart_retour.html')
@@ -252,7 +255,8 @@ def depart_retour(request):
 
 
 # Preparer un depart
-@login_required(login_url=f'/logistique_service_medical/login/?next=/logistique_service_medical/login/')
+
+@user_passes_test(is_admin)
 def depart(request):
     # Initialisation de vos classes métier
     gestion_equipe = Gestion_equipe()
@@ -324,7 +328,7 @@ def depart(request):
     # Affichage de la page avec le formulaire
     return render(request, 'logistique_service_medical/depart.html', context)
 
-@login_required(login_url=f'/logistique_service_medical/login/?next=/logistique_service_medical/login/')
+@user_passes_test(is_admin)
 def remplir_liste_depart(request, id_liste_depart, id_produit):
     gestion_liste_depart = Gestion_liste_depart()
     if request.method == 'POST':
@@ -355,9 +359,10 @@ def remplir_liste_depart(request, id_liste_depart, id_produit):
             return HttpResponse('Aucun ID d\'association de stock-produit spécifié dans la requête', status=400)
     return HttpResponse('Méthode de requête invalide', status=405)
 
-@login_required(login_url=f'/logistique_service_medical/login/?next=/logistique_service_medical/login/')
+@user_passes_test(is_admin)
 def create_liste_utilisateur(request, id_liste_depart):
 
+    gestion_stock = Gestion_stock()
     gestion_liste_utilisateur = Gestion_liste_utilisateur()
 
     if request.method == 'POST':
@@ -411,10 +416,14 @@ def create_liste_utilisateur(request, id_liste_depart):
 
         return HttpResponse('Méthode non autorisée.', status=405)
 
+
+@user_passes_test(is_admin)
 def liste_utilisateur_creee(request):
 
     return render(request, 'logistique_service_medical/liste_utilisateur_creee.html')
 
+
+@user_passes_test(is_admin)
 def retour(request):
     gestion_liste_utilisateur = Gestion_liste_utilisateur()
     produits_liste_utilisateur = []
@@ -439,6 +448,8 @@ def retour(request):
 
     return render(request, 'logistique_service_medical/retour.html', context)
 
+
+@user_passes_test(is_admin)
 def verifier_liste_retour(request, id_liste_utilisateur,id_produit):
     gestion_liste_utilisateur = Gestion_liste_utilisateur()
     if request.method == 'POST':
@@ -465,6 +476,8 @@ def verifier_liste_retour(request, id_liste_utilisateur,id_produit):
             return HttpResponse('Aucun ID d\'association de stock-produit spécifié dans la requête', status=400)
     return HttpResponse('Méthode de requête invalide', status=405)
 
+
+@user_passes_test(is_admin)
 def valider_liste_retour(request, id_liste_utilisateur):
 
     gestion_liste_utilisateur = Gestion_liste_utilisateur()
@@ -489,16 +502,22 @@ def valider_liste_retour(request, id_liste_utilisateur):
 
             return HttpResponse("Erreur lors de la validation " + str(e), status=500)
 
+@user_passes_test(is_admin)
 def mise_a_jour_stock(request):
 
     return render(request, 'logistique_service_medical/mise_a_jour_stock.html')
 
+
+#Partie Utilisateur
+@user_passes_test(is_standard_user)
 def index_utilisateur(request):
     template = loader.get_template('logistique_service_medical/index_utilisateur.html')
     context = {}
     return HttpResponse(template.render(context, request))
 
 
+
+@user_passes_test(is_standard_user)
 def ma_liste(request):
 
     gestion_liste_utilisateur = Gestion_liste_utilisateur()
@@ -522,6 +541,8 @@ def ma_liste(request):
         return redirect('logistique_service_medical:login')
 
 
+
+@user_passes_test(is_standard_user)
 def remplir_liste_retour(request, id_liste_utilisateur,id_produit):
     gestion_liste_utilisateur = Gestion_liste_utilisateur()
     if request.method == 'POST':
@@ -547,3 +568,90 @@ def remplir_liste_retour(request, id_liste_utilisateur,id_produit):
         else:
             return HttpResponse('Aucun ID d\'association de stock-produit spécifié dans la requête', status=400)
     return HttpResponse('Méthode de requête invalide', status=405)
+
+
+
+@user_passes_test(is_admin)
+def recherche_archive(request):
+    gestion_equipe = Gestion_equipe()
+    gestion_deplacement = Gestion_deplacement()
+    gestion_liste_depart = Gestion_liste_depart()
+    gestion_liste_utilisateur = Gestion_liste_utilisateur()
+    listes_archivees = []
+
+    if request.method == 'POST':
+        # Création d'une instance du formulaire avec les données soumises par l'utilisateur
+        archive_form = ArchiveForm(request.POST)
+
+        # Vérification si le formulaire est valide
+        if archive_form.is_valid():
+            # Récupération des données du formulaire
+
+            # 1-choisir une équipe pour recuperer un id_equipe
+            gestion_equipe.equipe.type_rugby = archive_form.cleaned_data['type_rugby']
+            gestion_equipe.equipe.genre = archive_form.cleaned_data['genre']
+            gestion_equipe.equipe.categorie_age = archive_form.cleaned_data['categorie_age']
+
+            gestion_liste_depart.equipe.id = gestion_equipe.get_id()
+            print(gestion_liste_depart.equipe.id)
+
+            # 2-choisir un deplacement pour recuperer un id_deplacement.
+
+            gestion_deplacement.deplacement.nombre_joueurs = archive_form.cleaned_data['nombre_joueurs']
+            gestion_deplacement.deplacement.duree_deplacement = archive_form.cleaned_data['duree_deplacement']
+            gestion_deplacement.deplacement.nombre_match = archive_form.cleaned_data['nombre_match']
+
+            gestion_liste_depart.deplacement.id = gestion_deplacement.get_id()
+            print(gestion_liste_depart.deplacement.id)
+
+            # 3-obtenir la liste_depart correspondante a l'équipe choisie et au deplacement choisi
+
+            gestion_liste_depart.liste_depart.id = gestion_liste_depart.get_id()
+
+            # 4-obtenir les listes_utilisateurs utilisant la liste depart
+
+            gestion_liste_utilisateur.liste_depart.id = gestion_liste_depart.liste_depart.id
+            listes_archivees = gestion_liste_utilisateur.get_id_liste_archivee()
+            print(listes_archivees)
+
+            # Convertir les dates en chaînes de caractères dans un format spécifique
+            for item in listes_archivees:
+                if 'date_liste' in item:
+                    item['date_liste'] = item['date_liste'].strftime('%Y-%m-%d')
+
+            # Stocker les données converties dans la session
+            request.session['listes_archivees'] = listes_archivees
+
+
+    else:
+        archive_form = ArchiveForm()
+
+    request.session['listes_archivees'] = listes_archivees
+
+    context = {'archive_form': archive_form, 'listes_archivees': listes_archivees}
+
+    return render(request, 'logistique_service_medical/archive.html', context)
+
+def display_archive(request):
+
+    gestion_liste_utilisateur= Gestion_liste_utilisateur()
+    archive_form = ArchiveForm()
+
+    if request.method == 'POST':
+        gestion_liste_utilisateur.liste_utilisateur.id = request.POST.get('id_liste_utilisateur')
+        print(gestion_liste_utilisateur.liste_utilisateur.id)
+        produits_liste_utilisateur = gestion_liste_utilisateur.get_1()
+        id_liste_utilisateur = gestion_liste_utilisateur.liste_utilisateur.id
+
+        listes_archivees = request.session.get('listes_archivees',[])
+
+        context = {'listes_archivees': listes_archivees,'produits_liste_utilisateur': produits_liste_utilisateur,
+                   'id_liste_utilisateur': id_liste_utilisateur, 'archive_form': archive_form}
+
+        return render(request, 'logistique_service_medical/archive.html', context)
+
+
+
+
+
+

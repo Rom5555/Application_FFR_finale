@@ -26729,3 +26729,1781 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'depart_retour' not found. 'd
 2024-04-09 18:21:05,893 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
 2024-04-09 18:21:07,725 django.server INFO "GET / HTTP/1.1" 200 1967
 2024-04-09 18:22:15,264 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-10 13:47:20,287 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-10 13:47:29,479 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-10 13:47:31,672 django.request WARNING Not Found: /favicon.ico
+2024-04-10 13:47:31,674 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 2360
+2024-04-10 13:47:35,104 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-10 13:47:35,134 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-10 13:47:35,280 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3046
+2024-04-10 13:47:38,070 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4329
+2024-04-10 13:47:40,943 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-10 13:47:42,388 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-10 13:47:48,427 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-10 13:47:48,446 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-10 13:47:48,548 django WARNING le contexte pour la view est vide
+2024-04-10 13:47:48,549 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-10 13:47:48,555 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4059
+2024-04-10 13:47:50,254 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3359
+2024-04-10 13:47:53,023 django.server INFO "GET /logistique_service_medical/depart/ HTTP/1.1" 200 7290
+2024-04-10 16:00:31,343 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-10 16:00:35,271 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-10 16:00:36,779 django.request WARNING Not Found: /favicon.ico
+2024-04-10 16:00:36,781 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 2360
+2024-04-10 16:00:38,175 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-10 16:00:38,194 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-10 16:00:38,312 django WARNING le contexte pour la view est vide
+2024-04-10 16:00:38,313 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-10 16:00:38,349 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4059
+2024-04-10 16:00:43,936 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-10 16:00:45,603 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-10 16:00:51,756 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-10 16:00:51,772 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-10 16:00:51,884 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3046
+2024-04-10 16:00:57,967 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4484
+2024-04-10 16:01:13,049 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3046
+2024-04-10 16:02:10,581 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4475
+2024-04-10 16:02:43,028 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4460
+2024-04-10 16:02:50,557 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3046
+2024-04-10 16:03:32,669 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4469
+2024-04-10 16:03:58,056 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4483
+2024-04-10 16:04:00,121 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4483
+2024-04-10 16:05:09,336 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4470
+2024-04-10 16:05:10,978 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4470
+2024-04-10 16:05:32,319 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4480
+2024-04-10 16:05:33,766 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4480
+2024-04-10 16:06:21,963 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4476
+2024-04-10 16:07:20,542 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4513
+2024-04-10 16:07:58,881 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4524
+2024-04-10 16:08:36,693 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-10 16:08:38,423 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-10 16:08:46,223 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-10 16:08:46,239 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-10 16:08:46,324 django WARNING le contexte pour la view est vide
+2024-04-10 16:08:46,324 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-10 16:08:46,333 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4059
+2024-04-10 16:08:48,931 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3359
+2024-04-10 16:08:53,680 django.server INFO "GET /logistique_service_medical/display_produits/ HTTP/1.1" 200 5486
+2024-04-10 16:08:59,193 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 78449
+2024-04-10 16:09:05,712 django WARNING le contexte pour la view est vide
+2024-04-10 16:09:05,712 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-10 16:09:05,722 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4059
+2024-04-10 16:09:13,902 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-10 16:09:15,669 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-10 16:09:42,639 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-10 16:09:42,654 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-10 16:09:42,747 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3046
+2024-04-10 16:09:44,333 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4524
+2024-04-10 16:11:23,526 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4558
+2024-04-10 16:11:57,435 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4556
+2024-04-10 16:12:19,091 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4565
+2024-04-10 16:13:15,370 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4556
+2024-04-10 16:13:39,277 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4568
+2024-04-10 16:13:56,612 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4579
+2024-04-10 16:14:14,186 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4567
+2024-04-10 16:14:33,817 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-10 16:14:35,428 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-10 16:14:42,585 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-10 16:14:42,600 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-10 16:14:42,692 django WARNING le contexte pour la view est vide
+2024-04-10 16:14:42,692 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-10 16:14:42,702 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4059
+2024-04-10 16:14:44,473 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3359
+2024-04-10 16:14:46,579 django.server INFO "GET /logistique_service_medical/depart/ HTTP/1.1" 200 7290
+2024-04-10 16:15:04,524 django.server INFO "POST /logistique_service_medical/depart/ HTTP/1.1" 200 94488
+2024-04-10 16:15:30,529 django.server INFO "POST /logistique_service_medical/create_liste_utilisateur/37/ HTTP/1.1" 302 0
+2024-04-10 16:15:30,645 django.server INFO "GET /logistique_service_medical/liste_utilisateur_creee/ HTTP/1.1" 200 3165
+2024-04-10 16:15:38,904 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-10 16:15:40,696 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-10 16:15:46,142 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-10 16:15:46,159 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-10 16:15:46,244 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3046
+2024-04-10 16:15:47,855 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 11008
+2024-04-10 16:16:42,927 django WARNING le contexte pour la view est vide
+2024-04-10 16:16:42,928 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-10 16:16:42,934 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4062
+2024-04-10 17:34:58,279 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-10 17:35:00,913 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-10 17:36:47,609 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-10 17:36:49,626 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-10 17:42:17,063 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-10 17:42:18,419 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-10 17:44:10,082 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-10 17:44:11,858 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-10 17:44:38,903 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-10 17:45:19,942 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-10 17:45:22,692 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-10 17:45:25,543 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-10 17:45:25,582 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-10 17:45:25,689 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3046
+2024-04-10 17:45:27,674 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 11008
+2024-04-10 17:45:31,654 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3046
+2024-04-10 17:45:46,151 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-10 17:45:47,668 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-10 17:45:52,303 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-10 17:45:52,321 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-10 17:45:52,412 django WARNING le contexte pour la view est vide
+2024-04-10 17:45:52,412 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-10 17:45:52,420 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4059
+2024-04-10 17:45:54,011 django.server INFO "GET /logistique_service_medical/user_list/ HTTP/1.1" 200 9439
+2024-04-10 17:46:04,620 django.server INFO "GET /logistique_service_medical/display_produits/ HTTP/1.1" 200 5486
+2024-04-10 17:46:10,323 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 78449
+2024-04-10 17:46:15,040 django.server INFO "GET /logistique_service_medical/produit_list/ HTTP/1.1" 200 86116
+2024-04-10 17:46:22,617 django WARNING le contexte pour la view est vide
+2024-04-10 17:46:22,617 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-10 17:46:22,630 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4059
+2024-04-10 17:46:25,347 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3359
+2024-04-10 17:46:27,147 django.server INFO "GET /logistique_service_medical/depart/ HTTP/1.1" 200 7290
+2024-04-10 17:46:42,896 django.server INFO "POST /logistique_service_medical/depart/ HTTP/1.1" 200 94488
+2024-04-10 17:46:55,822 django.request WARNING Method Not Allowed: /logistique_service_medical/create_liste_utilisateur/37/
+2024-04-10 17:46:55,822 django.server WARNING "POST /logistique_service_medical/create_liste_utilisateur/37/ HTTP/1.1" 405 24
+2024-04-10 17:47:39,095 django.request WARNING Method Not Allowed: /logistique_service_medical/create_liste_utilisateur/37/
+2024-04-10 17:47:39,096 django.server WARNING "POST /logistique_service_medical/create_liste_utilisateur/37/ HTTP/1.1" 405 24
+2024-04-10 17:47:46,104 django.server INFO "GET /logistique_service_medical/depart/ HTTP/1.1" 200 7290
+2024-04-10 17:47:48,779 django.server INFO "GET /logistique_service_medical/retour/ HTTP/1.1" 200 5300
+2024-04-10 17:47:50,886 django.server INFO "POST /logistique_service_medical/retour/ HTTP/1.1" 200 12144
+2024-04-10 17:48:04,471 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-10 17:48:06,718 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-11 09:36:58,065 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-11 09:37:02,300 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-11 09:37:03,710 django.request WARNING Not Found: /favicon.ico
+2024-04-11 09:37:03,711 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 2360
+2024-04-11 09:37:05,254 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-11 09:37:05,272 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-11 09:37:05,450 django WARNING le contexte pour la view est vide
+2024-04-11 09:37:05,450 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-11 09:37:05,515 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4059
+2024-04-11 09:37:08,340 django.request ERROR Internal Server Error: /logistique_service_medical/depart_retour/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 252, in depart_retour
+    return HttpResponse(template.render(context, request))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\defaulttags.py", line 479, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for '#' not found. '#' is not a valid view function or pattern name.
+2024-04-11 09:37:08,356 django.server ERROR "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 500 148185
+2024-04-11 09:37:33,414 django.request ERROR Internal Server Error: /logistique_service_medical/depart_retour/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 252, in depart_retour
+    return HttpResponse(template.render(context, request))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\defaulttags.py", line 479, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for '' not found. '' is not a valid view function or pattern name.
+2024-04-11 09:37:33,421 django.server ERROR "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 500 148296
+2024-04-11 09:43:15,494 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-11 09:43:17,254 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-11 09:43:20,096 django.request ERROR Internal Server Error: /logistique_service_medical/depart_retour/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 252, in depart_retour
+    return HttpResponse(template.render(context, request))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\defaulttags.py", line 479, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for '' not found. '' is not a valid view function or pattern name.
+2024-04-11 09:43:20,111 django.server ERROR "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 500 148159
+2024-04-11 10:06:06,535 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\forms.py changed, reloading.
+2024-04-11 10:06:08,186 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-11 10:06:28,339 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-11 10:16:59,588 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-11 10:19:20,973 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-11 10:57:12,077 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-11 10:57:14,161 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-11 10:57:16,494 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-11 10:57:17,991 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-11 10:57:19,261 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-11 10:57:19,339 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-11 10:57:19,464 django WARNING le contexte pour la view est vide
+2024-04-11 10:57:19,464 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-11 10:57:19,480 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4059
+2024-04-11 10:57:21,686 django.request ERROR Internal Server Error: /logistique_service_medical/depart_retour/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 252, in depart_retour
+    return HttpResponse(template.render(context, request))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\defaulttags.py", line 479, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for '' not found. '' is not a valid view function or pattern name.
+2024-04-11 10:57:21,702 django.server ERROR "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 500 148159
+2024-04-11 10:57:25,439 django.server INFO "GET /logistique_service_medical/display_produits/ HTTP/1.1" 200 5486
+2024-04-11 10:57:29,520 django.server INFO "GET /logistique_service_medical/user_list/ HTTP/1.1" 200 9439
+2024-04-11 15:21:08,550 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-11 15:21:11,231 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-11 15:21:13,588 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-11 15:21:13,619 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-11 15:21:13,715 django WARNING le contexte pour la view est vide
+2024-04-11 15:21:13,715 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-11 15:21:13,723 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4059
+2024-04-11 15:21:16,111 django.request ERROR Internal Server Error: /logistique_service_medical/depart_retour/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 252, in depart_retour
+    return HttpResponse(template.render(context, request))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\defaulttags.py", line 479, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for '' not found. '' is not a valid view function or pattern name.
+2024-04-11 15:21:16,142 django.server ERROR "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 500 148159
+2024-04-11 15:21:57,436 django.request ERROR Internal Server Error: /logistique_service_medical/depart_retour/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 252, in depart_retour
+    return HttpResponse(template.render(context, request))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\defaulttags.py", line 479, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'archive' not found. 'archive' is not a valid view function or pattern name.
+2024-04-11 15:21:57,441 django.server ERROR "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 500 148357
+2024-04-11 15:22:10,712 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3683
+2024-04-11 15:22:18,122 django.request ERROR Internal Server Error: /logistique_service_medical/archive/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 611, in recherche_archive
+    archive_form = ArchiveForm()
+                   ^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\forms.py", line 163, in __init__
+    self.fields['nombre_joueurs'].choices = self.get_nombre_joueurs_choices()
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\forms.py", line 187, in get_nombre_joueurs_choices
+    deplacements = gestion_deplacement.get_all()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\business\components\gestion_deplacement.py", line 38, in get_all
+    for row in rows:
+TypeError: 'NoneType' object is not iterable
+2024-04-11 15:22:18,137 django.server ERROR "GET /logistique_service_medical/archive/ HTTP/1.1" 500 88537
+2024-04-11 15:22:48,346 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-11 15:22:50,775 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-11 15:22:53,018 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-11 15:22:53,038 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-11 15:22:53,228 django WARNING le contexte pour la view est vide
+2024-04-11 15:22:53,228 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-11 15:22:53,236 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4059
+2024-04-11 15:22:55,013 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3683
+2024-04-11 15:22:57,101 django.request ERROR Internal Server Error: /logistique_service_medical/archive/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 611, in recherche_archive
+    archive_form = ArchiveForm()
+                   ^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\forms.py", line 163, in __init__
+    self.fields['nombre_joueurs'].choices = self.get_nombre_joueurs_choices()
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\forms.py", line 187, in get_nombre_joueurs_choices
+    deplacements = gestion_deplacement.get_all()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\business\components\gestion_deplacement.py", line 38, in get_all
+    for row in rows:
+TypeError: 'NoneType' object is not iterable
+2024-04-11 15:22:57,112 django.server ERROR "GET /logistique_service_medical/archive/ HTTP/1.1" 500 88537
+2024-04-11 15:23:16,191 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\urls.py changed, reloading.
+2024-04-11 15:23:18,108 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-11 15:23:21,091 django.request WARNING Not Found: /logistique_service_medical/archive/
+2024-04-11 15:23:21,164 django.server WARNING "GET /logistique_service_medical/archive/ HTTP/1.1" 404 8400
+2024-04-11 15:23:26,346 django.request WARNING Not Found: /logistique_service_medical/archive/
+2024-04-11 15:23:26,349 django.server WARNING "GET /logistique_service_medical/archive/ HTTP/1.1" 404 8400
+2024-04-11 15:23:38,967 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-11 15:23:41,142 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-11 15:23:43,385 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-11 15:23:43,408 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-11 15:23:43,605 django WARNING le contexte pour la view est vide
+2024-04-11 15:23:43,605 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-11 15:23:43,675 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4059
+2024-04-11 15:23:45,081 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3693
+2024-04-11 15:23:46,848 django.request ERROR Internal Server Error: /logistique_service_medical/recherche_archive/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 611, in recherche_archive
+    archive_form = ArchiveForm()
+                   ^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\forms.py", line 163, in __init__
+    self.fields['nombre_joueurs'].choices = self.get_nombre_joueurs_choices()
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\forms.py", line 187, in get_nombre_joueurs_choices
+    deplacements = gestion_deplacement.get_all()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\business\components\gestion_deplacement.py", line 38, in get_all
+    for row in rows:
+TypeError: 'NoneType' object is not iterable
+2024-04-11 15:23:46,864 django.server ERROR "GET /logistique_service_medical/recherche_archive/ HTTP/1.1" 500 88647
+2024-04-11 15:26:51,598 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\data\data_deplacement.py changed, reloading.
+2024-04-11 15:26:53,629 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-11 15:26:55,507 django.request ERROR Internal Server Error: /logistique_service_medical/recherche_archive/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 502, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endblock'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 615, in recherche_archive
+    return render(request, 'logistique_service_medical/archive.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\defaulttags.py", line 961, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 504, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 555, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 59: 'endblock', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+2024-04-11 15:26:55,522 django.server ERROR "GET /logistique_service_medical/recherche_archive/ HTTP/1.1" 500 199871
+2024-04-11 15:30:50,887 django.request ERROR Internal Server Error: /logistique_service_medical/recherche_archive/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 615, in recherche_archive
+    return render(request, 'logistique_service_medical/archive.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\defaulttags.py", line 479, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'rechercher_archive' not found. 'rechercher_archive' is not a valid view function or pattern name.
+2024-04-11 15:30:50,895 django.server ERROR "GET /logistique_service_medical/recherche_archive/ HTTP/1.1" 500 162246
+2024-04-11 15:31:11,013 django.server INFO "GET /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 6792
+2024-04-11 15:41:23,929 django.server INFO "GET /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 7057
+2024-04-11 15:41:33,787 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 7111
+2024-04-11 16:03:04,148 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\forms.py changed, reloading.
+2024-04-11 16:03:06,426 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-11 16:03:08,985 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 7078
+2024-04-11 16:03:19,883 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 7078
+2024-04-11 16:03:42,661 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 7078
+2024-04-11 16:06:17,164 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 7078
+2024-04-11 16:12:11,405 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\business\components\gestion_liste_utilisateur.py changed, reloading.
+2024-04-11 16:12:13,147 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-11 16:13:48,417 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-11 16:13:50,404 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-11 16:13:54,575 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 7078
+2024-04-11 16:17:14,132 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\data\data_liste_utilisateur.py changed, reloading.
+2024-04-11 16:17:15,876 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-11 16:17:25,389 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 7078
+2024-04-11 16:17:51,939 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-11 16:18:38,013 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-11 16:18:40,371 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-11 16:18:40,426 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-11 16:18:40,535 django WARNING le contexte pour la view est vide
+2024-04-11 16:18:40,535 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-11 16:18:40,542 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4059
+2024-04-11 16:18:41,911 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3693
+2024-04-11 16:18:43,844 django.server INFO "GET /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 7024
+2024-04-11 16:19:02,147 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 7078
+2024-04-11 16:22:50,007 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\business\components\gestion_liste_utilisateur.py changed, reloading.
+2024-04-11 16:22:51,706 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-11 16:22:54,098 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 7800
+2024-04-11 16:28:55,196 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 8200
+2024-04-11 16:29:50,555 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 7738
+2024-04-11 16:31:54,967 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 7856
+2024-04-11 17:31:07,448 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 8189
+2024-04-11 17:31:48,146 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 8200
+2024-04-11 17:35:23,661 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 8565
+2024-04-11 17:35:28,307 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 8565
+2024-04-11 17:36:42,841 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 8800
+2024-04-11 17:37:12,864 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 8780
+2024-04-11 17:37:28,036 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 8840
+2024-04-12 16:10:28,745 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 16:10:32,714 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-12 16:10:33,832 django.request WARNING Not Found: /favicon.ico
+2024-04-12 16:10:33,835 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 2360
+2024-04-12 16:10:37,948 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-12 16:10:37,968 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-12 16:10:38,103 django WARNING le contexte pour la view est vide
+2024-04-12 16:10:38,103 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-12 16:10:38,115 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4059
+2024-04-12 16:10:40,105 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3693
+2024-04-12 16:10:42,419 django.server INFO "GET /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 7284
+2024-04-12 16:11:06,162 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 8840
+2024-04-12 16:15:23,998 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 10120
+2024-04-12 16:15:27,512 django.request ERROR Internal Server Error: /logistique_service_medical/display_archive/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 875, in _resolve_lookup
+    current = current[bit]
+              ~~~~~~~^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'archive_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+                                            ^^^^^^^^
+AttributeError: type object 'RequestContext' has no attribute 'archive_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+                      ^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'archive_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 631, in display_archive
+    return render(request, 'logistique_service_medical/archive.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\crispy_forms\templatetags\crispy_forms_tags.py", line 199, in render
+    c = self.get_render(context).flatten()
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\crispy_forms\templatetags\crispy_forms_tags.py", line 89, in get_render
+    actual_form = form.resolve(context)
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [archive_form] in [{'True': True, 'False': False, 'None': None}, {}, {}, {'produits_liste_utilisateur': [], 'id_liste_utilisateur': None}]
+2024-04-12 16:15:27,544 django.server ERROR "POST /logistique_service_medical/display_archive/ HTTP/1.1" 500 177316
+2024-04-12 16:27:48,128 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 10741
+2024-04-12 16:27:53,506 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 3703
+2024-04-12 16:28:03,136 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 8301
+2024-04-12 16:28:27,887 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 10741
+2024-04-12 16:28:37,955 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 3703
+2024-04-12 16:28:43,222 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 8301
+2024-04-12 16:30:02,321 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 16:30:04,793 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-12 16:30:07,398 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-12 16:30:07,657 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-12 16:30:07,783 django WARNING le contexte pour la view est vide
+2024-04-12 16:30:07,783 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-12 16:30:07,791 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4059
+2024-04-12 16:30:09,181 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3693
+2024-04-12 16:30:11,239 django.server INFO "GET /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 7390
+2024-04-12 16:30:29,115 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 10741
+2024-04-12 16:30:35,555 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 3703
+2024-04-12 16:30:48,233 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 3703
+2024-04-12 16:30:52,063 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 3703
+2024-04-12 16:30:55,370 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 3703
+2024-04-12 16:31:48,658 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 10120
+2024-04-12 16:31:54,128 django.request ERROR Internal Server Error: /logistique_service_medical/display_archive/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 875, in _resolve_lookup
+    current = current[bit]
+              ~~~~~~~^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'archive_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+                                            ^^^^^^^^
+AttributeError: type object 'RequestContext' has no attribute 'archive_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+                      ^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'archive_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 631, in display_archive
+    return render(request, 'logistique_service_medical/archive.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\crispy_forms\templatetags\crispy_forms_tags.py", line 199, in render
+    c = self.get_render(context).flatten()
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\crispy_forms\templatetags\crispy_forms_tags.py", line 89, in get_render
+    actual_form = form.resolve(context)
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [archive_form] in [{'True': True, 'False': False, 'None': None}, {}, {}, {'produits_liste_utilisateur': [], 'id_liste_utilisateur': None}]
+2024-04-12 16:31:54,149 django.server ERROR "POST /logistique_service_medical/display_archive/ HTTP/1.1" 500 177316
+2024-04-12 16:34:01,342 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 16:34:03,055 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 16:34:04,169 django.request ERROR Internal Server Error: /logistique_service_medical/display_archive/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 875, in _resolve_lookup
+    current = current[bit]
+              ~~~~~~~^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'archive_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+                                            ^^^^^^^^
+AttributeError: type object 'RequestContext' has no attribute 'archive_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+                      ^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'archive_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 632, in display_archive
+    return render(request, 'logistique_service_medical/archive.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\crispy_forms\templatetags\crispy_forms_tags.py", line 199, in render
+    c = self.get_render(context).flatten()
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\crispy_forms\templatetags\crispy_forms_tags.py", line 89, in get_render
+    actual_form = form.resolve(context)
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [archive_form] in [{'True': True, 'False': False, 'None': None}, {}, {}, {'produits_liste_utilisateur': [], 'id_liste_utilisateur': None}]
+2024-04-12 16:34:04,295 django.server ERROR "POST /logistique_service_medical/display_archive/ HTTP/1.1" 500 177270
+2024-04-12 16:37:05,666 django.request ERROR Internal Server Error: /logistique_service_medical/recherche_archive/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 502, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endblock'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 617, in recherche_archive
+    return render(request, 'logistique_service_medical/archive.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\defaulttags.py", line 961, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 504, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 555, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 90: 'endblock', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+2024-04-12 16:37:05,682 django.server ERROR "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 500 212735
+2024-04-12 16:37:57,980 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 6812
+2024-04-12 16:38:05,934 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 6812
+2024-04-12 16:38:15,204 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 6812
+2024-04-12 16:39:02,356 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 10121
+2024-04-12 16:39:11,096 django.request ERROR Internal Server Error: /logistique_service_medical/display_archive/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 875, in _resolve_lookup
+    current = current[bit]
+              ~~~~~~~^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'archive_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+                                            ^^^^^^^^
+AttributeError: type object 'RequestContext' has no attribute 'archive_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+                      ^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'archive_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 632, in display_archive
+    return render(request, 'logistique_service_medical/archive.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\crispy_forms\templatetags\crispy_forms_tags.py", line 199, in render
+    c = self.get_render(context).flatten()
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\crispy_forms\templatetags\crispy_forms_tags.py", line 89, in get_render
+    actual_form = form.resolve(context)
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [archive_form] in [{'True': True, 'False': False, 'None': None}, {}, {}, {'produits_liste_utilisateur': [], 'id_liste_utilisateur': None}]
+2024-04-12 16:39:11,143 django.server ERROR "POST /logistique_service_medical/display_archive/ HTTP/1.1" 500 176910
+2024-04-12 16:42:22,484 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 11522
+2024-04-12 16:42:31,772 django.request ERROR Internal Server Error: /logistique_service_medical/display_archive/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 875, in _resolve_lookup
+    current = current[bit]
+              ~~~~~~~^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'archive_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+                                            ^^^^^^^^
+AttributeError: type object 'RequestContext' has no attribute 'archive_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+                      ^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'archive_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 632, in display_archive
+    return render(request, 'logistique_service_medical/archive.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\crispy_forms\templatetags\crispy_forms_tags.py", line 199, in render
+    c = self.get_render(context).flatten()
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\crispy_forms\templatetags\crispy_forms_tags.py", line 89, in get_render
+    actual_form = form.resolve(context)
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [archive_form] in [{'True': True, 'False': False, 'None': None}, {}, {}, {'produits_liste_utilisateur': [], 'id_liste_utilisateur': None}]
+2024-04-12 16:42:31,788 django.server ERROR "POST /logistique_service_medical/display_archive/ HTTP/1.1" 500 177154
+2024-04-12 16:47:18,782 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 16:47:21,280 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-12 16:47:23,496 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-12 16:47:23,525 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-12 16:47:23,616 django WARNING le contexte pour la view est vide
+2024-04-12 16:47:23,617 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-12 16:47:23,625 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4059
+2024-04-12 16:47:25,126 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3693
+2024-04-12 16:47:26,901 django.server INFO "GET /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 6761
+2024-04-12 16:47:44,105 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 11547
+2024-04-12 16:47:49,373 django.request ERROR Internal Server Error: /logistique_service_medical/display_archive/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 875, in _resolve_lookup
+    current = current[bit]
+              ~~~~~~~^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'archive_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+                                            ^^^^^^^^
+AttributeError: type object 'RequestContext' has no attribute 'archive_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+                      ^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'archive_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 632, in display_archive
+    return render(request, 'logistique_service_medical/archive.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\crispy_forms\templatetags\crispy_forms_tags.py", line 199, in render
+    c = self.get_render(context).flatten()
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\crispy_forms\templatetags\crispy_forms_tags.py", line 89, in get_render
+    actual_form = form.resolve(context)
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [archive_form] in [{'True': True, 'False': False, 'None': None}, {}, {}, {'produits_liste_utilisateur': [{'id_produit': 1, 'nom_produit': 'ELASTOPLASTE_10cm', 'quantite_depart': 30, 'quantite_retour': 0}, {'id_produit': 2, 'nom_produit': 'ELASTOPLASTE_8cm', 'quantite_depart': 30, 'quantite_retour': 0}, {'id_produit': 61, 'nom_produit': 'GANTS_NON_STERILES_7_8', 'quantite_depart': 0, 'quantite_retour': 0}], 'id_liste_utilisateur': '90'}]
+2024-04-12 16:47:49,388 django.server ERROR "POST /logistique_service_medical/display_archive/ HTTP/1.1" 500 193049
+2024-04-12 17:04:05,830 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 2742
+2024-04-12 17:04:16,530 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 2742
+2024-04-12 17:04:54,739 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 6486
+2024-04-12 17:05:19,011 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 6486
+2024-04-12 17:07:16,222 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 17:07:17,901 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 17:07:23,554 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 10507
+2024-04-12 17:08:03,300 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 11553
+2024-04-12 17:08:11,241 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 10507
+2024-04-12 17:10:36,684 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 17:10:38,841 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 17:11:37,645 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 17:11:39,606 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 17:15:18,253 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 17:15:20,153 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 17:19:44,639 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 17:19:46,522 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 17:19:48,562 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 11418
+2024-04-12 17:20:17,875 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 11553
+2024-04-12 17:20:25,583 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 11418
+2024-04-12 17:21:43,966 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 17:21:45,575 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 17:21:48,039 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 11418
+2024-04-12 17:22:07,755 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 11553
+2024-04-12 17:22:13,774 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 11418
+2024-04-12 17:26:00,113 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 17:26:02,082 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 17:26:03,412 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 10507
+2024-04-12 17:26:21,881 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 11553
+2024-04-12 17:26:26,211 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 10507
+2024-04-12 20:39:14,329 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 20:40:56,783 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-12 20:40:57,337 django.request WARNING Not Found: /favicon.ico
+2024-04-12 20:40:57,337 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 2360
+2024-04-12 20:40:59,581 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-12 20:40:59,598 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-12 20:40:59,714 django WARNING le contexte pour la view est vide
+2024-04-12 20:40:59,714 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-12 20:40:59,722 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4059
+2024-04-12 20:41:01,553 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3693
+2024-04-12 20:41:03,815 django.server INFO "GET /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 6767
+2024-04-12 20:41:23,958 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 11553
+2024-04-12 20:41:29,320 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 10507
+2024-04-12 21:02:04,465 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 21:05:48,003 django.request ERROR Internal Server Error: /logistique_service_medical/recherche_archive/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\sessions\middleware.py", line 59, in process_response
+    request.session.save()
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 82, in save
+    obj = self.create_model_instance(data)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 69, in create_model_instance
+    session_data=self.encode(data),
+                 ^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 94, in encode
+    return signing.dumps(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\signing.py", line 152, in dumps
+    return TimestampSigner(key=key, salt=salt).sign_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\signing.py", line 250, in sign_object
+    data = serializer().dumps(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\signing.py", line 127, in dumps
+    return json.dumps(obj, separators=(",", ":")).encode("latin-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\romfa\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type date is not JSON serializable
+2024-04-12 21:05:48,020 django.server ERROR "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 500 138102
+2024-04-12 21:06:36,630 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 21:06:38,525 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 21:06:40,686 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 11553
+2024-04-12 21:06:49,412 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 10507
+2024-04-12 21:25:43,359 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 21:25:44,705 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 21:25:57,506 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 10507
+2024-04-12 21:26:01,715 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 6821
+2024-04-12 21:26:19,524 django.request ERROR Internal Server Error: /logistique_service_medical/recherche_archive/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\sessions\middleware.py", line 59, in process_response
+    request.session.save()
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 82, in save
+    obj = self.create_model_instance(data)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 69, in create_model_instance
+    session_data=self.encode(data),
+                 ^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 94, in encode
+    return signing.dumps(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\signing.py", line 152, in dumps
+    return TimestampSigner(key=key, salt=salt).sign_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\signing.py", line 250, in sign_object
+    data = serializer().dumps(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\signing.py", line 127, in dumps
+    return json.dumps(obj, separators=(",", ":")).encode("latin-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\romfa\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type date is not JSON serializable
+2024-04-12 21:26:19,528 django.server ERROR "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 500 138101
+2024-04-12 21:45:46,882 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 21:45:48,480 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 21:47:51,130 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 21:47:53,893 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 21:48:55,964 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 21:48:57,484 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 21:48:59,871 django.request ERROR Internal Server Error: /logistique_service_medical/recherche_archive/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 617, in recherche_archive
+    'date_liste': item.date_liste.strftime('%Y-%m-%d'),
+                  ^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'date_liste'
+2024-04-12 21:48:59,875 django.server ERROR "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 500 78892
+2024-04-12 21:53:09,206 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 21:53:12,072 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 21:56:23,744 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 21:56:25,562 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 21:57:16,843 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 21:57:18,400 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 21:57:21,099 django.request ERROR Internal Server Error: /logistique_service_medical/recherche_archive/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\sessions\middleware.py", line 59, in process_response
+    request.session.save()
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 82, in save
+    obj = self.create_model_instance(data)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 69, in create_model_instance
+    session_data=self.encode(data),
+                 ^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 94, in encode
+    return signing.dumps(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\signing.py", line 152, in dumps
+    return TimestampSigner(key=key, salt=salt).sign_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\signing.py", line 250, in sign_object
+    data = serializer().dumps(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\signing.py", line 127, in dumps
+    return json.dumps(obj, separators=(",", ":")).encode("latin-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\romfa\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type date is not JSON serializable
+2024-04-12 21:57:21,104 django.server ERROR "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 500 138110
+2024-04-12 22:00:28,043 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 22:00:30,329 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 22:00:32,298 django.request ERROR Internal Server Error: /logistique_service_medical/recherche_archive/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 616, in recherche_archive
+    listes_archivees_str = json.loads(serialize('json', listes_archivees), object_hook=custom_json_serializer)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\serializers\__init__.py", line 134, in serialize
+    s.serialize(queryset, **options)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\serializers\base.py", line 113, in serialize
+    concrete_model = obj._meta.concrete_model
+                     ^^^^^^^^^
+AttributeError: 'dict' object has no attribute '_meta'
+2024-04-12 22:00:32,304 django.server ERROR "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 500 91726
+2024-04-12 22:01:19,312 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 22:01:21,042 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 22:02:11,233 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 22:02:13,205 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 22:02:14,631 django.request ERROR Internal Server Error: /logistique_service_medical/recherche_archive/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 628, in recherche_archive
+    listes_archivees_str = json.loads(serialize('json', listes_archivees), object_hook=custom_json_serializer)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\serializers\__init__.py", line 134, in serialize
+    s.serialize(queryset, **options)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\serializers\base.py", line 113, in serialize
+    concrete_model = obj._meta.concrete_model
+                     ^^^^^^^^^
+AttributeError: 'dict' object has no attribute '_meta'
+2024-04-12 22:02:14,635 django.server ERROR "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 500 91726
+2024-04-12 22:05:26,277 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 22:05:27,723 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 22:05:31,280 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 302 0
+2024-04-12 22:05:31,335 django.request WARNING Not Found: /logistique_service_medical/recherche_archive/logistique_service_medical:display_archive
+2024-04-12 22:05:31,335 django.server WARNING "GET /logistique_service_medical/recherche_archive/logistique_service_medical:display_archive HTTP/1.1" 404 8556
+2024-04-12 22:06:34,407 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 22:06:35,865 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 22:06:36,261 django.request WARNING Not Found: /logistique_service_medical/recherche_archive/logistique_service_medical:display_archive
+2024-04-12 22:06:36,371 django.server WARNING "GET /logistique_service_medical/recherche_archive/logistique_service_medical:display_archive HTTP/1.1" 404 8556
+2024-04-12 22:06:38,437 django.request WARNING Not Found: /logistique_service_medical/recherche_archive/logistique_service_medical:display_archive
+2024-04-12 22:06:38,437 django.server WARNING "GET /logistique_service_medical/recherche_archive/logistique_service_medical:display_archive HTTP/1.1" 404 8556
+2024-04-12 22:06:40,263 django.request WARNING Not Found: /logistique_service_medical/recherche_archive/logistique_service_medical:display_archive
+2024-04-12 22:06:40,270 django.server WARNING "GET /logistique_service_medical/recherche_archive/logistique_service_medical:display_archive HTTP/1.1" 404 8556
+2024-04-12 22:06:52,044 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 22:06:54,060 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-12 22:06:54,954 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-12 22:06:56,850 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-12 22:06:58,094 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-12 22:06:58,125 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-12 22:06:58,245 django WARNING le contexte pour la view est vide
+2024-04-12 22:06:58,246 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-12 22:06:58,294 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4059
+2024-04-12 22:07:00,192 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3693
+2024-04-12 22:07:02,088 django.server INFO "GET /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 6767
+2024-04-12 22:07:17,632 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 11537
+2024-04-12 22:07:22,853 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 15223
+2024-04-12 22:07:38,111 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 15226
+2024-04-12 22:10:40,345 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 6821
