@@ -621,6 +621,8 @@ def recherche_archive(request):
 
             # Stocker les données converties dans la session
             request.session['listes_archivees'] = listes_archivees
+            # Stocker également les données du formulaire dans la session
+            request.session['archive_form_data'] = archive_form.cleaned_data
 
 
     else:
@@ -635,7 +637,9 @@ def recherche_archive(request):
 def display_archive(request):
 
     gestion_liste_utilisateur= Gestion_liste_utilisateur()
-    archive_form = ArchiveForm()
+    archive_form_data = request.session.get('archive_form_data', {})
+    archive_form = ArchiveForm(initial=archive_form_data)
+
 
     if request.method == 'POST':
         gestion_liste_utilisateur.liste_utilisateur.id = request.POST.get('id_liste_utilisateur')
@@ -646,7 +650,7 @@ def display_archive(request):
         listes_archivees = request.session.get('listes_archivees',[])
 
         context = {'listes_archivees': listes_archivees,'produits_liste_utilisateur': produits_liste_utilisateur,
-                   'id_liste_utilisateur': id_liste_utilisateur, 'archive_form': archive_form}
+                   'id_liste_utilisateur': id_liste_utilisateur, 'archive_form': archive_form, 'archive_form_data': archive_form_data}
 
         return render(request, 'logistique_service_medical/archive.html', context)
 

@@ -37,7 +37,7 @@
                         <label class="label has-text-primary-30 has-text-weight-semibold">{{ produit.nom_produit }}</label>
                         <div class="control">
                             <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
-                                   value="{{ produit.quantite_depart }}" class="input is-small">
+                                   value="{{ produit.quantite_depart }}" class="input is-small" min="0">
                         </div>
                     </div>
                     <div class="field is-grouped is-justify-content-end">

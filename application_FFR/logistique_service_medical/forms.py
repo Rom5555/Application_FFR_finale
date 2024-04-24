@@ -51,7 +51,7 @@ class StockModelChoiceField(ModelChoiceField):
 class ProduitForm(forms.Form):
 
     nom_produit = forms.CharField(label='Nom', max_length=60, required=True)
-    quantite = forms.IntegerField(widget=forms.TextInput, label="Quantite", required=True)
+    quantite = forms.IntegerField(widget=forms.TextInput, label="Quantite", required=True, min_value=0)
     id_stock = forms.ChoiceField(label="Stock", required=True, choices=[])
 
     def __init__(self, *args, **kwargs):
@@ -68,7 +68,7 @@ class ProductQuantityForm(forms.Form):
         initial=1,
         label='',
         widget=forms.NumberInput(attrs={'placeholder': ''}),
-        required=False,  # Rendre le champ facultatif pour éviter le message "Ce champ est obligatoire"
+        required=False, min_value="0"  # Rendre le champ facultatif pour éviter le message "Ce champ est obligatoire"
     )
 
     def __init__(self, *args, **kwargs):
@@ -87,16 +87,14 @@ class DeleteProduitForm(forms.Form):
 
 
 
-
-
 class EquipeForm(forms.Form):
 
     type_rugby = forms.ChoiceField(choices=[])
     genre = forms.ChoiceField(choices=[])
     categorie_age = forms.ChoiceField(choices=[])
-    nombre_joueurs = forms.IntegerField()
-    duree_deplacement = forms.IntegerField()
-    nombre_match = forms.IntegerField()
+    nombre_joueurs = forms.IntegerField(min_value=0)
+    duree_deplacement = forms.IntegerField(min_value=0)
+    nombre_match = forms.IntegerField(min_value=0)
 
     def __init__(self, *args, **kwargs):
         super(EquipeForm, self).__init__(*args, **kwargs)
@@ -156,6 +154,7 @@ class ArchiveForm(forms.Form):
     nombre_match = forms.ChoiceField(choices=[])
 
     def __init__(self, *args, **kwargs):
+        initial = kwargs.get('initial', {})
         super(ArchiveForm, self).__init__(*args, **kwargs)
         self.fields['type_rugby'].choices = self.get_type_rugby_choices()
         self.fields['genre'].choices = self.get_genre_choices()
@@ -163,6 +162,13 @@ class ArchiveForm(forms.Form):
         self.fields['nombre_joueurs'].choices = self.get_nombre_joueurs_choices()
         self.fields['duree_deplacement'].choices = self.get_duree_deplacement_choices()
         self.fields['nombre_match'].choices = self.get_nombre_match_choices()
+
+        self.initial['type_rugby'] = initial.get('type_rugby')
+        self.initial['genre'] = initial.get('genre')
+        self.initial['categorie_age'] = initial.get('categorie_age')
+        self.initial['nombre_joueurs'] = initial.get('nombre_joueurs')
+        self.initial['duree_deplacement'] = initial.get('duree_deplacement')
+        self.initial['nombre_match'] = initial.get('nombre_match')
 
     def get_type_rugby_choices(self):
         gestion_equipe = Gestion_equipe()

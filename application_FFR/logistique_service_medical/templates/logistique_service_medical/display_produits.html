@@ -34,7 +34,7 @@
 </form>
 </div>
 {% if produitsStock %}
-<h2 class="title is-4 has-text-centered has-text-light mb-6">{{ selected_stock_nom }}</h2>
+<h2 class="title is-4 has-text-centered has-text-primary-30 mb-6">{{ selected_stock_nom }}</h2>
 
 <div class="columns is-multiline">
    {% for produit in produitsStock %}
@@ -46,7 +46,7 @@
                     <label class="label has-text-info has-text-weight-semibold">{{ produit.nom_produit }}</label>
                     <div class="control">
                         <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
-                            value="{{ produit.quantite_stock }}" class="input is-small">
+                            value="{{ produit.quantite_stock }}" class="input is-small" min="0">
                     </div>
                 </div>
                 <div class="field is-grouped">
