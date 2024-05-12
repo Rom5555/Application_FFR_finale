@@ -123,6 +123,7 @@ def display_produits(request):
             selected_stock_id = id_stock
             selected_stock_nom = produitsStock[0]['nom_stock']
 
+
     form = ProductQuantityForm()
     context = {
         'produitsStock': produitsStock,
@@ -323,7 +324,7 @@ def depart(request):
 
     utilisateur_choice_form = UtilisateurChoiceForm()
 
-    context = {'equipes': equipes, 'equipe_form': equipe_form,'produits_stock' : produits_stock, 'produits_liste' : produits_liste, 'id_liste_depart': id_liste_depart, 'utilisateur_choice_form': utilisateur_choice_form}
+    context = {'equipes': equipes, 'equipe_form': equipe_form,'produits_stock': produits_stock, 'produits_liste': produits_liste, 'id_liste_depart': id_liste_depart, 'utilisateur_choice_form': utilisateur_choice_form}
 
     # Affichage de la page avec le formulaire
     return render(request, 'logistique_service_medical/depart.html', context)
@@ -646,11 +647,13 @@ def display_archive(request):
         print(gestion_liste_utilisateur.liste_utilisateur.id)
         produits_liste_utilisateur = gestion_liste_utilisateur.get_1()
         id_liste_utilisateur = gestion_liste_utilisateur.liste_utilisateur.id
+        liste_selectionnee = gestion_liste_utilisateur.get_date_destination()
+
 
         listes_archivees = request.session.get('listes_archivees',[])
 
         context = {'listes_archivees': listes_archivees,'produits_liste_utilisateur': produits_liste_utilisateur,
-                   'id_liste_utilisateur': id_liste_utilisateur, 'archive_form': archive_form, 'archive_form_data': archive_form_data}
+                   'id_liste_utilisateur': id_liste_utilisateur, 'archive_form': archive_form, 'archive_form_data': archive_form_data, 'liste_selectionnee': liste_selectionnee,}
 
         return render(request, 'logistique_service_medical/archive.html', context)
 

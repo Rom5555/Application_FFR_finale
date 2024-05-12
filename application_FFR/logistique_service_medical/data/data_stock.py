@@ -436,3 +436,29 @@ class Data_stock:
             if connection is not None:
                 connection.close()
 
+    def get_all_stocks_produits(self):
+        sql = "SELECT stock.id_stock, stock.nom_stock, produit.id_produit, produit.nom_produit, association_stock_produit.quantite " \
+              "FROM association_stock_produit " \
+              "JOIN produit ON association_stock_produit.id_produit = produit.id_produit " \
+              "JOIN stock ON association_stock_produit.id_stock = stock.id_stock " \
+              "ORDER BY stock.id_stock, produit.id_produit;"
+
+        connection = None
+        try:
+            # Obtention de la connexion à la base de données
+            connection = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER,
+                                          password=self._PASSWORD, port=self._PORT)
+            # Création d'un nouveau curseur
+            cursor = connection.cursor()
+
+            cursor.execute(sql)
+            rows = cursor.fetchall()
+
+            return rows
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            print("Erreur get_all_stocks_products:")
+            print(error)
+        finally:
+            if connection is not None:
+                connection.close()

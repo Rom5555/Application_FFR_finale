@@ -102,17 +102,18 @@ class Gestion_liste_depart(Ifonction_get,Ifonction_create,Ifonction_update):
 
     def get_liste_vierge(self):
 
-        rows = self._data_stock.get_all_produits()
+        rows = self._data_stock.get_all_stocks_produits()
         produits = []
         for row in rows:
             produit={
                 'id_liste_depart':0,
-                'id_stock':0,
-                'nom_stock':0,
-                'id_produit': row[0],
-                'nom_produit': row[1],
+                'id_stock': row[0],
+                'nom_stock': row[1],
+                'id_produit': row[2],
+                'nom_produit': row[3],
+                'quantite_stock': row[4],
                 'quantite_depart': 0,
-                'quantite_retour':0,
+                'quantite_retour': 0,
             }
             produits.append(produit)
 

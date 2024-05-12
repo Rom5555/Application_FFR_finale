@@ -3,15 +3,14 @@
 
 {% block content %}
 
-<section class="section has-background-primary-75 is-mobile">
+<section class="section has-background-light is-mobile">
 <div class="box">
-<h1 class="title is-3 has-text-info has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
-    <span class="icon is-large">
+<h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
+    <span class="icon has-text-primary is-large">
         <i class="fas fa-box-open"></i>
     </span>
-    <span class="ml-3">Gestion des produits en stock</span>
+    <span class="ml-3">Gestion des stocks</span>
 </h1>
-
 
 <form action="{% url 'logistique_service_medical:display_produits'%}" method="post" class="mb-5">
     {% csrf_token %}
@@ -19,7 +18,7 @@
         <div class="control">
             <div class="select">
                 <select name="id_stock">
-                    <option value="" {% if not selected_stock_id %} selected {% endif %}>Sélectionner un stock</option>
+                    <option value="" >Choisir un stock</option>
                     {% for stock in liste_stocks %}
                         <option value="{{ stock.id_stock }}" {% if selected_stock_id == stock.id_stock %} selected {% endif %}>{{ stock.nom_stock }}</option>
                     {% endfor %}
@@ -27,44 +26,63 @@
             </div>
         </div>
         <div class="control">
-            <button class="button has-text-info is-focused" type="submit">Afficher les produits</button>
+            <button class="button has-text-link is-focused" type="submit">Afficher les produits</button>
         </div>
     </div>
     <input type="hidden" name="selected_stock_id" value="{{ selected_stock_id }}">
 </form>
 </div>
 {% if produitsStock %}
-<h2 class="title is-4 has-text-centered has-text-primary-30 mb-6">{{ selected_stock_nom }}</h2>
-
-<div class="columns is-multiline">
-   {% for produit in produitsStock %}
-    <div class="column is-half">
-        <div class="box">
-            <form hx-post="{% url 'logistique_service_medical:update_quantity' id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
-                {% csrf_token %}
-                <div class="field">
-                    <label class="label has-text-info has-text-weight-semibold">{{ produit.nom_produit }}</label>
-                    <div class="control">
-                        <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
-                            value="{{ produit.quantite_stock }}" class="input is-small" min="0">
-                    </div>
-                </div>
-                <div class="field is-grouped">
-                    <div class="control">
-                        <button class="button is-info is-focused is-small has-text-light" name="quantity_updated" type="submit">Enregistrer</button>
-                    </div>
-                </div>
-            </form>
-            <div id="message_{{ produit.id_produit }}"></div> <!-- Message d'erreur/succès -->
-        </div>
+    <div class="box">
+    <h2 class="title is-4 has-text-centered has-text-link mb-6">{{ selected_stock_nom }}</h2>
+    <div class="table-container">
+        <table class="table is-striped is-fullwidth">
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Quantité</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produit in produitsStock %}
+                    <tr>
+                        <td>{{ produit.nom_produit }}</td>
+                            <td>
+                                <form hx-post="{% url 'logistique_service_medical:update_quantity' id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
+                                {% csrf_token %}
+                                <div class="field">
+                                    <div class="control">
+                                        <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
+                                            value="{{ produit.quantite_stock }}" class="input is-small" min="0">
+                                    </div>
+                                </div>
+                                </td>
+                            <td>
+                                <div class="field is-grouped">
+                                    <div class="control">
+                                        <button class="button is-primary is-focused is-small has-text-light" name="quantity_updated" type="submit">
+                                                <span class="icon is-small">
+                                                    <i class="fas fa-check"></i>
+                                                </span></button>
+                                    </div>
+                                </div>
+                                </form>
+                            </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
-{% endfor %}
-</div>
+   </div>
 {% endif %}
+<div id="successNotification" class="notification is-small is-link" style= "display: none; position: fixed; bottom: 0px; right: 0px ;">
+  Quantité mise à jour.
+</div>
 <div class="box">
 <div class="field is-grouped is-justify-content-center">
     <div class="control">
-        <a href="{% url 'logistique_service_medical:produit_list' %}" class="button has-text-primary is-focused">Ajouter/Supprimer produit</a>
+        <a href="{% url 'logistique_service_medical:produit_list' %}" class="button is-link is-focused">Ajouter/Supprimer produit</a>
     </div>
 </div>
 </div>
@@ -93,8 +111,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Check if the response was successful
             if (response.ok) {
-                // Update the message div with the response message
-                form.querySelector('#message').innerHTML = responseText;
+                // Show success notification
+                document.getElementById('successNotification').style.display = 'block';
+
+                // Hide success notification after 3 seconds
+                setTimeout(() => {
+                    document.getElementById('successNotification').style.display = 'none';
+                }, 2000);
             } else {
                 // Display the error message
                 form.querySelector('#message').innerHTML = responseText;

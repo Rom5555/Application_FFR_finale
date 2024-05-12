@@ -99,3 +99,20 @@ class Gestion_liste_utilisateur(Ifonction_get,Ifonction_create,Ifonction_update)
         print(listes_archivees)
         return listes_archivees
 
+    def get_date_destination(self):
+
+        row = self._data_liste_utilisateur.get_date_destination(self.liste_utilisateur.id)
+
+        liste_selectionnee = {
+            'id_liste_utilisateur':row[0],
+            'date_liste': row[1],
+            'destination': row[2],
+            'en_cours': row[3],
+            'id_liste_depart': row[4],
+            'id_utilisateur': row[5]
+            }
+
+        print(liste_selectionnee)
+        return liste_selectionnee
+
+

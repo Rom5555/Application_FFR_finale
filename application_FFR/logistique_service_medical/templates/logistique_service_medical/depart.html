@@ -3,72 +3,93 @@
 
 {% block content %}
 
-<section class="section has-background-warning-85 is-mobile">
+<section class="section has-background-light is-mobile">
 <div class="box">
-<h1 class="title is-3 has-text-primary-30 has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
-    <span class="icon is-large">
+<h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
+    <span class="icon is-large has-text-warning">
         <i class="fas fa-plane-departure"></i>
     </span>
     <span class="ml-3">Preparer un depart</span>
 </h1>
 </div>
 <div class="box">
-<h2 class="title is-4 has-text-primary-30 mb-6">Construire un deplacement</h2>
+<h2 class="subtitle is-4 has-text-link mb-6">Construire un deplacement</h2>
 <form action="{% url 'logistique_service_medical:depart' %}" method="post" class="mb-5">
 {% csrf_token %}
     <div class="container">
     {% crispy equipe_form %}
-    <button class="button is-primary" type="submit">Valider le deplacement</button>
+    <button class="button is-primary has-text-light" type="submit">Valider le deplacement</button>
     </div>
 </form>
 </div>
 
 {% if produits_stock %}
 <div class="box">
-<h2 class="title is-4 has-text-primary-30 mb-6">Construire la liste depart</h2>
-
-<div class="columns is-multiline">
-    {% for produit in produits_stock %}
-        <div class="column is-half">
-            <div class="box">
-                <form hx-post="{% url 'logistique_service_medical:remplir_liste_depart' id_liste_depart=id_liste_depart id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
-                    {% csrf_token %}
-                    <div class="field">
-                        <label class="label has-text-primary-30 has-text-weight-semibold">{{ produit.nom_produit }}</label>
-                        <div class="control">
-                            <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
-                                   value="{{ produit.quantite_depart }}" class="input is-small" min="0">
-                        </div>
-                    </div>
-                    <div class="field is-grouped is-justify-content-end">
-                        <div class="control">
-                            <button class="button is-primary is-small" name="quantity_depart" type="submit">Enregistrer</button>
-                        </div>
-                    </div>
-                </form>
-                <div id="message_{{ produit.id_produit }}"></div> <!-- Message d'erreur/succès -->
-            </div>
-        </div>
-    {% endfor %}
-</div>
+<h2 class="subtitle is-4 has-text-link mb-6">Construire la liste depart</h2>
+    <h2 class="subtitle is-5 has-text-centered has-text-link mb-6">{{ selected_stock_nom }}</h2>
+    <div class="table-container">
+        <table class="table is-striped is-fullwidth">
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Stock</th>
+                    <th>Depart</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produit in produits_stock %}
+                    <tr>
+                        <td>{{ produit.nom_produit }}</td>
+                        <td>{{ produit.quantite_stock }}</td>
+                        <td>
+                                <form hx-post="{% url 'logistique_service_medical:remplir_liste_depart' id_liste_depart=id_liste_depart id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
+                                {% csrf_token %}
+                                <div class="field">
+                                    <div class="control">
+                                        <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
+                                            value="{{ produit.quantite_depart }}" class="input is-small" min="0" max="{{ produit.quantite_stock }}">
+                                    </div>
+                                </div>
+                                </td>
+                            <td>
+                                <div class="field is-grouped">
+                                    <div class="control">
+                                        <button class="button is-primary is-focused is-small has-text-light" name="quantity_updated" type="submit">
+                                                <span class="icon is-small">
+                                                    <i class="fas fa-check"></i>
+                                                </span></button>                                    </div>
+                                </div>
+                                </form>
+                            </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+   </div>
+{% endif %}
+<div id="successNotification" class="notification is-small is-link" style= "display: none; position: fixed; bottom: 0px; right: 0px ;">
+  Quantité mise à jour.
 </div>
 {% if utilisateur_choice_form %}
 
 <div class="box">
-    <h2 class="title is-4 has-text-primary-30 mb-6">Attribuer la liste à un utilisateur</h2>
+    <h2 class="subtitle is-4 has-text-link mb-6">Attribuer la liste à un utilisateur</h2>
     <form action="{% url 'logistique_service_medical:create_liste_utilisateur' id_liste_depart=id_liste_depart %}" method="post">
         {% csrf_token %}
         <div class="container">
         {% crispy utilisateur_choice_form %}
-        <button class="button is-primary" type="submit">Valider la liste utilisateur (mise à jour du stock)</button>
+        <button class="button is-focused is-primary has-text-light" type="submit">Valider la liste utilisateur (mise à jour du stock)</button>
         </div>
     </form>
 <div id="message-container"></div>
 </div>
 
 {% endif %}
-{% endif %}
+
 </section>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     // Get all forms with the 'hx-post' attribute
@@ -93,26 +114,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Check if the response was successful
             if (response.ok) {
-                // Update the message div with the response message
-                form.querySelector('#message').innerHTML = responseText;
+                // Show success notification
+                document.getElementById('successNotification').style.display = 'block';
+
+                // Hide success notification after 3 seconds
+                setTimeout(() => {
+                    document.getElementById('successNotification').style.display = 'none';
+                }, 2000);
             } else {
                 // Display the error message
                 form.querySelector('#message').innerHTML = responseText;
-            }
-
-             if (response.ok) {
-                let jsonResponse = await response.json();
-                let messageContainer = document.getElementById('message-container');
-                messageContainer.innerHTML = '<div class="success">' + jsonResponse.message + '</div>';
-            } else {
-                let errorMessage = await response.text();
-                let messageContainer = document.getElementById('message-container');
-                messageContainer.innerHTML = '<div class="error">' + errorMessage + '</div>';
             }
         });
     });
 });
 </script>
-
 
 {% endblock %}

@@ -3,18 +3,20 @@
 
 {% block content %}
 
-<section class="section has-background-info-85 is-mobile">
+<section class="section has-background-light is-mobile">
 <div class="box">
-<h1 class="title is-2 has-text-grey-dark has-text-centered mb-5">Archive des listes</h1>
+<h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center"><span class="icon has-text-info">
+                        <i class="fas fa-archive"></i>
+                    </span><span class="ml-4">Archives des listes</span></h1>
 </div>
 <div class="box">
-<h2 class="title is-4 has-text-grey-dark mb-6">Recuperer les archives des listes utilisateurs</h2>
+<h2 class="subtitle is-4 has-text-link mb-6">Recuperer les archives des listes utilisateurs</h2>
 {% if archive_form %}
     <form action="{% url 'logistique_service_medical:recherche_archive' %}" method="post" class="mb-5">
 {% csrf_token %}
     <div class="container">
     {% crispy archive_form %}
-    <button class="button is-primary" type="submit">Rechercher</button>
+    <button class="button is-primary has-text-light" type="submit">Rechercher</button>
     </div>
 </form>
 </div>
@@ -28,7 +30,7 @@
                 <tr>
                     <th>Date</th>
                     <th>Destination</th>
-                    <th>En_cours</th>
+                    <th>En cours</th>
                     <th>Action</th> <!-- Ajout d'une colonne pour les actions -->
                 </tr>
             </thead>
@@ -43,7 +45,8 @@
                         <form action="{% url 'logistique_service_medical:display_archive' %}" method="post">
                             {% csrf_token %}
                             <input type="hidden" name="id_liste_utilisateur" value="{{ liste_utilisateur.id_liste_utilisateur }}">
-                            <button class="button is-small is-link is-outlined is-focused" type="submit">Sélectionner</button>
+                            <button class="button is-small is-link is-outlined is-focused" type="submit"><span class="icon is-small">
+                                                    <i class="fas fa-check"></i></button>
                         </form>
                     </td>
                 </tr>
@@ -56,34 +59,28 @@
 
 {% if produits_liste_utilisateur %}
 <div class="box">
-<h2 class="title is-4 has-text-dark-grey mb-6">Archive</h2>
+<h2 class="subtitle is-6 has-text-link mb-6">{{ liste_selectionnee.date_liste }}, {{ liste_selectionnee.destination }}</h2>
+    <div class="table-container">
+        <table class="table is-striped is-fullwidth">
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Depart</th>
+                    <th>Retour</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produit in produits_liste_utilisateur %}
+                    <tr>
+                        <td>{{ produit.nom_produit }}</td>
+                        <td>{{ produit.quantite_depart }}</td>
+                        <td>{{ produit.quantite_retour }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-<div class="columns is-multiline">
-    {% for produit in produits_liste_utilisateur %}
-        <div class="column is-half">
-            <div class="box">
-                    <div class="field">
-                        <label class="label has-text-grey-dark has-text-weight-semibold">{{ produit.nom_produit }}</label>
-                        <div class="control">
-                            <div class="table-container">
-                                <table class="table is-fullwidth is-striped">
-                                    <tbody>
-                                        <tr>
-                                            <th class="has-text-primary">quantité départ :</th>
-                                            <td>{{ produit.quantite_depart }}</td> <!-- Affichage de la quantité de départ -->
-                                        </tr>
-                                        <tr>
-                                            <th class="has-text-info">quantité retour :</th>
-                                            <td>{{ produit.quantite_retour }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div>
-    {% endfor %}
 </div>
 </div>
 {% endif %}

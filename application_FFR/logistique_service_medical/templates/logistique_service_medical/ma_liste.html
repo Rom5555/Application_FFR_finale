@@ -1,67 +1,73 @@
-{% extends 'logistique_service_medical/base.html' %}
+{% extends 'logistique_service_medical/base_ma_liste.html' %}
 {% load crispy_forms_tags %}
 
 {% block content %}
 
-<section class="section has-background-info-85 is-mobile">
+<section class="section has-background-light is-mobile">
 <div class="box">
-<h1 class="title is-2 has-text-grey-dark has-text-centered mb-5">Ma liste</h1>
+<h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
+    <span class="icon">
+                    <i class="fas fa-clipboard-list has-text-info"></i>
+                    </span>
+                    <span class="ml-4">Ma liste</span></h1>
 </div>
 
 
 {% if produits_liste_utilisateur %}
-
 <div class="box">
-<h2 class="title is-4 has-text-dark-grey mb-6">Verifier les quantites retour</h2>
+    <div class="table-container">
+        <table class="table is-striped is-fullwidth">
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Depart</th>
+                    <th>Retour</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produit in produits_liste_utilisateur %}
+                    <tr>
+                        <td>{{ produit.nom_produit }}</td>
+                        <td>{{ produit.quantite_depart }}</td>
+                        <td>
+                                <form hx-post="{% url 'logistique_service_medical:remplir_liste_retour' id_liste_utilisateur=id_liste_utilisateur id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">                                {% csrf_token %}
+                                <div class="field">
+                                    <div class="control">
+                                        <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
+                                            value="{{ produit.quantite_retour }}" class="input is-small" min="0" max="produit.quantite_depart">
+                                    </div>
+                                </div>
+                                </td>
+                            <td>
+                                <div class="field is-grouped">
+                                    <div class="control">
+                                                <button class="button is-primary is-focused is-small has-text-light" name="quantity_updated" type="submit">
+                                                <span class="icon is-small">
+                                                    <i class="fas fa-check"></i>
+                                                </span></button>                                    </div>
+                                </div>
+                                </form>
+                            </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-<div class="columns is-multiline">
-    {% for produit in produits_liste_utilisateur %}
-        <div class="column is-half">
-            <div class="box">
-                <form hx-post="{% url 'logistique_service_medical:verifier_liste_retour' id_liste_utilisateur=id_liste_utilisateur id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
-                    {% csrf_token %}
-                    <div class="field">
-                        <label class="label has-text-grey-dark has-text-weight-semibold">{{ produit.nom_produit }}</label>
-                        <div class="control">
-                            <div class="table-container">
-                                <table class="table is-fullwidth is-striped">
-                                    <tbody>
-                                        <tr>
-                                            <th class="has-text-primary">quantité départ :</th>
-                                            <td>{{ produit.quantite_depart }}</td> <!-- Affichage de la quantité de départ -->
-                                        </tr>
-                                        <tr>
-                                            <th class="has-text-info">quantité retour :</th>
-                                        <td>
-                                            <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
-                                            value="{{ produit.quantite_retour }}" class="input is-small" min="0">
-                                        </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field is-grouped is-justify-content-end">
-                        <div class="control">
-                            <button class="button is-primary is-small" name="quantity_retour" type="submit">Enregistrer</button>
-                        </div>
-                    </div>
-                </form>
-                <div id="message_{{ produit.id_produit }}"></div> <!-- Message d'erreur/succès -->
-            </div>
-        </div>
-    {% endfor %}
+<div id="successNotification" class="notification is-small is-link" style= "display: none; position: fixed; bottom: 0px; right: 0px ;">
+  Quantité mise à jour.
 </div>
-</div>
+
+
 {% endif %}
 <div class="box">
     <div class="field is-grouped is-justify-content-center">
     <div class="control">
-    <a class="button is-info is-focused" href="{% url 'logistique_service_medical:index_utilisateur' %}">Valider</a>
+    <a class="button is-link is-focused" href="{% url 'logistique_service_medical:index_utilisateur' %}">Valider</a>
     </div>
 </div>
 </div>
+
 </section>
 
 
@@ -89,21 +95,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Check if the response was successful
             if (response.ok) {
-                // Update the message div with the response message
-                form.querySelector('#message').innerHTML = responseText;
+                // Show success notification
+                document.getElementById('successNotification').style.display = 'block';
+
+                // Hide success notification after 3 seconds
+                setTimeout(() => {
+                    document.getElementById('successNotification').style.display = 'none';
+                }, 2000);
             } else {
                 // Display the error message
                 form.querySelector('#message').innerHTML = responseText;
-            }
-
-             if (response.ok) {
-                let jsonResponse = await response.json();
-                let messageContainer = document.getElementById('message-container');
-                messageContainer.innerHTML = '<div class="success">' + jsonResponse.message + '</div>';
-            } else {
-                let errorMessage = await response.text();
-                let messageContainer = document.getElementById('message-container');
-                messageContainer.innerHTML = '<div class="error">' + errorMessage + '</div>';
             }
         });
     });

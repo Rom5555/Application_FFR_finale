@@ -39,6 +39,21 @@ class Gestion_stock(Ifonction_get):
             print("id:", row[0], "nom du produit:", row[1])
         return produits
 
+    def get_all_stocks_produits(self):
+
+        rows = self._data_stock.get_all_stocks_produits()
+        produits = []
+        for row in rows:
+            produit={
+                'id_produit': row[2],
+                'nom_produit': row[3],
+                'quantite': row[4],
+            }
+            produits.append(produit)
+            print("id:", row[2], "nom du produit:", row[3], "quantite:", row[4])
+        return produits
+
+
     def get_1(self):
         retour = self._data_stock.get_1_stock(self.stock.id)
         rows = retour[1]
