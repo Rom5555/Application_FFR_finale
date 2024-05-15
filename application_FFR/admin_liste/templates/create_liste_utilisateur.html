@@ -1,0 +1,16 @@
+{% extends 'admin_base/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h1 class="title is-3 has-text-grey-dark has-text-centered mb-5">Créer une liste utilisateur</h1>
+
+<div class="box">
+    <h2 class="title is-4 has-text-grey-dark has-text-centered">Formulaire Utilisateur</h2>
+    <form action="{% url 'admin_liste:create_liste_utilisateur' id_liste_depart=id_liste_depart %}" method="post">
+        {% csrf_token %}
+        {% crispy utilisateur_choice_form %}
+        <button class="button is-primary" type="submit">Valider la liste utilisateur</button>
+    </form>
+</div>
+
+{% endblock %}

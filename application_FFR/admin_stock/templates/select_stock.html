@@ -1,0 +1,10 @@
+<h1>Formulaire pour la consultation des produits en stock</h1>
+<form action="{% url 'admin_stock:display_produits'%}" method="post">
+    {% csrf_token %}
+    <select name="id_stock">
+        {% for stock in liste_stocks %}
+        <option value="{{stock.id_stock}}">{{stock.nom_stock}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit">
+</form>

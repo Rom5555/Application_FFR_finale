@@ -1,0 +1,23 @@
+{% extends 'logistique_service_medical/base_ma_liste.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<section class="section">
+    <div class="container">
+        <h1 class="subtitle has-text-centered is-1 has-text-link">Logimed</h1>
+        <hr>
+        <div class="columns is-centered">
+            <div class="column is-half has-text-centered">
+                <a href="{% url 'logistique_service_medical:ma_liste' %}" class="button has-text-link is-focused is-large is-fullwidth mb-1">
+                    <span class="icon">
+                    <i class="fas fa-clipboard-list has-text-info"></i>
+                    </span>
+                    <span>Ma liste</span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,71 @@
+{% extends 'logistique_service_medical/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<section class="section has-background-light is-mobile">
+<div class="container">
+    <div class="columns is-centered">
+        <div class="column">
+            <div class="box">
+            <h1 class="subtitle is-3 has-text-link has-text-centered mb-3">
+                <span class="icon has-text-warning is-large">
+                    <i class="fas fa-users"></i>
+                </span>
+                <span>Gestion des utilisateurs</h1></span>
+            </div>
+            <!-- Affichage de la liste des utilisateurs -->
+            <div class="box">
+                <h1 class="subtitle is-4 has-text-centered has-text-link mb-5">Liste des utilisateurs</h1>
+                <ul>
+                    {% for user in users %}
+                        <li>
+                            <div class="box mb-3">
+                                <div class="columns is-vcentered">
+                                    <div class="column is-three-quarters">
+                                        <p>{{ user.first_name }} {{ user.last_name }}</p>
+                                        <p>{{ user.username }} {{ user.email }}</p>
+                                    </div>
+                                    <div class="column is-one-quarter has-text-right">
+                                        <form id="delete-form-{{ user.id }}" action="{% url 'logistique_service_medical:delete_user' %}" method="post" style="display: none;">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="user_id" value="{{ user.id }}">
+                                        </form>
+                                        <button class="button is-danger is-small" onclick="confirmDelete('{{ user.id }}')"><span class="icon is-small"><i class="fas fa-times"></i>
+                                        </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="columns is-centered">
+        <div class="column">
+            <!-- Formulaire pour ajouter un utilisateur -->
+            <div class="box">
+                <h2 class="subtitle is-4 has-text-centered has-text-link mb-3">Ajouter un utilisateur</h2>
+                <form method="post" action="{% url 'logistique_service_medical:add_user' %}">
+                    {% csrf_token %}
+                    {% crispy add_user_form %}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<script>
+    function confirmDelete(userId) {
+        if (confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur?")) {
+            document.getElementById('delete-form-' + userId).submit();
+        }
+    }
+</script>
+
+{% endblock %}

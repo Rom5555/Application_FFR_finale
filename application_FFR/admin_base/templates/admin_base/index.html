@@ -1,0 +1,43 @@
+{% extends 'admin_base/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<section class="section">
+    <div class="container">
+        <h1 class="title has-text-centered is-1 has-text-link">Logimed</h1>
+        <hr>
+        <div class="columns is-centered">
+            <div class="column is-half has-text-centered">
+                <a href="{% url 'admin_compte:user_list' %}" class="button has-text-link is-focused is-large is-fullwidth mb-1">
+                    <span class="icon has-text-warning">
+                    <i class="fas fa-users"></i>
+                    </span>
+                    <span>Gestion Comptes</span>
+                </a>
+
+            </div>
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-half has-text-centered">
+                <button class="button has-text-link is-focused is-large is-fullwidth mb-1" data-url="{% url 'admin_stock:display_produits' %}" onclick="window.location.href = this.getAttribute('data-url')">
+                    <span class="icon has-text-primary">
+                        <i class="fas fa-box"></i>
+                    </span>
+                    <span>Gestion Stocks</span>
+                </button>
+            </div>
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-half has-text-centered">
+                <a href="{% url 'admin_liste:depart_retour' %}" class="button has-text-link is-focused is-large is-fullwidth mb-1">
+                    <span class="icon has-text-info">
+                        <i class="fas fa-clipboard-list"></i>
+                    </span>
+                    <span>Gestion Listes</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
