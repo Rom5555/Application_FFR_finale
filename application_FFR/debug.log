@@ -28784,3 +28784,1286 @@ AttributeError: 'dict' object has no attribute '_meta'
 2024-04-24 17:22:18,621 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
 2024-04-24 17:22:20,169 django.server INFO "GET /logistique_service_medical/retour/ HTTP/1.1" 200 5427
 2024-04-24 17:22:23,844 django.server INFO "POST /logistique_service_medical/retour/ HTTP/1.1" 200 12294
+2024-04-24 17:44:52,625 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-24 17:44:54,751 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-24 17:44:55,346 django.request WARNING Not Found: /favicon.ico
+2024-04-24 17:44:55,351 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 2360
+2024-04-24 17:44:57,624 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-24 17:44:57,637 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-24 17:44:57,743 django WARNING le contexte pour la view est vide
+2024-04-24 17:44:57,744 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-24 17:44:57,752 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-24 17:44:59,423 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-24 17:45:01,185 django.server INFO "GET /logistique_service_medical/retour/ HTTP/1.1" 200 5427
+2024-04-24 17:45:03,112 django.server INFO "POST /logistique_service_medical/retour/ HTTP/1.1" 200 12294
+2024-04-24 17:45:09,501 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/91/1/ HTTP/1.1" 200 35
+2024-04-24 17:45:09,509 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/91/1/ HTTP/1.1" 200 35
+2024-04-24 17:49:33,556 django.server INFO "GET /logistique_service_medical/retour/ HTTP/1.1" 200 5427
+2024-04-24 17:49:35,674 django WARNING le contexte pour la view est vide
+2024-04-24 17:49:35,674 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-24 17:49:35,683 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-24 17:49:37,216 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-24 17:49:39,926 django.server INFO "GET /logistique_service_medical/depart/ HTTP/1.1" 200 7441
+2024-04-24 17:49:58,630 django.server INFO "POST /logistique_service_medical/depart/ HTTP/1.1" 200 158539
+2024-04-24 17:50:15,428 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/1/ HTTP/1.1" 200 35
+2024-04-24 17:50:15,508 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/1/ HTTP/1.1" 200 35
+2024-04-24 17:50:33,219 django.server INFO "POST /logistique_service_medical/depart/ HTTP/1.1" 200 158539
+2024-04-24 17:50:49,897 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-24 17:50:52,625 django.server INFO "GET /logistique_service_medical/retour/ HTTP/1.1" 200 5427
+2024-04-24 17:50:54,969 django.server INFO "POST /logistique_service_medical/retour/ HTTP/1.1" 200 12294
+2024-04-24 18:28:50,575 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-24 18:28:56,217 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-24 18:28:59,057 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-24 18:28:59,278 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-24 18:28:59,380 django WARNING le contexte pour la view est vide
+2024-04-24 18:28:59,380 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-24 18:28:59,404 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-24 18:29:01,212 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-24 18:29:03,974 django.server INFO "GET /logistique_service_medical/depart/ HTTP/1.1" 200 7441
+2024-04-24 18:29:19,957 django.request ERROR Internal Server Error: /logistique_service_medical/depart/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 310, in depart
+    produits_stock = gestion_liste_depart.get_liste_vierge()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\business\components\gestion_liste_depart.py", line 112, in get_liste_vierge
+    'id_produit': row['id_produit'],
+                  ~~~^^^^^^^^^^^^^^
+TypeError: tuple indices must be integers or slices, not str
+2024-04-24 18:29:19,972 django.server ERROR "POST /logistique_service_medical/depart/ HTTP/1.1" 500 88944
+2024-04-24 18:32:09,242 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\business\components\gestion_liste_depart.py changed, reloading.
+2024-04-24 18:32:10,908 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-24 18:32:13,519 django.request ERROR Internal Server Error: /logistique_service_medical/depart/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 310, in depart
+    produits_stock = gestion_liste_depart.get_liste_vierge()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\business\components\gestion_liste_depart.py", line 112, in get_liste_vierge
+    'id_produit': row['2'],
+                  ~~~^^^^^
+TypeError: tuple indices must be integers or slices, not str
+2024-04-24 18:32:13,523 django.server ERROR "POST /logistique_service_medical/depart/ HTTP/1.1" 500 88891
+2024-04-24 18:32:29,747 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\business\components\gestion_liste_depart.py changed, reloading.
+2024-04-24 18:32:31,116 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-24 18:32:33,263 django.server INFO "POST /logistique_service_medical/depart/ HTTP/1.1" 200 158535
+2024-04-24 18:32:50,012 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/47/1/ HTTP/1.1" 200 35
+2024-04-24 18:32:50,021 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/47/1/ HTTP/1.1" 200 35
+2024-04-24 18:33:01,112 django.request WARNING Method Not Allowed: /logistique_service_medical/create_liste_utilisateur/47/
+2024-04-24 18:33:01,112 django.server WARNING "POST /logistique_service_medical/create_liste_utilisateur/47/ HTTP/1.1" 405 24
+2024-04-25 17:51:16,659 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-25 17:51:54,975 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-25 17:51:56,405 django.request WARNING Not Found: /favicon.ico
+2024-04-25 17:51:56,405 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 2360
+2024-04-25 17:51:58,430 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-25 17:51:58,465 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-25 17:51:58,596 django WARNING le contexte pour la view est vide
+2024-04-25 17:51:58,597 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-25 17:51:58,656 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-25 17:52:09,260 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-25 17:52:14,373 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-25 17:52:16,546 django.server INFO "GET /logistique_service_medical/depart/ HTTP/1.1" 200 7441
+2024-04-25 17:52:36,244 django.server INFO "POST /logistique_service_medical/depart/ HTTP/1.1" 200 158539
+2024-04-25 17:53:25,729 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\business\components\gestion_liste_depart.py changed, reloading.
+2024-04-25 17:53:27,619 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-25 17:53:29,347 django.server INFO "POST /logistique_service_medical/depart/ HTTP/1.1" 200 158539
+2024-04-25 17:59:43,319 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-04-25 17:59:45,184 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-25 17:59:47,570 django.server INFO "POST /logistique_service_medical/depart/ HTTP/1.1" 200 158798
+2024-04-25 18:19:25,208 django.server INFO "POST /logistique_service_medical/depart/ HTTP/1.1" 200 159555
+2024-04-25 18:20:19,214 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/1/ HTTP/1.1" 200 35
+2024-04-25 18:20:19,323 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/1/ HTTP/1.1" 200 35
+2024-04-25 18:20:25,944 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/1/ HTTP/1.1" 200 35
+2024-04-25 18:20:30,836 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/1/ HTTP/1.1" 200 35
+2024-04-25 18:23:52,780 django.server INFO "POST /logistique_service_medical/depart/ HTTP/1.1" 200 168927
+2024-04-25 18:25:37,581 django.server INFO "POST /logistique_service_medical/depart/ HTTP/1.1" 200 161188
+2024-04-25 18:30:09,084 django.server INFO "POST /logistique_service_medical/depart/ HTTP/1.1" 200 161188
+2024-04-25 18:30:48,382 django.server INFO "POST /logistique_service_medical/depart/ HTTP/1.1" 200 162253
+2024-04-25 18:36:52,322 django.server INFO "POST /logistique_service_medical/depart/ HTTP/1.1" 200 160620
+2024-04-25 18:37:11,494 django.server INFO "POST /logistique_service_medical/depart/ HTTP/1.1" 200 159555
+2024-04-26 19:33:13,552 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-26 19:34:33,664 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-26 19:34:34,522 django.request WARNING Not Found: /favicon.ico
+2024-04-26 19:34:34,524 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 2360
+2024-04-26 19:34:57,414 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-26 19:34:57,464 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-26 19:34:57,609 django WARNING le contexte pour la view est vide
+2024-04-26 19:34:57,609 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-26 19:34:57,619 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-26 19:35:00,184 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-26 19:37:09,931 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-26 19:37:09,955 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-26 19:37:10,134 django WARNING le contexte pour la view est vide
+2024-04-26 19:37:10,134 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-26 19:37:10,150 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-26 19:37:12,437 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-26 19:37:14,929 django.server INFO "GET /logistique_service_medical/retour/ HTTP/1.1" 200 5427
+2024-04-26 19:37:19,093 django.server INFO "POST /logistique_service_medical/retour/ HTTP/1.1" 200 12294
+2024-04-26 19:39:30,618 django.server INFO "GET /logistique_service_medical/retour/ HTTP/1.1" 200 5427
+2024-04-26 19:39:36,203 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-26 19:46:54,830 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-26 19:46:54,890 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-26 19:46:55,041 django WARNING le contexte pour la view est vide
+2024-04-26 19:46:55,045 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-26 19:46:55,050 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-26 19:46:57,160 django.server INFO "GET /logistique_service_medical/user_list/ HTTP/1.1" 200 9566
+2024-04-26 19:47:01,113 django.server INFO "GET /logistique_service_medical/display_produits/ HTTP/1.1" 200 5613
+2024-04-26 19:47:05,553 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-26 19:47:10,243 django.server INFO "GET /logistique_service_medical/depart/ HTTP/1.1" 200 7441
+2024-04-26 19:47:13,795 django.server INFO "GET /logistique_service_medical/retour/ HTTP/1.1" 200 5427
+2024-04-26 19:47:18,865 django.server INFO "GET /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 6894
+2024-04-26 19:47:25,790 django WARNING le contexte pour la view est vide
+2024-04-26 19:47:25,790 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-26 19:47:25,812 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-26 19:47:29,441 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-26 19:47:35,224 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-26 19:47:35,244 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-26 19:47:35,451 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3173
+2024-04-26 19:47:38,195 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 302 0
+2024-04-26 19:47:38,218 django.request WARNING Not Found: /accounts/login/
+2024-04-26 19:47:38,227 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/index/ HTTP/1.1" 404 2412
+2024-04-26 19:47:43,804 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-26 19:49:11,571 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-26 19:49:11,604 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-26 19:49:11,761 django WARNING le contexte pour la view est vide
+2024-04-26 19:49:11,761 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-26 19:49:11,854 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-26 19:49:24,844 django.server INFO "GET /logistique_service_medical/user_list/ HTTP/1.1" 200 9566
+2024-04-26 19:50:46,533 django WARNING le contexte pour la view est vide
+2024-04-26 19:50:46,533 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-26 19:50:46,550 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-26 19:50:51,325 django.server INFO "GET /logistique_service_medical/display_produits/ HTTP/1.1" 200 5613
+2024-04-26 19:52:16,164 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79106
+2024-04-26 19:52:34,668 django.server INFO "POST /logistique_service_medical/update_quantity/1/ HTTP/1.1" 200 35
+2024-04-26 19:52:34,864 django.server INFO "POST /logistique_service_medical/update_quantity/1/ HTTP/1.1" 200 35
+2024-04-26 19:52:55,663 django.server INFO "GET /logistique_service_medical/produit_list/ HTTP/1.1" 200 86243
+2024-04-26 19:53:12,744 django.server INFO "POST /logistique_service_medical/add_produit/ HTTP/1.1" 302 0
+2024-04-26 19:53:13,889 django.server INFO "GET /logistique_service_medical/produit_list/ HTTP/1.1" 200 87373
+2024-04-26 19:53:35,610 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-26 19:53:50,012 django.server INFO "GET /logistique_service_medical/depart/ HTTP/1.1" 200 7441
+2024-04-26 19:54:35,800 django.server INFO "POST /logistique_service_medical/depart/ HTTP/1.1" 200 161662
+2024-04-26 19:56:54,513 django.server INFO "GET /logistique_service_medical/depart/ HTTP/1.1" 200 7441
+2024-04-26 19:57:00,103 django.server INFO "GET /logistique_service_medical/retour/ HTTP/1.1" 200 5427
+2024-04-26 19:57:04,464 django.server INFO "POST /logistique_service_medical/retour/ HTTP/1.1" 200 12294
+2024-04-26 19:57:39,700 django.server INFO "POST /logistique_service_medical/valider_liste_retour/91/ HTTP/1.1" 302 0
+2024-04-26 19:57:39,990 django.server INFO "GET /logistique_service_medical/mise_a_jour_stock/ HTTP/1.1" 200 3268
+2024-04-26 19:57:51,032 django WARNING le contexte pour la view est vide
+2024-04-26 19:57:51,032 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-26 19:57:51,045 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-26 19:57:59,216 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-26 19:58:02,664 django.server INFO "GET /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 6894
+2024-04-26 19:58:28,092 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 12489
+2024-04-26 19:58:41,170 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 16230
+2024-04-29 14:25:00,127 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-29 14:25:04,765 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 14:25:06,245 django.request WARNING Not Found: /favicon.ico
+2024-04-29 14:25:06,246 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 2360
+2024-04-29 14:25:14,239 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 14:25:14,303 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-29 14:25:14,458 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3173
+2024-04-29 14:26:47,380 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3173
+2024-04-29 14:26:52,564 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3173
+2024-04-29 14:26:53,924 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3173
+2024-04-29 14:26:55,049 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3173
+2024-04-29 14:27:24,019 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-29 14:27:49,472 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 14:27:51,899 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 14:27:51,948 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-29 14:27:52,048 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3173
+2024-04-29 14:27:59,463 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 302 0
+2024-04-29 14:27:59,480 django.request WARNING Not Found: /accounts/login/
+2024-04-29 14:27:59,480 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/index/ HTTP/1.1" 404 2412
+2024-04-29 14:30:18,701 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 14:30:21,847 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 14:30:21,864 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-29 14:30:21,955 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3173
+2024-04-29 14:30:25,064 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-29 14:30:26,696 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 14:30:28,967 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 14:30:28,984 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-29 14:30:29,282 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3173
+2024-04-29 14:31:07,315 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-29 14:31:09,019 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 14:31:13,928 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 14:31:13,945 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-29 14:31:14,052 django WARNING le contexte pour la view est vide
+2024-04-29 14:31:14,052 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-29 14:31:14,060 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-29 14:31:16,144 django WARNING le contexte pour la view est vide
+2024-04-29 14:31:16,144 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-29 14:31:16,152 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-29 14:31:18,753 django.server INFO "GET /logistique_service_medical/user_list/ HTTP/1.1" 200 9566
+2024-04-29 14:31:22,392 django.server INFO "GET /logistique_service_medical/display_produits/ HTTP/1.1" 200 5613
+2024-04-29 14:31:25,687 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-29 14:31:29,169 django WARNING le contexte pour la view est vide
+2024-04-29 14:31:29,169 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-29 14:31:29,185 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-29 14:31:32,921 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-29 14:31:34,750 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 14:31:42,016 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 14:31:42,031 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-29 14:31:42,121 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3173
+2024-04-29 14:33:37,651 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2077
+2024-04-29 14:33:45,296 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 2077
+2024-04-29 14:34:07,367 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 2077
+2024-04-29 14:35:12,927 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-29 14:35:15,030 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 14:35:17,476 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 14:35:17,505 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-29 14:35:17,843 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2077
+2024-04-29 14:36:29,541 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2086
+2024-04-29 14:36:31,233 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2086
+2024-04-29 14:36:31,504 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2086
+2024-04-29 14:36:32,027 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2086
+2024-04-29 14:36:37,035 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 14:36:39,368 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 14:36:39,376 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-29 14:36:39,634 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2086
+2024-04-29 14:36:42,215 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-29 14:36:43,550 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 14:36:45,827 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 14:36:45,843 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-29 14:36:45,933 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2086
+2024-04-29 14:36:48,054 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2086
+2024-04-29 14:37:44,251 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2724
+2024-04-29 14:37:46,363 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4245
+2024-04-29 14:37:48,187 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2724
+2024-04-29 14:37:50,143 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4245
+2024-04-29 14:37:51,325 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2724
+2024-04-29 14:38:04,168 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-29 14:38:06,521 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 14:38:11,173 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 14:38:11,198 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-29 14:38:11,319 django WARNING le contexte pour la view est vide
+2024-04-29 14:38:11,319 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-29 14:38:11,328 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-29 14:38:13,721 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-29 14:38:15,778 django.server INFO "GET /logistique_service_medical/retour/ HTTP/1.1" 200 5427
+2024-04-29 14:38:19,912 django.server INFO "POST /logistique_service_medical/retour/ HTTP/1.1" 200 5436
+2024-04-29 14:40:55,978 django WARNING le contexte pour la view est vide
+2024-04-29 14:40:55,978 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-29 14:40:55,987 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-29 14:40:58,136 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-29 14:41:00,748 django.server INFO "GET /logistique_service_medical/depart/ HTTP/1.1" 200 7441
+2024-04-29 14:41:22,328 django.server INFO "POST /logistique_service_medical/depart/ HTTP/1.1" 200 161662
+2024-04-29 14:41:37,045 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/1/ HTTP/1.1" 200 35
+2024-04-29 14:41:37,184 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/1/ HTTP/1.1" 200 35
+2024-04-29 14:41:38,918 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/2/ HTTP/1.1" 200 35
+2024-04-29 14:41:38,968 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/2/ HTTP/1.1" 200 35
+2024-04-29 14:42:15,262 django.server INFO "POST /logistique_service_medical/create_liste_utilisateur/37/ HTTP/1.1" 302 0
+2024-04-29 14:42:15,425 django.server INFO "GET /logistique_service_medical/liste_utilisateur_creee/ HTTP/1.1" 200 3292
+2024-04-29 14:42:17,895 django WARNING le contexte pour la view est vide
+2024-04-29 14:42:17,895 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-29 14:42:17,912 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-29 14:42:20,193 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-29 14:42:22,049 django.server INFO "GET /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 6894
+2024-04-29 14:42:25,003 django.server INFO "GET /logistique_service_medical/retour/ HTTP/1.1" 200 5427
+2024-04-29 14:42:27,036 django.server INFO "POST /logistique_service_medical/retour/ HTTP/1.1" 200 12294
+2024-04-29 14:42:33,978 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-29 14:42:35,790 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 14:42:40,963 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 14:42:40,980 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-29 14:42:41,061 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2724
+2024-04-29 14:42:43,148 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 10709
+2024-04-29 14:42:53,979 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 302 0
+2024-04-29 14:42:53,995 django.request WARNING Not Found: /accounts/login/
+2024-04-29 14:42:53,995 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 404 2433
+2024-04-29 14:42:54,003 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 302 0
+2024-04-29 14:42:54,020 django.request WARNING Not Found: /accounts/login/
+2024-04-29 14:42:54,020 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 404 2433
+2024-04-29 14:42:56,880 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 302 0
+2024-04-29 14:42:56,888 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 302 0
+2024-04-29 14:42:56,896 django.request WARNING Not Found: /accounts/login/
+2024-04-29 14:42:56,896 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 404 2433
+2024-04-29 14:42:56,912 django.request WARNING Not Found: /accounts/login/
+2024-04-29 14:42:56,912 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 404 2433
+2024-04-29 14:43:02,411 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/2/ HTTP/1.1" 302 0
+2024-04-29 14:43:02,425 django.request WARNING Not Found: /accounts/login/
+2024-04-29 14:43:02,425 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/2/ HTTP/1.1" 404 2433
+2024-04-29 14:43:02,449 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/2/ HTTP/1.1" 302 0
+2024-04-29 14:43:02,466 django.request WARNING Not Found: /accounts/login/
+2024-04-29 14:43:02,466 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/2/ HTTP/1.1" 404 2433
+2024-04-29 14:43:05,296 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 302 0
+2024-04-29 14:43:05,305 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 302 0
+2024-04-29 14:43:05,314 django.request WARNING Not Found: /accounts/login/
+2024-04-29 14:43:05,314 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 404 2433
+2024-04-29 14:43:05,330 django.request WARNING Not Found: /accounts/login/
+2024-04-29 14:43:05,330 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 404 2433
+2024-04-29 14:43:09,620 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2724
+2024-04-29 14:43:16,402 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-29 14:43:17,760 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 14:43:23,044 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 14:43:23,056 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-29 14:43:23,138 django WARNING le contexte pour la view est vide
+2024-04-29 14:43:23,138 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-29 14:43:23,147 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-29 14:43:24,562 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-29 14:43:26,308 django.server INFO "GET /logistique_service_medical/retour/ HTTP/1.1" 200 5427
+2024-04-29 14:43:28,211 django.server INFO "POST /logistique_service_medical/retour/ HTTP/1.1" 200 12294
+2024-04-29 14:43:35,024 django WARNING le contexte pour la view est vide
+2024-04-29 14:43:35,024 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-29 14:43:35,035 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-29 14:44:01,996 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-29 14:44:03,292 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 14:44:07,856 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 14:44:07,872 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-29 14:44:08,226 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2724
+2024-04-29 14:44:10,088 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 10709
+2024-04-29 14:44:27,131 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2724
+2024-04-29 14:44:32,805 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2724
+2024-04-29 14:44:35,364 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-29 14:44:36,838 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 14:44:45,389 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 14:44:45,414 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-29 14:44:45,546 django WARNING le contexte pour la view est vide
+2024-04-29 14:44:45,546 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-29 14:44:45,553 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-29 14:44:47,437 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-29 14:44:49,519 django.server INFO "GET /logistique_service_medical/retour/ HTTP/1.1" 200 5427
+2024-04-29 14:44:51,310 django.server INFO "POST /logistique_service_medical/retour/ HTTP/1.1" 200 12294
+2024-04-29 15:00:25,420 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/61/ HTTP/1.1" 200 35
+2024-04-29 15:00:25,426 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/61/ HTTP/1.1" 200 35
+2024-04-29 15:00:31,520 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 200 35
+2024-04-29 15:00:31,574 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 200 35
+2024-04-29 15:00:50,585 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-29 15:00:53,382 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 15:01:01,018 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 15:01:01,034 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-29 15:01:01,122 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2724
+2024-04-29 15:01:03,121 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 10709
+2024-04-29 15:01:06,727 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 302 0
+2024-04-29 15:01:06,743 django.request WARNING Not Found: /accounts/login/
+2024-04-29 15:01:06,744 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 404 2433
+2024-04-29 15:01:06,752 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 302 0
+2024-04-29 15:01:06,766 django.request WARNING Not Found: /accounts/login/
+2024-04-29 15:01:06,766 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 404 2433
+2024-04-29 15:01:09,890 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 302 0
+2024-04-29 15:01:09,903 django.request WARNING Not Found: /accounts/login/
+2024-04-29 15:01:09,904 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 404 2433
+2024-04-29 15:01:09,948 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 302 0
+2024-04-29 15:01:09,959 django.request WARNING Not Found: /accounts/login/
+2024-04-29 15:01:09,960 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 404 2433
+2024-04-29 15:06:47,449 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 302 0
+2024-04-29 15:06:47,462 django.request WARNING Not Found: /accounts/login/
+2024-04-29 15:06:47,464 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 404 2433
+2024-04-29 15:06:47,498 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 302 0
+2024-04-29 15:06:47,512 django.request WARNING Not Found: /accounts/login/
+2024-04-29 15:06:47,512 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 404 2433
+2024-04-29 15:06:49,845 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 302 0
+2024-04-29 15:06:49,860 django.request WARNING Not Found: /accounts/login/
+2024-04-29 15:06:49,860 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 404 2433
+2024-04-29 15:06:49,925 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 302 0
+2024-04-29 15:06:49,940 django.request WARNING Not Found: /accounts/login/
+2024-04-29 15:06:49,941 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 404 2433
+2024-04-29 15:06:50,079 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 302 0
+2024-04-29 15:06:50,094 django.request WARNING Not Found: /accounts/login/
+2024-04-29 15:06:50,094 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 404 2433
+2024-04-29 15:06:50,164 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 302 0
+2024-04-29 15:06:50,179 django.request WARNING Not Found: /accounts/login/
+2024-04-29 15:06:50,180 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 404 2433
+2024-04-29 15:06:50,247 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 302 0
+2024-04-29 15:06:50,251 django.request WARNING Not Found: /accounts/login/
+2024-04-29 15:06:50,262 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 404 2433
+2024-04-29 15:06:50,288 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 302 0
+2024-04-29 15:06:50,298 django.request WARNING Not Found: /accounts/login/
+2024-04-29 15:06:50,298 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 404 2433
+2024-04-29 15:06:51,636 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/2/ HTTP/1.1" 302 0
+2024-04-29 15:06:51,651 django.request WARNING Not Found: /accounts/login/
+2024-04-29 15:06:51,651 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/2/ HTTP/1.1" 404 2433
+2024-04-29 15:06:51,688 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/2/ HTTP/1.1" 302 0
+2024-04-29 15:06:51,698 django.request WARNING Not Found: /accounts/login/
+2024-04-29 15:06:51,702 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/2/ HTTP/1.1" 404 2433
+2024-04-29 15:07:55,285 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 302 0
+2024-04-29 15:07:55,297 django.request WARNING Not Found: /accounts/login/
+2024-04-29 15:07:55,298 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 404 2433
+2024-04-29 15:07:55,345 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 302 0
+2024-04-29 15:07:55,356 django.request WARNING Not Found: /accounts/login/
+2024-04-29 15:07:55,356 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 404 2433
+2024-04-29 15:08:05,284 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-29 15:08:07,320 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 15:08:09,765 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 15:08:09,815 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-29 15:08:09,983 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2724
+2024-04-29 15:08:11,771 django.request ERROR Internal Server Error: /logistique_service_medical/ma_liste/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 538, in ma_liste
+    return render(request, 'logistique_service_medical/ma_liste.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\defaulttags.py", line 326, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\defaulttags.py", line 479, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'remplir_liste_retour' with keyword arguments '{'id_liste_utilisateur': 92, 'id_produit': 1}' not found. 1 pattern(s) tried: ['logistique_service_medical/remplir_liste_retour/\\Z']
+2024-04-29 15:08:11,783 django.server ERROR "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 500 198616
+2024-04-29 15:10:25,732 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\urls.py changed, reloading.
+2024-04-29 15:10:27,282 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-29 15:10:27,981 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 10706
+2024-04-29 15:10:30,426 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/92/1/ HTTP/1.1" 200 35
+2024-04-29 15:10:30,530 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/92/1/ HTTP/1.1" 200 35
+2024-04-29 15:10:30,642 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/92/1/ HTTP/1.1" 200 35
+2024-04-29 15:10:32,457 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/92/2/ HTTP/1.1" 200 35
+2024-04-29 15:10:32,467 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/92/2/ HTTP/1.1" 200 35
+2024-04-29 15:10:38,112 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/92/2/ HTTP/1.1" 200 35
+2024-04-29 15:10:39,791 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/92/2/ HTTP/1.1" 200 35
+2024-04-29 15:10:47,466 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/92/61/ HTTP/1.1" 200 35
+2024-04-29 15:10:47,504 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/92/61/ HTTP/1.1" 200 35
+2024-04-29 15:10:49,326 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2724
+2024-04-29 15:10:51,629 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-29 15:10:53,284 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 15:10:57,774 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 15:10:57,794 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-29 15:10:57,887 django WARNING le contexte pour la view est vide
+2024-04-29 15:10:57,887 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-29 15:10:57,895 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-29 15:10:59,641 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-29 15:11:01,453 django.server INFO "GET /logistique_service_medical/retour/ HTTP/1.1" 200 5427
+2024-04-29 15:11:03,429 django.server INFO "POST /logistique_service_medical/retour/ HTTP/1.1" 200 12295
+2024-04-29 15:11:18,464 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 200 35
+2024-04-29 15:11:18,542 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 200 35
+2024-04-29 15:11:22,460 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/2/ HTTP/1.1" 200 35
+2024-04-29 15:11:22,525 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/2/ HTTP/1.1" 200 35
+2024-04-29 15:11:26,902 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-29 15:11:28,435 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 15:11:32,601 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 15:11:32,617 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-29 15:11:32,705 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2724
+2024-04-29 15:11:34,423 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 10707
+2024-04-29 15:11:40,157 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/92/1/ HTTP/1.1" 200 35
+2024-04-29 15:11:40,244 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/92/1/ HTTP/1.1" 200 35
+2024-04-29 15:11:46,699 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/92/2/ HTTP/1.1" 200 35
+2024-04-29 15:11:46,705 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/92/2/ HTTP/1.1" 200 35
+2024-04-29 15:11:52,576 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-29 15:11:57,665 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 15:11:59,724 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 15:11:59,739 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-29 15:11:59,918 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2724
+2024-04-29 15:12:01,803 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 10708
+2024-04-29 15:12:09,169 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/92/2/ HTTP/1.1" 200 35
+2024-04-29 15:12:09,203 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/92/2/ HTTP/1.1" 200 35
+2024-04-29 15:12:10,880 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/92/1/ HTTP/1.1" 200 35
+2024-04-29 15:12:10,899 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/92/1/ HTTP/1.1" 200 35
+2024-04-29 15:12:13,714 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-29 15:12:15,558 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 15:12:20,493 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 15:12:20,510 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-29 15:12:20,594 django WARNING le contexte pour la view est vide
+2024-04-29 15:12:20,595 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-29 15:12:20,604 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-29 15:12:21,978 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-29 15:12:23,713 django.server INFO "GET /logistique_service_medical/retour/ HTTP/1.1" 200 5427
+2024-04-29 15:12:25,596 django.server INFO "POST /logistique_service_medical/retour/ HTTP/1.1" 200 12295
+2024-04-29 15:12:33,151 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 200 35
+2024-04-29 15:12:33,223 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/1/ HTTP/1.1" 200 35
+2024-04-29 15:12:34,480 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/2/ HTTP/1.1" 200 35
+2024-04-29 15:12:34,544 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/92/2/ HTTP/1.1" 200 35
+2024-04-29 15:12:36,623 django.server INFO "POST /logistique_service_medical/valider_liste_retour/92/ HTTP/1.1" 302 0
+2024-04-29 15:12:36,719 django.server INFO "GET /logistique_service_medical/mise_a_jour_stock/ HTTP/1.1" 200 3268
+2024-04-29 15:12:41,170 django.server INFO "GET /logistique_service_medical/display_produits/ HTTP/1.1" 200 5613
+2024-04-29 15:12:45,039 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 80211
+2024-04-29 15:12:50,566 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-29 15:12:51,818 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 15:12:57,589 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 15:12:57,607 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-29 15:12:57,695 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2724
+2024-04-29 15:12:59,230 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4245
+2024-04-29 15:13:04,872 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 15:13:11,406 django.security.csrf WARNING Forbidden (CSRF token from POST incorrect.): /logistique_service_medical/logout/
+2024-04-29 15:13:11,428 django.server WARNING "POST /logistique_service_medical/logout/ HTTP/1.1" 403 2540
+2024-04-29 15:13:15,744 django.server INFO "GET /logistique_service_medical/display_produits/ HTTP/1.1" 302 0
+2024-04-29 15:13:15,757 django.request WARNING Not Found: /accounts/login/
+2024-04-29 15:13:15,758 django.server WARNING "GET /accounts/login/?next=/logistique_service_medical/display_produits/ HTTP/1.1" 404 2423
+2024-04-29 15:13:21,248 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 15:13:24,282 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 15:13:24,297 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-29 15:13:24,388 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2724
+2024-04-29 15:13:28,945 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-29 15:13:30,663 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 15:13:32,652 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 15:13:32,668 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-29 15:13:32,875 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2724
+2024-04-29 15:13:37,039 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-29 15:13:38,333 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 15:13:42,322 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 15:13:42,339 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-29 15:13:42,522 django WARNING le contexte pour la view est vide
+2024-04-29 15:13:42,522 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-29 15:13:42,529 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-29 15:13:51,410 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-29 15:13:53,372 django.server INFO "GET /logistique_service_medical/depart/ HTTP/1.1" 200 7441
+2024-04-29 15:14:05,201 django.server INFO "POST /logistique_service_medical/depart/ HTTP/1.1" 200 161662
+2024-04-29 15:14:17,771 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/1/ HTTP/1.1" 200 35
+2024-04-29 15:14:17,823 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/1/ HTTP/1.1" 200 35
+2024-04-29 15:14:19,383 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/2/ HTTP/1.1" 200 35
+2024-04-29 15:14:19,532 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/2/ HTTP/1.1" 200 35
+2024-04-29 15:14:53,483 django.server INFO "POST /logistique_service_medical/create_liste_utilisateur/37/ HTTP/1.1" 302 0
+2024-04-29 15:14:53,596 django.server INFO "GET /logistique_service_medical/liste_utilisateur_creee/ HTTP/1.1" 200 3292
+2024-04-29 15:14:56,008 django WARNING le contexte pour la view est vide
+2024-04-29 15:14:56,008 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-29 15:14:56,019 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-29 15:14:57,802 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-29 15:15:02,489 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-29 15:15:03,829 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 15:15:08,451 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 15:15:08,468 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-29 15:15:08,557 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2724
+2024-04-29 15:15:10,208 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 10706
+2024-04-29 15:15:25,160 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/93/1/ HTTP/1.1" 200 35
+2024-04-29 15:15:25,185 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/93/1/ HTTP/1.1" 200 35
+2024-04-29 15:15:26,637 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/93/2/ HTTP/1.1" 200 35
+2024-04-29 15:15:26,679 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/93/2/ HTTP/1.1" 200 35
+2024-04-29 15:15:29,851 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-29 15:15:31,291 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 15:15:35,910 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 15:15:35,925 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-04-29 15:15:36,016 django WARNING le contexte pour la view est vide
+2024-04-29 15:15:36,016 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-29 15:15:36,029 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-29 15:15:37,758 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-29 15:15:39,324 django.server INFO "GET /logistique_service_medical/retour/ HTTP/1.1" 200 5427
+2024-04-29 15:15:41,041 django.server INFO "POST /logistique_service_medical/retour/ HTTP/1.1" 200 12295
+2024-04-29 15:15:47,034 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/93/1/ HTTP/1.1" 200 35
+2024-04-29 15:15:47,060 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/93/1/ HTTP/1.1" 200 35
+2024-04-29 15:15:48,600 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/93/2/ HTTP/1.1" 200 35
+2024-04-29 15:15:48,665 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/93/2/ HTTP/1.1" 200 35
+2024-04-29 15:15:50,983 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/93/61/ HTTP/1.1" 200 35
+2024-04-29 15:15:51,059 django.server INFO "POST /logistique_service_medical/verifier_liste_retour/93/61/ HTTP/1.1" 200 35
+2024-04-29 15:15:52,955 django.server INFO "POST /logistique_service_medical/valider_liste_retour/93/ HTTP/1.1" 302 0
+2024-04-29 15:15:53,041 django.server INFO "GET /logistique_service_medical/mise_a_jour_stock/ HTTP/1.1" 200 3268
+2024-04-29 15:15:55,904 django WARNING le contexte pour la view est vide
+2024-04-29 15:15:55,904 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-29 15:15:55,916 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-29 15:15:57,422 django.server INFO "GET /logistique_service_medical/display_produits/ HTTP/1.1" 200 5613
+2024-04-29 15:16:01,242 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 80211
+2024-04-29 15:18:57,126 django WARNING le contexte pour la view est vide
+2024-04-29 15:18:57,126 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-29 15:18:57,143 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-29 15:19:29,897 django.server INFO "GET /logistique_service_medical/display_produits/ HTTP/1.1" 200 5613
+2024-04-29 15:19:36,186 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 80211
+2024-04-29 15:19:46,184 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 5613
+2024-04-29 15:19:48,808 django.server INFO "GET /logistique_service_medical/produit_list/ HTTP/1.1" 200 87373
+2024-04-29 15:19:55,487 django WARNING le contexte pour la view est vide
+2024-04-29 15:19:55,487 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-29 15:19:55,497 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-29 15:20:00,017 django WARNING le contexte pour la view est vide
+2024-04-29 15:20:00,017 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-29 15:20:00,017 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-29 15:20:01,275 django WARNING le contexte pour la view est vide
+2024-04-29 15:20:01,275 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-29 15:20:01,477 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-29 15:20:03,936 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 3903
+2024-04-29 15:20:06,624 django.server INFO "GET /logistique_service_medical/depart/ HTTP/1.1" 200 7441
+2024-04-29 15:20:31,445 django.server INFO "POST /logistique_service_medical/depart/ HTTP/1.1" 200 161662
+2024-04-29 15:21:24,911 django.server INFO "GET /logistique_service_medical/user_list/ HTTP/1.1" 200 9566
+2024-04-29 17:41:16,706 django WARNING le contexte pour la view est vide
+2024-04-29 17:41:16,706 django INFO Définition des villes favorites pour l'utilisateur
+2024-04-29 17:41:16,731 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4188
+2024-04-29 17:41:33,170 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-04-29 17:41:34,738 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-29 17:41:45,199 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-29 17:41:45,219 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-29 17:41:45,327 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2477
+2024-04-29 17:42:26,974 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2724
+2024-04-29 17:43:29,600 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2724
+2024-04-29 17:45:06,328 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2737
+2024-04-29 19:02:52,645 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2725
+2024-04-30 13:29:28,087 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-30 13:29:31,682 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-30 13:29:33,167 django.request WARNING Not Found: /favicon.ico
+2024-04-30 13:29:33,169 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 2360
+2024-04-30 13:29:35,302 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-30 13:29:35,320 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-30 13:29:35,433 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2742
+2024-04-30 13:32:55,044 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2032
+2024-04-30 13:33:54,223 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2725
+2024-04-30 13:34:21,106 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2724
+2024-04-30 13:36:05,482 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2725
+2024-04-30 14:21:50,541 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2772
+2024-04-30 14:27:46,890 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2772
+2024-04-30 14:28:46,485 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2772
+2024-04-30 14:29:45,731 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2778
+2024-04-30 14:30:13,204 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2698
+2024-04-30 14:31:29,896 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 2763
+2024-04-30 17:51:46,061 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-04-30 17:51:48,965 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-04-30 17:51:52,486 django.server INFO "POST / HTTP/1.1" 302 0
+2024-04-30 17:51:52,716 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-04-30 17:51:52,805 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3446
+2024-04-30 17:52:40,732 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4967
+2024-04-30 17:52:45,428 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3446
+2024-04-30 17:52:47,408 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4967
+2024-05-01 09:14:30,520 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-01 09:14:33,255 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-05-01 09:14:33,665 django.request WARNING Not Found: /favicon.ico
+2024-05-01 09:14:33,666 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 2360
+2024-05-01 09:14:39,334 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-01 09:14:39,401 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-05-01 09:14:39,537 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3458
+2024-05-01 09:17:18,469 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3508
+2024-05-01 10:39:22,274 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3541
+2024-05-01 10:52:24,182 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3446
+2024-05-01 10:54:16,685 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3539
+2024-05-01 10:54:45,848 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-01 10:54:53,918 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-05-01 10:54:56,395 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-01 10:54:56,601 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-05-01 10:54:56,699 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3539
+2024-05-01 11:21:54,124 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3418
+2024-05-01 11:22:28,889 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3421
+2024-05-01 11:22:39,005 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-05-01 11:22:40,623 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-05-01 11:25:07,422 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-01 11:25:07,469 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-05-01 11:25:07,688 django WARNING le contexte pour la view est vide
+2024-05-01 11:25:07,688 django INFO Définition des villes favorites pour l'utilisateur
+2024-05-01 11:25:07,704 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4218
+2024-05-01 11:25:11,847 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-05-01 11:25:13,458 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-05-01 11:25:15,615 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-01 11:25:15,662 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-05-01 11:25:15,787 django WARNING le contexte pour la view est vide
+2024-05-01 11:25:15,787 django INFO Définition des villes favorites pour l'utilisateur
+2024-05-01 11:25:15,803 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4218
+2024-05-01 11:26:10,122 django WARNING le contexte pour la view est vide
+2024-05-01 11:26:10,122 django INFO Définition des villes favorites pour l'utilisateur
+2024-05-01 11:26:10,135 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4222
+2024-05-01 11:27:32,161 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-01 11:27:34,265 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-05-01 11:27:39,145 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-01 11:27:39,169 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-05-01 11:27:39,249 django WARNING le contexte pour la view est vide
+2024-05-01 11:27:39,250 django INFO Définition des villes favorites pour l'utilisateur
+2024-05-01 11:27:39,262 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4162
+2024-05-01 11:28:11,288 django WARNING le contexte pour la view est vide
+2024-05-01 11:28:11,288 django INFO Définition des villes favorites pour l'utilisateur
+2024-05-01 11:28:11,295 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4832
+2024-05-01 11:28:52,916 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-01 11:28:55,191 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-05-01 11:28:57,552 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-01 11:28:57,572 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-05-01 11:28:57,667 django WARNING le contexte pour la view est vide
+2024-05-01 11:28:57,668 django INFO Définition des villes favorites pour l'utilisateur
+2024-05-01 11:28:57,680 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4832
+2024-05-01 12:45:48,770 django WARNING le contexte pour la view est vide
+2024-05-01 12:45:48,770 django INFO Définition des villes favorites pour l'utilisateur
+2024-05-01 12:45:48,785 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4833
+2024-05-01 12:45:55,999 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-05-01 12:45:58,190 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-05-01 12:46:56,368 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-01 12:46:58,571 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-05-01 12:46:59,299 django.request WARNING Not Found: /favicon.ico
+2024-05-01 12:46:59,301 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 2360
+2024-05-01 12:47:01,376 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-01 12:47:01,398 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-05-01 12:47:01,484 django WARNING le contexte pour la view est vide
+2024-05-01 12:47:01,484 django INFO Définition des villes favorites pour l'utilisateur
+2024-05-01 12:47:01,495 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4833
+2024-05-01 12:47:03,726 django.server INFO "GET /logistique_service_medical/user_list/ HTTP/1.1" 200 10211
+2024-05-01 12:47:08,654 django.server INFO "GET /logistique_service_medical/display_produits/ HTTP/1.1" 200 6258
+2024-05-01 12:47:15,295 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 80856
+2024-05-01 14:50:37,898 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 80868
+2024-05-01 17:15:00,239 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 80865
+2024-05-01 17:15:40,172 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 80856
+2024-05-01 17:16:22,179 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 80853
+2024-05-01 17:17:07,241 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 80850
+2024-05-01 17:17:38,919 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 6252
+2024-05-01 17:17:44,041 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 7483
+2024-05-02 17:03:06,472 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-02 17:03:09,788 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-05-02 17:03:11,328 django.request WARNING Not Found: /favicon.ico
+2024-05-02 17:03:11,330 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 2360
+2024-05-02 17:03:15,703 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-02 17:03:15,722 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-05-02 17:03:15,823 django WARNING le contexte pour la view est vide
+2024-05-02 17:03:15,823 django INFO Définition des villes favorites pour l'utilisateur
+2024-05-02 17:03:15,859 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4833
+2024-05-02 17:03:17,658 django.server INFO "GET /logistique_service_medical/display_produits/ HTTP/1.1" 200 6252
+2024-05-02 17:03:21,522 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 302 0
+2024-05-02 17:03:21,939 django.server INFO "GET /logistique_service_medical/display_produits/ HTTP/1.1" 200 80850
+2024-05-02 19:15:24,213 django.server INFO "POST /logistique_service_medical/update_quantity/1/ HTTP/1.1" 200 35
+2024-05-02 19:15:24,224 django.server INFO "POST /logistique_service_medical/update_quantity/1/ HTTP/1.1" 200 35
+2024-05-02 19:29:44,166 django.request ERROR Internal Server Error: /logistique_service_medical/display_produits/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\smartif.py", line 180, in translate_token
+    op = OPERATORS[token]
+         ~~~~~~~~~^^^^^^^
+KeyError: 'request.session.selected_stock_id=='
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 143, in display_produits
+    return render(request, 'logistique_service_medical/display_produits.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\defaulttags.py", line 861, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\defaulttags.py", line 960, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\defaulttags.py", line 893, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\smartif.py", line 171, in __init__
+    mapped_tokens.append(self.translate_token(token))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\smartif.py", line 182, in translate_token
+    return self.create_var(token)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\defaulttags.py", line 896, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 698, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '==' from 'request.session.selected_stock_id=='
+2024-05-02 19:29:44,178 django.server ERROR "GET /logistique_service_medical/display_produits/ HTTP/1.1" 500 296849
+2024-05-02 19:32:54,528 django.request ERROR Internal Server Error: /logistique_service_medical/display_produits/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\smartif.py", line 180, in translate_token
+    op = OPERATORS[token]
+         ~~~~~~~~~^^^^^^^
+KeyError: 'request.session.selected_stock_id=='
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 143, in display_produits
+    return render(request, 'logistique_service_medical/display_produits.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\defaulttags.py", line 861, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\defaulttags.py", line 960, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\defaulttags.py", line 893, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\smartif.py", line 171, in __init__
+    mapped_tokens.append(self.translate_token(token))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\smartif.py", line 182, in translate_token
+    return self.create_var(token)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\defaulttags.py", line 896, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 698, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '==' from 'request.session.selected_stock_id=='
+2024-05-02 19:32:54,535 django.server ERROR "GET /logistique_service_medical/display_produits/ HTTP/1.1" 500 296701
+2024-05-02 19:34:32,433 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-05-02 19:34:34,053 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-02 19:34:34,819 django.server INFO "GET /logistique_service_medical/display_produits/ HTTP/1.1" 200 6252
+2024-05-02 19:34:38,913 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 80850
+2024-05-02 19:34:44,567 django.server INFO "POST /logistique_service_medical/update_quantity/1/ HTTP/1.1" 200 35
+2024-05-02 19:34:44,646 django.server INFO "POST /logistique_service_medical/update_quantity/1/ HTTP/1.1" 200 35
+2024-05-02 19:34:50,152 django.server INFO "POST /logistique_service_medical/update_quantity/2/ HTTP/1.1" 200 35
+2024-05-02 19:34:50,180 django.server INFO "POST /logistique_service_medical/update_quantity/2/ HTTP/1.1" 200 35
+2024-05-02 21:14:15,524 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-02 21:14:22,186 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-05-02 21:14:27,323 django.request WARNING Not Found: /favicon.ico
+2024-05-02 21:14:27,328 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 2360
+2024-05-02 21:22:17,266 django.server INFO "GET /logistique_service_medical/register/ HTTP/1.1" 200 3805
+2024-05-02 21:27:53,368 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-05-02 21:29:32,532 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-02 21:29:32,752 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-05-02 21:29:45,756 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3361
+2024-05-02 21:30:24,162 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 4882
+2024-05-02 21:30:38,301 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3361
+2024-05-02 21:40:20,428 django.server INFO - Broken pipe from ('127.0.0.1', 52443)
+2024-05-02 21:40:34,287 django.server INFO - Broken pipe from ('127.0.0.1', 52444)
+2024-05-02 21:40:41,756 django.server INFO - Broken pipe from ('127.0.0.1', 52452)
+2024-05-02 21:40:43,190 django.server INFO - Broken pipe from ('127.0.0.1', 52450)
+2024-05-02 21:40:47,851 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-05-02 21:41:25,015 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-05-02 21:41:58,453 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-02 21:41:59,066 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-05-02 21:42:07,445 django WARNING le contexte pour la view est vide
+2024-05-02 21:42:07,446 django INFO Définition des villes favorites pour l'utilisateur
+2024-05-02 21:42:07,558 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4833
+2024-05-02 21:45:17,375 django.server INFO "GET /logistique_service_medical/user_list/ HTTP/1.1" 200 10211
+2024-05-02 21:56:03,843 django.server INFO "GET /logistique_service_medical/display_produits/ HTTP/1.1" 200 6252
+2024-05-02 21:57:42,339 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 80850
+2024-05-02 22:01:37,705 django.server INFO "GET /logistique_service_medical/produit_list/ HTTP/1.1" 200 88018
+2024-05-02 22:02:38,535 django.server INFO "POST /logistique_service_medical/delete_produit/ HTTP/1.1" 302 0
+2024-05-02 22:02:48,287 django.server INFO "GET /logistique_service_medical/produit_list/ HTTP/1.1" 200 86888
+2024-05-02 22:06:07,857 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 4548
+2024-05-02 22:14:49,100 django.server INFO "GET /logistique_service_medical/depart/ HTTP/1.1" 200 8086
+2024-05-02 22:17:46,622 django.server INFO "POST /logistique_service_medical/depart/ HTTP/1.1" 200 160200
+2024-05-02 22:23:20,697 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/2/ HTTP/1.1" 200 35
+2024-05-02 22:23:23,135 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/2/ HTTP/1.1" 200 35
+2024-05-02 22:23:26,333 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/2/ HTTP/1.1" 200 35
+2024-05-02 22:24:04,527 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/1/ HTTP/1.1" 200 35
+2024-05-02 22:24:05,803 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/1/ HTTP/1.1" 200 35
+2024-05-02 22:24:06,525 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/1/ HTTP/1.1" 200 35
+2024-05-02 22:24:18,225 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/1/ HTTP/1.1" 200 35
+2024-05-02 22:24:24,836 django.server INFO "POST /logistique_service_medical/remplir_liste_depart/37/1/ HTTP/1.1" 200 35
+2024-05-02 22:31:21,457 django.server INFO "POST /logistique_service_medical/create_liste_utilisateur/37/ HTTP/1.1" 302 0
+2024-05-02 22:31:24,626 django.server INFO "GET /logistique_service_medical/liste_utilisateur_creee/ HTTP/1.1" 200 3937
+2024-05-02 22:33:30,706 django WARNING le contexte pour la view est vide
+2024-05-02 22:33:30,707 django INFO Définition des villes favorites pour l'utilisateur
+2024-05-02 22:33:30,723 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4833
+2024-05-02 22:33:36,721 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 4548
+2024-05-02 22:33:51,772 django.server INFO "GET /logistique_service_medical/retour/ HTTP/1.1" 200 6072
+2024-05-02 22:34:15,243 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-05-02 22:34:27,282 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-05-02 22:34:53,269 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-02 22:34:53,868 django.server INFO "GET /logistique_service_medical/index_utilisateur HTTP/1.1" 301 0
+2024-05-02 22:34:57,311 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3361
+2024-05-02 22:35:29,770 django.server INFO "GET /logistique_service_medical/ma_liste/ HTTP/1.1" 200 11344
+2024-05-02 22:36:00,289 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/94/1/ HTTP/1.1" 200 35
+2024-05-02 22:36:01,887 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/94/1/ HTTP/1.1" 200 35
+2024-05-02 22:36:05,922 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/94/2/ HTTP/1.1" 200 35
+2024-05-02 22:36:06,408 django.server INFO "POST /logistique_service_medical/remplir_liste_retour/94/2/ HTTP/1.1" 200 35
+2024-05-02 22:36:17,851 django.server INFO "GET /logistique_service_medical/index_utilisateur/ HTTP/1.1" 200 3361
+2024-05-02 22:36:25,548 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-05-02 22:36:28,011 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-05-02 22:36:54,308 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-02 22:36:54,846 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-05-02 22:36:59,188 django WARNING le contexte pour la view est vide
+2024-05-02 22:36:59,188 django INFO Définition des villes favorites pour l'utilisateur
+2024-05-02 22:36:59,657 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4833
+2024-05-02 22:37:10,531 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 4548
+2024-05-02 22:37:34,288 django.server INFO "GET /logistique_service_medical/retour/ HTTP/1.1" 200 6072
+2024-05-02 22:38:08,646 django.server INFO "POST /logistique_service_medical/retour/ HTTP/1.1" 200 12941
+2024-05-02 22:39:48,382 django.server INFO "POST /logistique_service_medical/valider_liste_retour/94/ HTTP/1.1" 302 0
+2024-05-02 22:39:52,344 django.server INFO "GET /logistique_service_medical/mise_a_jour_stock/ HTTP/1.1" 200 3913
+2024-05-02 22:40:05,634 django WARNING le contexte pour la view est vide
+2024-05-02 22:40:05,634 django INFO Définition des villes favorites pour l'utilisateur
+2024-05-02 22:40:05,867 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4833
+2024-05-02 22:40:17,517 django.server INFO "GET /logistique_service_medical/depart_retour/ HTTP/1.1" 200 4548
+2024-05-02 22:40:46,027 django.server INFO "GET /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 7539
+2024-05-02 22:41:54,851 django.server INFO "POST /logistique_service_medical/recherche_archive/ HTTP/1.1" 200 15606
+2024-05-02 22:42:38,562 django.server INFO "POST /logistique_service_medical/display_archive/ HTTP/1.1" 200 19347
+2024-05-03 14:22:31,645 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-03 14:26:32,460 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-05-03 14:26:35,409 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-03 14:26:49,453 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-05-03 14:26:53,615 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-03 14:27:38,638 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-05-03 14:27:40,462 django.request WARNING Not Found: /favicon.ico
+2024-05-03 14:27:40,462 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 2360
+2024-05-03 14:27:42,426 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-03 14:27:42,457 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-05-03 14:27:42,572 django WARNING le contexte pour la view est vide
+2024-05-03 14:27:42,572 django INFO Définition des villes favorites pour l'utilisateur
+2024-05-03 14:27:42,658 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4833
+2024-05-03 14:27:45,291 django.server INFO "GET /logistique_service_medical/display_produits/ HTTP/1.1" 200 6252
+2024-05-03 14:27:49,091 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79745
+2024-05-03 14:36:48,824 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-05-03 14:36:50,940 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-03 14:36:52,635 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79745
+2024-05-03 14:36:56,873 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79745
+2024-05-03 14:37:31,111 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-05-03 14:37:33,950 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-03 14:37:36,006 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79745
+2024-05-03 14:37:40,430 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79745
+2024-05-03 15:12:59,194 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79767
+2024-05-03 15:13:33,517 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79746
+2024-05-03 15:16:05,253 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79747
+2024-05-03 15:16:09,766 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79747
+2024-05-03 15:16:13,201 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79747
+2024-05-03 15:16:48,119 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79746
+2024-05-03 17:00:34,515 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79746
+2024-05-03 17:01:49,936 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79731
+2024-05-03 17:05:03,527 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79746
+2024-05-03 17:05:07,753 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79746
+2024-05-03 17:06:09,192 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-05-03 17:06:11,011 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-03 17:06:14,468 django.request ERROR Internal Server Error: /logistique_service_medical/display_produits/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 127, in display_produits
+    print(request.session['selected_stock_nom'])
+          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'selected_stock_nom'
+2024-05-03 17:06:14,468 django.server ERROR "POST /logistique_service_medical/display_produits/ HTTP/1.1" 500 86959
+2024-05-03 17:06:31,530 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-05-03 17:06:33,954 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-03 17:06:37,385 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79746
+2024-05-03 17:06:42,328 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79746
+2024-05-03 17:07:10,525 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-05-03 17:07:12,161 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-03 17:07:13,020 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79746
+2024-05-03 17:11:40,580 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79746
+2024-05-03 17:11:49,395 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79746
+2024-05-03 21:18:32,376 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-03 21:18:36,326 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-05-03 21:18:36,770 django.request WARNING Not Found: /favicon.ico
+2024-05-03 21:18:36,771 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 2360
+2024-05-03 21:18:40,004 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-03 21:18:40,021 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-05-03 21:18:40,300 django WARNING le contexte pour la view est vide
+2024-05-03 21:18:40,301 django INFO Définition des villes favorites pour l'utilisateur
+2024-05-03 21:18:40,308 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4833
+2024-05-03 21:18:43,493 django.server INFO "GET /logistique_service_medical/display_produits/ HTTP/1.1" 200 6180
+2024-05-03 21:18:46,822 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79682
+2024-05-03 21:18:52,763 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 7420
+2024-05-03 21:18:59,330 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 7420
+2024-05-03 21:19:05,067 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 7420
+2024-05-03 21:37:46,716 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-05-03 21:37:51,266 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-03 21:38:10,202 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-05-03 21:38:11,984 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-03 21:38:13,124 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 7484
+2024-05-03 21:38:17,732 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79746
+2024-05-03 21:39:09,258 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79682
+2024-05-03 21:39:13,792 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 7420
+2024-05-03 21:40:06,086 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 7474
+2024-05-03 21:40:15,342 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79741
+2024-05-03 21:48:10,281 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 80250
+2024-05-03 21:48:26,723 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 80250
+2024-05-03 21:56:34,447 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 80250
+2024-05-03 22:06:28,320 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79746
+2024-05-03 22:06:43,488 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 79746
+2024-05-03 22:15:13,404 django.request ERROR Internal Server Error: /logistique_service_medical/display_produits/
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 502, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endif'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py", line 143, in display_produits
+    return render(request, 'logistique_service_medical/display_produits.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 504, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\romfa\Dev\Application_FFR_V7\.venv\Lib\site-packages\django\template\base.py", line 555, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 77: 'endif', expected 'endblock'. Did you forget to register or load this tag?
+2024-05-03 22:15:13,412 django.server ERROR "POST /logistique_service_medical/display_produits/ HTTP/1.1" 500 218584
+2024-05-03 22:16:37,178 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 93997
+2024-05-03 22:16:48,244 django.server INFO "POST /logistique_service_medical/update_quantity/1/ HTTP/1.1" 200 35
+2024-05-03 22:16:53,462 django.server INFO "POST /logistique_service_medical/update_quantity/1/ HTTP/1.1" 200 35
+2024-05-03 22:16:57,157 django.server INFO "POST /logistique_service_medical/update_quantity/2/ HTTP/1.1" 200 35
+2024-05-03 22:17:04,138 django.server INFO "POST /logistique_service_medical/update_quantity/3/ HTTP/1.1" 200 35
+2024-05-03 22:17:11,036 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 93997
+2024-05-03 22:19:00,618 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 93501
+2024-05-03 22:19:45,330 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 93513
+2024-05-03 22:19:56,736 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 93512
+2024-05-03 22:23:41,040 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 93507
+2024-05-03 22:24:06,481 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 8040
+2024-05-03 22:24:15,988 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 8043
+2024-05-03 22:24:26,408 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 93507
+2024-05-03 22:29:40,232 django.server INFO "POST /logistique_service_medical/update_quantity/2/ HTTP/1.1" 200 35
+2024-05-03 22:32:51,928 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 93507
+2024-05-03 22:33:03,417 django.server INFO "POST /logistique_service_medical/logout/ HTTP/1.1" 200 527
+2024-05-03 22:33:05,543 django.server INFO "GET / HTTP/1.1" 200 1967
+2024-05-03 22:33:11,390 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-03 22:33:11,405 django.server INFO "GET /logistique_service_medical/index HTTP/1.1" 301 0
+2024-05-03 22:33:11,515 django WARNING le contexte pour la view est vide
+2024-05-03 22:33:11,515 django INFO Définition des villes favorites pour l'utilisateur
+2024-05-03 22:33:11,515 django.server INFO "GET /logistique_service_medical/index/ HTTP/1.1" 200 4833
+2024-05-03 22:33:18,997 django.server INFO "GET /logistique_service_medical/display_produits/ HTTP/1.1" 200 6237
+2024-05-03 22:33:29,205 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 93507
+2024-05-03 22:34:12,118 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 93507
+2024-05-03 22:35:06,277 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 93509
+2024-05-03 22:35:57,536 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 93505
+2024-05-03 22:36:39,951 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 93703
+2024-05-03 22:37:27,721 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 93694
+2024-05-03 22:38:08,047 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 93688
+2024-05-03 22:47:26,898 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 6228
+2024-05-03 22:47:36,044 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 94480
+2024-05-03 22:54:43,783 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 95097
+2024-05-03 22:54:48,630 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 95097
+2024-05-03 22:54:51,193 django.server INFO "POST /logistique_service_medical/update_quantity/1/ HTTP/1.1" 200 35
+2024-05-03 22:55:03,466 django.server INFO "POST /logistique_service_medical/update_quantity/1/ HTTP/1.1" 200 35
+2024-05-03 22:55:12,117 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 95097
+2024-05-03 22:55:52,608 django.server INFO "POST /logistique_service_medical/update_quantity/2/ HTTP/1.1" 200 35
+2024-05-03 22:56:42,589 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-05-03 22:56:44,700 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-03 22:56:45,600 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 95097
+2024-05-03 22:56:50,514 django.server INFO "POST /logistique_service_medical/display_produits/ HTTP/1.1" 200 95097
+2024-05-03 22:57:01,673 django.server INFO "POST /logistique_service_medical/update_quantity/1/ HTTP/1.1" 200 35
+2024-05-03 22:57:49,356 django.utils.autoreload INFO C:\Users\romfa\Dev\Application_FFR_V7\application_FFR\logistique_service_medical\views.py changed, reloading.
+2024-05-03 22:57:51,409 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-03 22:57:52,060 django.server INFO "POST /logistique_service_medical/update_quantity/1/ HTTP/1.1" 200 35

@@ -31,7 +31,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'logistique_service_medical.apps.LogistiqueServiceMedicalConfig',
+    'admin_base',
+    'admin_compte',
+    'admin_liste',
+    'admin_stock',
+    'registration',
+    'user_liste',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -60,7 +65,8 @@ ROOT_URLCONF = 'application_FFR.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR,'templates'),],
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,7 +140,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'application_FFR', 'static'),
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -175,6 +183,21 @@ LOGGING = {
 }
 
 
-LOGIN_REDIRECT_URL = '/logistique_service_medical/index_utilisateur/'
+LOGIN_REDIRECT_URL = '/user_liste/index_utilisateur/'
 
-LOGIN_REDIRECT_URL_FOR_ADMIN = '/logistique_service_medical/index/'
+LOGIN_REDIRECT_URL_FOR_ADMIN = '/admin_base/index/'
+
+
+
+# settings.py
+
+from decouple import config
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = config('EMAIL_HOST', default='smtp.your-email-provider.com')
+EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='webmaster@your-domain.com')
+
