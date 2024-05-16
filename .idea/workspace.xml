@@ -5,133 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d51fe39-c218-481b-9867-434961d1031b" name="Changes" comment="Application_FFR_V9">
-      <change afterPath="$PROJECT_DIR$/.idea/Application_FFR_V9.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_base/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_base/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_base/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_base/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_base/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_base/migrations/0002_alter_listeutilisateur_id_utilisateur_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_base/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_base/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_base/permissions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_base/templates/admin_base/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_base/templates/admin_base/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_base/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_base/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_base/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_compte/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_compte/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_compte/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_compte/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_compte/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_compte/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_compte/templates/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_compte/templates/user_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_compte/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_compte/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_compte/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/business/components/gestion_deplacement.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/business/components/gestion_equipe.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/business/components/gestion_liste_depart.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/business/components/gestion_liste_utilisateur.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/business/components/ifonction_create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/business/components/ifonction_get.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/business/components/ifonction_update.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/business/entities/deplacement.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/business/entities/equipe.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/business/entities/liste_depart.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/business/entities/liste_utilisateur.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/business/entities/utilisateur.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/data/data_deplacement.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/data/data_equipe.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/data/data_liste_depart.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/data/data_liste_utilisateur.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/templates/archive.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/templates/create_liste_utilisateur.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/templates/depart.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/templates/depart_retour.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/templates/retour.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_liste/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_stock/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_stock/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_stock/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_stock/business/components/gestion_stock.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_stock/business/components/ifonction_create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_stock/business/components/ifonction_get.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_stock/business/components/ifonction_update.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_stock/business/entities/produit.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_stock/business/entities/stock.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_stock/data/data_stock.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_stock/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_stock/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_stock/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_stock/templates/display_produits.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_stock/templates/produit_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_stock/templates/select_stock.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_stock/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_stock/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/admin_stock/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/application_FFR/static/jquery-3.7.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/registration/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/registration/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/registration/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/registration/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/registration/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/registration/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/registration/permissions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/registration/templates/registration/logged_out.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/registration/templates/registration/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/registration/templates/registration/password_reset_complete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/registration/templates/registration/password_reset_confirm.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/registration/templates/registration/password_reset_done.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/registration/templates/registration/password_reset_email.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/registration/templates/registration/password_reset_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/registration/templates/registration/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/registration/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/registration/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/registration/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/user_liste/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/user_liste/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/user_liste/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/user_liste/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/user_liste/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/user_liste/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/user_liste/templates/base_ma_liste.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/user_liste/templates/index_utilisateur.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/user_liste/templates/ma_liste.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/user_liste/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/user_liste/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application_FFR/user_liste/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application_FFR/logistique_service_medical/business/components/gestion_liste_depart.py" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/logistique_service_medical/business/components/gestion_liste_depart.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application_FFR/logistique_service_medical/business/components/gestion_liste_utilisateur.py" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/logistique_service_medical/business/components/gestion_liste_utilisateur.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application_FFR/logistique_service_medical/business/components/gestion_stock.py" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/logistique_service_medical/business/components/gestion_stock.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application_FFR/logistique_service_medical/data/data_liste_utilisateur.py" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/logistique_service_medical/data/data_liste_utilisateur.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application_FFR/logistique_service_medical/data/data_stock.py" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/logistique_service_medical/data/data_stock.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/logistique_service_medical/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/logistique_service_medical/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/logistique_service_medical/depart.html" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/logistique_service_medical/depart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/logistique_service_medical/depart_retour.html" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/logistique_service_medical/depart_retour.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/logistique_service_medical/display_produits.html" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/logistique_service_medical/display_produits.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/logistique_service_medical/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/logistique_service_medical/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/logistique_service_medical/index_utilisateur.html" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/logistique_service_medical/index_utilisateur.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/logistique_service_medical/ma_liste.html" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/logistique_service_medical/ma_liste.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/logistique_service_medical/produit_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/logistique_service_medical/produit_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/logistique_service_medical/retour.html" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/logistique_service_medical/retour.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/logistique_service_medical/user_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/logistique_service_medical/user_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/logistique_service_medical/templates/registration/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application_FFR/logistique_service_medical/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/logistique_service_medical/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application_FFR/logistique_service_medical/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/logistique_service_medical/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_base/templates/admin_base/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/admin_base/templates/admin_base/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_stock/templates/display_produits.html" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/admin_stock/templates/display_produits.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/registration/templates/registration/password_reset_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/registration/templates/registration/password_reset_email.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,23 +34,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python.manage.executor": "Run",
-    "Python.manage.py.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging master",
-    "last_opened_file_path": "C:/Users/romfa/Dev/Application_FFR_V9/application_FFR/registration",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.manage.executor&quot;: &quot;Run&quot;,
+    &quot;Python.manage.py.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/romfa/Dev/Application_FFR_V9/application_FFR/registration&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\romfa\Dev\Application_FFR_V9\application_FFR\registration" />
@@ -233,7 +110,8 @@
       <workItem from="1715672269853" duration="15302000" />
       <workItem from="1715756782221" duration="25497000" />
       <workItem from="1715793404627" duration="410000" />
-      <workItem from="1715801138901" duration="6525000" />
+      <workItem from="1715801138901" duration="7734000" />
+      <workItem from="1715843807929" duration="1375000" />
     </task>
     <task id="LOCAL-00001" summary="Application_FFR_V9">
       <option name="closed" value="true" />
@@ -254,6 +132,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Application_FFR_V9" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Application_FFR_V9$manage.coverage" NAME="manage Coverage Results" MODIFIED="1715806305781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Application_FFR_V9$manage.coverage" NAME="manage Coverage Results" MODIFIED="1715843968805" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
