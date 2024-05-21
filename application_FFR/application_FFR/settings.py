@@ -164,7 +164,7 @@ LOGGING = {
         'file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': 'C:\\Users\\romfa\\Dev\\Application_FFR_V7\\application_FFR\\debug.log',
+            'filename': 'C:\\Users\\romfa\\Dev\\Application_FFR_V9\\application_FFR\\debug.log',
             'formatter': 'simple'
         },
         'console': {
