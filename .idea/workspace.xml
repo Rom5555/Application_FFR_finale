@@ -6,7 +6,151 @@
   <component name="ChangeListManager">
     <list default="true" id="4d51fe39-c218-481b-9867-434961d1031b" name="Changes" comment="Application_FFR_V9">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application_FFR/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_base/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_base/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_base/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_base/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_base/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_base/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_base/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_base/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_base/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_base/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_base/migrations/0002_alter_listeutilisateur_id_utilisateur_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_base/migrations/0002_alter_listeutilisateur_id_utilisateur_and_more.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_base/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_base/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_base/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_base/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_base/permissions.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_base/permissions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_base/templates/admin_base/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_base/templates/admin_base/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_base/templates/admin_base/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_base/templates/admin_base/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_base/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_base/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_base/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_base/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_base/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_base/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_compte/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_compte/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_compte/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_compte/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_compte/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_compte/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_compte/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_compte/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_compte/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_compte/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_compte/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_compte/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_compte/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_compte/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_compte/templates/user_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_compte/templates/user_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_compte/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_compte/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_compte/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_compte/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_compte/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_compte/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/business/components/gestion_deplacement.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/components/gestion_deplacement.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/business/components/gestion_equipe.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/components/gestion_equipe.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/business/components/gestion_liste_depart.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/components/gestion_liste_depart.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/business/components/gestion_liste_utilisateur.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/components/gestion_liste_utilisateur.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/business/components/ifonction_create.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/components/ifonction_create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/business/components/ifonction_get.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/components/ifonction_get.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/business/components/ifonction_update.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/components/ifonction_update.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/business/entities/deplacement.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/entities/deplacement.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/business/entities/equipe.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/entities/equipe.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/business/entities/liste_depart.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/entities/liste_depart.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/business/entities/liste_utilisateur.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/entities/liste_utilisateur.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/business/entities/utilisateur.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/entities/utilisateur.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/data/data_deplacement.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/data/data_deplacement.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/data/data_equipe.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/data/data_equipe.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/data/data_liste_depart.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/data/data_liste_depart.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/data/data_liste_utilisateur.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/data/data_liste_utilisateur.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/templates/archive.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/templates/archive.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/templates/create_liste_utilisateur.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/templates/create_liste_utilisateur.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/templates/depart.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/templates/depart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/templates/depart_retour.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/templates/depart_retour.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/templates/retour.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/templates/retour.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_liste/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_stock/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_stock/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_stock/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_stock/business/components/gestion_stock.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/business/components/gestion_stock.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_stock/business/components/ifonction_create.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/business/components/ifonction_create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_stock/business/components/ifonction_get.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/business/components/ifonction_get.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_stock/business/components/ifonction_update.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/business/components/ifonction_update.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_stock/business/entities/produit.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/business/entities/produit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_stock/business/entities/stock.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/business/entities/stock.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_stock/data/data_stock.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/data/data_stock.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_stock/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_stock/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_stock/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_stock/templates/display_produits.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/templates/display_produits.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_stock/templates/produit_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/templates/produit_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_stock/templates/select_stock.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/templates/select_stock.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_stock/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_stock/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/admin_stock/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/application_FFR/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/application_FFR/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/asgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/application_FFR/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/application_FFR/static/jquery-3.7.1.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/static/jquery-3.7.1.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/application_FFR/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/application_FFR/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_000f" beforeDir="false" afterPath="$PROJECT_DIR$/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_000f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_001d" beforeDir="false" afterPath="$PROJECT_DIR$/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_001d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_002d" beforeDir="false" afterPath="$PROJECT_DIR$/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_002d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_003d" beforeDir="false" afterPath="$PROJECT_DIR$/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_003d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_004d" beforeDir="false" afterPath="$PROJECT_DIR$/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_004d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_005d" beforeDir="false" afterPath="$PROJECT_DIR$/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_005d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_006d" beforeDir="false" afterPath="$PROJECT_DIR$/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_006d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_007d" beforeDir="false" afterPath="$PROJECT_DIR$/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_007d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_008d" beforeDir="false" afterPath="$PROJECT_DIR$/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_008d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_009d" beforeDir="false" afterPath="$PROJECT_DIR$/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_009d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_010d" beforeDir="false" afterPath="$PROJECT_DIR$/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_010d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_011d" beforeDir="false" afterPath="$PROJECT_DIR$/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_011d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_012d" beforeDir="false" afterPath="$PROJECT_DIR$/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_012d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_013d" beforeDir="false" afterPath="$PROJECT_DIR$/etude/UML/Application_FFR_Diagramme_cas_utilisation.vpp.bak_013d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/database/design/application_FFR_V5_pgmodeler.dbm" beforeDir="false" afterPath="$PROJECT_DIR$/etude/database/design/application_FFR_V5_pgmodeler.dbm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/database/sauvegarde/backup.py" beforeDir="false" afterPath="$PROJECT_DIR$/etude/database/sauvegarde/backup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/database/sauvegarde/backup_file.dump" beforeDir="false" afterPath="$PROJECT_DIR$/etude/database/sauvegarde/backup_file.dump" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/database/sauvegarde/restore.py" beforeDir="false" afterPath="$PROJECT_DIR$/etude/database/sauvegarde/restore.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/database/scripts/00_create_tables.SQL" beforeDir="false" afterPath="$PROJECT_DIR$/etude/database/scripts/00_create_tables.SQL" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/database/scripts/01_stock_insert.SQL" beforeDir="false" afterPath="$PROJECT_DIR$/etude/database/scripts/01_stock_insert.SQL" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/database/scripts/02_consommable_insert.SQL" beforeDir="false" afterPath="$PROJECT_DIR$/etude/database/scripts/02_consommable_insert.SQL" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/database/scripts/03_association_stock_consommable_insert.SQL" beforeDir="false" afterPath="$PROJECT_DIR$/etude/database/scripts/03_association_stock_consommable_insert.SQL" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/database/scripts/04_equipe_insert.SQL" beforeDir="false" afterPath="$PROJECT_DIR$/etude/database/scripts/04_equipe_insert.SQL" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/database/scripts/command_0.log" beforeDir="false" afterPath="$PROJECT_DIR$/etude/database/scripts/command_0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/database/scripts/command_1.log" beforeDir="false" afterPath="$PROJECT_DIR$/etude/database/scripts/command_1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/database/scripts/command_2.log" beforeDir="false" afterPath="$PROJECT_DIR$/etude/database/scripts/command_2.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/database/scripts/command_3.log" beforeDir="false" afterPath="$PROJECT_DIR$/etude/database/scripts/command_3.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/database/scripts/command_4.log" beforeDir="false" afterPath="$PROJECT_DIR$/etude/database/scripts/command_4.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/etude/database/scripts/generate.py" beforeDir="false" afterPath="$PROJECT_DIR$/etude/database/scripts/generate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/models_FFR.py" beforeDir="false" afterPath="$PROJECT_DIR$/models_FFR.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/registration/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/registration/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/registration/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/registration/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/registration/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/registration/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/registration/permissions.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration/permissions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/registration/templates/registration/logged_out.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/logged_out.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/registration/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/registration/templates/registration/password_reset_complete.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/password_reset_complete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/registration/templates/registration/password_reset_confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/password_reset_confirm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/registration/templates/registration/password_reset_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/password_reset_done.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/registration/templates/registration/password_reset_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/password_reset_email.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/registration/templates/registration/password_reset_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/password_reset_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/registration/templates/registration/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/registration/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/registration/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/registration/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/user_liste/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_liste/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/user_liste/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_liste/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/user_liste/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_liste/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/user_liste/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_liste/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/user_liste/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_liste/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/user_liste/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_liste/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/user_liste/templates/base_ma_liste.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_liste/templates/base_ma_liste.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/user_liste/templates/index_utilisateur.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_liste/templates/index_utilisateur.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/user_liste/templates/ma_liste.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_liste/templates/ma_liste.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/user_liste/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_liste/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/user_liste/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_liste/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/user_liste/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_liste/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,14 +160,30 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitLabMergeRequestFiltersHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPENED&quot;,
+    &quot;assignee&quot;: {
+      &quot;type&quot;: &quot;org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue&quot;,
+      &quot;username&quot;: &quot;Rom5555&quot;,
+      &quot;fullname&quot;: &quot;Rom5555&quot;
+    }
+  }
+}</component>
+  <component name="GitLabMergeRequestsSettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;first&quot;: &quot;https://gitlab.com/Rom5555/Application_FFR_finale_V1&quot;,
+    &quot;second&quot;: &quot;2a778e49-b17a-45cc-81a6-1b02250c6e13&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -54,6 +214,7 @@
       <recent name="C:\Users\romfa\Dev\Application_FFR_V9\application_FFR\registration" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\romfa\Dev\Application_FFR_finale_V1" />
       <recent name="C:\Users\romfa\Dev\Application_FFR_V9\application_FFR\registration\templates\registration" />
       <recent name="C:\Users\romfa\Dev\Application_FFR_V9\application_FFR\registration\templates" />
       <recent name="C:\Users\romfa\Dev\Application_FFR_V9\application_FFR\admin_base\templates" />
@@ -76,7 +237,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/application_FFR/manage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
       <option name="PARAMETERS" value="runserver" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -116,6 +277,10 @@
       <workItem from="1716295871710" duration="181000" />
       <workItem from="1716296079268" duration="805000" />
       <workItem from="1716297854216" duration="13000" />
+      <workItem from="1716298684700" duration="58000" />
+      <workItem from="1716298749322" duration="2647000" />
+      <workItem from="1716372307168" duration="1722000" />
+      <workItem from="1716374374822" duration="368000" />
     </task>
     <task id="LOCAL-00001" summary="Application_FFR_V9">
       <option name="closed" value="true" />
@@ -160,6 +325,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="Application_FFR_V9" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Application_FFR_finale_V1$manage.coverage" NAME="manage Coverage Results" MODIFIED="1716373551728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/Application_FFR_V9$manage.coverage" NAME="manage Coverage Results" MODIFIED="1716296110263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
