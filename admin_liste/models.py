@@ -74,7 +74,7 @@ class ListeDepart(models.Model):
 
 class ListeUtilisateur(models.Model):
     id_liste_utilisateur = models.SmallAutoField(primary_key=True)
-    id_utilisateur = models.ForeignKey(User, models.DO_NOTHING, db_column='id', blank=True, null=True)
+    id_utilisateur = models.ForeignKey(User, models.DO_NOTHING, db_column='id_utilisateur', blank=True, null=True)
     id_liste_depart = models.ForeignKey(ListeDepart, models.DO_NOTHING, db_column='id_liste_depart', blank=True, null=True)
     date_liste = models.DateField(blank=True, null=True)
     destination = models.CharField(max_length=30, blank=True, null=True)

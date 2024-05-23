@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'application_FFR.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django_FFR_db',
+        'NAME': 'application_FFR_db',
         'USER': 'dev',
         'PASSWORD': 'ballon',
         'HOST': '127.0.0.1',
@@ -101,6 +101,9 @@ DATABASES = {
             'PASSWORD': 'ballon',
             'HOST': '127.0.0.1',
             'PORT': '5432',
+            'OPTIONS': {
+                'client_encoding': 'UTF8',
+        },
     }
 }
 
@@ -164,7 +167,7 @@ LOGGING = {
         'file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': 'C:\\Users\\romfa\\Dev\\Application_FFR_V9\\debug.log',
+            'filename': 'C:\\Users\\Ro\\PycharmProjects\\Application_FFR_finale_V1\\debug.log',
             'formatter': 'simple'
         },
         'console': {

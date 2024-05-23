@@ -3,7 +3,7 @@ import psycopg2
 class Data_equipe:
     def __init__(self):
         self._HOST = "localhost"
-        self._DATABASE = "django_FFR_db"
+        self._DATABASE = "application_FFR_db"
         self._USER = "dev"
         self._PASSWORD = "ballon"
         self._PORT = 5432

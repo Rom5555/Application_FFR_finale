@@ -19,8 +19,8 @@ if __name__ == '__main__':
     PORT = 5432
     USER = "dev"
     PASSWORD = "ballon"
-    SCRIPTS_DIRECTORY = "C:\\Users\\romfa\\Dev\\Application_FFR_V7\\application_FFR\\etude\\database\\scripts\\"
-    DATABASE = "django_FFR_db"
+    SCRIPTS_DIRECTORY = "C:\\Users\\Ro\\PycharmProjects\\Application_FFR_finale_V1\\etude\\database\\scripts\\"
+    DATABASE = "application_FFR_db"
     POSTGRESQL_BIN = "C:\\Program Files\\PostgreSQL\\13\\bin"
 
     SCRIPT_00 = "00_create_tables.sql"
@@ -30,7 +30,7 @@ if __name__ == '__main__':
     SCRIPT_04 = "04_equipe_insert.sql"
 
     scripts = []
-    scripts.append(SCRIPT_00)
+
     scripts.append(SCRIPT_01)
     scripts.append(SCRIPT_02)
     scripts.append(SCRIPT_03)

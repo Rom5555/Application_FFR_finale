@@ -30147,3 +30147,503 @@ django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 77: 'e
 2024-05-21 15:30:33,971 django.server INFO "POST / HTTP/1.1" 302 0
 2024-05-21 15:30:34,063 django WARNING le contexte pour la view est vide
 2024-05-21 15:30:34,065 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-22 22:19:00,191 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-22 23:21:58,790 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-22 23:23:09,384 django.utils.autoreload INFO C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\manage.py changed, reloading.
+2024-05-22 23:23:09,890 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-22 23:35:30,954 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 09:08:59,790 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 09:19:26,799 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 09:24:06,673 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 09:40:46,036 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 10:38:41,594 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 10:39:27,906 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 10:44:29,138 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 10:45:00,040 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 10:48:17,843 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 14:07:36,669 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 14:08:42,596 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 14:09:02,819 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 14:11:59,196 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 14:12:03,078 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-23 14:12:03,891 django.request WARNING Not Found: /favicon.ico
+2024-05-23 14:12:03,891 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 4071
+2024-05-23 14:12:05,717 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: ERREUR:  la relation « auth_user » n'existe pas
+LINE 1: ...user"."is_active", "auth_user"."date_joined" FROM "auth_user...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\contrib\auth\views.py", line 89, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\views\generic\edit.py", line 150, in post
+    if form.is_valid():
+       ^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\forms\forms.py", line 326, in full_clean
+    self._clean_form()
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\forms\forms.py", line 342, in _clean_form
+    cleaned_data = self.clean()
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\contrib\auth\forms.py", line 329, in clean
+    self.user_cache = authenticate(
+                      ^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 79, in authenticate
+    user = backend.authenticate(request, **credentials)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\contrib\auth\backends.py", line 42, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 37, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1569, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: ERREUR:  la relation « auth_user » n'existe pas
+LINE 1: ...user"."is_active", "auth_user"."date_joined" FROM "auth_user...
+                                                             ^
+
+2024-05-23 14:12:05,738 django.server ERROR "POST / HTTP/1.1" 500 227642
+2024-05-23 14:13:15,689 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-23 14:13:16,029 django.request WARNING Not Found: /favicon.ico
+2024-05-23 14:13:16,031 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 4071
+2024-05-23 14:13:24,401 django.server INFO "GET /admin HTTP/1.1" 301 0
+2024-05-23 14:13:24,413 django.server INFO "GET /admin/ HTTP/1.1" 302 0
+2024-05-23 14:13:24,458 django.server INFO "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4213
+2024-05-23 14:13:24,862 django.server INFO "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+2024-05-23 14:13:24,890 django.server INFO "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+2024-05-23 14:13:24,910 django.server INFO "GET /static/admin/css/base.css HTTP/1.1" 200 22071
+2024-05-23 14:13:24,915 django.server INFO "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2734
+2024-05-23 14:13:24,918 django.server INFO "GET /static/admin/css/login.css HTTP/1.1" 200 958
+2024-05-23 14:13:24,918 django.server INFO "GET /static/admin/css/responsive.css HTTP/1.1" 200 17972
+2024-05-23 14:13:24,925 django.server INFO "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+2024-05-23 14:13:27,699 django.request ERROR Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: ERREUR:  la relation « auth_user » n'existe pas
+LINE 1: ...user"."is_active", "auth_user"."date_joined" FROM "auth_user...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\contrib\admin\sites.py", line 444, in login
+    return LoginView.as_view(**defaults)(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\contrib\auth\views.py", line 89, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\views\generic\edit.py", line 150, in post
+    if form.is_valid():
+       ^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\forms\forms.py", line 326, in full_clean
+    self._clean_form()
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\forms\forms.py", line 342, in _clean_form
+    cleaned_data = self.clean()
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\contrib\auth\forms.py", line 329, in clean
+    self.user_cache = authenticate(
+                      ^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 79, in authenticate
+    user = backend.authenticate(request, **credentials)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\contrib\auth\backends.py", line 42, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 37, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1569, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: ERREUR:  la relation « auth_user » n'existe pas
+LINE 1: ...user"."is_active", "auth_user"."date_joined" FROM "auth_user...
+                                                             ^
+
+2024-05-23 14:13:27,711 django.server ERROR "POST /admin/login/?next=/admin/ HTTP/1.1" 500 243731
+2024-05-23 14:22:11,263 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 14:58:49,849 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 14:58:52,094 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-23 14:58:54,957 django.server INFO "POST / HTTP/1.1" 200 2215
+2024-05-23 14:59:58,622 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-23 14:59:58,691 django WARNING le contexte pour la view est vide
+2024-05-23 14:59:58,697 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-23 15:00:00,928 django.server INFO "GET /admin_compte/user_list/ HTTP/1.1" 200 8980
+2024-05-23 15:00:09,695 django WARNING le contexte pour la view est vide
+2024-05-23 15:00:09,697 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-23 15:00:11,310 django.server INFO "GET /admin_stock/display_produits/ HTTP/1.1" 200 5996
+2024-05-23 15:00:18,985 django.server INFO "POST /admin_stock/display_produits/ HTTP/1.1" 200 5996
+2024-05-23 15:00:32,674 django.server INFO "GET /admin_stock/display_produits/ HTTP/1.1" 200 5996
+2024-05-23 15:00:34,856 django WARNING le contexte pour la view est vide
+2024-05-23 15:00:34,858 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-23 15:00:36,210 django.server INFO "GET /admin_compte/user_list/ HTTP/1.1" 200 8980
+2024-05-23 15:00:40,460 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-05-23 15:00:42,577 django.server INFO "GET /admin_liste/recherche_archive/ HTTP/1.1" 200 5984
+2024-05-23 15:00:46,513 django.server INFO "GET /admin_liste/retour/ HTTP/1.1" 200 6722
+2024-05-23 15:00:50,831 django.server INFO "GET /admin_liste/depart/ HTTP/1.1" 200 11443
+2024-05-23 15:06:17,372 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 15:06:20,587 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-23 15:06:23,395 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-23 15:06:23,460 django WARNING le contexte pour la view est vide
+2024-05-23 15:06:23,466 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-23 15:06:25,260 django.server INFO "GET /admin_compte/user_list/ HTTP/1.1" 200 8980
+2024-05-23 15:06:28,121 django WARNING le contexte pour la view est vide
+2024-05-23 15:06:28,123 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-23 15:06:29,693 django.server INFO "GET /admin_stock/display_produits/ HTTP/1.1" 200 6490
+2024-05-23 15:06:35,220 django.server INFO "POST /admin_stock/display_produits/ HTTP/1.1" 200 107475
+2024-05-23 15:06:42,383 django.server INFO "POST /admin_stock/update_quantity/1/ HTTP/1.1" 200 35
+2024-05-23 15:06:55,907 django.server INFO "POST /admin_stock/display_produits/ HTTP/1.1" 200 107476
+2024-05-23 15:07:01,106 django.server INFO "GET /admin_stock/produit_list/ HTTP/1.1" 200 78027
+2024-05-23 15:07:17,696 django.server INFO "POST /admin_stock/add_produit/ HTTP/1.1" 302 0
+2024-05-23 15:07:17,967 django.server INFO "GET /admin_stock/produit_list/ HTTP/1.1" 200 79090
+2024-05-23 15:07:26,964 django.server INFO "POST /admin_stock/delete_produit/ HTTP/1.1" 302 0
+2024-05-23 15:07:27,208 django.server INFO "GET /admin_stock/produit_list/ HTTP/1.1" 200 78027
+2024-05-23 15:07:30,472 django WARNING le contexte pour la view est vide
+2024-05-23 15:07:30,474 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-23 15:07:32,488 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-05-23 15:07:34,291 django.server INFO "GET /admin_liste/depart/ HTTP/1.1" 200 11728
+2024-05-23 15:07:51,904 django.server INFO "POST /admin_liste/depart/ HTTP/1.1" 200 116047
+2024-05-23 15:08:01,487 django.server INFO "POST /admin_liste/remplir_liste_depart/1/1/ HTTP/1.1" 200 35
+2024-05-23 15:08:24,428 django.request WARNING Bad Request: /admin_liste/create_liste_utilisateur/1/
+2024-05-23 15:08:24,429 django.server WARNING "POST /admin_liste/create_liste_utilisateur/1/ HTTP/1.1" 400 57
+2024-05-23 15:08:42,100 django.request WARNING Bad Request: /admin_liste/create_liste_utilisateur/1/
+2024-05-23 15:08:42,100 django.server WARNING "POST /admin_liste/create_liste_utilisateur/1/ HTTP/1.1" 400 57
+2024-05-23 15:09:00,694 django.request WARNING Bad Request: /admin_liste/create_liste_utilisateur/1/
+2024-05-23 15:09:00,695 django.server WARNING "POST /admin_liste/create_liste_utilisateur/1/ HTTP/1.1" 400 57
+2024-05-23 15:17:58,056 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 15:18:00,497 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-23 15:18:03,420 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-23 15:18:03,489 django WARNING le contexte pour la view est vide
+2024-05-23 15:18:03,494 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-23 15:18:06,847 django.server INFO "GET /admin_stock/display_produits/ HTTP/1.1" 200 6490
+2024-05-23 15:18:11,664 django.server INFO "POST /admin_stock/display_produits/ HTTP/1.1" 200 107475
+2024-05-23 15:18:24,357 django.server INFO "POST /admin_stock/update_quantity/1/ HTTP/1.1" 200 35
+2024-05-23 15:18:30,571 django WARNING le contexte pour la view est vide
+2024-05-23 15:18:30,573 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-23 15:18:31,973 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-05-23 15:18:34,558 django.server INFO "GET /admin_liste/depart/ HTTP/1.1" 200 11728
+2024-05-23 15:18:51,024 django.server INFO "POST /admin_liste/depart/ HTTP/1.1" 200 116047
+2024-05-23 15:18:59,262 django.server INFO "POST /admin_liste/remplir_liste_depart/1/1/ HTTP/1.1" 200 35
+2024-05-23 15:19:23,103 django.server INFO "POST /admin_liste/create_liste_utilisateur/1/ HTTP/1.1" 200 73
+2024-05-23 15:19:26,107 django WARNING le contexte pour la view est vide
+2024-05-23 15:19:26,110 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-23 15:19:27,731 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-05-23 15:19:29,654 django.server INFO "GET /admin_liste/retour/ HTTP/1.1" 200 6722
+2024-05-23 15:19:31,487 django.server INFO "POST /admin_liste/retour/ HTTP/1.1" 200 9629
+2024-05-23 15:19:43,655 django.server INFO "POST /admin_liste/verifier_liste_retour/1/1/ HTTP/1.1" 200 62
+2024-05-23 15:19:45,641 django.server INFO "POST /admin_liste/valider_liste_retour/1/ HTTP/1.1" 200 55
+2024-05-23 15:19:48,468 django WARNING le contexte pour la view est vide
+2024-05-23 15:19:48,470 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-23 15:19:51,864 django.server INFO "GET /admin_stock/display_produits/ HTTP/1.1" 200 6490
+2024-05-23 15:19:55,449 django.server INFO "POST /admin_stock/display_produits/ HTTP/1.1" 200 107476
+2024-05-23 15:20:01,656 django WARNING le contexte pour la view est vide
+2024-05-23 15:20:01,659 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-23 15:20:03,119 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-05-23 15:20:05,958 django.server INFO "GET /admin_liste/recherche_archive/ HTTP/1.1" 200 6363
+2024-05-23 15:20:15,408 django.server INFO "POST /admin_liste/recherche_archive/ HTTP/1.1" 200 7926
+2024-05-23 15:20:21,142 django.server INFO "POST /admin_liste/display_archive/ HTTP/1.1" 200 8606
+2024-05-23 15:20:38,388 django.server INFO "POST /registration/logout/ HTTP/1.1" 200 527
+2024-05-23 15:20:39,950 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-23 15:20:43,403 django.server INFO "GET /registration/register/ HTTP/1.1" 200 3715
+2024-05-23 15:21:58,792 django.server INFO - Broken pipe from ('127.0.0.1', 59887)
+2024-05-23 15:21:59,510 django.request ERROR Internal Server Error: /registration/register/
+Traceback (most recent call last):
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: ERREUR:  la valeur d'une clé dupliquée rompt la contrainte unique « auth_user_username_key »
+DETAIL:  La clé « (username)=(ricky) » existe déjà.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\views\generic\edit.py", line 182, in post
+    return super().post(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\views\generic\edit.py", line 151, in post
+    return self.form_valid(form)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\views\generic\edit.py", line 133, in form_valid
+    self.object = form.save()
+                  ^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\contrib\auth\forms.py", line 229, in save
+    user = self.set_password_and_save(user, commit=commit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\contrib\auth\forms.py", line 192, in set_password_and_save
+    user.save()
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 62, in save
+    super().save(*args, **kwargs)
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\models\base.py", line 863, in save
+    self.save_base(
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\models\base.py", line 979, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\models\base.py", line 1142, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\models\base.py", line 1183, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1831, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: ERREUR:  la valeur d'une clé dupliquée rompt la contrainte unique « auth_user_username_key »
+DETAIL:  La clé « (username)=(ricky) » existe déjà.
+
+2024-05-23 15:21:59,523 django.server ERROR "POST /registration/register/ HTTP/1.1" 500 179391
+2024-05-23 15:25:29,593 django.server INFO "POST /registration/register/ HTTP/1.1" 302 0
+2024-05-23 15:25:29,604 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-23 15:25:39,038 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-23 15:25:39,118 django.server INFO "GET /user_liste/index_utilisateur/ HTTP/1.1" 200 3337
+2024-05-23 15:25:41,745 django.server INFO "GET /user_liste/ma_liste/ HTTP/1.1" 200 5021
+2024-05-23 15:25:46,214 django.server INFO "GET /user_liste/index_utilisateur/ HTTP/1.1" 200 3337
+2024-05-23 15:25:50,523 django.server INFO "GET /user_liste/index_utilisateur/ HTTP/1.1" 200 3337
+2024-05-23 15:25:56,008 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-23 15:26:00,856 django.server INFO "GET /registration/password_reset/ HTTP/1.1" 200 1785
+2024-05-23 15:26:17,748 django.server INFO "POST /registration/password_reset/ HTTP/1.1" 302 0
+2024-05-23 15:26:17,758 django.server INFO "GET /password_reset/done/ HTTP/1.1" 200 893
+2024-05-23 15:27:57,714 django.server INFO "GET /reset/NA/c7hk7r-c46468b434426625f991b5124e68218c/ HTTP/1.1" 302 0
+2024-05-23 15:27:57,813 django.server INFO "GET /reset/NA/set-password/ HTTP/1.1" 200 3413
+2024-05-23 15:27:58,287 django.request WARNING Not Found: /favicon.ico
+2024-05-23 15:27:58,288 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 4071
+2024-05-23 15:28:13,612 django.server INFO "POST /reset/NA/set-password/ HTTP/1.1" 302 0
+2024-05-23 15:28:13,621 django.server INFO "GET /reset/done/ HTTP/1.1" 200 1168
+2024-05-23 15:28:16,792 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-23 15:28:35,001 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-23 15:28:35,075 django WARNING le contexte pour la view est vide
+2024-05-23 15:28:35,081 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-23 15:28:37,038 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-05-23 15:28:41,061 django.server INFO "GET /admin_liste/depart/ HTTP/1.1" 200 11792
+2024-05-23 15:28:58,865 django.server INFO "POST /admin_liste/depart/ HTTP/1.1" 200 116109
+2024-05-23 15:29:45,848 django.server INFO "POST /admin_liste/create_liste_utilisateur/1/ HTTP/1.1" 200 73
+2024-05-23 15:29:48,189 django WARNING le contexte pour la view est vide
+2024-05-23 15:29:48,192 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-23 15:29:50,090 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-05-23 15:29:53,409 django WARNING le contexte pour la view est vide
+2024-05-23 15:29:53,411 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-23 15:29:56,642 django.server INFO "POST /registration/logout/ HTTP/1.1" 200 527
+2024-05-23 15:29:58,052 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-23 15:30:12,172 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-23 15:30:12,254 django.server INFO "GET /user_liste/index_utilisateur/ HTTP/1.1" 200 3337
+2024-05-23 15:30:14,107 django.server INFO "GET /user_liste/ma_liste/ HTTP/1.1" 200 7341
+2024-05-23 15:30:22,778 django.server INFO "POST /user_liste/remplir_liste_retour/3/1/ HTTP/1.1" 200 62
+2024-05-23 15:30:25,401 django.server INFO "GET /user_liste/index_utilisateur/ HTTP/1.1" 200 3337
+2024-05-23 15:30:29,348 django.server INFO "POST /registration/logout/ HTTP/1.1" 200 527
+2024-05-23 15:30:30,973 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-23 15:30:35,695 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-23 15:30:35,780 django WARNING le contexte pour la view est vide
+2024-05-23 15:30:35,783 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-23 15:30:37,220 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-05-23 15:30:39,283 django.server INFO "GET /admin_liste/retour/ HTTP/1.1" 200 6786
+2024-05-23 15:30:43,764 django.server INFO "POST /admin_liste/retour/ HTTP/1.1" 200 9693
+2024-05-23 15:36:10,914 django.utils.autoreload INFO C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\registration\forms.py changed, reloading.
+2024-05-23 15:36:11,986 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 15:36:37,069 django.utils.autoreload INFO C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\registration\forms.py changed, reloading.
+2024-05-23 15:36:37,977 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 15:37:16,139 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 15:37:22,006 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-23 15:37:25,945 django.server INFO "GET /registration/register/ HTTP/1.1" 200 3715
+2024-05-23 15:37:45,667 django.server INFO "POST /registration/register/ HTTP/1.1" 200 3948
+2024-05-23 15:38:03,508 django.server INFO "POST /registration/register/ HTTP/1.1" 302 0
+2024-05-23 15:38:03,518 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-23 15:41:08,650 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 15:41:10,786 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-23 15:41:12,572 django.server INFO "GET /registration/register/ HTTP/1.1" 200 3715
+2024-05-23 15:41:24,406 django.server INFO "POST /registration/register/ HTTP/1.1" 200 4102

@@ -2,7 +2,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Field, Submit
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-
+from django import forms
 class RegisterForm(UserCreationForm):
     class Meta:
         model = User
@@ -22,3 +22,15 @@ class RegisterForm(UserCreationForm):
             Field('password2', css_class='input'),
 
         )
+
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        if User.objects.filter(username=username).exists():
+            raise forms.ValidationError("Ce nom d'utilisateur est déjà pris.")
+        return username
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("Cet email est déjà utilisé.")
+        return email
