@@ -1,0 +1,309 @@
+#  GLOBAL_REGISTRY_URL : "https://registry.gitlab.com"                     # url du registre d'image Docker utilisé (ici celui de GitLab)
+#  SUPPORT_EMAIL: "nicolas.georgemel@coder-pour-changer-de-vie.com"        # email fournit pour la mise en production (outils kubernetes)
+
+variables:
+
+  BUILD: "TRUE"
+  TESTS: "TRUE"
+  PRODUCTION: "FALSE"                                                     # ne sera mis à true que pour l'exécution en production (kubernetes)
+
+  DJANGO_APPLICATION_NAME : "Application_FFR"
+  POSTGRES_USER: "postgres"                                               # pour des tâches d'administration
+  POSTGRES_PASSWORD: "integration_pa$$word"                               # mot de passe qui sera utilisé par l'image postgresql pour initialisation.
+  POSTGRES_DB : "postgres"                                                # base par défaut disponible, pour test de connexion
+  POSTGRES_HOST_AUTH_METHOD: trust                                        # permet de réaliser des requêtes SQL sans authnetification, pour les tests.
+  POSTGRES_APPLICATION_DB: "django_FFR_db"                              # variable d'environnement utilisée par le fichier settings.py du projet Django
+  POSTGRES_APPLICATION_USER: "user_integration"                           # variable d'environnement utilisée par le fichier settings.py du projet Django
+  POSTGRES_APPLICATION_PASSWORD: "pa$$word_integration"                   # variable d'environnement utilisée par le fichier settings.py du projet Django
+  POSTGRES_APPLICATION_HOST: "postgres"                                   # variable d'environnement utilisée par le fichier settings.py du projet Django, pointe vers le conteneur postgresql instancié
+  POSTGRES_APPLICATION_PORT: 5432                                         # variable d'environnement utilisée par le fichier settings.py du projet Django
+
+build-image:
+  only:
+    variables:
+      - $BUILD == "TRUE"
+  image: docker:20.10
+  stage: build
+  script:
+    #
+    # authentification auprès de GitaLab
+    # -----------------------------------------------------------------------------
+    # Utilisation d'un token généré pour provisionner les images dans le registry :
+    # $REGISTRY_TOKEN (variable de Pipeline masquée)
+    # NB: cette variable est définit dans les paramétrages du projet GitLab / CI/CD / Variables
+    - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
+
+    #
+    # Construction de l'image Docker à partir du fichier Dockerfile du repository..
+    # -----------------------------------------------------------------------------
+    - echo "Construction de l'image Docker à partir du fichier Dockerfile du repository..."
+    - echo "version de Docker:"
+    - docker --version
+    - echo "Build de l'image à partir du fichier Dockerfile présent à la racine..."
+    - docker build -t $REGISTRY_PROJECT_PATH .
+
+    #
+    # Envoie de l'image sur le repository du projet GitLab distant
+    # -----------------------------------------------------------------------------
+    - docker push $REGISTRY_PROJECT_PATH
+
+tests-migrations:
+  only:
+    variables:
+      - $TESTS == "TRUE"
+  image: python:3.10.8-slim-bullseye
+  stage: test
+  services:
+    - postgres:14.5-alpine
+
+  # --------------------------------------------------------------------------------------------------------------------
+  # on s'assure que l'initalisation de la BDD est OK et que les migrations Django sont
+  # réalisées avec succès
+  # --------------------------------------------------------------------------------------------------------------------
+  script:
+    - apt -y update
+    - apt -y install apt-utils
+    - apt -y install net-tools postgresql-client libpq-dev
+    - apt -y upgrade
+    - pip3 install -r ./requirements.txt
+    - echo "vérification de la connection à la BDD postgresql (conteneur instancié)"
+    - psql -h "postgres" -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT 'OK' AS status;"
+    - echo "création de la base de données $POSTGRES_APPLICATION_DB"
+    - createdb -h $POSTGRES_APPLICATION_HOST -p $POSTGRES_APPLICATION_PORT -U postgres $POSTGRES_APPLICATION_DB
+    - echo "création de l'utilisateur $POSTGRES_APPLICATION_USER"
+    - psql -h "postgres" -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "create user $POSTGRES_APPLICATION_USER with encrypted password '$POSTGRES_APPLICATION_PASSWORD';"
+    - echo "attribution des privilèges pour l'utilisateur $POSTGRES_APPLICATION_USER à la BDD $POSTGRES_APPLICATION_DB"
+    - psql -h "postgres" -U "$POSTGRES_USER" -c "grant all privileges on database $POSTGRES_APPLICATION_DB to $POSTGRES_APPLICATION_USER;"
+    - echo "Migrations Django"
+    - ls -al
+    - python3 manage.py makemigrations
+    - python3 manage.py makemigrations $DJANGO_APPLICATION_NAME
+    - python3 manage.py migrate
+    - python3 manage.py check
+
+tests-unitaires:
+  only:
+    variables:
+      - $TESTS == "TRUE"
+  image: python:3.10.8-slim-bullseye
+  stage: test
+  services:
+    - postgres:14.5-alpine
+
+  # --------------------------------------------------------------------------------------------------------------------
+  # on s'assure que les tests unitaires s'exécute avec succès.
+  #
+  # NB : le mécanisme de tests unitaires implémenté par Django va créer dynamiquement un base de données dédiée aux tests
+  #      qui sera également détruite automatiquement par la suite.
+  # --------------------------------------------------------------------------------------------------------------------
+  script:
+    - apt -y update
+    - apt -y install apt-utils
+    - apt -y install net-tools postgresql-client libpq-dev
+    - apt -y upgrade
+    - pip3 install -r ./requirements.txt
+    - echo "création de l'utilisateur $POSTGRES_APPLICATION_USER"
+    - psql -h "postgres" -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "create user $POSTGRES_APPLICATION_USER with encrypted password '$POSTGRES_APPLICATION_PASSWORD';"
+    - echo "autorisation pour l'utilisateur $POSTGRES_APPLICATION_USER de créer une BDD afin de pouvoir exécuter les tests automatisés Django"
+    - psql -h "postgres" -U "$POSTGRES_USER" -c "ALTER USER $POSTGRES_APPLICATION_USER CREATEDB;"
+    - echo "Tests Django"
+    - python3 manage.py test --noinput # l'option --noinput permet de ne pas recevoir une demande de confirmation avant suppression de la BDD créée automatiquement pour les tests
+
+deploy_production:
+  only:
+    variables:
+      - $PRODUCTION == "TRUE"
+  stage: deploy
+  image: python:3.10-slim-bullseye
+  script:
+
+    # --------------------------------------------------------------------------------------------------------------------
+    # Installation de Docker
+    # --------------------------------------------------------------------------------------------------------------------
+
+    # installation des prérequis à l'installation de docker, notamment le nécessaire pour utiliser apt via https
+    - apt-get update
+    - apt-get install -y gnupg curl ca-certificates lsb-release apt-transport-https
+
+    # ajout des clés de cryptage PGP officielles pour Docker
+    - mkdir -p /etc/apt/keyrings
+    - curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+    # ajout du repository Docker
+    - echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+    # installation de Docker
+    - apt update
+    - chmod a+r /etc/apt/keyrings/docker.gpg
+    - apt-cache madison docker-ce | awk '{ print $3 }'
+    - VERSION_STRING=5:20.10.21~3-0~debian-bullseye # on spécifie une version de docker pour éviter les effets de bord de changement de version
+    - apt-get install -y docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.io docker-compose-plugin
+
+    # --------------------------------------------------------------------------------------------------------------------
+    # Installation des outils Google pour communiquer avec le cluster kubernetes (Outils Google + le client kubectl)
+    # --------------------------------------------------------------------------------------------------------------------
+
+    # ajout d'un fichier de référencement de paquets système pour autoriser l'installation des paquets Google via la commant apt-get install
+    - echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+
+    # importation de la clé publique de Google pour garantir la sécurité lors du téléchargement des ressources Google
+    - curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+
+    # mise à jour des paquets système et installation des outils Google
+    - apt update
+    - apt-get install -y google-cloud-cli
+
+    # Installation du client kubectl pour communication avec le cluster kubernetes
+    - curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+    - chmod +x ./kubectl
+    - mv ./kubectl /usr/local/bin/kubectl
+
+    # installation du plugin d'authentification nécessaire pour l'utilisation avec GKE
+    # NB : prérequis obligatoire de Google en prévision de la migration vers la version 1.26 de l'écosystème kubernetes
+    #      permettant la séparation du code spécifique aux fournisseurs de solutions kubernetes
+    # pour en savoir plus : https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke
+    - apt-get install -y google-cloud-sdk-gke-gcloud-auth-plugin
+
+    # verification de la version du plugin
+    - gke-gcloud-auth-plugin --version
+
+    # configuration d'une variable d'environnement pour que kubectl utilise le plugin d'authentification Google
+    - export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+    # rafraichissements des paramètres d'environnement
+    - source ~/.bashrc
+
+    # Composants Google cloud client
+    # version actuelle
+    - echo "version installée des composants Google"
+    - gcloud version
+    # version disponible
+    - echo "version disponible des composants Google"
+    - gcloud components list
+
+    # activation des autorisations (compte de service) pour intérroger le cluster kubernetes
+    - gcloud auth activate-service-account --key-file "$KUBERNETES_SERVICE_ACCOUNT_FILE"
+
+    # obtention des éléments d'identification pour la connexion au cluster Kubernetes Google, via la commande kubectl
+    # en résumé : obtention du fichier "kubeconfig" qui sera utilisé par la commande kubectl
+    # NB : le fichier est stocké dans $HOME/.kube et se nomme "config", la commande kubectl sait ainsi le retrouver pour
+    #      s'authentifier auprès du cluster par la suite
+    - gcloud container clusters get-credentials cluster-django-meteo --region europe-west9 --project $KUBERNETES_PROJECT_NAME
+
+    # vérification de l'accès via l'affichage des noeuds du cluster Kubernetes
+    - kubectl get nodes
+
+    # --------------------------------------------------------------------------------------------------------------------
+    # Création des "secrets" kubernetes pour authoriser les accès à la BDD depuis l'intérieur du cluster kubernetes
+    # --------------------------------------------------------------------------------------------------------------------
+
+    # création du secret permettant l'accès à l'instance PostgreSQL
+    # pour cela, nous utilisons le fichier json généré à partir du compte de service service-cloudsql
+    # disponible dans la pipeline via la variable de type fichier KUBERNETES_SERVICE_ACCOUNT_CLOUDSQL_FILE
+    # que nous associons au secret
+    # NB : ce secret sera utilisé par le proxy sql pour se connecter à l'instance PostgreSQL distante
+    - kubectl delete secret cloudsql-oauth-credentials --ignore-not-found
+    - kubectl create secret generic cloudsql-oauth-credentials --from-file=cloudsql-oauth-credentials.json=$KUBERNETES_SERVICE_ACCOUNT_CLOUDSQL_FILE
+
+    # création d'un secret pour l'accès à la BDD créé dans l'instance CloudSQL de Google
+    - kubectl delete secret cloudsql-credentials --ignore-not-found
+    - kubectl create secret generic cloudsql-credentials --from-literal=database=$PRODUCTION_POSTGRES_APPLICATION_DB --from-literal=username=$PRODUCTION_POSTGRES_APPLICATION_USER --from-literal=password=$PRODUCTION_POSTGRES_APPLICATION_PASSWORD --from-literal=host=$PRODUCTION_POSTGRES_APPLICATION_HOST --from-literal=port=$PRODUCTION_POSTGRES_APPLICATION_PORT
+
+    # --------------------------------------------------------------------------------------------------------------------
+    # Création du "secret" kubernetes pour authoriser les accès à l'image Docker de notre application
+    # stockée dans le registry oprivée du projet sur Gitlab.com
+    #
+    # 1) nous nous connectons au registry Gitlab privé ce qui va générer un fichier d'authentification (config.json)
+    # 2) nous construisons un secret basé sur ce fichier "config.json" qui permettre de récuper l'image Docker de notre
+    #    application à partir du registry privée Gitlab
+    # 3) nous contrôlons l'état des secrets créés avec quelques détails
+    # --------------------------------------------------------------------------------------------------------------------
+    - docker login -u $USER_GITLAB -p $PRODUCTION_REGISTRY_TOKEN registry.gitlab.com
+    - pwd
+    - ls -al /root
+    - cat /root/.docker/config.json
+    - kubectl delete secret registry-credentials --ignore-not-found
+    - kubectl create secret generic registry-credentials --from-file=.dockerconfigjson=/root/.docker/config.json --type=kubernetes.io/dockerconfigjson
+    - kubectl get secrets
+    - kubectl get secrets registry-credentials -o YAML
+    - kubectl describe secrets/registry-credentials
+
+    # --------------------------------------------------------------------------------------------------------------------
+    # appliquer le STATICFILES_DIRS et les uploader sur les bucket
+    # --------------------------------------------------------------------------------------------------------------------
+    # création d'un secret kubernetes pour l'accès au bucket par l'application, mais également pour provisionner
+    # au préalable le bucket (et le mettre à jour)
+    - kubectl delete secret bucket-credentials --ignore-not-found
+    - kubectl create secret generic bucket-credentials --from-file=bucket-credentials.json=$KUBERNETES_SERVICE_ACCOUNT_BUCKET_FILE
+
+    # rassemblement des éléments static (images, fichiers javascript, etc) par Django via la commande "collectstatic)
+    # => va créer un répertoire ./staticfiles
+    - pip3 install -r ./requirements.txt
+    - ls -al
+    # astuce : actuellement la variable d'environnement "PRODUCTION" est égale à "TRUE", ce qui est normal
+    # car c'est ce qui permet à ce job de pipeline de s'exécuter.
+    # Malheureusement, la variables d'environnement "PRODUCTION" est également lu par l'application Django
+    # pour savoir si il s'exécute en production... ou pas.
+    # nous avons donc là un cas problématique car nous voulons utiliser Django pour rassembler les fichiers,
+    # mais il va pointer vers le Bucker... (voir fichiers settings.py)
+    # donc pour contourner ce problème, nous allons passer la variable PRODUCTION à "FALSE"
+    # ainsi Django va rassembler correctement les fichiers locaux (ici ceux du repository Git)
+    - export PRODUCTION=FALSE
+    - echo $PRODUCTION
+    - python3 ./manage.py collectstatic --no-input
+    - ls -al ./staticfiles
+
+    # définition de l'uri de connexion au bucket
+    - export BUCKET_URI="gs://${GS_BUCKET_NAME}/static"
+
+    # activation des autorisations (compte de service) pour intérroger le bucket (avec la commande gsutil)
+    - gcloud auth activate-service-account --key-file "$KUBERNETES_SERVICE_ACCOUNT_BUCKET_FILE"
+
+    # synchronisation du répertoire local .static avec le bucket distant (-r = recursive)
+    - gsutil -m rsync -r ./staticfiles $BUCKET_URI
+
+    # appliquer les migrations Django, pour cela nous avons besoin au préalable du proxysql pour se connecter
+    # à l'instage postgresql du projet sur l'instance cloudSQL
+    # Installer le Cloud SQL proxy
+    - apt install -y wget
+    - wget https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 -O cloud_sql_proxy
+    - chmod +x cloud_sql_proxy
+    - ./cloud_sql_proxy -instances=$PRODUCTION_SQL_INSTANCE -credential_file=$KUBERNETES_SERVICE_ACCOUNT_CLOUDSQL_FILE &
+    - sleep 5 # permet de laisser le temps à l'application proxy SQL de Google de démarrer
+    - POSTGRES_APPLICATION_DB=$PRODUCTION_POSTGRES_APPLICATION_DB
+    - POSTGRES_APPLICATION_USER=$PRODUCTION_POSTGRES_APPLICATION_USER
+    - POSTGRES_APPLICATION_PASSWORD=$PRODUCTION_POSTGRES_APPLICATION_PASSWORD
+    - POSTGRES_APPLICATION_HOST="127.0.0.1"
+    - POSTGRES_APPLICATION_PORT="5432"
+    - python3 manage.py migrate --fake sessions zero
+    - python3 manage.py showmigrations
+    - python3 manage.py migrate --fake-initial
+    - python3 ./manage.py makemigrations
+    - python3 ./manage.py migrate
+
+    # --------------------------------------------------------------------------------------------------------------------
+    # Déploiement des configurations pour instanciations des pods / mise à jour dans le cluster Kubernetes
+    # --------------------------------------------------------------------------------------------------------------------
+    # Deploiement via le fichier de déploiement "djangometeo-kubernetes-deploiement.yaml"
+    - kubectl apply -f ./djangometeo-kubernetes-deployment.yaml
+
+    # Deploiement du service de ClusterIP pour redirection du traffic TCP
+    # vers les pods associés (avec redirection de port)
+    - kubectl apply -f ./djangometeo-kubernetes-service.yaml
+
+    # Deploiement de l'objet Ingress nécessaire pour le traffic externe (internet vers cluser)
+    # Internet -> object Ingress -> service-clusterip -> pod
+    - kubectl apply -f ./djangometeo-kubernetes-ingress.yaml
+
+    # contrôle du déploiment de l'application
+    - kubectl get deploy django-meteo-app-deployment
+
+    # contrôle d'exécution du pod, des services et du composant ingress
+    - kubectl get pod
+    - kubectl get services
+    - kubectl get ingress
+    - kubectl describe ingress
+
+  environment:
+    name: production
+    url: http://34.102.135.80/

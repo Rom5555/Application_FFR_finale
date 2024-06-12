@@ -1,0 +1,35 @@
+#
+# Documentation pour implémentation :
+# https://cloud.google.com/kubernetes-engine/docs/how-to/load-balance-ingress
+#
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress
+  annotations:
+    # gce : équilibreur de charge HTTP(S) externe.
+    # gce-internal : déploie un équilibreur de charge HTTP(S) interne
+    kubernetes.io/ingress.class: "gce"
+    kubernetes.io/ingress.global-static-ip-name: external-ip
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: service-clusterip
+            port:
+              number: 80
+
+      # si l'on souhaite ajouter un routage vers un autre service
+      # en fonction de l'url :
+      #- path: /v2
+      #  pathType: ImplementationSpecific
+      #  backend:
+      #    service:
+      #      name: service-secondaire
+      #      port:
+      #        number: 80

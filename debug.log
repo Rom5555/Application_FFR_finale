@@ -30647,3 +30647,173 @@ DETAIL:  La clé « (username)=(ricky) » existe déjà.
 2024-05-23 15:41:10,786 django.server INFO "GET / HTTP/1.1" 200 2004
 2024-05-23 15:41:12,572 django.server INFO "GET /registration/register/ HTTP/1.1" 200 3715
 2024-05-23 15:41:24,406 django.server INFO "POST /registration/register/ HTTP/1.1" 200 4102
+2024-05-23 15:48:57,935 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-23 15:49:00,809 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-23 15:49:01,072 django.request WARNING Not Found: /favicon.ico
+2024-05-23 15:49:01,072 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 4071
+2024-05-23 15:49:09,235 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-23 15:49:09,303 django WARNING le contexte pour la view est vide
+2024-05-23 15:49:09,308 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-23 15:49:11,542 django.server INFO "GET /admin_compte/user_list/ HTTP/1.1" 200 13071
+2024-05-23 15:49:26,428 django.server INFO "POST /admin_compte/add_user/ HTTP/1.1" 200 8017
+2024-05-23 15:50:10,655 django.server INFO "POST /admin_compte/delete_user/ HTTP/1.1" 302 0
+2024-05-23 15:50:10,752 django.server INFO "GET /admin_compte/user_list/ HTTP/1.1" 200 11708
+2024-05-23 15:50:20,802 django.server INFO "POST /admin_compte/delete_user/ HTTP/1.1" 302 0
+2024-05-23 15:50:20,894 django.server INFO "GET /admin_compte/user_list/ HTTP/1.1" 200 10344
+2024-05-23 15:50:40,685 django.server INFO "POST /registration/logout/ HTTP/1.1" 200 527
+2024-05-25 15:02:23,053 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-25 15:02:25,559 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-25 15:02:25,819 django.request WARNING Not Found: /favicon.ico
+2024-05-25 15:02:25,819 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 4071
+2024-05-25 15:02:33,510 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-25 15:02:33,588 django WARNING le contexte pour la view est vide
+2024-05-25 15:02:33,597 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-25 15:02:36,387 django.server INFO "GET /admin_compte/user_list/ HTTP/1.1" 200 10344
+2024-05-25 15:02:48,384 django.server INFO "GET /admin_stock/display_produits/ HTTP/1.1" 200 6490
+2024-05-25 15:02:52,782 django.server INFO "POST /admin_stock/display_produits/ HTTP/1.1" 200 107476
+2024-05-25 15:03:00,785 django.server INFO "POST /admin_stock/update_quantity/1/ HTTP/1.1" 200 35
+2024-05-25 15:03:06,819 django.server INFO "GET /admin_stock/produit_list/ HTTP/1.1" 200 78027
+2024-05-25 15:03:19,909 django.server INFO "POST /admin_stock/add_produit/ HTTP/1.1" 302 0
+2024-05-25 15:03:20,287 django.server INFO "GET /admin_stock/produit_list/ HTTP/1.1" 200 79090
+2024-05-25 15:03:36,050 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-05-25 15:03:39,909 django.server INFO "GET /admin_liste/depart/ HTTP/1.1" 200 11759
+2024-05-25 15:04:03,531 django.server INFO "POST /admin_liste/depart/ HTTP/1.1" 200 117639
+2024-05-25 15:04:18,333 django.server INFO "POST /admin_liste/remplir_liste_depart/1/1/ HTTP/1.1" 200 35
+2024-05-25 15:04:45,582 django.request WARNING Method Not Allowed: /admin_liste/create_liste_utilisateur/1/
+2024-05-25 15:04:45,582 django.server WARNING "POST /admin_liste/create_liste_utilisateur/1/ HTTP/1.1" 405 73
+2024-05-25 15:04:54,420 django.server INFO "POST /admin_liste/create_liste_utilisateur/1/ HTTP/1.1" 200 73
+2024-05-25 15:04:56,802 django WARNING le contexte pour la view est vide
+2024-05-25 15:04:56,805 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-25 15:04:58,482 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-05-25 15:05:00,239 django.server INFO "GET /admin_liste/retour/ HTTP/1.1" 200 6753
+2024-05-25 15:05:04,006 django.server INFO "POST /admin_liste/retour/ HTTP/1.1" 200 9660
+2024-05-25 15:05:13,648 django.server INFO "POST /admin_liste/verifier_liste_retour/5/1/ HTTP/1.1" 200 62
+2024-05-25 15:05:23,652 django.server INFO "POST /admin_liste/valider_liste_retour/5/ HTTP/1.1" 200 55
+2024-05-25 15:05:26,092 django WARNING le contexte pour la view est vide
+2024-05-25 15:05:26,092 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-25 15:05:27,924 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-05-25 15:05:29,817 django.server INFO "GET /admin_liste/recherche_archive/ HTTP/1.1" 200 6363
+2024-05-25 15:05:39,050 django.server INFO "POST /admin_liste/recherche_archive/ HTTP/1.1" 200 9736
+2024-05-25 15:05:48,108 django.server INFO "POST /admin_liste/display_archive/ HTTP/1.1" 200 10419
+2024-05-25 15:06:17,958 django WARNING le contexte pour la view est vide
+2024-05-25 15:06:17,960 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-25 15:06:29,790 django.server INFO "GET /admin_compte/user_list/ HTTP/1.1" 200 10344
+2024-05-25 15:07:47,479 django.server INFO "POST /admin_compte/add_user/ HTTP/1.1" 302 0
+2024-05-25 15:07:47,561 django.server INFO "GET /admin_compte/user_list/ HTTP/1.1" 200 11705
+2024-05-25 15:08:04,537 django.server INFO "GET /admin_compte/user_list/ HTTP/1.1" 200 11705
+2024-05-25 15:08:09,849 django WARNING le contexte pour la view est vide
+2024-05-25 15:08:09,850 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-25 15:08:11,796 django.server INFO "GET /admin_stock/display_produits/ HTTP/1.1" 200 6490
+2024-05-25 15:08:16,012 django.server INFO "POST /admin_stock/display_produits/ HTTP/1.1" 200 108990
+2024-05-25 15:08:22,667 django.server INFO "POST /admin_stock/update_quantity/1/ HTTP/1.1" 200 35
+2024-05-25 15:08:31,379 django.server INFO "GET /admin_stock/produit_list/ HTTP/1.1" 200 79090
+2024-05-25 15:08:51,389 django.server INFO "POST /admin_stock/add_produit/ HTTP/1.1" 302 0
+2024-05-25 15:08:51,565 django.server INFO "GET /admin_stock/produit_list/ HTTP/1.1" 200 80154
+2024-05-25 15:09:01,477 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-05-25 15:09:06,009 django.server INFO "GET /admin_liste/depart/ HTTP/1.1" 200 11792
+2024-05-25 15:09:23,079 django.server INFO "POST /admin_liste/depart/ HTTP/1.1" 200 119236
+2024-05-25 15:09:41,787 django.server INFO "POST /admin_liste/remplir_liste_depart/1/1/ HTTP/1.1" 200 35
+2024-05-25 15:10:35,209 django.server INFO "POST /admin_liste/create_liste_utilisateur/1/ HTTP/1.1" 200 73
+2024-05-25 15:10:38,102 django WARNING le contexte pour la view est vide
+2024-05-25 15:10:38,105 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-25 15:10:41,804 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-05-25 15:10:43,965 django.server INFO "GET /admin_liste/retour/ HTTP/1.1" 200 6786
+2024-05-25 15:10:48,929 django.server INFO "POST /admin_liste/retour/ HTTP/1.1" 200 9693
+2024-05-25 15:10:55,189 django.server INFO "POST /admin_liste/verifier_liste_retour/7/1/ HTTP/1.1" 200 62
+2024-05-25 15:10:57,572 django.server INFO "POST /admin_liste/valider_liste_retour/7/ HTTP/1.1" 200 55
+2024-05-25 15:11:00,130 django WARNING le contexte pour la view est vide
+2024-05-25 15:11:00,130 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-25 15:11:02,125 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-05-25 15:11:04,138 django.server INFO "GET /admin_liste/recherche_archive/ HTTP/1.1" 200 6363
+2024-05-25 15:11:13,251 django.server INFO "POST /admin_liste/recherche_archive/ HTTP/1.1" 200 10640
+2024-05-25 15:11:19,134 django.server INFO "POST /admin_liste/display_archive/ HTTP/1.1" 200 11320
+2024-05-25 15:11:35,209 django WARNING le contexte pour la view est vide
+2024-05-25 15:11:35,209 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-25 15:12:03,785 django.server INFO "POST /registration/logout/ HTTP/1.1" 200 527
+2024-05-25 15:12:05,684 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-27 09:21:02,699 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-27 09:21:05,886 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-27 09:21:06,199 django.request WARNING Not Found: /favicon.ico
+2024-05-27 09:21:06,200 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 4071
+2024-05-27 09:21:08,891 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-27 09:21:08,964 django WARNING le contexte pour la view est vide
+2024-05-27 09:21:08,970 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-27 09:21:16,611 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-05-27 09:21:18,410 django.server INFO "GET /admin_liste/recherche_archive/ HTTP/1.1" 200 6363
+2024-05-29 12:18:03,965 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-05-29 12:18:06,278 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-29 12:18:06,540 django.request WARNING Not Found: /favicon.ico
+2024-05-29 12:18:06,541 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 4071
+2024-05-29 12:18:12,558 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-29 12:18:12,620 django WARNING le contexte pour la view est vide
+2024-05-29 12:18:12,636 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-29 12:18:14,885 django.server INFO "GET /admin_compte/user_list/ HTTP/1.1" 200 11705
+2024-05-29 12:18:26,527 django WARNING le contexte pour la view est vide
+2024-05-29 12:18:26,528 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-29 12:18:28,420 django.server INFO "GET /admin_stock/display_produits/ HTTP/1.1" 200 6490
+2024-05-29 12:18:34,276 django.server INFO "POST /admin_stock/display_produits/ HTTP/1.1" 200 110505
+2024-05-29 12:18:45,860 django.server INFO "POST /admin_stock/update_quantity/1/ HTTP/1.1" 200 35
+2024-05-29 12:18:51,643 django.server INFO "GET /admin_stock/produit_list/ HTTP/1.1" 200 80154
+2024-05-29 12:19:07,621 django.server INFO "GET /admin_stock/display_produits/ HTTP/1.1" 200 6490
+2024-05-29 12:19:09,975 django.server INFO "GET /admin_stock/display_produits/ HTTP/1.1" 200 6490
+2024-05-29 12:19:10,806 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-05-29 12:19:13,365 django.server INFO "GET /admin_liste/depart/ HTTP/1.1" 200 11792
+2024-05-29 12:19:43,155 django.server INFO "POST /admin_liste/depart/ HTTP/1.1" 200 119236
+2024-05-29 12:20:01,456 django.server INFO "POST /admin_liste/remplir_liste_depart/1/1/ HTTP/1.1" 200 35
+2024-05-29 12:20:30,879 django.request WARNING Method Not Allowed: /admin_liste/create_liste_utilisateur/1/
+2024-05-29 12:20:30,884 django.server WARNING "POST /admin_liste/create_liste_utilisateur/1/ HTTP/1.1" 405 73
+2024-05-29 12:20:44,271 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-05-29 12:20:45,852 django.server INFO "GET /admin_liste/retour/ HTTP/1.1" 200 6786
+2024-05-29 12:20:48,548 django.server INFO "POST /admin_liste/retour/ HTTP/1.1" 200 9693
+2024-05-29 12:21:06,048 django.server INFO "POST /admin_liste/verifier_liste_retour/3/1/ HTTP/1.1" 200 62
+2024-05-29 12:21:08,895 django.server INFO "POST /admin_liste/valider_liste_retour/3/ HTTP/1.1" 200 55
+2024-05-29 12:21:25,128 django WARNING le contexte pour la view est vide
+2024-05-29 12:21:25,128 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-29 12:21:27,510 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-05-29 12:21:29,424 django.server INFO "GET /admin_liste/recherche_archive/ HTTP/1.1" 200 6363
+2024-05-29 12:21:43,778 django.server INFO "POST /admin_liste/recherche_archive/ HTTP/1.1" 200 10641
+2024-05-29 12:21:51,600 django.server INFO "POST /admin_liste/display_archive/ HTTP/1.1" 200 11321
+2024-05-29 12:22:08,618 django.server INFO "POST /registration/logout/ HTTP/1.1" 200 527
+2024-05-29 12:22:10,406 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-29 12:22:17,617 django.server INFO "POST / HTTP/1.1" 200 2215
+2024-05-29 12:22:31,139 django.server INFO "POST / HTTP/1.1" 200 2215
+2024-05-29 12:22:50,144 django.server INFO "POST / HTTP/1.1" 200 2215
+2024-05-29 12:24:28,921 django.server INFO "POST / HTTP/1.1" 200 2215
+2024-05-29 12:24:34,246 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-29 12:24:34,328 django WARNING le contexte pour la view est vide
+2024-05-29 12:24:34,331 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-29 12:24:40,115 django.server INFO "GET /admin_compte/user_list/ HTTP/1.1" 200 11705
+2024-05-29 12:32:13,806 django WARNING le contexte pour la view est vide
+2024-05-29 12:32:13,810 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-05-29 12:32:29,472 django.server INFO "POST /registration/logout/ HTTP/1.1" 200 527
+2024-05-29 12:32:31,275 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-05-29 12:32:50,738 django.server INFO "POST / HTTP/1.1" 200 2215
+2024-05-29 12:33:04,769 django.server INFO "POST / HTTP/1.1" 200 2215
+2024-05-29 12:33:30,007 django.server INFO "POST / HTTP/1.1" 302 0
+2024-05-29 12:33:30,096 django.server INFO "GET /user_liste/index_utilisateur/ HTTP/1.1" 200 3334
+2024-05-29 12:33:37,607 django.server INFO "GET /user_liste/ma_liste/ HTTP/1.1" 200 5018
+2024-05-29 12:33:41,834 django.server INFO "POST /registration/logout/ HTTP/1.1" 200 527
+2024-05-29 12:33:43,689 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-06-12 09:36:40,468 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-06-12 09:36:43,143 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-06-12 09:36:43,582 django.request WARNING Not Found: /favicon.ico
+2024-06-12 09:36:43,583 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 4071
+2024-06-12 09:36:48,648 django.server INFO "POST / HTTP/1.1" 302 0
+2024-06-12 09:36:48,742 django.server INFO "GET /user_liste/index_utilisateur/ HTTP/1.1" 200 3334
+2024-06-12 09:36:51,348 django.server INFO "GET /user_liste/ma_liste/ HTTP/1.1" 200 5018
+2024-06-12 09:36:55,114 django.server INFO "POST /registration/logout/ HTTP/1.1" 200 527
+2024-06-12 09:36:57,056 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-06-12 09:37:05,722 django.server INFO "POST / HTTP/1.1" 302 0
+2024-06-12 09:37:05,798 django WARNING le contexte pour la view est vide
+2024-06-12 09:37:05,809 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-06-12 09:37:07,971 django.server INFO "GET /admin_compte/user_list/ HTTP/1.1" 200 11705
+2024-06-12 09:37:18,916 django.server INFO "POST /registration/logout/ HTTP/1.1" 200 527
+2024-06-12 09:37:21,184 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-06-12 09:37:24,787 django.server INFO "POST / HTTP/1.1" 302 0
+2024-06-12 09:37:24,860 django WARNING le contexte pour la view est vide
+2024-06-12 09:37:24,860 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-06-12 09:37:26,457 django.server INFO "GET /admin_stock/display_produits/ HTTP/1.1" 200 6490
+2024-06-12 09:37:31,138 django.server INFO "POST /admin_stock/display_produits/ HTTP/1.1" 200 110505
+2024-06-12 09:37:43,008 django.server INFO "GET /admin_stock/produit_list/ HTTP/1.1" 200 80154
+2024-06-12 09:38:02,908 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-06-12 09:38:05,479 django.server INFO "GET /admin_liste/recherche_archive/ HTTP/1.1" 200 6363
