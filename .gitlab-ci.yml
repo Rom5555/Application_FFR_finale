@@ -3,7 +3,7 @@
 
 variables:
 
-  BUILD: "TRUE"
+  BUILD: "FALSE"
   TESTS: "TRUE"
   PRODUCTION: "FALSE"                                                     # ne sera mis à true que pour l'exécution en production (kubernetes)
 
@@ -12,7 +12,7 @@ variables:
   POSTGRES_PASSWORD: "integration_pa$$word"                               # mot de passe qui sera utilisé par l'image postgresql pour initialisation.
   POSTGRES_DB : "postgres"                                                # base par défaut disponible, pour test de connexion
   POSTGRES_HOST_AUTH_METHOD: trust                                        # permet de réaliser des requêtes SQL sans authnetification, pour les tests.
-  POSTGRES_APPLICATION_DB: "django_FFR_db"                              # variable d'environnement utilisée par le fichier settings.py du projet Django
+  POSTGRES_APPLICATION_DB: "application_FFR_db"                              # variable d'environnement utilisée par le fichier settings.py du projet Django
   POSTGRES_APPLICATION_USER: "user_integration"                           # variable d'environnement utilisée par le fichier settings.py du projet Django
   POSTGRES_APPLICATION_PASSWORD: "pa$$word_integration"                   # variable d'environnement utilisée par le fichier settings.py du projet Django
   POSTGRES_APPLICATION_HOST: "postgres"                                   # variable d'environnement utilisée par le fichier settings.py du projet Django, pointe vers le conteneur postgresql instancié
