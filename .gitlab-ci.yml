@@ -3,7 +3,7 @@
 
 variables:
 
-  BUILD: "FALSE"
+  BUILD: "TRUE"
   TESTS: "TRUE"
   PRODUCTION: "FALSE"                                                     # ne sera mis à true que pour l'exécution en production (kubernetes)
 
@@ -51,7 +51,7 @@ tests-migrations:
   only:
     variables:
       - $TESTS == "TRUE"
-  image: python:3.10.8-slim-bullseye
+  image: python
   stage: test
   services:
     - postgres:14.5-alpine
@@ -85,7 +85,7 @@ tests-unitaires:
   only:
     variables:
       - $TESTS == "TRUE"
-  image: python:3.10.8-slim-bullseye
+  image: python
   stage: test
   services:
     - postgres:14.5-alpine
@@ -114,7 +114,7 @@ deploy_production:
     variables:
       - $PRODUCTION == "TRUE"
   stage: deploy
-  image: python:3.10-slim-bullseye
+  image: python
   script:
 
     # --------------------------------------------------------------------------------------------------------------------
