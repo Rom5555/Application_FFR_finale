@@ -5,31 +5,38 @@ stages:
 
 variables:
   DOCKER_DRIVER: overlay2
-  DOCKER_HOST: tcp://172.17.0.1:2375
-  DOCKER_TLS_CERTDIR: ""
   BUILD: "TRUE"
+  DOCKER_HOST: tcp://172.17.0.1:2375  # Utilisation de l'adresse IP obtenue
 
 before_script:
-  - apk add --no-cache docker-compose
+  - apk add --no-cache docker-compose  # Installation de Docker Compose sur Alpine Linux
+  # - apt-get update && apt-get install -y docker-compose  # Installation de Docker Compose sur Debian/Ubuntu (décommentez si nécessaire)
 
 build-image:
   stage: build
   image: docker:20.10
   script:
+    - echo "Authentification auprès de GitLab..."
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
+    - echo "Construction de l'image Docker à partir du fichier Dockerfile du repository..."
+    - docker --version
     - docker build -t $REGISTRY_PROJECT_PATH .
+    - echo "Envoi de l'image sur le repository du projet GitLab distant..."
     - docker push $REGISTRY_PROJECT_PATH
-  tags:
-    - runner-perso-poste-tag
   only:
     variables:
       - $BUILD == "TRUE"
+  tags:
+    - runner-perso-poste-tag
 
 test:
   stage: test
   image: docker:20.10
   services:
     - name: docker:20.10-dind
+  variables:
+    DOCKER_HOST: tcp://172.17.0.1:2375  # Utilisation de l'adresse IP obtenue
+    DOCKER_TLS_CERTDIR: ""
   script:
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
     - docker-compose run web python manage.py test
@@ -41,6 +48,9 @@ deploy:
   image: docker:20.10
   services:
     - name: docker:20.10-dind
+  variables:
+    DOCKER_HOST: tcp://172.17.0.1:2375  # Utilisation de l'adresse IP obtenue
+    DOCKER_TLS_CERTDIR: ""
   script:
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
     - docker-compose up -d
