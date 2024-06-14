@@ -371,7 +371,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718370903906</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1718373263892</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1718373263892</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

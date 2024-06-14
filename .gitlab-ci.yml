@@ -30,9 +30,7 @@ build-image:
     - docker build -t $REGISTRY_PROJECT_PATH .
     - echo "Envoi de l'image sur le repository du projet GitLab distant..."
     - docker push $REGISTRY_PROJECT_PATH
-  only:
-    variables:
-      - $BUILD == "TRUE"
+
   tags:
     - runner-perso-poste-tag
 
