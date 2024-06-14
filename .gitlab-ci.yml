@@ -1,35 +1,51 @@
-stages:
-  - build
-  - test
-  - deploy
+#  SUPPORT_EMAIL: "nicolas.georgemel@coder-pour-changer-de-vie.com"        # email fournit pour la mise en production (outils kubernetes)
 
 variables:
-  DOCKER_DRIVER: overlay2
-  DOCKER_TLS_CERTDIR: ""
-  DOCKER_HOST: tcp://docker:2375
 
-before_script:
-  - echo "Installation de Docker Compose..."
-  - apk add --no-cache docker-compose  # Installation de Docker Compose sur Alpine Linux
-  # - apt-get update && apt-get install -y docker-compose  # Installation de Docker Compose sur Debian/Ubuntu (décommentez si nécessaire)
+  BUILD: "TRUE"
+  TESTS: "TRUE"
+  PRODUCTION: "FALSE"                                                     # ne sera mis à true que pour l'exécution en production (kubernetes)
+
+  DJANGO_APPLICATION_NAME : "Application_FFR"
+  POSTGRES_USER: "postgres"                                               # pour des tâches d'administration
+  POSTGRES_PASSWORD: "integration_pa$$word"                               # mot de passe qui sera utilisé par l'image postgresql pour initialisation.
+  POSTGRES_DB : "postgres"                                                # base par défaut disponible, pour test de connexion
+  POSTGRES_HOST_AUTH_METHOD: trust                                        # permet de réaliser des requêtes SQL sans authnetification, pour les tests.
+  POSTGRES_APPLICATION_DB: "application_FFR_db"                              # variable d'environnement utilisée par le fichier settings.py du projet Django
+  POSTGRES_APPLICATION_USER: "user_integration"                           # variable d'environnement utilisée par le fichier settings.py du projet Django
+  POSTGRES_APPLICATION_PASSWORD: "pa$$word_integration"                   # variable d'environnement utilisée par le fichier settings.py du projet Django
+  POSTGRES_APPLICATION_HOST: "postgres"                                   # variable d'environnement utilisée par le fichier settings.py du projet Django, pointe vers le conteneur postgresql instancié
+  POSTGRES_APPLICATION_PORT: 5432                                         # variable d'environnement utilisée par le fichier settings.py du projet Django
 
 build-image:
+  only:
+    variables:
+      - $BUILD == "TRUE"
+  image: docker:20.10
   stage: build
-  image: docker:stable
-  services:
-    - name: docker:stable-dind
-      alias: docker
   script:
-    - echo "Authentification auprès de GitLab..."
-    - echo $REGISTRY_TOKEN | docker login registry.gitlab.com -u $USER_GITLAB --password-stdin
-    - echo "Vérification de la version de Docker..."
-    - docker --version
-    - echo "Vérification des conteneurs Docker en cours d'exécution..."
-    - docker ps
+    #
+    # authentification auprès de GitaLab
+    # -----------------------------------------------------------------------------
+    # Utilisation d'un token généré pour provisionner les images dans le registry :
+    # $REGISTRY_TOKEN (variable de Pipeline masquée)
+    # NB: cette variable est définit dans les paramétrages du projet GitLab / CI/CD / Variables
+    - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
+
+    #
+    # Construction de l'image Docker à partir du fichier Dockerfile du repository..
+    # -----------------------------------------------------------------------------
     - echo "Construction de l'image Docker à partir du fichier Dockerfile du repository..."
+    - echo "version de Docker:"
+    - docker --version
+    - echo "Build de l'image à partir du fichier Dockerfile présent à la racine..."
     - docker build -t $REGISTRY_PROJECT_PATH .
-    - echo "Envoi de l'image sur le repository du projet GitLab distant..."
+
+    #
+    # Envoie de l'image sur le repository du projet GitLab distant
+    # -----------------------------------------------------------------------------
     - docker push $REGISTRY_PROJECT_PATH
+
 
   tags:
     - runner-perso-poste-tag
