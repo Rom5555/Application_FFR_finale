@@ -1,49 +1,30 @@
+stages:
+  - build
+  - test
+  - deploy
+
 variables:
-
+  DOCKER_DRIVER: overlay2
   BUILD: "TRUE"
-  TESTS: "TRUE"
-  PRODUCTION: "FALSE"                                                     # ne sera mis à true que pour l'exécution en production (kubernetes)
 
-  DJANGO_APPLICATION_NAME : "Application_FFR"
-  POSTGRES_USER: "postgres"                                               # pour des tâches d'administration
-  POSTGRES_PASSWORD: "integration_pa$$word"                               # mot de passe qui sera utilisé par l'image postgresql pour initialisation.
-  POSTGRES_DB : "postgres"                                                # base par défaut disponible, pour test de connexion
-  POSTGRES_HOST_AUTH_METHOD: trust                                        # permet de réaliser des requêtes SQL sans authnetification, pour les tests.
-  POSTGRES_APPLICATION_DB: "application_FFR_db"                              # variable d'environnement utilisée par le fichier settings.py du projet Django
-  POSTGRES_APPLICATION_USER: "user_integration"                           # variable d'environnement utilisée par le fichier settings.py du projet Django
-  POSTGRES_APPLICATION_PASSWORD: "pa$$word_integration"                   # variable d'environnement utilisée par le fichier settings.py du projet Django
-  POSTGRES_APPLICATION_HOST: "postgres"                                   # variable d'environnement utilisée par le fichier settings.py du projet Django, pointe vers le conteneur postgresql instancié
-  POSTGRES_APPLICATION_PORT: 5432                                         # variable d'environnement utilisée par le fichier settings.py du projet Django
+before_script:
+  - apk add --no-cache docker-compose  # Installation de Docker Compose sur Alpine Linux
+  # - apt-get update && apt-get install -y docker-compose  # Installation de Docker Compose sur Debian/Ubuntu (décommentez si nécessaire)
 
 build-image:
+  stage: build
+  image: docker:stable
+  script:
+    - echo "Authentification auprès de GitLab..."
+    - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
+    - echo "Construction de l'image Docker à partir du fichier Dockerfile du repository..."
+    - docker --version
+    - docker build -t $REGISTRY_PROJECT_PATH .
+    - echo "Envoi de l'image sur le repository du projet GitLab distant..."
+    - docker push $REGISTRY_PROJECT_PATH
   only:
     variables:
       - $BUILD == "TRUE"
-  image: docker:20.10
-  stage: build
-  script:
-    #
-    # authentification auprès de GitaLab
-    # -----------------------------------------------------------------------------
-    # Utilisation d'un token généré pour provisionner les images dans le registry :
-    # $REGISTRY_TOKEN (variable de Pipeline masquée)
-    # NB: cette variable est définit dans les paramétrages du projet GitLab / CI/CD / Variables
-    - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
-
-    #
-    # Construction de l'image Docker à partir du fichier Dockerfile du repository..
-    # -----------------------------------------------------------------------------
-    - echo "Construction de l'image Docker à partir du fichier Dockerfile du repository..."
-    - echo "version de Docker:"
-    - docker --version
-    - echo "Build de l'image à partir du fichier Dockerfile présent à la racine..."
-    - docker build -t $REGISTRY_PROJECT_PATH .
-
-    #
-    # Envoie de l'image sur le repository du projet GitLab distant
-    # -----------------------------------------------------------------------------
-    - docker push $REGISTRY_PROJECT_PATH
-
   tags:
     - runner-perso-poste-tag
 
@@ -54,7 +35,7 @@ test:
     - name: docker:stable-dind
       alias: docker
   variables:
-    DOCKER_HOST: tcp://docker:2375
+    DOCKER_HOST: tcp://172.17.0.1:2375
     DOCKER_TLS_CERTDIR: ""
   script:
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
@@ -66,7 +47,7 @@ deploy:
   stage: deploy
   image: docker:stable
   variables:
-    DOCKER_HOST: tcp://docker:2375
+    DOCKER_HOST: tcp://172.17.0.1:2375
     DOCKER_TLS_CERTDIR: ""
   script:
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
