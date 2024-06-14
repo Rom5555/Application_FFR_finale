@@ -24,6 +24,8 @@ build-image:
   only:
     variables:
       - $BUILD == "TRUE"
+  tags:
+    - runner-perso-poste
 
 test:
   stage: test
@@ -36,6 +38,8 @@ test:
   script:
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
     - docker-compose run web python manage.py test
+  tags:
+    - runner-perso-poste
 
 deploy:
   stage: deploy
@@ -53,3 +57,5 @@ deploy:
     url: http://164.92.202.51:8000
   only:
     - master
+  tags:
+    - runner-perso-poste
