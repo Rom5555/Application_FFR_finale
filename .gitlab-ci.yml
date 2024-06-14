@@ -14,7 +14,7 @@ before_script:
 
 build-image:
   stage: build
-  image: docker:20.10
+  image: docker:rc-dind-rootless
   script:
     - echo "Authentification auprès de GitLab..."
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
@@ -33,7 +33,7 @@ test:
   stage: test
   image: docker:20.10
   services:
-    - name: docker:20.10-dind
+    - name: docker:rc-dind-rootless
   variables:
     DOCKER_HOST: tcp://172.17.0.1:2375  # Utilisation de l'adresse IP obtenue
     DOCKER_TLS_CERTDIR: ""
@@ -47,7 +47,7 @@ deploy:
   stage: deploy
   image: docker:20.10
   services:
-    - name: docker:20.10-dind
+    - name: docker:rc-dind-rootless
   variables:
     DOCKER_HOST: tcp://172.17.0.1:2375  # Utilisation de l'adresse IP obtenue
     DOCKER_TLS_CERTDIR: ""
