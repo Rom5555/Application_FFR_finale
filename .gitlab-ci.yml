@@ -5,11 +5,11 @@ stages:
 
 variables:
   DOCKER_DRIVER: overlay2
-  BUILD: "TRUE"
-  DOCKER_HOST: tcp://127.0.0.1:2375
   DOCKER_TLS_CERTDIR: ""
+  DOCKER_HOST: tcp://docker:2375
 
 before_script:
+  - echo "Installation de Docker Compose..."
   - apk add --no-cache docker-compose  # Installation de Docker Compose sur Alpine Linux
   # - apt-get update && apt-get install -y docker-compose  # Installation de Docker Compose sur Debian/Ubuntu (décommentez si nécessaire)
 
@@ -22,8 +22,11 @@ build-image:
   script:
     - echo "Authentification auprès de GitLab..."
     - echo $REGISTRY_TOKEN | docker login registry.gitlab.com -u $USER_GITLAB --password-stdin
-    - echo "Construction de l'image Docker à partir du fichier Dockerfile du repository..."
+    - echo "Vérification de la version de Docker..."
     - docker --version
+    - echo "Vérification des conteneurs Docker en cours d'exécution..."
+    - docker ps
+    - echo "Construction de l'image Docker à partir du fichier Dockerfile du repository..."
     - docker build -t $REGISTRY_PROJECT_PATH .
     - echo "Envoi de l'image sur le repository du projet GitLab distant..."
     - docker push $REGISTRY_PROJECT_PATH
@@ -40,7 +43,12 @@ test:
     - name: docker:stable-dind
       alias: docker
   script:
+    - echo "Authentification auprès de GitLab..."
     - echo $REGISTRY_TOKEN | docker login registry.gitlab.com -u $USER_GITLAB --password-stdin
+    - echo "Vérification de la version de Docker..."
+    - docker --version
+    - echo "Vérification des conteneurs Docker en cours d'exécution..."
+    - docker ps
     - docker-compose run web python manage.py test
   tags:
     - runner-perso-poste-tag
@@ -52,7 +60,12 @@ deploy:
     - name: docker:stable-dind
       alias: docker
   script:
+    - echo "Authentification auprès de GitLab..."
     - echo $REGISTRY_TOKEN | docker login registry.gitlab.com -u $USER_GITLAB --password-stdin
+    - echo "Vérification de la version de Docker..."
+    - docker --version
+    - echo "Vérification des conteneurs Docker en cours d'exécution..."
+    - docker ps
     - docker-compose up -d
     - docker-compose exec web python manage.py createsuperuser
   environment:
