@@ -7,25 +7,20 @@ variables:
   DOCKER_DRIVER: overlay2
 
 before_script:
-  - apk add --no-cache docker-compose  # Installation de Docker Compose sur Alpine Linux
-  # - apt-get update && apt-get install -y docker-compose  # Installation de Docker Compose sur Debian/Ubuntu (décommentez si nécessaire)
+  - apk add --no-cache docker-compose
 
 build-image:
   stage: build
   image: docker:20.10
   script:
-    - echo "Authentification auprès de GitLab..."
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
-    - echo "Construction de l'image Docker à partir du fichier Dockerfile du repository..."
-    - docker --version
     - docker build -t $REGISTRY_PROJECT_PATH .
-    - echo "Envoi de l'image sur le repository du projet GitLab distant..."
     - docker push $REGISTRY_PROJECT_PATH
+  tags:
+    - runner-perso-poste-tag
   only:
     variables:
       - $BUILD == "TRUE"
-  tags:
-    - runner-perso-poste-tag
 
 test:
   stage: test
