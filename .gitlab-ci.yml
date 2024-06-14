@@ -6,6 +6,8 @@ stages:
 variables:
   DOCKER_DRIVER: overlay2
   BUILD: "TRUE"
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_TLS_CERTDIR: ""
 
 before_script:
   - apk add --no-cache docker-compose  # Installation de Docker Compose sur Alpine Linux
@@ -14,6 +16,9 @@ before_script:
 build-image:
   stage: build
   image: docker:stable
+  services:
+    - name: docker:stable-dind
+      alias: docker
   script:
     - echo "Authentification auprès de GitLab..."
     - echo $REGISTRY_TOKEN | docker login registry.gitlab.com -u $USER_GITLAB --password-stdin
@@ -34,9 +39,6 @@ test:
   services:
     - name: docker:stable-dind
       alias: docker
-  variables:
-    DOCKER_HOST: tcp://docker:2375
-    DOCKER_TLS_CERTDIR: ""
   script:
     - echo $REGISTRY_TOKEN | docker login registry.gitlab.com -u $USER_GITLAB --password-stdin
     - docker-compose run web python manage.py test
@@ -46,9 +48,9 @@ test:
 deploy:
   stage: deploy
   image: docker:stable
-  variables:
-    DOCKER_HOST: tcp://docker:2375
-    DOCKER_TLS_CERTDIR: ""
+  services:
+    - name: docker:stable-dind
+      alias: docker
   script:
     - echo $REGISTRY_TOKEN | docker login registry.gitlab.com -u $USER_GITLAB --password-stdin
     - docker-compose up -d
