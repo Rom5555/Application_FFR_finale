@@ -31,7 +31,7 @@ build-image:
     # $REGISTRY_TOKEN (variable de Pipeline masquée)
     # NB: cette variable est définit dans les paramétrages du projet GitLab / CI/CD / Variables
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
-
+    - apk add --no-cache docker-compose   # Install docker-compose
     #
     # Construction de l'image Docker à partir du fichier Dockerfile du repository..
     # -----------------------------------------------------------------------------
