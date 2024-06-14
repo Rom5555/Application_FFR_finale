@@ -52,6 +52,7 @@ deploy:
   script:
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
     - docker-compose up -d
+    - docker-compose exec web python manage.py createsuperuser
   environment:
     name: production
     url: http://164.92.202.51:8000
