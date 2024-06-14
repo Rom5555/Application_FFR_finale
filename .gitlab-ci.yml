@@ -5,7 +5,9 @@ stages:
 
 variables:
   DOCKER_DRIVER: overlay2
-  DOCKER_HOST: tcp://127.0.0.1:2375/
+  DOCKER_HOST: tcp://docker:2375/
+  DOCKER_TLS_CERTDIR: ""
+  BUILD: "TRUE"
 
 before_script:
   - apk add --no-cache docker-compose
@@ -19,16 +21,15 @@ build-image:
     - docker push $REGISTRY_PROJECT_PATH
   tags:
     - runner-perso-poste-tag
-
+  only:
+    variables:
+      - $BUILD == "TRUE"
 
 test:
   stage: test
   image: docker:20.10
   services:
     - name: docker:20.10-dind
-  variables:
-    DOCKER_HOST: tcp://127.0.0.1:2375/
-    DOCKER_TLS_CERTDIR: ""
   script:
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
     - docker-compose run web python manage.py test
@@ -40,9 +41,6 @@ deploy:
   image: docker:20.10
   services:
     - name: docker:20.10-dind
-  variables:
-    DOCKER_HOST: tcp://docker:2375/
-    DOCKER_TLS_CERTDIR: ""
   script:
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
     - docker-compose up -d
