@@ -6,7 +6,6 @@ stages:
 variables:
   DOCKER_DRIVER: overlay2
   BUILD: "TRUE"
-  DOCKER_HOST: tcp://172.17.0.1:2375  # Utilisation de l'adresse IP obtenue
 
 before_script:
   - apk add --no-cache docker-compose  # Installation de Docker Compose sur Alpine Linux
@@ -14,7 +13,7 @@ before_script:
 
 build-image:
   stage: build
-  image: docker:rc-dind-rootless
+  image: docker:stable
   script:
     - echo "Authentification auprès de GitLab..."
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
@@ -31,11 +30,12 @@ build-image:
 
 test:
   stage: test
-  image: docker:20.10
+  image: docker:stable
   services:
-    - name: docker:rc-dind-rootless
+    - name: docker:stable-dind
+      alias: docker
   variables:
-    DOCKER_HOST: tcp://172.17.0.1:2375  # Utilisation de l'adresse IP obtenue
+    DOCKER_HOST: tcp://docker:2375/
     DOCKER_TLS_CERTDIR: ""
   script:
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
@@ -45,11 +45,9 @@ test:
 
 deploy:
   stage: deploy
-  image: docker:20.10
-  services:
-    - name: docker:rc-dind-rootless
+  image: docker:stable
   variables:
-    DOCKER_HOST: tcp://172.17.0.1:2375  # Utilisation de l'adresse IP obtenue
+    DOCKER_HOST: tcp://docker:2375/
     DOCKER_TLS_CERTDIR: ""
   script:
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
