@@ -18,9 +18,7 @@ build-image:
     - docker push $REGISTRY_PROJECT_PATH
   tags:
     - runner-perso-poste-tag
-  only:
-    variables:
-      - $BUILD == "TRUE"
+
 
 test:
   stage: test
