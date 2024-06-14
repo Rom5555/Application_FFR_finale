@@ -25,7 +25,7 @@ build-image:
     variables:
       - $BUILD == "TRUE"
   tags:
-    - runner-perso-poste
+    - runner-perso-poste-tag
 
 test:
   stage: test
@@ -39,7 +39,7 @@ test:
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
     - docker-compose run web python manage.py test
   tags:
-    - runner-perso-poste
+    - runner-perso-poste-tag
 
 deploy:
   stage: deploy
@@ -58,4 +58,4 @@ deploy:
   only:
     - master
   tags:
-    - runner-perso-poste
+    - runner-perso-poste-tag
