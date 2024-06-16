@@ -12,6 +12,8 @@ services:
 
   web:
     image: ${REGISTRY_PROJECT_PATH}  # Utilisez l'image construite et poussée
+    build:
+      context: .
     command: gunicorn application_FFR.wsgi:application --bind 0.0.0.0:8000 --workers 3
     volumes:
       - .:/app
