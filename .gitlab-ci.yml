@@ -1,21 +1,18 @@
-#  SUPPORT_EMAIL: "nicolas.georgemel@coder-pour-changer-de-vie.com"        # email fournit pour la mise en production (outils kubernetes)
-
 variables:
-
   BUILD: "TRUE"
   TESTS: "TRUE"
-  PRODUCTION: "FALSE"                                                     # ne sera mis à true que pour l'exécution en production (kubernetes)
+  PRODUCTION: "FALSE"
 
-  DJANGO_APPLICATION_NAME : "Application_FFR"
-  POSTGRES_USER: "postgres"                                               # pour des tâches d'administration
-  POSTGRES_PASSWORD: "integration_pa$$word"                               # mot de passe qui sera utilisé par l'image postgresql pour initialisation.
-  POSTGRES_DB : "postgres"                                                # base par défaut disponible, pour test de connexion
-  POSTGRES_HOST_AUTH_METHOD: trust                                        # permet de réaliser des requêtes SQL sans authnetification, pour les tests.
-  POSTGRES_APPLICATION_DB: "application_FFR_db"                              # variable d'environnement utilisée par le fichier settings.py du projet Django
-  POSTGRES_APPLICATION_USER: "user_integration"                           # variable d'environnement utilisée par le fichier settings.py du projet Django
-  POSTGRES_APPLICATION_PASSWORD: "pa$$word_integration"                   # variable d'environnement utilisée par le fichier settings.py du projet Django
-  POSTGRES_APPLICATION_HOST: "postgres"                                   # variable d'environnement utilisée par le fichier settings.py du projet Django, pointe vers le conteneur postgresql instancié
-  POSTGRES_APPLICATION_PORT: 5432                                         # variable d'environnement utilisée par le fichier settings.py du projet Django
+  DJANGO_APPLICATION_NAME: "Application_FFR"
+  POSTGRES_USER: "postgres"
+  POSTGRES_PASSWORD: "integration_pa$$word"
+  POSTGRES_DB: "postgres"
+  POSTGRES_HOST_AUTH_METHOD: trust
+  POSTGRES_APPLICATION_DB: "application_FFR_db"
+  POSTGRES_APPLICATION_USER: "user_integration"
+  POSTGRES_APPLICATION_PASSWORD: "pa$$word_integration"
+  POSTGRES_APPLICATION_HOST: "postgres"
+  POSTGRES_APPLICATION_PORT: 5432
 
 build-image:
   only:
@@ -24,63 +21,38 @@ build-image:
   image: docker:20.10
   stage: build
   script:
-    #
-    # authentification auprès de GitaLab
-    # -----------------------------------------------------------------------------
-    # Utilisation d'un token généré pour provisionner les images dans le registry :
-    # $REGISTRY_TOKEN (variable de Pipeline masquée)
-    # NB: cette variable est définit dans les paramétrages du projet GitLab / CI/CD / Variables
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
-    - apk add --no-cache docker-compose   # Install docker-compose
-    #
-    # Construction de l'image Docker à partir du fichier Dockerfile du repository..
-    # -----------------------------------------------------------------------------
+    - apk add --no-cache docker-compose
     - echo "Construction de l'image Docker à partir du fichier Dockerfile du repository..."
-    - echo "version de Docker:"
-    - docker --version
-    - echo "Build de l'image à partir du fichier Dockerfile présent à la racine..."
     - docker build -t $REGISTRY_PROJECT_PATH .
-
-    #
-    # Envoie de l'image sur le repository du projet GitLab distant
-    # -----------------------------------------------------------------------------
     - docker push $REGISTRY_PROJECT_PATH
-
-
   tags:
     - runner-perso-poste-tag
 
 test:
   stage: test
-  image: docker:stable
+  image: docker:20.10
   services:
-    - name: docker:stable-dind
-      alias: docker
+    - docker:20.10-dind
   script:
-    - echo "Authentification auprès de GitLab..."
-    - echo $REGISTRY_TOKEN | docker login registry.gitlab.com -u $USER_GITLAB --password-stdin
-    - echo "Vérification de la version de Docker..."
-    - docker --version
-    - echo "Vérification des conteneurs Docker en cours d'exécution..."
-    - docker ps
-    - docker-compose run web python manage.py test
+    - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
+    - docker pull $REGISTRY_PROJECT_PATH
+    - apk add --no-cache docker-compose
+    - docker-compose -f docker-compose.yml up -d
+    - docker-compose exec web python manage.py test
   tags:
     - runner-perso-poste-tag
 
 deploy:
   stage: deploy
-  image: docker:stable
+  image: docker:20.10
   services:
-    - name: docker:stable-dind
-      alias: docker
+    - docker:20.10-dind
   script:
-    - echo "Authentification auprès de GitLab..."
-    - echo $REGISTRY_TOKEN | docker login registry.gitlab.com -u $USER_GITLAB --password-stdin
-    - echo "Vérification de la version de Docker..."
-    - docker --version
-    - echo "Vérification des conteneurs Docker en cours d'exécution..."
-    - docker ps
-    - docker-compose up -d
+    - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
+    - docker pull $REGISTRY_PROJECT_PATH
+    - apk add --no-cache docker-compose
+    - docker-compose -f docker-compose.yml up -d
     - docker-compose exec web python manage.py createsuperuser
   environment:
     name: production

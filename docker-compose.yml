@@ -11,7 +11,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   web:
-    build: .
+    image: ${REGISTRY_PROJECT_PATH}  # Utilisez l'image construite et poussée
     command: gunicorn application_FFR.wsgi:application --bind 0.0.0.0:8000 --workers 3
     volumes:
       - .:/app
@@ -20,10 +20,9 @@ services:
     depends_on:
       - db
     env_file:
-      - .env  # Spécifie le fichier .env à utiliser
+      - .env
     environment:
       DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
-      # Autres variables d'environnement nécessaires pour votre application
 
 volumes:
   postgres_data:
