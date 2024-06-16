@@ -1,5 +1,5 @@
 variables:
-  BUILD: "TRUE"
+  BUILD: "FALSE"
   TESTS: "TRUE"
   PRODUCTION: "FALSE"
 
@@ -39,12 +39,11 @@ test:
     - docker pull $REGISTRY_PROJECT_PATH
     - apk add --no-cache docker-compose
     - docker-compose up -d
-    - docker-compose exec web ls /app  # Vérifiez les fichiers dans le répertoire /app
-    - docker-compose exec web ls /app/application_FFR  # Vérifiez les fichiers dans le répertoire de l'application
+    - docker-compose exec web ls -la /app  # Vérifiez les fichiers dans le répertoire /app
+    - docker-compose exec web ls -la /app/application_FFR  # Vérifiez les fichiers dans le répertoire de l'application
     - docker-compose exec web python manage.py test
   tags:
     - runner-perso-poste-tag
-
 
 deploy:
   stage: deploy

@@ -11,10 +11,8 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   web:
-    image: ${REGISTRY_PROJECT_PATH}  # Utilisez l'image construite et poussée
     build:
       context: .
-    command: gunicorn application_FFR.wsgi:application --bind 0.0.0.0:8000 --workers 3
     volumes:
       - .:/app
     ports:
@@ -24,7 +22,7 @@ services:
     env_file:
       - .env
     environment:
-      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
 
 volumes:
   postgres_data:

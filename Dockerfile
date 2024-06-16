@@ -29,5 +29,9 @@ COPY . /app
 # Exposer le port sur lequel l'application va tourner
 EXPOSE 8000
 
+# Vérifier que les fichiers sont bien copiés
+RUN ls -la /app
+RUN ls -la /app/application_FFR
+
 # Commande pour démarrer l'application
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "application_FFR.wsgi:application"]
