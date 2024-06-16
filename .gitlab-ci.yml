@@ -1,5 +1,5 @@
 variables:
-  BUILD: "FALSE"
+  BUILD: "TRUE"
   TESTS: "TRUE"
   PRODUCTION: "FALSE"
 
@@ -63,3 +63,4 @@ deploy:
     - master
   tags:
     - runner-perso-poste-tag
+
