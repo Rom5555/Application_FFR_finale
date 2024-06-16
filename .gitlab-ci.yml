@@ -38,7 +38,8 @@ test:
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
     - docker pull $REGISTRY_PROJECT_PATH
     - apk add --no-cache docker-compose
-    - docker-compose -f docker-compose.yml up -d
+    - docker-compose up -d
+    - docker-compose exec web ls /app  # Ajouté pour vérifier les fichiers dans le conteneur
     - docker-compose exec web python manage.py test
   tags:
     - runner-perso-poste-tag
@@ -52,7 +53,7 @@ deploy:
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
     - docker pull $REGISTRY_PROJECT_PATH
     - apk add --no-cache docker-compose
-    - docker-compose -f docker-compose.yml up -d
+    - docker-compose up -d
     - docker-compose exec web python manage.py createsuperuser
   environment:
     name: production
