@@ -14,24 +14,24 @@ RUN apt -y update \
     && rm -rf /var/lib/apt/lists/*
 
 # Créer le répertoire de l'application
-RUN mkdir /app
+RUN mkdir /app/Application_FFR_finale_V1
 
 # Définir le répertoire de travail
-WORKDIR /app
+WORKDIR /app/Application_FFR_finale_V1
 
 # Copier les dépendances de l'application et les installer
-COPY requirements.txt /app/
+COPY requirements.txt /app/Application_FFR_finale_V1
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copier tout le reste du code de l'application
-COPY . /app
+COPY . /app/Application_FFR_finale_V1
 
 # Exposer le port sur lequel l'application va tourner
 EXPOSE 8000
 
 # Vérifier que les fichiers sont bien copiés
-RUN ls -la /app
-RUN ls -la /app/application_FFR
+RUN ls -la /app/Application_FFR_finale_V1
+RUN ls -la /app/Application_FFR_finale_V1
 
 # Commande pour démarrer l'application
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "application_FFR.wsgi:application"]
