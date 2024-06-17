@@ -34,7 +34,7 @@ tests-migrations:
   only:
     variables:
       - $TESTS == "TRUE"
-  image: docker:20.10
+  image: python:3.10.8-slim-bullseye
   stage: test
   services:
     - postgres:14.5-alpine
