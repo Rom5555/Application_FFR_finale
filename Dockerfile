@@ -21,7 +21,7 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copier tout le reste du code de l'application
-COPY . / ./
+COPY ./ ./
 
 WORKDIR /app/Application_FFR_finale_V1
 # Exposer le port sur lequel l'application va tourner
