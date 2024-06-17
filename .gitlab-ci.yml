@@ -4,9 +4,9 @@ variables:
   PRODUCTION: "FALSE"
 
   DJANGO_APPLICATION_NAME: "Application_FFR"
-  POSTGRES_USER: "postgres"
-  POSTGRES_PASSWORD: "integration_pa$$word"
-  POSTGRES_DB: "postgres"
+  POSTGRES_TEST_USER: "postgres"
+  POSTGRES_TEST_PASSWORD: "integration_pa$$word"
+  POSTGRES_TEST_DB: "postgres"
   POSTGRES_HOST_AUTH_METHOD: trust
   POSTGRES_APPLICATION_DB: "application_FFR_db"
   POSTGRES_APPLICATION_USER: "user_integration"
@@ -50,13 +50,13 @@ tests-migrations:
     - apt -y upgrade
     - pip3 install -r ./requirements.txt
     - echo "vérification de la connection à la BDD postgresql (conteneur instancié)"
-    - psql -h "postgres" -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT 'OK' AS status;"
+    - psql -h "postgres" -U "$POSTGRES_TEST_USER" -d "$POSTGRES_TEST_DB" -c "SELECT 'OK' AS status;"
     - echo "création de la base de données $POSTGRES_APPLICATION_DB"
     - createdb -h $POSTGRES_APPLICATION_HOST -p $POSTGRES_APPLICATION_PORT -U postgres $POSTGRES_APPLICATION_DB
     - echo "création de l'utilisateur $POSTGRES_APPLICATION_USER"
-    - psql -h "postgres" -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "create user $POSTGRES_APPLICATION_USER with encrypted password '$POSTGRES_APPLICATION_PASSWORD';"
+    - psql -h "postgres" -U "$POSTGRES_TEST_USER" -d "$POSTGRES_TEST_DB" -c "create user $POSTGRES_APPLICATION_USER with encrypted password '$POSTGRES_APPLICATION_PASSWORD';"
     - echo "attribution des privilèges pour l'utilisateur $POSTGRES_APPLICATION_USER à la BDD $POSTGRES_APPLICATION_DB"
-    - psql -h "postgres" -U "$POSTGRES_USER" -c "grant all privileges on database $POSTGRES_APPLICATION_DB to $POSTGRES_APPLICATION_USER;"
+    - psql -h "postgres" -U "$POSTGRES_TEST_USER" -c "grant all privileges on database $POSTGRES_APPLICATION_DB to $POSTGRES_APPLICATION_USER;"
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
     - docker pull $REGISTRY_PROJECT_PATH
     - apk add --no-cache docker-compose
