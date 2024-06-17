@@ -29,15 +29,45 @@ build-image:
   tags:
     - runner-perso-poste-tag
 
-test:
-  stage: test
+
+tests-migrations:
+  only:
+    variables:
+      - $TESTS == "TRUE"
   image: docker:20.10
+  stage: test
+  services:
+    - postgres:14.5-alpine
+
+  # --------------------------------------------------------------------------------------------------------------------
+  # on s'assure que l'initalisation de la BDD est OK et que les migrations Django sont
+  # réalisées avec succès
+  # --------------------------------------------------------------------------------------------------------------------
   script:
+    - apt -y update
+    - apt -y install apt-utils
+    - apt -y install net-tools postgresql-client libpq-dev
+    - apt -y upgrade
+    - pip3 install -r ./requirements.txt
+    - echo "vérification de la connection à la BDD postgresql (conteneur instancié)"
+    - psql -h "postgres" -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT 'OK' AS status;"
+    - echo "création de la base de données $POSTGRES_APPLICATION_DB"
+    - createdb -h $POSTGRES_APPLICATION_HOST -p $POSTGRES_APPLICATION_PORT -U postgres $POSTGRES_APPLICATION_DB
+    - echo "création de l'utilisateur $POSTGRES_APPLICATION_USER"
+    - psql -h "postgres" -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "create user $POSTGRES_APPLICATION_USER with encrypted password '$POSTGRES_APPLICATION_PASSWORD';"
+    - echo "attribution des privilèges pour l'utilisateur $POSTGRES_APPLICATION_USER à la BDD $POSTGRES_APPLICATION_DB"
+    - psql -h "postgres" -U "$POSTGRES_USER" -c "grant all privileges on database $POSTGRES_APPLICATION_DB to $POSTGRES_APPLICATION_USER;"
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
     - docker pull $REGISTRY_PROJECT_PATH
     - apk add --no-cache docker-compose
     - docker-compose up -d
-    - docker-compose exec web python ./manage.py test
+    - echo "Migrations Django"
+    - ls -al
+    - docker-compose exec web python ./manage.py makemigrations
+    - docker-compose exec web python ./manage.py makemigrations $DJANGO_APPLICATION_NAME
+    - docker-compose exec web python ./manage.py migrate
+    - docker-compose exec web python ./manage.py check
+
   tags:
     - runner-perso-poste-tag
 
