@@ -23,13 +23,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copier tout le reste du code de l'application
 COPY . / ./
 
-WORKDIR /app/application_FFR
+WORKDIR /app/Application_FFR_finale_V1
 # Exposer le port sur lequel l'application va tourner
 EXPOSE 8000
-
-# Vérifier que les fichiers sont bien copiés
-RUN ls -la /app/application_FFR
-RUN ls -la /app/application_FFR
 
 # Commande pour démarrer l'application
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "application_FFR.wsgi:application"]
