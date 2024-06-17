@@ -3,7 +3,7 @@ FROM python:3.12
 
 # Mise à jour du système et installation des dépendances nécessaires
 RUN apt -y update \
-    && apt install -y --no-install-recommends \
+    && apt install -y postgresql \
         apt-utils \
         net-tools \
         postgresql-client \
