@@ -32,8 +32,6 @@ build-image:
 test:
   stage: test
   image: docker:20.10
-  services:
-    - docker:20.10-dind
   script:
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
     - docker pull $REGISTRY_PROJECT_PATH
@@ -48,8 +46,6 @@ test:
 deploy:
   stage: deploy
   image: docker:20.10
-  services:
-    - docker:20.10-dind
   script:
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
     - docker pull $REGISTRY_PROJECT_PATH
