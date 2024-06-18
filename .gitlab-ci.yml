@@ -29,7 +29,6 @@ build-image:
   tags:
     - runner-perso-poste-tag
 
-
 tests-migrations:
   only:
     variables:
@@ -57,16 +56,43 @@ tests-migrations:
     - psql -h "postgres" -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "create user $POSTGRES_APPLICATION_USER with encrypted password '$POSTGRES_APPLICATION_PASSWORD';"
     - echo "attribution des privilèges pour l'utilisateur $POSTGRES_APPLICATION_USER à la BDD $POSTGRES_APPLICATION_DB"
     - psql -h "postgres" -U "$POSTGRES_USER" -c "grant all privileges on database $POSTGRES_APPLICATION_DB to $POSTGRES_APPLICATION_USER;"
-    - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
-    - docker pull $REGISTRY_PROJECT_PATH
-    - apk add --no-cache docker-compose
-    - docker-compose up -d
     - echo "Migrations Django"
     - ls -al
-    - docker-compose exec web python ./manage.py makemigrations
-    - docker-compose exec web python ./manage.py makemigrations $DJANGO_APPLICATION_NAME
-    - docker-compose exec web python ./manage.py migrate
-    - docker-compose exec web python ./manage.py check
+    - python3 manage.py makemigrations
+    - python3 manage.py makemigrations $DJANGO_APPLICATION_NAME
+    - python3 manage.py migrate
+    - python3 manage.py check
+
+  tags:
+    - runner-perso-poste-tag
+
+tests-unitaires:
+  only:
+    variables:
+      - $TESTS == "TRUE"
+  image: python:3.10.8-slim-bullseye
+  stage: test
+  services:
+    - postgres:14.5-alpine
+
+  # --------------------------------------------------------------------------------------------------------------------
+  # on s'assure que les tests unitaires s'exécute avec succès.
+  #
+  # NB : le mécanisme de tests unitaires implémenté par Django va créer dynamiquement un base de données dédiée aux tests
+  #      qui sera également détruite automatiquement par la suite.
+  # --------------------------------------------------------------------------------------------------------------------
+  script:
+    - apt -y update
+    - apt -y install apt-utils
+    - apt -y install net-tools postgresql-client libpq-dev
+    - apt -y upgrade
+    - pip3 install -r ./requirements.txt
+    - echo "création de l'utilisateur $POSTGRES_APPLICATION_USER"
+    - psql -h "postgres" -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "create user $POSTGRES_APPLICATION_USER with encrypted password '$POSTGRES_APPLICATION_PASSWORD';"
+    - echo "autorisation pour l'utilisateur $POSTGRES_APPLICATION_USER de créer une BDD afin de pouvoir exécuter les tests automatisés Django"
+    - psql -h "postgres" -U "$POSTGRES_USER" -c "ALTER USER $POSTGRES_APPLICATION_USER CREATEDB;"
+    - echo "Tests Django"
+    - python3 manage.py test --noinput # l'option --noinput permet de ne pas recevoir une demande de confirmation avant suppression de la BDD créée automatiquement pour les tests
 
   tags:
     - runner-perso-poste-tag

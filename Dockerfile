@@ -1,31 +1,37 @@
-# Utiliser une image Python officielle
-FROM python:3.12
+#FROM 3.10.8-slim-bullseye
+FROM python:3.8
 
-# Mise à jour du système et installation des dépendances nécessaires
 RUN apt -y update \
-    && apt install -y postgresql \
+	&& apt install -y --no-install-recommends \
         apt-utils \
         net-tools \
-        postgresql-client \
+		postgresql-client \
         libpq-dev \
         tzdata \
         nginx \
     && apt -y upgrade \
-    && rm -rf /var/lib/apt/lists/*
+	&& rm -rf /var/lib/apt/lists/*
 
-# Définir le répertoire de travail
+RUN set -eux; \
+    mkdir /app
+
+COPY requirements.txt /app/requirements.txt
+RUN pip install -r /app/requirements.txt
+
+COPY . /app
+
 WORKDIR /app
+RUN python manage.py makemigrations
+RUN python manage.py migrate
 
-# Copier les dépendances de l'application et les installer
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN ls -al
 
-# Copier tout le reste du code de l'application
-COPY ./ ./
-
-WORKDIR /app/Application_FFR_finale_V1
-# Exposer le port sur lequel l'application va tourner
 EXPOSE 8000
 
-# Commande pour démarrer l'application
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "application_FFR.wsgi:application"]
+# permet de rassembler tous les éléments statics de chaque application dans un seul répertoire
+# NB : en prduction, cette emplacement est l'"object storage" où django archive les éléments statics,
+#      ainsi les containers instanciés par les pods kubernetes peuvent êtres remplacées "à la volée" sans
+#      conséquence sur les fichiers statiques
+# RUN python ./manage.py collectstatic --no-input
+
+CMD ["gunicorn", "--bind", ":8000", "--workers", "3", "meteosite.wsgi"]
