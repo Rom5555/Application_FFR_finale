@@ -8,7 +8,7 @@ variables:
   POSTGRES_PASSWORD: "integration_pa$$word"
   POSTGRES_DB: "postgres"
   POSTGRES_HOST_AUTH_METHOD: trust
-  POSTGRES_APPLICATION_DB: "application_FFR_db"
+  POSTGRES_APPLICATION_DB: "application_ffr_db"
   POSTGRES_APPLICATION_USER: "user_integration"
   POSTGRES_APPLICATION_PASSWORD: "pa$$word_integration"
   POSTGRES_APPLICATION_HOST: "postgres"
