@@ -3,7 +3,7 @@ variables:
   TESTS: "TRUE"
   PRODUCTION: "FALSE"
 
-  DJANGO_APPLICATION_NAME: "Application_FFR"
+  DJANGO_APPLICATION_NAME: "application_FFR"
   POSTGRES_USER: "postgres"
   POSTGRES_PASSWORD: "integration_pa$$word"
   POSTGRES_DB: "postgres"
@@ -59,7 +59,6 @@ tests-migrations:
     - echo "Migrations Django"
     - ls -al
     - python3 manage.py makemigrations
-    - python3 manage.py makemigrations $DJANGO_APPLICATION_NAME
     - python3 manage.py migrate
     - python3 manage.py check
 
