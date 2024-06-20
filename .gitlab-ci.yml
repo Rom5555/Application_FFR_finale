@@ -105,10 +105,11 @@ deploy:
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
     - docker pull $REGISTRY_PROJECT_PATH
     - apk add --no-cache docker-compose
-    - docker-compose up -d
-    - docker-compose exec web python manage.py makemigrations
-    - docker-compose exec web python manage.py migrate
-    - docker-compose exec web python manage.py createsuperuser
+    - sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no root@$SERVER_IP "docker-compose down"
+    - sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no root@$SERVER_IP "docker-compose up -d"
+    - sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no root@$SERVER_IP "docker-compose exec web python manage.py makemigrations"
+    - sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no root@$SERVER_IP "docker-compose exec web python manage.py migrate"
+    - sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no root@$SERVER_IP "docker-compose exec web python manage.py createsuperuser"
   environment:
     name: production
     url: http://165.22.65.214:8000
