@@ -1,18 +1,18 @@
 variables:
   BUILD: "FALSE"
-  TESTS: "TRUE"
-  PRODUCTION: "FALSE"
+  TESTS: "FALSE"
+  PRODUCTION: "TRUE"
 
   DJANGO_APPLICATION_NAME: "application_FFR"
-  POSTGRES_USER: "postgres"
-  POSTGRES_PASSWORD: "integration_pa$$word"
+  POSTGRES_TEST_USER: "postgres"
+  POSTGRES_TEST_PASSWORD: "integration_pa$$word"
   POSTGRES_DB: "postgres"
   POSTGRES_HOST_AUTH_METHOD: trust
   POSTGRES_APPLICATION_DB: "application_ffr_db"
   POSTGRES_APPLICATION_USER: "user_integration"
   POSTGRES_APPLICATION_PASSWORD: "pa$$word_integration"
-  POSTGRES_HOST: "postgres"
-  POSTGRES_PORT: 5432
+  POSTGRES_APPLICATION_HOST: "postgres"
+  POSTGRES_APPLICATION_PORT: 5432
 
 build-image:
   only:
