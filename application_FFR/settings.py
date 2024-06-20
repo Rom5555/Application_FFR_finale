@@ -91,8 +91,8 @@ DATABASES = {
         'NAME': os.environ.get('POSTGRES_APPLICATION_DB'),
         'USER': os.environ.get('POSTGRES_APPLICATION_USER'),
         'PASSWORD': os.environ.get('POSTGRES_APPLICATION_PASSWORD'),
-        'HOST': os.environ.get('POSTGRES_APPLICATION_HOST'),
-        'PORT': os.environ.get('POSTGRES_APPLICATION_PORT'),
+        'HOST': os.environ.get('POSTGRES_HOST'),
+        'PORT': os.environ.get('POSTGRES_PORT'),
     },
     'application_FFR_V5_db': {
             'ENGINE': 'django.db.backends.postgresql',

@@ -11,8 +11,8 @@ variables:
   POSTGRES_APPLICATION_DB: "application_ffr_db"
   POSTGRES_APPLICATION_USER: "user_integration"
   POSTGRES_APPLICATION_PASSWORD: "pa$$word_integration"
-  POSTGRES_APPLICATION_HOST: "postgres"
-  POSTGRES_APPLICATION_PORT: 5432
+  POSTGRES_HOST: "postgres"
+  POSTGRES_PORT: 5432
 
 build-image:
   only:
@@ -51,7 +51,7 @@ tests-migrations:
     - echo "vérification de la connection à la BDD postgresql (conteneur instancié)"
     - psql -h "postgres" -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT 'OK' AS status;"
     - echo "création de la base de données $POSTGRES_APPLICATION_DB"
-    - createdb -h $POSTGRES_APPLICATION_HOST -p $POSTGRES_APPLICATION_PORT -U postgres $POSTGRES_APPLICATION_DB
+    - createdb -h $POSTGRES_HOST -p $POSTGRES_PORT -U postgres $POSTGRES_APPLICATION_DB
     - echo "création de l'utilisateur $POSTGRES_APPLICATION_USER"
     - psql -h "postgres" -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "create user $POSTGRES_APPLICATION_USER with encrypted password '$POSTGRES_APPLICATION_PASSWORD';"
     - echo "attribution des privilèges pour l'utilisateur $POSTGRES_APPLICATION_USER à la BDD $POSTGRES_APPLICATION_DB"
