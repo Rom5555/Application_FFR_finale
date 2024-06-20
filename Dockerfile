@@ -34,4 +34,4 @@ EXPOSE 8000
 #      conséquence sur les fichiers statiques
 # RUN python ./manage.py collectstatic --no-input
 
-CMD ["gunicorn", "--bind", ":8000", "--workers", "3", "application_FFR.wsgi"]
+CMD ["gunicorn", "--bind", ":8000", "--workers", "3", "--timeout", "120", "application_FFR.wsgi"]
