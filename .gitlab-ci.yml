@@ -104,7 +104,7 @@ deploy:
   script:
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
     - docker pull $REGISTRY_PROJECT_PATH
-    - apk add --no-cache docker-compose
+    - apk add --no-cache openssh-client sshpass docker-compose
     - sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no root@$SERVER_IP "docker-compose down"
     - sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no root@$SERVER_IP "docker-compose up -d"
     - sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no root@$SERVER_IP "docker-compose exec web python manage.py makemigrations"
