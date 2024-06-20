@@ -106,6 +106,8 @@ deploy:
     - docker pull $REGISTRY_PROJECT_PATH
     - apk add --no-cache docker-compose
     - docker-compose up -d
+    - docker-compose exec web python manage.py makemigrations
+    - docker-compose exec web python manage.py migrate
     - docker-compose exec web python manage.py createsuperuser
   environment:
     name: production
