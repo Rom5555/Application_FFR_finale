@@ -109,7 +109,7 @@ deploy:
     - docker-compose exec web python manage.py createsuperuser
   environment:
     name: production
-    url: http://164.92.202.51:8000
+    url: http://165.22.65.214:8000
   only:
     - master
   tags:
