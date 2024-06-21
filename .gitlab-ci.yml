@@ -100,15 +100,27 @@ tests-unitaires:
 
 deploy:
   stage: deploy
-  image: docker:20.10
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache openssh-client
+    - mkdir -p ~/.ssh
+    - echo "$DEPLOY_SERVER_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - eval "$(ssh-agent -s)"
+    - ssh-add ~/.ssh/id_rsa
+    - ssh-keyscan -H $DEPLOYMENT_SERVER_IP >> ~/.ssh/known_hosts
   script:
-    - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
-    - docker pull $REGISTRY_PROJECT_PATH
-    - apk add --no-cache docker-compose
-    - docker-compose up -d
-    - docker-compose exec web python manage.py makemigrations
-    - docker-compose exec web python manage.py migrate
-    - docker-compose exec web python manage.py createsuperuser
+    - echo "DATABASE_URL=${DATABASE_URL}" > environment.env
+    - scp -r environment.env docker-compose.yml root@${DEPLOYMENT_SERVER_IP}:~/
+    - ssh root@$DEPLOYMENT_SERVER_IP << 'EOF'
+        docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
+        docker pull $REGISTRY_PROJECT_PATH
+        apk add --no-cache docker-compose
+        docker-compose up -d
+        docker-compose exec web python manage.py makemigrations
+        docker-compose exec web python manage.py migrate
+        docker-compose exec web python manage.py createsuperuser --noinput --email $DJANGO_SUPERUSER_EMAIL --username $DJANGO_SUPERUSER_USERNAME
+      EOF
   environment:
     name: production
     url: http://165.22.65.214:8000
@@ -116,4 +128,5 @@ deploy:
     - master
   tags:
     - runner-perso-poste-tag
+
 
