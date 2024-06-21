@@ -110,8 +110,8 @@ deploy:
     - ssh-add ~/.ssh/id_rsa
     - ssh-keyscan -H $DEPLOYMENT_SERVER_IP >> ~/.ssh/known_hosts
   script:
-    - echo "DATABASE_URL=${DATABASE_URL}" > environment.env
-    - scp -r environment.env docker-compose.yml root@${DEPLOYMENT_SERVER_IP}:~/
+    - echo "DATABASE_URL=${DATABASE_URL}" > .env
+    - scp -r .env docker-compose.yml root@${DEPLOYMENT_SERVER_IP}:~/
     - ssh root@$DEPLOYMENT_SERVER_IP 'bash -s' << 'EOF'
         docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
         docker pull $REGISTRY_PROJECT_PATH
