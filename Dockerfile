@@ -1,5 +1,5 @@
 #FROM 3.10.8-slim-bullseye
-FROM python:3.8
+FROM python:3.12
 
 RUN apt -y update \
 	&& apt install -y --no-install-recommends \
