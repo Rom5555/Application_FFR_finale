@@ -4,9 +4,9 @@ services:
   db:
     image: postgres:16
     environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: "application_ffr_db"
+      POSTGRES_USER: "rom"
+      POSTGRES_PASSWORD: "ballon"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
