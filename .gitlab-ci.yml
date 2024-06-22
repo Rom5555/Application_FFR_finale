@@ -1,7 +1,7 @@
 variables:
   BUILD: "TRUE"
   TESTS: "FALSE"
-  PRODUCTION: "TRUE"
+  PRODUCTION: "FALSE"
 
   DJANGO_APPLICATION_NAME: "application_FFR"
   POSTGRES_TEST_USER: "postgres"
