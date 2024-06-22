@@ -30834,3 +30834,4 @@ DETAIL:  La clé « (username)=(ricky) » existe déjà.
 2024-06-21 20:18:39,241 django.server INFO "POST /admin_liste/retour/ HTTP/1.1" 200 6795
 2024-06-21 20:18:43,110 django WARNING le contexte pour la view est vide
 2024-06-21 20:18:43,114 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-06-21 23:26:01,249 django.utils.autoreload INFO Watching for file changes with StatReloader
