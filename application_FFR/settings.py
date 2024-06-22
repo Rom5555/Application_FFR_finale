@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-)248%i^15)v^@n@j1qxmf+0nt+_7d@m&)852^r9zsdi=npre+1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['165.22.65.214']
 
 
 # Application definition
@@ -88,11 +88,11 @@ WSGI_APPLICATION = 'application_FFR.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('POSTGRES_APPLICATION_DB'),
-        'USER': os.environ.get('POSTGRES_APPLICATION_USER'),
-        'PASSWORD': os.environ.get('POSTGRES_APPLICATION_PASSWORD'),
-        'HOST': os.environ.get('POSTGRES_APPLICATION_HOST'),
-        'PORT': os.environ.get('POSTGRES_APPLICATION_PORT'),
+        'NAME': os.environ.get('POSTGRES_DB'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': os.environ.get('POSTGRES_HOST'),
+        'PORT': os.environ.get('POSTGRES_PORT'),
     },
     'application_FFR_V5_db': {
             'ENGINE': 'django.db.backends.postgresql',
@@ -204,3 +204,8 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='webmaster@your-domain.com')
 
 # Security settings for production
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT', default=True, cast=bool)
+SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE', default=True, cast=bool)
+CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', default=True, cast=bool)
+X_FRAME_OPTIONS = 'DENY'
