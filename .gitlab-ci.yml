@@ -113,9 +113,11 @@ deploy:
     - echo "DATABASE_URL=${DATABASE_URL}" > .env
     - scp -r .env docker-compose.yml root@${DEPLOYMENT_SERVER_IP}:~/
     - ssh root@$DEPLOYMENT_SERVER_IP 'bash -s' << 'EOF'
+        apk add --no-cache docker-compose
         docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
         docker pull $REGISTRY_PROJECT_PATH
-        apk add --no-cache docker-compose
+        docker-compose down
+        docker-compose build
         docker-compose up -d
         docker-compose exec web python manage.py makemigrations
         docker-compose exec web python manage.py migrate

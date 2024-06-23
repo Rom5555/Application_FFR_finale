@@ -8,7 +8,6 @@ RUN apt -y update \
 		postgresql-client \
         libpq-dev \
         tzdata \
-        nginx \
     && apt -y upgrade \
 	&& rm -rf /var/lib/apt/lists/*
 
@@ -34,4 +33,4 @@ EXPOSE 8000
 #      conséquence sur les fichiers statiques
 # RUN python ./manage.py collectstatic --no-input
 
-CMD ["gunicorn", "--bind", ":8000", "--workers", "3", "--timeout", "120", "application_FFR.wsgi"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "--timeout", "120", "application_FFR.wsgi"]
