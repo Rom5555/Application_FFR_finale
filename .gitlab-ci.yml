@@ -116,7 +116,9 @@ deploy:
         docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
         docker pull $REGISTRY_PROJECT_PATH
         apk add --no-cache docker-compose
-        docker-compose.yml up -d
+        docker-compose -f docker-compose.yml down
+        docker-compose -f docker-compose.yml rm web --force
+        docker-compose -f docker-compose.yml up -d --build --pull
         docker-compose exec web python manage.py makemigrations
         docker-compose exec web python manage.py migrate
         docker-compose exec web python manage.py createsuperuser --noinput --email $DJANGO_SUPERUSER_EMAIL --username $DJANGO_SUPERUSER_USERNAME
