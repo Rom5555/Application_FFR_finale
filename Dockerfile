@@ -8,6 +8,7 @@ RUN apt -y update \
 		postgresql-client \
         libpq-dev \
         tzdata \
+        nginx \
     && apt -y upgrade \
 	&& rm -rf /var/lib/apt/lists/*
 
