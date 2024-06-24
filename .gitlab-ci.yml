@@ -1,12 +1,19 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  $REGISTRY_PROJECT_PATH: registry.gitlab.com/rom5555/application_ffr_finale_v1:latest
+
 build-image:
   image: docker:20.10
   stage: build
   script:
-    - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
     - apk add --no-cache docker-compose
     - echo "Construction de l'image Docker à partir du fichier Dockerfile du repository..."
-    - docker-compose build $REGISTRY_PROJECT_PATH .
-    - docker-compose push $REGISTRY_PROJECT_PATH
+    - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
+    - docker-compose build
+    - docker-compose push
   tags:
     - runner-perso-poste-tag
 
@@ -24,12 +31,11 @@ deploy:
   script:
     - echo "DATABASE_URL=${DATABASE_URL}" > .env
     - scp -r .env docker-compose.yml root@${DEPLOYMENT_SERVER_IP}:~/
-    - ssh root@$DEPLOYMENT_SERVER_IP 'bash -s' << 'EOF'
+    - ssh root@$DEPLOYMENT_SERVER_IP << 'EOF'
         apk add --no-cache docker-compose
         docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
         docker pull $REGISTRY_PROJECT_PATH
         docker-compose down
-        docker-compose build
         docker-compose up -d
         docker-compose exec web python manage.py makemigrations
         docker-compose exec web python manage.py migrate
@@ -42,4 +48,3 @@ deploy:
     - master
   tags:
     - runner-perso-poste-tag
-
