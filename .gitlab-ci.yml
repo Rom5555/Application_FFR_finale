@@ -31,14 +31,14 @@ deploy:
   script:
     - echo "DATABASE_URL=${DATABASE_URL}" > .env
     - scp -r .env docker-compose.yml root@${DEPLOYMENT_SERVER_IP}:~/
-    - ssh root@$DEPLOYMENT_SERVER_IP " 
+    - ssh root@$DEPLOYMENT_SERVER_IP ' 
         echo $REGISTRY_TOKEN | docker login registry.gitlab.com -u $USER_GITLAB --password-stdin
         docker pull $REGISTRY_PROJECT_PATH
         docker-compose down
         docker-compose up -d
         docker-compose exec web python manage.py makemigrations
         docker-compose exec web python manage.py migrate
-        docker-compose exec web python manage.py createsuperuser --noinput --email $DJANGO_SUPERUSER_EMAIL --username $DJANGO_SUPERUSER_USERNAME"
+        docker-compose exec web python manage.py createsuperuser --noinput --email $DJANGO_SUPERUSER_EMAIL --username $DJANGO_SUPERUSER_USERNAME'
   environment:
     name: production
     url: http://165.22.65.214:8000
