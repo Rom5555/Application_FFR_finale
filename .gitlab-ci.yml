@@ -31,8 +31,8 @@ deploy:
   script:
     - echo "DATABASE_URL=${DATABASE_URL}" > .env
     - scp -r .env docker-compose.yml root@${DEPLOYMENT_SERVER_IP}:~/
-    - ssh root@$DEPLOYMENT_SERVER_IP 
-        "echo $REGISTRY_TOKEN | docker login registry.gitlab.com -u $USER_GITLAB --password-stdin
+    - ssh root@$DEPLOYMENT_SERVER_IP " 
+        echo $REGISTRY_TOKEN | docker login registry.gitlab.com -u $USER_GITLAB --password-stdin
         docker pull $REGISTRY_PROJECT_PATH
         docker-compose down
         docker-compose up -d
