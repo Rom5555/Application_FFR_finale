@@ -21,8 +21,6 @@ RUN pip install -r /app/requirements.txt
 COPY . /app
 
 WORKDIR /app
-RUN python manage.py makemigrations
-RUN python manage.py migrate
 
 RUN ls -al
 
