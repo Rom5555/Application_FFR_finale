@@ -5,7 +5,7 @@ build-image:
     - docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
     - apk add --no-cache docker-compose
     - echo "Construction de l'image Docker à partir du fichier Dockerfile du repository..."
-    - docker-compose build -t $REGISTRY_PROJECT_PATH .
+    - docker-compose build $REGISTRY_PROJECT_PATH .
     - docker-compose push $REGISTRY_PROJECT_PATH
   tags:
     - runner-perso-poste-tag
