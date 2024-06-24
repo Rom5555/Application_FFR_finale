@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d51fe39-c218-481b-9867-434961d1031b" name="Changes" comment="Application_FFR_V9" />
+    <list default="true" id="4d51fe39-c218-481b-9867-434961d1031b" name="Changes" comment="Application_FFR_V9">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,26 +50,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python.generate.executor": "Run",
-    "Python.manage.executor": "Run",
-    "Python.manage.py.executor": "Run",
-    "Python.test_connection_db.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Ro/PycharmProjects/DjangoMeteo",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.gitlab.GitLabSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.generate.executor&quot;: &quot;Run&quot;,
+    &quot;Python.manage.executor&quot;: &quot;Run&quot;,
+    &quot;Python.manage.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_connection_db.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ro/PycharmProjects/DjangoMeteo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.gitlab.GitLabSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\romfa\Dev\Application_FFR_V9\application_FFR\registration" />
@@ -139,94 +141,6 @@
       <workItem from="1716298749322" duration="2647000" />
       <workItem from="1716372307168" duration="1722000" />
       <workItem from="1716374374822" duration="368000" />
-    </task>
-    <task id="LOCAL-00055" summary="Application_FFR_V9">
-      <option name="closed" value="true" />
-      <created>1718661991644</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1718661991644</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Application_FFR_V9">
-      <option name="closed" value="true" />
-      <created>1718664320531</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1718664320531</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Application_FFR_V9">
-      <option name="closed" value="true" />
-      <created>1718693157350</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1718693157350</updated>
-    </task>
-    <task id="LOCAL-00058" summary="Application_FFR_V9">
-      <option name="closed" value="true" />
-      <created>1718745847966</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1718745847966</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Application_FFR_V9">
-      <option name="closed" value="true" />
-      <created>1718746529671</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1718746529671</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Application_FFR_V9">
-      <option name="closed" value="true" />
-      <created>1718747217529</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1718747217529</updated>
-    </task>
-    <task id="LOCAL-00061" summary="Application_FFR_V9">
-      <option name="closed" value="true" />
-      <created>1718747599006</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1718747599007</updated>
-    </task>
-    <task id="LOCAL-00062" summary="Application_FFR_V9">
-      <option name="closed" value="true" />
-      <created>1718748841419</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1718748841419</updated>
-    </task>
-    <task id="LOCAL-00063" summary="Application_FFR_V9">
-      <option name="closed" value="true" />
-      <created>1718749114815</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1718749114815</updated>
-    </task>
-    <task id="LOCAL-00064" summary="Application_FFR_V9">
-      <option name="closed" value="true" />
-      <created>1718749772760</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1718749772760</updated>
-    </task>
-    <task id="LOCAL-00065" summary="Application_FFR_V9">
-      <option name="closed" value="true" />
-      <created>1718900292991</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1718900292992</updated>
     </task>
     <task id="LOCAL-00066" summary="Application_FFR_V9">
       <option name="closed" value="true" />
@@ -532,11 +446,110 @@
       <option name="project" value="LOCAL" />
       <updated>1719042177103</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1719042412073</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1719042412073</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1719042509169</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1719042509169</updated>
+    </task>
+    <task id="LOCAL-00106" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1719042718219</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1719042718219</updated>
+    </task>
+    <task id="LOCAL-00107" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1719042867308</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1719042867308</updated>
+    </task>
+    <task id="LOCAL-00108" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1719043005366</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1719043005366</updated>
+    </task>
+    <task id="LOCAL-00109" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1719173068280</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1719173068280</updated>
+    </task>
+    <task id="LOCAL-00110" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1719176471701</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1719176471701</updated>
+    </task>
+    <task id="LOCAL-00111" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1719177108898</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1719177108898</updated>
+    </task>
+    <task id="LOCAL-00112" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1719177643930</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1719177643930</updated>
+    </task>
+    <task id="LOCAL-00113" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1719179344303</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1719179344303</updated>
+    </task>
+    <task id="LOCAL-00114" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1719179448100</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1719179448100</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Application_FFR_V9" />
