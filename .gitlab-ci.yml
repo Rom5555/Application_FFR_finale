@@ -34,7 +34,7 @@ deploy:
     - ssh root@$DEPLOYMENT_SERVER_IP << 'EOF'
         apt-get update
         apt-get install -y docker
-        docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
+        echo $REGISTRY_TOKEN | docker login registry.gitlab.com -u $USER_GITLAB --password-stdin
         docker pull $REGISTRY_PROJECT_PATH
         docker-compose down
         docker-compose up -d
