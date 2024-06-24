@@ -33,7 +33,7 @@ deploy:
     - scp -r .env docker-compose.yml root@${DEPLOYMENT_SERVER_IP}:~/
     - ssh root@$DEPLOYMENT_SERVER_IP << 'EOF'
         apt-get install -y docker.io
-        apt-get install -y docker-compose-plugin
+        apt-get install -y docker-compose
         echo $REGISTRY_TOKEN | docker login registry.gitlab.com -u $USER_GITLAB --password-stdin
         docker pull $REGISTRY_PROJECT_PATH
         docker-compose down
