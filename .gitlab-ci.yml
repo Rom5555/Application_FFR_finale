@@ -32,8 +32,12 @@ deploy:
     - echo "DATABASE_URL=${DATABASE_URL}" > .env
     - scp -r .env docker-compose.yml root@${DEPLOYMENT_SERVER_IP}:~/
     - ssh root@$DEPLOYMENT_SERVER_IP << 'EOF'
+        set -e
         apt-get update
-        apt-get install -y docker
+        apt-get install -y docker.io
+        apt-get install -y docker-compose
+        systemctl start docker
+        systemctl enable docker
         echo $REGISTRY_TOKEN | docker login registry.gitlab.com -u $USER_GITLAB --password-stdin
         docker pull $REGISTRY_PROJECT_PATH
         docker-compose down
