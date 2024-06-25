@@ -4,14 +4,14 @@ services:
   db:
     image: postgres:16
     environment:
-      POSTGRES_DB: $POSTGRES_DB
-      POSTGRES_USER: $POSTGRES_USER
-      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+      POSTGRES_DB: application_ffr_db
+      POSTGRES_USER: rom
+      POSTGRES_PASSWORD: ballon
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
   web:
-    image: $REGISTRY_PROJECT_PATH
+    image: registry.gitlab.com/rom5555/application_ffr_finale_v1:latest
     build:
       context: .
       dockerfile: Dockerfile
@@ -22,7 +22,7 @@ services:
     env_file:
       - .env
     environment:
-      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      DATABASE_URL: postgres://rom:ballon@db:5432/application_ffr_db
 
 volumes:
   postgres_data:
