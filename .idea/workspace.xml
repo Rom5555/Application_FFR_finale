@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4d51fe39-c218-481b-9867-434961d1031b" name="Changes" comment="Application_FFR_V9">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,14 +142,6 @@
       <workItem from="1716298749322" duration="2647000" />
       <workItem from="1716372307168" duration="1722000" />
       <workItem from="1716374374822" duration="368000" />
-    </task>
-    <task id="LOCAL-00092" summary="Application_FFR_V9">
-      <option name="closed" value="true" />
-      <created>1719036840589</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1719036840589</updated>
     </task>
     <task id="LOCAL-00093" summary="Application_FFR_V9">
       <option name="closed" value="true" />
@@ -534,7 +527,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719516647822</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1719525010849</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1719525010849</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
