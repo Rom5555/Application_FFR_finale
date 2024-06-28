@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-)248%i^15)v^@n@j1qxmf+0nt+_7d@m&)852^r9zsdi=npre+1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['165.22.65.214', 'localhost', '127.0.0.1', '0.0.0.0', 'phpma.ppetrik.com']
+ALLOWED_HOSTS = ['165.22.65.214', 'localhost', '127.0.0.1', '0.0.0.0', 'phpma.ppetrik.com','api.ipify.org','www.shadowserver.org']
 
 
 # Application definition
