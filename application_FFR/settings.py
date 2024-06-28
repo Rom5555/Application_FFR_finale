@@ -88,11 +88,11 @@ WSGI_APPLICATION = 'application_FFR.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('POSTGRES_DB'),
-        'USER': os.environ.get('POSTGRES_USER'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-        'HOST': os.environ.get('POSTGRES_HOST'),
-        'PORT': os.environ.get('POSTGRES_PORT'),
+        'NAME': 'application_ffr_db',
+        'USER': 'rom',
+        'PASSWORD': 'ballon',
+        'HOST': '165.22.65.214',
+        'PORT': '5432',
     },
     'application_FFR_V5_db': {
             'ENGINE': 'django.db.backends.postgresql',
