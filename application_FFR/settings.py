@@ -167,7 +167,7 @@ LOGGING = {
         'file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': '/app/debug.log',
+            'filename': 'C:\\Users\\Ro\\PycharmProjects\\Application_FFR_finale_V1\\debug.log',
             'formatter': 'simple'
         },
         'console': {

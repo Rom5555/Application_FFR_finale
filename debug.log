@@ -30835,3 +30835,11 @@ DETAIL:  La clé « (username)=(ricky) » existe déjà.
 2024-06-21 20:18:43,110 django WARNING le contexte pour la view est vide
 2024-06-21 20:18:43,114 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
 2024-06-21 23:26:01,249 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-06-29 03:53:23,503 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-06-29 03:53:31,818 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-06-29 03:53:31,953 django.request WARNING Not Found: /favicon.ico
+2024-06-29 03:53:31,953 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 4071
+2024-06-29 03:53:42,334 django.server INFO "POST / HTTP/1.1" 200 2215
+2024-06-29 03:55:59,347 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-06-29 03:56:00,218 django.request WARNING Not Found: /favicon.ico
+2024-06-29 03:56:00,218 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 4071

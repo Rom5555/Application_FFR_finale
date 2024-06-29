@@ -15,12 +15,12 @@ if __name__ == '__main__':
 
     # adapter les valeurs en rapport avec la configuration de votre environnement
     # de développement
-    SERVER = "localhost"
+    SERVER = "165.22.65.214"
     PORT = 5432
-    USER = "dev"
+    USER = "rom"
     PASSWORD = "ballon"
     SCRIPTS_DIRECTORY = "C:\\Users\\Ro\\PycharmProjects\\Application_FFR_finale_V1\\etude\\database\\scripts\\"
-    DATABASE = "application_FFR_db"
+    DATABASE = "application_ffr_db"
     POSTGRESQL_BIN = "C:\\Program Files\\PostgreSQL\\13\\bin"
 
     SCRIPT_00 = "00_create_tables.sql"
