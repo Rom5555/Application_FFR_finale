@@ -2,9 +2,9 @@ import psycopg2
 
 class Data_liste_depart:
     def __init__(self):
-        self._HOST = "localhost"
+        self._HOST = "165.22.65.214"
         self._DATABASE = "application_FFR_db"
-        self._USER = "dev"
+        self._USER = "rom"
         self._PASSWORD = "ballon"
         self._PORT = 5432
 
