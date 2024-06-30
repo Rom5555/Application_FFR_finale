@@ -17,7 +17,7 @@
         <div class="control">
             <div class="select is-light">
                 <select name="id_stock">
-                    <option value="" >Choisir un stock</option>
+                    <option value="" >Choisir stock</option>
                     {% for stock in liste_stocks %}
                         <option value="{{ stock.id_stock }}" {% if selected_stock_id == stock.id_stock %} selected {% endif %}>{{ stock.nom_stock }}</option>
                     {% endfor %}
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="control">
-            <button class="button has-background-white has-text-link is-focused" type="submit">Afficher les produits</button>
+            <button class="button has-background-white has-text-link is-focused" type="submit">Afficher</button>
         </div>
     </div>
     <input type="hidden" name="selected_stock_id" value="{{ selected_stock_id }}">

@@ -76,13 +76,13 @@
 </div>
 {% if utilisateur_choice_form %}
 
-<div class="box has-background-white">
+<div class="box has-background-white has-shadow-light">
     <h2 class="subtitle is-4 has-text-link mb-6">Attribuer la liste à un utilisateur</h2>
     <form action="{% url 'admin_liste:create_liste_utilisateur' id_liste_depart=id_liste_depart %}" method="post">
         {% csrf_token %}
         <div class="container">
         {% crispy utilisateur_choice_form %}
-        <button class="button is-focused is-primary has-text-light" type="submit">Valider la liste utilisateur (mise à jour du stock)</button>
+        <button class="button is-focused is-primary has-text-light" type="submit">Valider (mise à jour du stock)</button>
         </div>
     </form>
 <div id="message-container"></div>
