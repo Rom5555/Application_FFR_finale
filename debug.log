@@ -31211,3 +31211,13 @@ IndexError: list index out of range
 2024-06-30 20:45:18,985 django.server INFO "POST /admin_stock/display_produits/ HTTP/1.1" 200 7144
 2024-06-30 20:45:56,477 django.server INFO "POST /admin_stock/display_produits/ HTTP/1.1" 200 7144
 2024-06-30 20:46:25,031 django.server INFO "POST /admin_stock/display_produits/ HTTP/1.1" 200 108044
+2024-06-30 22:44:36,213 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-06-30 22:44:46,104 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-06-30 22:44:46,600 django.request WARNING Not Found: /favicon.ico
+2024-06-30 22:44:46,602 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 4071
+2024-06-30 22:44:59,210 django.server INFO "POST / HTTP/1.1" 302 0
+2024-06-30 22:45:06,120 django WARNING le contexte pour la view est vide
+2024-06-30 22:45:06,125 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 5296
+2024-06-30 22:50:59,607 django WARNING le contexte pour la view est vide
+2024-06-30 22:50:59,610 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 5344
+2024-06-30 22:51:12,448 django.server INFO "GET /admin_compte/user_list/ HTTP/1.1" 200 12406
