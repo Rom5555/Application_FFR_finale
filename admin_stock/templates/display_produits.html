@@ -3,50 +3,17 @@
 
 {% block content %}
 
-
-Pour garantir que les champs select et les tableaux conservent un fond blanc sur les navigateurs mobiles, vous pouvez ajouter des styles CSS spécifiques pour forcer le fond à rester blanc. Voici quelques ajustements que vous pouvez faire :
-
-Ajouter des styles CSS :
-Assurez-vous que les éléments select et les tableaux ont un fond blanc défini.
-css
-Copier le code
-/* Forcer le fond blanc des éléments select */
-select {
-    background-color: #ffffff !important;
-    color: #000000; /* Couleur du texte */
-}
-
-/* Forcer le fond blanc des tableaux */
-table {
-    background-color: #ffffff !important;
-    color: #000000; /* Couleur du texte */
-}
-
-/* Pour les autres éléments qui peuvent être affectés */
-.box, .notification, .button {
-    background-color: #ffffff !important;
-    color: #000000; /* Couleur du texte */
-}
-Insérer ces styles dans votre template :
-Ajoutez ces styles directement dans votre template pour vous assurer qu'ils sont appliqués.
-html
-Copier le code
-{% extends 'admin_base/base.html' %}
-{% load crispy_forms_tags %}
-
-{% block content %}
 <style>
-/* Forcer le fond blanc des éléments select */
 select {
     background-color: #ffffff !important;
     color: #000000; /* Couleur du texte */
 }
 
-/* Forcer le fond blanc des tableaux */
 table {
     background-color: #ffffff !important;
     color: #000000; /* Couleur du texte */
 }
+
 </style>
 
 <div class="box has-background-white">
