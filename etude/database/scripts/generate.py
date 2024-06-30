@@ -31,10 +31,10 @@ if __name__ == '__main__':
 
     scripts = []
 
-    scripts.append(SCRIPT_01)
+    #scripts.append(SCRIPT_01)
     scripts.append(SCRIPT_02)
     scripts.append(SCRIPT_03)
-    scripts.append(SCRIPT_04)
+    #scripts.append(SCRIPT_04)
 
     # configuration spécifique pour Windows
     os.chdir(POSTGRESQL_BIN) # on se déplace dans le répertoire des binaires de postgresql (évite de configurer une variable d'environnement sous Windows

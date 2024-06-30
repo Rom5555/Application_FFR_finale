@@ -41,8 +41,11 @@ def display_produits(request):
         if id_stock:
             gestion_stock.stock.id = id_stock
             produitsStock = gestion_stock.get_1()
-            selected_stock_id = id_stock
-            selected_stock_nom = produitsStock[0]['nom_stock']
+            if produitsStock:
+                selected_stock_id = id_stock
+                selected_stock_nom = produitsStock[0]['nom_stock']
+            else:
+                messages.error(request, 'Aucun stock trouvé avec l\'ID fourni.')
 
 
     form = ProductQuantityForm()
