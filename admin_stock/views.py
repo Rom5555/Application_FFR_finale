@@ -37,6 +37,7 @@ def display_produits(request):
 
     if request.method == 'POST':
         id_stock = request.POST.get('id_stock')
+        print(id_stock)
         if id_stock:
             gestion_stock.stock.id = id_stock
             produitsStock = gestion_stock.get_1()
