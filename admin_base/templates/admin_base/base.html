@@ -10,7 +10,7 @@
 <section class="hero is-light is-fullheight">
     <!-- Hero head: Barre de navigation -->
     <div class="hero-head">
-        <nav class="navbar has-background-link has-text-light" role="navigation" aria-label="main navigation">
+        <nav class="navbar has-background-link" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <!-- Titre Accueil avec les mêmes styles que les autres éléments de la navbar -->
                 <a class="navbar-item is-size-6 has-text-light" href="{% url 'admin_base:index' %}">
@@ -26,13 +26,13 @@
             <!-- Menu avec dropdown -->
             <div id="navbarDropdown" class="navbar-menu">
                 <div class="navbar-start">
-                    <a class="navbar-item" href="{% url 'admin_compte:user_list' %}">Comptes</a>
-                    <a class="navbar-item" href="{% url 'admin_stock:display_produits' %}">Stocks</a>
-                    <a class="navbar-item" href="{% url 'admin_liste:depart_retour' %}">Listes</a>
+                    <a class="navbar-item has-text-light" href="{% url 'admin_compte:user_list' %}">Comptes</a>
+                    <a class="navbar-item has-text-light" href="{% url 'admin_stock:display_produits' %}">Stocks</a>
+                    <a class="navbar-item has-text-light" href="{% url 'admin_liste:depart_retour' %}">Listes</a>
                 </div>
                 <div class="navbar-end">
                     <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">
+                        <a class="navbar-link has-text-light">
                             {{ user.first_name }}
                         </a>
                         <div class="navbar-dropdown is-right">
