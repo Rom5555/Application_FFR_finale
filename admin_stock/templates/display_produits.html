@@ -11,11 +11,11 @@
     <span class="ml-3">Gestion des stocks</span>
 </h1>
 
-<form action="{% url 'admin_stock:display_produits'%}" method="post" class="has-background-light mb-5">
+<form action="{% url 'admin_stock:display_produits'%}" method="post" class="mb-5">
     {% csrf_token %}
     <div class="field is-grouped is-justify-content-center">
         <div class="control">
-            <div class="select">
+            <div class="select has-background-white">
                 <select name="id_stock">
                     <option value="" >Choisir stock</option>
                     {% for stock in liste_stocks %}
