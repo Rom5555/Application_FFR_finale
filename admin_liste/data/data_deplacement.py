@@ -3,7 +3,7 @@ import psycopg2
 class Data_deplacement:
     def __init__(self):
         self._HOST = "165.22.65.214"
-        self._DATABASE = "application_FFR_db"
+        self._DATABASE = "application_ffr_db"
         self._USER = "rom"
         self._PASSWORD = "ballon"
         self._PORT = 5432

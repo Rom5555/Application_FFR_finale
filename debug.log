@@ -30843,3 +30843,70 @@ DETAIL:  La clé « (username)=(ricky) » existe déjà.
 2024-06-29 03:55:59,347 django.server INFO "GET / HTTP/1.1" 200 2004
 2024-06-29 03:56:00,218 django.request WARNING Not Found: /favicon.ico
 2024-06-29 03:56:00,218 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 4071
+2024-06-30 13:13:34,941 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-06-30 13:13:54,877 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-06-30 13:13:55,366 django.request WARNING Not Found: /favicon.ico
+2024-06-30 13:13:55,368 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 4071
+2024-06-30 13:14:04,402 django.server INFO "POST / HTTP/1.1" 302 0
+2024-06-30 13:14:06,823 django WARNING le contexte pour la view est vide
+2024-06-30 13:14:06,863 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-06-30 13:14:34,913 django.request ERROR Internal Server Error: /admin_stock/display_produits/
+Traceback (most recent call last):
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\admin_stock\views.py", line 33, in display_produits
+    liste_stocks = gestion_stock.get_all()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\admin_stock\business\components\gestion_stock.py", line 20, in get_all
+    for row in rows:
+TypeError: 'NoneType' object is not iterable
+2024-06-30 13:14:34,917 django.server INFO - Broken pipe from ('127.0.0.1', 54947)
+2024-06-30 13:14:41,616 django.request ERROR Internal Server Error: /admin_stock/display_produits/
+Traceback (most recent call last):
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\admin_stock\views.py", line 33, in display_produits
+    liste_stocks = gestion_stock.get_all()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\admin_stock\business\components\gestion_stock.py", line 20, in get_all
+    for row in rows:
+TypeError: 'NoneType' object is not iterable
+2024-06-30 13:14:41,620 django.server INFO - Broken pipe from ('127.0.0.1', 54949)
+2024-06-30 13:14:50,508 django.request ERROR Internal Server Error: /admin_stock/display_produits/
+Traceback (most recent call last):
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\admin_stock\views.py", line 33, in display_produits
+    liste_stocks = gestion_stock.get_all()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\admin_stock\business\components\gestion_stock.py", line 20, in get_all
+    for row in rows:
+TypeError: 'NoneType' object is not iterable
+2024-06-30 13:14:50,510 django.server ERROR "GET /admin_stock/display_produits/ HTTP/1.1" 500 77690
+2024-06-30 13:16:38,344 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-06-30 13:16:45,654 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-06-30 13:16:52,107 django.server INFO "POST / HTTP/1.1" 302 0
+2024-06-30 13:16:55,077 django WARNING le contexte pour la view est vide
+2024-06-30 13:16:55,077 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-06-30 13:17:04,134 django.server INFO "GET /admin_stock/display_produits/ HTTP/1.1" 200 6490
