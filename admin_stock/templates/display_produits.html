@@ -3,6 +3,52 @@
 
 {% block content %}
 
+
+Pour garantir que les champs select et les tableaux conservent un fond blanc sur les navigateurs mobiles, vous pouvez ajouter des styles CSS spécifiques pour forcer le fond à rester blanc. Voici quelques ajustements que vous pouvez faire :
+
+Ajouter des styles CSS :
+Assurez-vous que les éléments select et les tableaux ont un fond blanc défini.
+css
+Copier le code
+/* Forcer le fond blanc des éléments select */
+select {
+    background-color: #ffffff !important;
+    color: #000000; /* Couleur du texte */
+}
+
+/* Forcer le fond blanc des tableaux */
+table {
+    background-color: #ffffff !important;
+    color: #000000; /* Couleur du texte */
+}
+
+/* Pour les autres éléments qui peuvent être affectés */
+.box, .notification, .button {
+    background-color: #ffffff !important;
+    color: #000000; /* Couleur du texte */
+}
+Insérer ces styles dans votre template :
+Ajoutez ces styles directement dans votre template pour vous assurer qu'ils sont appliqués.
+html
+Copier le code
+{% extends 'admin_base/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<style>
+/* Forcer le fond blanc des éléments select */
+select {
+    background-color: #ffffff !important;
+    color: #000000; /* Couleur du texte */
+}
+
+/* Forcer le fond blanc des tableaux */
+table {
+    background-color: #ffffff !important;
+    color: #000000; /* Couleur du texte */
+}
+</style>
+
 <div class="box has-background-white">
 <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
     <span class="icon has-text-primary is-large">
@@ -15,7 +61,7 @@
     {% csrf_token %}
     <div class="field is-grouped is-justify-content-center">
         <div class="control">
-            <div class="select has-background-white">
+            <div class="select">
                 <select name="id_stock">
                     <option value="" >Choisir stock</option>
                     {% for stock in liste_stocks %}
