@@ -10,14 +10,17 @@
     </span>
     <span class="ml-3">Gestion des stocks</span>
 </h1>
+</div>
 
+<div class="box">
+<h2 class="subtitle is-4 has-text-link mb-6">Choisir un stock</h2>
 <form action="{% url 'admin_stock:display_produits'%}" method="post" class="mb-5">
     {% csrf_token %}
     <div class="field is-grouped is-justify-content-center">
         <div class="control">
             <div class="select">
                 <select name="id_stock">
-                    <option value="" >Choisir stock</option>
+                    <option value="" >stock</option>
                     {% for stock in liste_stocks %}
                         <option value="{{ stock.id_stock }}" {% if selected_stock_id == stock.id_stock %} selected {% endif %}>{{ stock.nom_stock }}</option>
                     {% endfor %}

@@ -6,10 +6,10 @@
 <div class="box">
 <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center"><span class="icon has-text-info">
                         <i class="fas fa-archive"></i>
-                    </span><span class="ml-4">Archives des listes</span></h1>
+                    </span><span class="ml-4">Archives</span></h1>
 </div>
 <div class="box">
-<h2 class="subtitle is-4 has-text-link mb-6">Recuperer les archives des listes utilisateurs</h2>
+<h2 class="subtitle is-4 has-text-link mb-6">Recuperer les listes archivées</h2>
 {% if archive_form %}
     <form action="{% url 'admin_liste:recherche_archive' %}" method="post" class="mb-5">
 {% csrf_token %}
