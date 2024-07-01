@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<div class="box has-background-white">
+<div class="box">
 <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
     <span class="icon is-large has-text-warning">
         <i class="fas fa-plane-departure"></i>
@@ -11,7 +11,7 @@
     <span class="ml-3">Preparer un depart</span>
 </h1>
 </div>
-<div class="box has-background-white">
+<div class="box">
 <h2 class="subtitle is-4 has-text-link mb-6">Construire un deplacement</h2>
 <form action="{% url 'admin_liste:depart' %}" method="post" class="mb-5">
 {% csrf_token %}
@@ -23,11 +23,11 @@
 </div>
 
 {% if produits_stock %}
-<div class="box has-background-white">
+<div class="box">
 <h2 class="subtitle is-4 has-text-link mb-6">Construire la liste depart</h2>
     <h2 class="subtitle is-5 has-text-centered has-text-link mb-6">{{ selected_stock_nom }}</h2>
     <div class="table-container">
-        <table class="table is-fullwidth has-background-white has-text-black">
+        <table class="table is-striped is-fullwidth">
             <thead>
                 <tr>
                     <th>Produit</th>
@@ -76,7 +76,7 @@
 </div>
 {% if utilisateur_choice_form %}
 
-<div class="box has-background-white">
+<div class="box">
     <h2 class="subtitle is-4 has-text-link mb-6">Attribuer la liste à un utilisateur</h2>
     <form action="{% url 'admin_liste:create_liste_utilisateur' id_liste_depart=id_liste_depart %}" method="post">
         {% csrf_token %}

@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<div class="box has-background-white">
+<div class="box">
 <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
     <span class="icon">
                     <i class="fas fa-clipboard-list has-text-info"></i>
@@ -13,9 +13,9 @@
 
 
 {% if produits_liste_utilisateur %}
-<div class="box has-background-white">
+<div class="box">
     <div class="table-container">
-        <table class="table is-fullwidth has-background-white has-text-black">
+        <table class="table is-striped is-fullwidth">
             <thead>
                 <tr>
                     <th>Produit</th>
@@ -62,7 +62,7 @@
 
 
 {% endif %}
-<div class="box has-background-white">
+<div class="box">
     <div class="field is-grouped is-justify-content-center">
     <div class="control">
     <a class="button is-link is-focused" href="{% url 'user_liste:index_utilisateur' %}">Valider</a>

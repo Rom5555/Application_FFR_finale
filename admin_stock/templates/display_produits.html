@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<div class="box has-background-white">
+<div class="box">
 <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
     <span class="icon has-text-primary is-large">
         <i class="fas fa-box-open"></i>
@@ -32,10 +32,10 @@
 </form>
 </div>
 {% if produitsStock %}
-    <div class="box has-background-white">
+    <div class="box">
     <h2 class="subtitle is-5 has-text-link mb-6">{{ selected_stock_nom }}</h2>
     <div class="table-container">
-        <table class="table is-fullwidth has-background-white has-text-black">
+        <table class="table is-striped is-fullwidth">
             <thead>
                 <tr>
                     <th>Produit</th>
@@ -78,7 +78,7 @@
 <div id="successNotification" class="notification is-small is-link" style= "display: none; position: fixed; bottom: 0px; right: 0px ;">
   Quantité mise à jour.
 </div>
-<div class="box has-background-white">
+<div class="box">
 <div class="field is-grouped is-justify-content-center">
     <div class="control">
         <a href="{% url 'admin_stock:produit_list' %}" class="button is-link is-focused">Ajouter/Supprimer produit</a>

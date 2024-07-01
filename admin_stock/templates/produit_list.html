@@ -7,7 +7,7 @@
 <div class="container mt-5">
     <div class="columns is-centered">
         <div class="column">
-            <div class="box has-background-white">
+            <div class="box">
                 <h1 class="subtitle is-3 has-text-centered has-text-link mb-5">Liste des produits</h1>
                 <div class="table-container">
                     <table class="table is-striped is-fullwidth">
@@ -45,7 +45,7 @@
 <div class="container mt-5">
     <div class="columns is-centered">
         <div class="column">
-            <div class="box has-background-white">
+            <div class="box">
                 <h2 class="subtitle is-4 has-text-centered has-text-link mb-3">Ajouter un produit</h2>
                 <form id="add-produit-form" action="{% url 'admin_stock:add_produit' %}" method="post" onsubmit="return handleAddProduit()">
                     {% csrf_token %}
