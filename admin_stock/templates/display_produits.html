@@ -15,7 +15,7 @@
     {% csrf_token %}
     <div class="field is-grouped is-justify-content-center">
         <div class="control">
-            <div class="select" style="background-color: #ffffff; color: #000000;">
+            <div class="select">
                 <select name="id_stock">
                     <option value="" >Choisir stock</option>
                     {% for stock in liste_stocks %}
@@ -35,7 +35,7 @@
     <div class="box has-background-white">
     <h2 class="subtitle is-5 has-text-link mb-6">{{ selected_stock_nom }}</h2>
     <div class="table-container">
-        <table class="table is-striped is-fullwidth">
+        <table class="table is-fullwidth has-background-white">
             <thead>
                 <tr>
                     <th>Produit</th>
