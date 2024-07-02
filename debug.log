@@ -31231,3 +31231,16 @@ IndexError: list index out of range
 2024-06-30 23:26:28,397 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 5460
 2024-06-30 23:26:43,459 django.server INFO "GET /admin_liste/depart/ HTTP/1.1" 200 12752
 2024-06-30 23:28:07,468 django.server INFO "GET /admin_liste/depart/ HTTP/1.1" 200 12757
+2024-07-02 02:57:36,808 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-07-02 02:57:45,731 django.server INFO "GET / HTTP/1.1" 200 2465
+2024-07-02 02:57:46,221 django.request WARNING Not Found: /favicon.ico
+2024-07-02 02:57:46,223 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 4071
+2024-07-02 02:57:58,958 django.server INFO "POST / HTTP/1.1" 302 0
+2024-07-02 02:58:01,607 django WARNING le contexte pour la view est vide
+2024-07-02 02:58:01,645 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 5704
+2024-07-02 02:58:25,242 django.server INFO "POST /registration/logout/ HTTP/1.1" 200 970
+2024-07-02 02:58:27,433 django.server INFO "GET / HTTP/1.1" 200 2465
+2024-07-02 02:59:01,490 django.server INFO "POST / HTTP/1.1" 302 0
+2024-07-02 02:59:10,916 django.server INFO "GET /user_liste/index_utilisateur/ HTTP/1.1" 200 4199
+2024-07-02 02:59:40,078 django.server INFO "GET /user_liste/ma_liste/ HTTP/1.1" 200 5940
+2024-07-02 03:02:12,203 django.server INFO "GET /user_liste/index_utilisateur/ HTTP/1.1" 200 4244
