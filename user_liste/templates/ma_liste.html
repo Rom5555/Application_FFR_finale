@@ -2,7 +2,18 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+<style>
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+  appearance: textfield; /* Standard syntax */
+}
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: inner-spin-button;
+  appearance: inner-spin-button;
+}
+</style>
 <div class="box">
 <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
     <span class="icon">
@@ -67,7 +78,7 @@
 <div class="box">
     <div class="field is-grouped is-justify-content-center">
     <div class="control">
-    <a class="button is-link is-focused" href="{% url 'user_liste:index_utilisateur' %}">Valider</a>
+    <a class="button is-link is-focused" href="{% url 'user_liste:index_utilisateur' %}">Retour à l'acceuil</a>
     </div>
 </div>
 </div>
