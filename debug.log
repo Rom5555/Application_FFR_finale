@@ -31269,3 +31269,18 @@ IndexError: list index out of range
 2024-07-03 05:13:16,755 django.server INFO "GET /admin_liste/retour/ HTTP/1.1" 200 8583
 2024-07-03 05:13:34,956 django.server INFO "POST /admin_liste/retour/ HTTP/1.1" 200 14085
 2024-07-03 05:14:32,008 django.server INFO "POST /admin_liste/retour/ HTTP/1.1" 200 14085
+2024-07-03 19:29:49,856 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-07-03 19:30:07,895 django.server INFO "GET / HTTP/1.1" 200 2465
+2024-07-03 19:30:23,953 django.server INFO "POST / HTTP/1.1" 302 0
+2024-07-03 19:30:31,338 django WARNING le contexte pour la view est vide
+2024-07-03 19:30:31,344 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 7118
+2024-07-03 19:30:55,074 django.server INFO "GET /admin_stock/display_produits/ HTTP/1.1" 200 8865
+2024-07-03 19:32:02,158 django.server INFO "POST /admin_stock/display_produits/ HTTP/1.1" 200 145888
+2024-07-03 19:44:44,815 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-07-03 19:44:52,636 django.server INFO "GET / HTTP/1.1" 200 2465
+2024-07-03 19:45:05,262 django.server INFO "POST / HTTP/1.1" 302 0
+2024-07-03 19:45:16,545 django WARNING le contexte pour la view est vide
+2024-07-03 19:45:16,550 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 7148
+2024-07-03 19:45:50,391 django.server INFO "GET /admin_stock/display_produits/ HTTP/1.1" 200 8895
+2024-07-03 19:46:15,237 django.server INFO "POST /admin_stock/display_produits/ HTTP/1.1" 200 145918
+2024-07-03 19:46:59,787 django.server INFO "POST /admin_stock/update_quantity/1/ HTTP/1.1" 200 35
