@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d51fe39-c218-481b-9867-434961d1031b" name="Changes" comment="Application_FFR_V9">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_liste/templates/depart.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/templates/depart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_liste/templates/retour.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/templates/retour.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_stock/templates/display_produits.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/templates/display_produits.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_liste/templates/ma_liste.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_liste/templates/ma_liste.html" afterDir="false" />
-    </list>
+    <list default="true" id="4d51fe39-c218-481b-9867-434961d1031b" name="Changes" comment="Application_FFR_V9" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -145,14 +139,6 @@
       <workItem from="1716298749322" duration="2647000" />
       <workItem from="1716372307168" duration="1722000" />
       <workItem from="1716374374822" duration="368000" />
-    </task>
-    <task id="LOCAL-00135" summary="Application_FFR_V9">
-      <option name="closed" value="true" />
-      <created>1719266655775</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1719266655776</updated>
     </task>
     <task id="LOCAL-00136" summary="Application_FFR_V9">
       <option name="closed" value="true" />
@@ -538,7 +524,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719975334408</updated>
     </task>
-    <option name="localTasksCounter" value="184" />
+    <task id="LOCAL-00184" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1719976309245</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1719976309245</updated>
+    </task>
+    <option name="localTasksCounter" value="185" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

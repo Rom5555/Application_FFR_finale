@@ -4,129 +4,99 @@
 {% block content %}
 
 <div class="box">
-    <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
-        <span class="icon has-text-primary is-large">
-            <i class="fas fa-box-open"></i>
-        </span>
-        <span class="ml-3">Gestion des stocks</span>
-    </h1>
+<h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
+    <span class="icon has-text-primary is-large">
+        <i class="fas fa-box-open"></i>
+    </span>
+    <span class="ml-3">Gestion des stocks</span>
+</h1>
 </div>
 
 <div class="box">
-    <h2 class="subtitle is-4 has-text-link mb-6">Choisir un stock</h2>
-    <form action="{% url 'admin_stock:display_produits' %}" method="post" class="mb-5">
-        {% csrf_token %}
-        <div class="field is-grouped is-justify-content-center">
-            <div class="control">
-                <div class="select">
-                    <select name="id_stock">
-                        <option value="">stock</option>
-                        {% for stock in liste_stocks %}
-                            <option value="{{ stock.id_stock }}" {% if selected_stock_id == stock.id_stock %} selected {% endif %}>{{ stock.nom_stock }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-            </div>
-            <div class="control">
-                <button class="button has-background-white has-text-link is-focused" type="submit">Afficher</button>
+<h2 class="subtitle is-4 has-text-link mb-6">Choisir un stock</h2>
+<form action="{% url 'admin_stock:display_produits'%}" method="post" class="mb-5">
+    {% csrf_token %}
+    <div class="field is-grouped is-justify-content-center">
+        <div class="control">
+            <div class="select">
+                <select name="id_stock">
+                    <option value="" >stock</option>
+                    {% for stock in liste_stocks %}
+                        <option value="{{ stock.id_stock }}" {% if selected_stock_id == stock.id_stock %} selected {% endif %}>{{ stock.nom_stock }}</option>
+                    {% endfor %}
+                </select>
             </div>
         </div>
-        <input type="hidden" name="selected_stock_id" value="{{ selected_stock_id }}">
-    </form>
+        <div class="control">
+            <button class="button has-background-white has-text-link is-focused" type="submit">Afficher</button>
+        </div>
+    </div>
+    <input type="hidden" name="selected_stock_id" value="{{ selected_stock_id }}">
+</form>
 </div>
-
 {% if produitsStock %}
     <div class="box">
-        <h2 class="subtitle is-5 has-text-link mb-6">{{ selected_stock_nom }}</h2>
-        <div class="table-container">
-            <table class="table is-striped is-fullwidth">
-                <thead>
+    <h2 class="subtitle is-5 has-text-link mb-6">{{ selected_stock_nom }}</h2>
+    <div class="table-container">
+        <table class="table is-striped is-fullwidth">
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Quantité</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produit in produitsStock %}
                     <tr>
-                        <th>Produit</th>
-                        <th>Quantité</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for produit in produitsStock %}
-                        <tr>
-                            <td>{{ produit.nom_produit }}</td>
+                        <td>{{ produit.nom_produit }}</td>
                             <td>
                                 <form hx-post="{% url 'admin_stock:update_quantity' id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
-                                    {% csrf_token %}
-                                    <div class="field">
-                                        <div class="control">
-                                            <button type="button" class="button is-small" onclick="incrementDecrementInputNumber(this, false)">-</button>
-                                        </div>
-                                        <div class="control">
-                                            <button type="button" class="button is-small" onclick="incrementDecrementInputNumber(this, true)">+</button>
-                                        </div>
-                                        <div class="control">
-                                            <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}" value="{{ produit.quantite_stock }}" class="input is-small" min="0">
-                                        </div>
+                                {% csrf_token %}
+                                <div class="field">
+                                    <div class="control">
+                                        <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
+                                            value="{{ produit.quantite_stock }}" class="input is-small" min="0">
                                     </div>
-                            </td>
+                                </div>
+                                </td>
                             <td>
                                 <div class="field is-grouped">
                                     <div class="control">
                                         <button class="button is-primary is-focused is-small has-text-light" name="quantity_updated" type="submit">
-                                            <span class="icon is-small">
-                                                <i class="fas fa-check"></i>
-                                            </span>
-                                        </button>
+                                                <span class="icon is-small">
+                                                    <i class="fas fa-check"></i>
+                                                </span></button>
                                     </div>
                                 </div>
                                 </form>
                             </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
+   </div>
 {% endif %}
-
-<div id="successNotification" class="notification is-small is-link" style="display: none; position: fixed; bottom: 0px; right: 0px;">
-    Quantité mise à jour.
+<div id="successNotification" class="notification is-small is-link" style= "display: none; position: fixed; bottom: 0px; right: 0px ;">
+  Quantité mise à jour.
 </div>
-
 <div class="box">
-    <div class="field is-grouped is-justify-content-center">
-        <div class="control">
-            <a href="{% url 'admin_stock:produit_list' %}" class="button is-link is-focused">Ajouter/Supprimer produit</a>
-        </div>
+<div class="field is-grouped is-justify-content-center">
+    <div class="control">
+        <a href="{% url 'admin_stock:produit_list' %}" class="button is-link is-focused">Ajouter/Supprimer produit</a>
     </div>
 </div>
-
+</div>
 {% if messages %}
-    {% for message in messages %}
-        <div class="notification is-danger">
-            {{ message }}
-        </div>
-    {% endfor %}
+  {% for message in messages %}
+    <div class="notification is-danger">
+      {{ message }}
+    </div>
+  {% endfor %}
 {% endif %}
-
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    // Function to handle increment and decrement
-    function incrementDecrementInputNumber(button, increment) {
-        const input = button.parentElement.parentElement.querySelector('input[type="number"]');
-        const currentValue = parseInt(input.value) || 0;
-        const min = parseInt(input.min) || -Infinity;
-        const max = parseInt(input.max) || Infinity;
-        const step = parseInt(input.step) || 1;
-        let newValue = currentValue + (increment ? step : -step);
-        newValue = Math.max(min, Math.min(max, newValue));
-        input.value = newValue;
-    }
-
-    // Attach increment/decrement events
-    document.querySelectorAll('.field.is-grouped .control button').forEach(button => {
-        button.addEventListener('click', () => {
-            incrementDecrementInputNumber(button, button.textContent.trim() === '+');
-        });
-    });
-
     // Get all forms with the 'hx-post' attribute
     let forms = document.querySelectorAll('[hx-post]');
 
