@@ -56,18 +56,18 @@
                                     {% csrf_token %}
                                     <div class="field is-grouped">
                                         <div class="control">
-                                            <button type="button" class="button is-small" onclick="incrementDecrementInputNumber(this, false)">-</button>
-                                        </div>
-                                        <div class="control">
-                                            <button type="button" class="button is-small" onclick="incrementDecrementInputNumber(this, true)">+</button>
-                                        </div>
-                                        <div class="control">
                                             <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}" value="{{ produit.quantite_stock }}" class="input is-small" min="0">
                                         </div>
                                     </div>
                             </td>
                             <td>
                                 <div class="field is-grouped">
+                                    <div class="control">
+                                            <button type="button" class="button is-small" onclick="incrementDecrementInputNumber(this, false)">-</button>
+                                    </div>
+                                     <div class="control">
+                                            <button type="button" class="button is-small" onclick="incrementDecrementInputNumber(this, true)">+</button>
+                                    </div>
                                     <div class="control">
                                         <button class="button is-primary is-focused is-small has-text-light" name="quantity_updated" type="submit">
                                             <span class="icon is-small">
