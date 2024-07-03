@@ -36,11 +36,11 @@
                                             <button type="button" class="button is-small" onclick="incrementDecrementInputNumber(this, false)">-</button>
                                     </div>
                                     <div class="control">
-                                        <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
-                                            value="{{ produit.quantite_retour }}" class="input is-small" min="0" max={{ produit.quantite_depart }}>
+                                            <button type="button" class="button is-small" onclick="incrementDecrementInputNumber(this, true)">+</button>
                                     </div>
                                     <div class="control">
-                                            <button type="button" class="button is-small" onclick="incrementDecrementInputNumber(this, true)">+</button>
+                                        <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
+                                            value="{{ produit.quantite_retour }}" class="input is-small" min="0" max={{ produit.quantite_depart }}>
                                     </div>
                                 </div>
                                 </td>
