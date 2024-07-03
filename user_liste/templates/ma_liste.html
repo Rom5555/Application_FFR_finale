@@ -31,15 +31,11 @@
                         <td>{{ produit.quantite_depart }}</td>
                         <td>
                                 <form hx-post="{% url 'user_liste:remplir_liste_retour' id_liste_utilisateur=id_liste_utilisateur id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">                                {% csrf_token %}
-                                <div class="field">
+                                <div class="field is-grouped">
                                     <div class="control">
                                         <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
                                             value="{{ produit.quantite_retour }}" class="input is-small" min="0" max={{ produit.quantite_depart }}>
                                     </div>
-                                </div>
-                        </td>
-                        <td>
-                                <div class="field is-grouped">
                                     <div class="control">
                                             <button type="button" class="button is-small" onclick="incrementDecrementInputNumber(this, false)">-</button>
                                     </div>
