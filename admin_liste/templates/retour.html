@@ -40,7 +40,13 @@
                         <td>
                                 <form hx-post="{% url 'admin_liste:verifier_liste_retour' id_liste_utilisateur=id_liste_utilisateur id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
                                 {% csrf_token %}
-                                <div class="field">
+                                <div class="field is-grouped">
+                                    <div class="control">
+                                    <button type="button" class="button is-small decrement-button">-</button>
+                                </div>
+                                <div class="control">
+                                    <button type="button" class="button is-small increment-button">+</button>
+                                </div>
                                     <div class="control">
                                         <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
                                             value="{{ produit.quantite_retour }}" class="input is-small" min="0" max="{{ produit.quantite_depart }}">

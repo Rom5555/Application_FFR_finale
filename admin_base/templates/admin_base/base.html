@@ -85,5 +85,34 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // Fonction pour gérer l'incrémentation et la décrémentation
+    function incrementDecrementInputNumber(button, increment) {
+        const input = button.closest('.field').querySelector('input[type="number"]');
+        const currentValue = parseInt(input.value) || 0;
+        const min = parseInt(input.min) || -Infinity;
+        const max = parseInt(input.max) || Infinity;
+        const step = parseInt(input.step) || 1;
+        let newValue = currentValue + (increment ? step : -step);
+        newValue = Math.max(min, Math.min(max, newValue));
+        input.value = newValue;
+    }
+
+    // Attacher les événements d'incrémentation et de décrémentation
+    document.querySelectorAll('.increment-button').forEach(button => {
+        button.addEventListener('click', () => {
+            incrementDecrementInputNumber(button, true);
+        });
+    });
+
+    document.querySelectorAll('.decrement-button').forEach(button => {
+        button.addEventListener('click', () => {
+            incrementDecrementInputNumber(button, false);
+        });
+    });
+});
+</script>
+
 </body>
 </html>
