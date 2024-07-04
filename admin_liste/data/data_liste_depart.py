@@ -232,7 +232,7 @@ class Data_liste_depart:
 
     def get_liste_depart(self,id_liste_depart):
 
-        sql = "SELECT association_liste_depart_produit.id_liste_depart,stock.id_stock,stock.nom_stock,produit.id_produit,produit.nom_produit,association_liste_depart_produit.quantite_depart,association_liste_depart_produit.quantite_retour FROM association_liste_depart_produit JOIN produit ON association_liste_depart_produit.id_produit = produit.id_produit JOIN association_stock_produit ON association_stock_produit.id_produit=produit.id_produit JOIN stock ON stock.id_stock=association_stock_produit.id_stock WHERE association_liste_depart_produit.id_liste_depart = %s;"
+        sql = "SELECT association_liste_depart_produit.id_liste_depart,stock.id_stock,stock.nom_stock,produit.id_produit,produit.nom_produit,association_liste_depart_produit.quantite_depart,association_liste_depart_produit.quantite_retour FROM association_liste_depart_produit JOIN produit ON association_liste_depart_produit.id_produit = produit.id_produit JOIN association_stock_produit ON association_stock_produit.id_produit=produit.id_produit JOIN stock ON stock.id_stock=association_stock_produit.id_stock WHERE association_liste_depart_produit.id_liste_depart = %s ORDER BY produit.id_produit;"
 
         connection = None
         try:

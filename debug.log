@@ -31324,3 +31324,78 @@ IndexError: list index out of range
 2024-07-04 04:04:32,379 django.server INFO "POST /admin_liste/retour/ HTTP/1.1" 200 14123
 2024-07-04 04:04:56,866 django.server INFO "POST /admin_liste/verifier_liste_retour/9/1/ HTTP/1.1" 200 62
 2024-07-04 04:05:05,135 django.server INFO "POST /admin_liste/verifier_liste_retour/9/2/ HTTP/1.1" 200 62
+2024-07-04 05:01:51,949 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-07-04 05:02:05,022 django.server INFO "GET / HTTP/1.1" 200 2465
+2024-07-04 05:02:05,678 django.request WARNING Not Found: /favicon.ico
+2024-07-04 05:02:05,679 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 4071
+2024-07-04 05:02:13,568 django.server INFO "POST / HTTP/1.1" 302 0
+2024-07-04 05:02:15,930 django WARNING le contexte pour la view est vide
+2024-07-04 05:02:15,943 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 6839
+2024-07-04 05:02:25,144 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 6598
+2024-07-04 05:03:03,270 django.server INFO "GET /admin_liste/depart/ HTTP/1.1" 200 13784
+2024-07-04 05:05:11,985 django.server INFO "POST /admin_liste/depart/ HTTP/1.1" 200 145955
+2024-07-04 05:06:08,107 django.server INFO "POST /admin_liste/remplir_liste_depart/3/1/ HTTP/1.1" 200 35
+2024-07-04 05:06:17,255 django.server INFO "POST /admin_liste/remplir_liste_depart/3/1/ HTTP/1.1" 200 35
+2024-07-04 05:06:35,095 django.server INFO "POST /admin_liste/remplir_liste_depart/3/2/ HTTP/1.1" 200 35
+2024-07-04 05:06:44,703 django.server INFO "POST /admin_liste/remplir_liste_depart/3/1/ HTTP/1.1" 200 35
+2024-07-04 05:06:59,367 django.server INFO "POST /admin_liste/remplir_liste_depart/3/2/ HTTP/1.1" 200 35
+2024-07-04 05:07:08,004 django.server INFO "POST /admin_liste/remplir_liste_depart/3/1/ HTTP/1.1" 200 35
+2024-07-04 05:07:17,998 django.server INFO "POST /admin_liste/remplir_liste_depart/3/1/ HTTP/1.1" 200 35
+2024-07-04 05:07:32,896 django.server INFO "POST /admin_liste/remplir_liste_depart/3/2/ HTTP/1.1" 200 35
+2024-07-04 05:08:03,482 django.request WARNING Method Not Allowed: /admin_liste/create_liste_utilisateur/3/
+2024-07-04 05:08:03,483 django.server WARNING "POST /admin_liste/create_liste_utilisateur/3/ HTTP/1.1" 405 73
+2024-07-04 05:08:50,755 django.server INFO "POST /admin_liste/create_liste_utilisateur/3/ HTTP/1.1" 200 73
+2024-07-04 13:38:12,465 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-07-04 13:38:14,564 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-07-04 13:38:14,740 django.request WARNING Not Found: /favicon.ico
+2024-07-04 13:38:14,741 django.server WARNING "GET /favicon.ico HTTP/1.1" 404 4071
+2024-07-04 13:38:17,515 django.server INFO "POST / HTTP/1.1" 302 0
+2024-07-04 13:38:17,593 django WARNING le contexte pour la view est vide
+2024-07-04 13:38:17,620 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-07-04 13:38:24,740 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-07-04 13:38:27,183 django.server INFO "GET /admin_liste/depart/ HTTP/1.1" 200 11792
+2024-07-04 13:38:47,582 django.server INFO "POST /admin_liste/depart/ HTTP/1.1" 200 119236
+2024-07-04 13:39:01,313 django.server INFO "GET /admin_stock/display_produits/ HTTP/1.1" 200 6490
+2024-07-04 13:39:05,765 django.server INFO "POST /admin_stock/display_produits/ HTTP/1.1" 200 110505
+2024-07-04 13:39:11,795 django.server INFO "POST /admin_stock/update_quantity/2/ HTTP/1.1" 200 35
+2024-07-04 13:39:15,763 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-07-04 13:39:17,583 django.server INFO "GET /admin_liste/depart/ HTTP/1.1" 200 11792
+2024-07-04 13:39:35,522 django.server INFO "POST /admin_liste/depart/ HTTP/1.1" 200 119238
+2024-07-04 13:39:47,045 django.server INFO "POST /admin_liste/remplir_liste_depart/1/2/ HTTP/1.1" 200 35
+2024-07-04 13:40:35,736 django.server INFO "POST /admin_liste/create_liste_utilisateur/1/ HTTP/1.1" 200 73
+2024-07-04 13:40:37,939 django WARNING le contexte pour la view est vide
+2024-07-04 13:40:37,939 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-07-04 13:40:39,723 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-07-04 13:40:41,212 django.server INFO "GET /admin_liste/retour/ HTTP/1.1" 200 6786
+2024-07-04 13:40:43,180 django.server INFO "POST /admin_liste/retour/ HTTP/1.1" 200 11270
+2024-07-04 13:50:24,962 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-07-04 13:50:51,829 django.server INFO "GET / HTTP/1.1" 200 2004
+2024-07-04 13:50:55,019 django.server INFO "POST / HTTP/1.1" 302 0
+2024-07-04 13:50:55,207 django WARNING le contexte pour la view est vide
+2024-07-04 13:50:55,208 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 4757
+2024-07-04 13:51:01,526 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-07-04 13:51:03,829 django.server INFO "GET /admin_liste/retour/ HTTP/1.1" 200 6786
+2024-07-04 13:51:07,588 django.server INFO "GET /admin_liste/depart/ HTTP/1.1" 200 11792
+2024-07-04 13:51:26,374 django.server INFO "POST /admin_liste/depart/ HTTP/1.1" 200 119234
+2024-07-04 13:51:46,221 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 4636
+2024-07-04 13:51:51,397 django.server INFO "GET /admin_stock/display_produits/ HTTP/1.1" 200 6490
+2024-07-04 13:51:55,503 django.server INFO "POST /admin_stock/display_produits/ HTTP/1.1" 200 110505
+2024-07-04 13:52:44,383 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-07-04 13:53:15,221 django.server INFO "GET / HTTP/1.1" 200 2465
+2024-07-04 13:53:36,157 django.server INFO "POST / HTTP/1.1" 302 0
+2024-07-04 13:53:43,419 django WARNING le contexte pour la view est vide
+2024-07-04 13:53:43,428 django.server INFO "GET /admin_base/index/ HTTP/1.1" 200 6839
+2024-07-04 13:54:01,317 django.server INFO "GET /admin_liste/depart_retour/ HTTP/1.1" 200 6598
+2024-07-04 13:54:47,051 django.server INFO - Broken pipe from ('127.0.0.1', 62353)
+2024-07-04 13:54:53,365 django.server INFO "GET /admin_liste/depart/ HTTP/1.1" 200 13784
+2024-07-04 13:56:37,646 django.server INFO "POST /admin_liste/depart/ HTTP/1.1" 200 145955
+2024-07-04 13:58:04,627 django.server INFO "POST /admin_liste/remplir_liste_depart/3/1/ HTTP/1.1" 200 35
+2024-07-04 13:58:05,956 django.request WARNING Method Not Allowed: /admin_liste/create_liste_utilisateur/3/
+2024-07-04 13:58:05,956 django.server WARNING "POST /admin_liste/create_liste_utilisateur/3/ HTTP/1.1" 405 73
+2024-07-04 13:58:10,309 django.server INFO "POST /admin_liste/remplir_liste_depart/3/1/ HTTP/1.1" 200 35
+2024-07-04 13:58:55,154 django.request WARNING Method Not Allowed: /admin_liste/create_liste_utilisateur/3/
+2024-07-04 13:58:55,155 django.server WARNING "POST /admin_liste/create_liste_utilisateur/3/ HTTP/1.1" 405 73
+2024-07-04 14:00:26,270 django.server INFO "POST /admin_liste/create_liste_utilisateur/3/ HTTP/1.1" 200 73
+2024-07-04 15:07:26,035 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-07-04 15:08:03,303 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-07-04 15:09:14,637 django.utils.autoreload INFO Watching for file changes with StatReloader
