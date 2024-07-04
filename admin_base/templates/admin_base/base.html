@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function incrementDecrementInputNumber(button, increment) {
         const input = button.closest('.field').querySelector('input[type="number"]');
         const currentValue = parseInt(input.value) || 0;
-        const min = parseInt(input.min) || -Infinity;
+        const min = parseInt(input.min) || 0;
         const max = parseInt(input.max) || Infinity;
         const step = parseInt(input.step) || 1;
         let newValue = currentValue + (increment ? step : -step);
