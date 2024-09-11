@@ -4,12 +4,12 @@ if __name__ == '__main__':
 
     # adapter les valeurs en rapport avec la configuration de votre environnement
     # de développement
-    SERVER = "localhost"
+    SERVER = "165.22.65.214"
     PORT = 5432
-    USER = "dev"
+    USER = "rom"
     PASSWORD = "ballon"
-    SCRIPTS_DIRECTORY = "C:\\Users\\romfa\\Dev\\Application_FFR_V5\\etude\\database\\sauvegarde\\backup_file.dump"
-    DATABASE = "application_FFR_V5_db"
+    SCRIPTS_DIRECTORY = "C:\\Users\\Ro\\PycharmProjects\\Application_FFR_finale_V1\\etude\\database\\sauvegarde\\backup_file.dump"
+    DATABASE = "application_ffr_db"
     POSTGRESQL_BIN = "C:\\Program Files\\PostgreSQL\\13\\bin"
 
 
