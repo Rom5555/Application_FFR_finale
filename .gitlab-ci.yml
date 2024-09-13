@@ -19,6 +19,7 @@ build-image:
 
 deploy:
   stage: deploy
+  image: alpine:latest
   before_script:
     - apk add --no-cache openssh  # Installer openssh si nécessaire
     - mkdir -p ~/.ssh
