@@ -30,6 +30,6 @@ EXPOSE 8000
 # NB : en prduction, cette emplacement est l'"object storage" où django archive les éléments statics,
 #      ainsi les containers instanciés par les pods kubernetes peuvent êtres remplacées "à la volée" sans
 #      conséquence sur les fichiers statiques
-# RUN python ./manage.py collectstatic --no-input
+RUN python ./manage.py collectstatic --no-input
 
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "--timeout", "120", "application_FFR.wsgi"]
