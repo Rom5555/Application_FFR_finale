@@ -26,6 +26,8 @@ deploy:
     - echo "$DEPLOY_SERVER_PRIVATE_KEY" > ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
     - ssh-keyscan -H $DEPLOYMENT_SERVER_IP >> ~/.ssh/known_hosts
+    - ssh -v root@$DEPLOYMENT_SERVER_IP "echo connection successful"
+
   script:
     - ssh root@$DEPLOYMENT_SERVER_IP "docker-compose down && docker pull $REGISTRY_PROJECT_PATH && docker-compose up -d"
 #Ici, tu utilises une clé SSH pour te connecter à ton serveur. N'oublie pas d'ajouter ta clé privée
