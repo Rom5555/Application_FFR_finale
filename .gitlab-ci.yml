@@ -26,6 +26,7 @@ deploy:
     - echo "$DEPLOY_SERVER_PRIVATE_KEY" > ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
     - ssh-keyscan -H $DEPLOYMENT_SERVER_IP >> ~/.ssh/known_hosts
+    - ls -la ~/.ssh
     - ssh -v root@$DEPLOYMENT_SERVER_IP "echo connection successful"
 
   script:
