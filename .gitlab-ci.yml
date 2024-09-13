@@ -21,7 +21,16 @@ deploy:
   stage: deploy
   image: alpine:latest
   before_script:
-    - apk add --no-cache sshpass
+    - apk add --no-cache openssh sshpass
+    - which sshpass
+    - sshpass -V
+    - mkdir -p ~/.ssh
+    - echo "$DEPLOY_SERVER_PRIVATE_KEY" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - ssh-keyscan -H $DEPLOYMENT_SERVER_IP >> ~/.ssh/known_hosts
+    - ls -la ~/.ssh
+    - sshpass -p "$SERVER_PASSWORD" ssh -o StrictHostKeyChecking=no root@$DEPLOYMENT_SERVER_IP "echo connection successful" || { echo "SSH connection failed"; exit 1; }
+
   script:
     - sshpass -p "$SERVER_PASSWORD" ssh -o StrictHostKeyChecking=no root@$DEPLOYMENT_SERVER_IP "
         docker-compose down &&
