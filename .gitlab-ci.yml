@@ -21,25 +21,14 @@ deploy:
   stage: deploy
   image: alpine:latest
   before_script:
-    - apk add --no-cache openssh-client
-    - mkdir -p ~/.ssh
-    - echo "$DEPLOY_SERVER_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
-    - chmod 600 ~/.ssh/id_rsa
-    - eval "$(ssh-agent -s)"
-    - ssh-add ~/.ssh/id_rsa
-    - ssh-keyscan -H $DEPLOYMENT_SERVER_IP >> ~/.ssh/known_hosts
+    - apk add --no-cache sshpass
   script:
-    - echo "DATABASE_URL=${DATABASE_URL}" > .env
-    - scp -r .env docker-compose.yml root@${DEPLOYMENT_SERVER_IP}:~/
-    - ssh root@$DEPLOYMENT_SERVER_IP  'bash -s' << 'EOF' 
-        docker login registry.gitlab.com -u $USER_GITLAB -p $REGISTRY_TOKEN
-        docker pull $REGISTRY_PROJECT_PATH
-        docker-compose down
+    - sshpass -p "$SERVER_PASSWORD" ssh -o StrictHostKeyChecking=no root@$DEPLOYMENT_SERVER_IP "
+        docker-compose down &&
+        docker pull $REGISTRY_PROJECT_PATH &&
         docker-compose up -d
-        docker-compose exec web python manage.py makemigrations
-        docker-compose exec web python manage.py migrate
-        docker-compose exec web python manage.py createsuperuser --noinput --email $DJANGO_SUPERUSER_EMAIL --username $DJANGO_SUPERUSER_USERNAME
-        EOF
+      "
+
   environment:
     name: production
     url: http://165.22.65.214:8000
