@@ -11,7 +11,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   web:
-    image: registry.gitlab.com/rom5555/application_ffr_finale_v1:latest
+    image: registry.gitlab.com/rom5555/application_ffr_finale_v2:latest
     build:
       context: .
       dockerfile: Dockerfile
