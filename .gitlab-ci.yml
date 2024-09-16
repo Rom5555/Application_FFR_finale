@@ -15,7 +15,7 @@ build-image:
     - docker-compose build
     - docker-compose push
   tags:
-    - runner-perso-portable
+    - runner-ffr-tag
 
 #deploy:
   #stage: deploy
