@@ -15,7 +15,7 @@ build-image:
     - docker-compose build
     - docker-compose push
   tags:
-    - runner-gitlab-v2-tag
+    - runner-ffr-tag
 
 #deploy:
   #stage: deploy
@@ -44,4 +44,4 @@ build-image:
   #only:
     #- master
   #tags:
-    #- runner-gitlab-v2-tag
+    #- runner-ffr-tag
