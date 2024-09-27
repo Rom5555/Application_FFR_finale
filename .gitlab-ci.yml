@@ -15,7 +15,7 @@ build-image:
     - docker-compose build
     - docker-compose push
   tags:
-    - runner-ffr-tag
+    - runner-gitlab-v2-tag
 
 #deploy:
   #stage: deploy
