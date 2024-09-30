@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="4d51fe39-c218-481b-9867-434961d1031b" name="Changes" comment="Application_FFR_V9">
       <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/data/data_deplacement.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/data/data_deplacement.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/data/data_equipe.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/data/data_equipe.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/data/data_liste_depart.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/data/data_liste_depart.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/data/data_liste_utilisateur.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/data/data_liste_utilisateur.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_stock/data/data_stock.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/data/data_stock.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +30,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitLabDefaultAccount">
-    <option name="defaultAccountId" value="9f5fcd83-a09d-48f3-8901-696807f62b8f" />
-  </component>
   <component name="GitLabMergeRequestFiltersHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPENED&quot;,
@@ -38,8 +42,8 @@
 }</component>
   <component name="GitLabMergeRequestsSettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;first&quot;: &quot;https://gitlab.com/Rom5555/Application_FFR_finale_V1&quot;,
-    &quot;second&quot;: &quot;9f5fcd83-a09d-48f3-8901-696807f62b8f&quot;
+    &quot;first&quot;: &quot;https://gitlab.com/Rom5555/application_ffr_finale_v2.git&quot;,
+    &quot;second&quot;: &quot;9415b98e-1f60-4cba-b066-4ffe3a75ccb5&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -110,7 +114,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-babbdf50b680-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.15989.155" />
+        <option value="bundled-python-sdk-0e3be3396995-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.23339.19" />
       </set>
     </attachedChunks>
   </component>
@@ -144,14 +148,6 @@
       <workItem from="1716298749322" duration="2647000" />
       <workItem from="1716372307168" duration="1722000" />
       <workItem from="1716374374822" duration="368000" />
-    </task>
-    <task id="LOCAL-00169" summary="Application_FFR_V9">
-      <option name="closed" value="true" />
-      <created>1719789083939</created>
-      <option name="number" value="00169" />
-      <option name="presentableId" value="LOCAL-00169" />
-      <option name="project" value="LOCAL" />
-      <updated>1719789083939</updated>
     </task>
     <task id="LOCAL-00170" summary="Application_FFR_V9">
       <option name="closed" value="true" />
@@ -537,7 +533,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727434136609</updated>
     </task>
-    <option name="localTasksCounter" value="218" />
+    <task id="LOCAL-00218" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727435738944</created>
+      <option name="number" value="00218" />
+      <option name="presentableId" value="LOCAL-00218" />
+      <option name="project" value="LOCAL" />
+      <updated>1727435738944</updated>
+    </task>
+    <option name="localTasksCounter" value="219" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
