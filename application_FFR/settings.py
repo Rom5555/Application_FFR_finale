@@ -91,7 +91,7 @@ DATABASES = {
         'NAME': 'application_ffr_db',
         'USER': 'rom',
         'PASSWORD': 'ballon',
-        'HOST': '165.22.65.214',
+        'HOST': '10.0.2.11',
         'PORT': '5432',
     },
     'application_FFR_V5_db': {
@@ -201,10 +201,10 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='webmaster@your-domain.com')
 
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#SESSION_COOKIE_SECURE = True
+#CSRF_COOKIE_SECURE = True
+#SECURE_SSL_REDIRECT = True
+#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Security settings for production
 #SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

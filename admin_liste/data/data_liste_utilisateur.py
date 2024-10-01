@@ -2,7 +2,7 @@ import psycopg2
 
 class Data_liste_utilisateur:
     def __init__(self):
-        self._HOST = "165.22.65.214"
+        self._HOST = "10.0.2.11"
         self._DATABASE = "application_ffr_db"
         self._USER = "rom"
         self._PASSWORD = "ballon"
