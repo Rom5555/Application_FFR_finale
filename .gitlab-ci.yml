@@ -29,10 +29,10 @@ build-image:
     #- chmod 600 ~/.ssh/id_rsa
     #- ssh-keyscan -H $DEPLOYMENT_SERVER_IP >> ~/.ssh/known_hosts
     #- ls -la ~/.ssh
-    #- sshpass -p "$SERVER_PASSWORD" ssh -o StrictHostKeyChecking=no root@$DEPLOYMENT_SERVER_IP "echo connection successful" || { echo "SSH connection failed"; exit 1; }
+    #- sshpass -p "$SERVER_PASSWORD" ssh -o StrictHostKeyChecking=no romain@$DEPLOYMENT_SERVER_IP "echo connection successful" || { echo "SSH connection failed"; exit 1; }
 
-#script:
-    #- sshpass -p "$SERVER_PASSWORD" ssh -o StrictHostKeyChecking=no root@$DEPLOYMENT_SERVER_IP "
+  #script:
+    #- sshpass -p "$SERVER_PASSWORD" ssh -o StrictHostKeyChecking=no romain@$DEPLOYMENT_SERVER_IP "
         #docker-compose down &&
         #docker pull $REGISTRY_PROJECT_PATH &&
         #docker-compose up -d
