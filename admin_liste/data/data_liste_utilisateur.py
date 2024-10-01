@@ -1,12 +1,13 @@
 import psycopg2
+import os
 
 class Data_liste_utilisateur:
     def __init__(self):
-        self._HOST = "10.0.2.11"
-        self._DATABASE = "application_ffr_db"
-        self._USER = "rom"
-        self._PASSWORD = "ballon"
-        self._PORT = 5432
+        self._HOST = os.environ.get('POSTGRES_HOST', 'db')
+        self._DATABASE = os.environ.get('POSTGRES_DB', 'application_ffr_db')
+        self._USER = os.environ.get('POSTGRES_USER', 'rom')
+        self._PASSWORD = os.environ.get('POSTGRES_PASSWORD', 'ballon')
+        self._PORT = int(os.environ.get('POSTGRES_PORT', 5432))
 
     def connect(self):
         """

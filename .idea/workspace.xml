@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d51fe39-c218-481b-9867-434961d1031b" name="Changes" comment="Application_FFR_V9">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-    </list>
+    <list default="true" id="4d51fe39-c218-481b-9867-434961d1031b" name="Changes" comment="Application_FFR_V9" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,9 +20,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitLabDefaultAccount">
-    <option name="defaultAccountId" value="9f5fcd83-a09d-48f3-8901-696807f62b8f" />
   </component>
   <component name="GitLabMergeRequestFiltersHistory">{
   &quot;lastFilter&quot;: {
