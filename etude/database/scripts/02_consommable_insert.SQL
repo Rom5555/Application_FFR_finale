@@ -1,7 +1,7 @@
-INSERT INTO public.produit(id_produit,nom_produit) VALUES (1,'ELASTOPLASTE_10cm');
-INSERT INTO public.produit(id_produit,nom_produit) VALUES (2,'ELASTOPLASTE_8cm');
-INSERT INTO public.produit(id_produit,nom_produit) VALUES (3,'ELASTOPLASTE_6cm');
-INSERT INTO public.produit(id_produit,nom_produit) VALUES (4,'ELASTOPLASTE_3cm');
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (1,'TENSOCLUB_10cm');
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (2,'TENSOCLUB_8cm');
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (3,'TENSOCLUB_6cm');
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (4,'TENSOCLUB_3cm');
 INSERT INTO public.produit(id_produit,nom_produit) VALUES (5,'STRAPPAL');
 INSERT INTO public.produit(id_produit,nom_produit) VALUES (6,'TENSOPLUS_10cm');
 INSERT INTO public.produit(id_produit,nom_produit) VALUES (7,'TENSOPLUS_8cm');
