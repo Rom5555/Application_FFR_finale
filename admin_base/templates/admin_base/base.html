@@ -19,10 +19,16 @@
     <div class="hero-head">
         <nav class="navbar has-background-link" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-                <!-- Titre Accueil avec les mêmes styles que les autres éléments de la navbar -->
-                <a class="navbar-item is-size-6 has-text-light" href="{% url 'admin_base:index' %}">
-                    Accueil
+                <!-- Logo et titre Logimed -->
+                <a class="navbar-item" href="{% url 'admin_base:index' %}">
+                    <span class="icon-text">
+                        <span class="icon has-text-light" style="font-size: 1.5rem;">
+                            <i class="fas fa-suitcase-medical"></i>
+                        </span>
+                        <span class="has-text-light has-text-weight-bold is-size-4 ml-2">Logimed</span>
+                    </span>
                 </a>
+
                 <!-- Burger avec dropdown -->
                 <div class="navbar-burger has-text-light" aria-label="menu" aria-expanded="false" data-target="navbarDropdown">
                     <span></span>
@@ -33,9 +39,10 @@
             <!-- Menu avec dropdown -->
             <div id="navbarDropdown" class="navbar-menu">
                 <div class="navbar-start">
-                    <a class="navbar-item" href="{% url 'admin_compte:user_list' %}">Comptes</a>
-                    <a class="navbar-item" href="{% url 'admin_stock:display_produits' %}">Stocks</a>
-                    <a class="navbar-item" href="{% url 'admin_liste:depart_retour' %}">Listes</a>
+                    <a class="navbar-item has-text-light" href="{% url 'admin_base:index' %}">Accueil</a>
+                    <a class="navbar-item has-text-light" href="{% url 'admin_compte:user_list' %}">Comptes</a>
+                    <a class="navbar-item has-text-light" href="{% url 'admin_stock:display_produits' %}">Stocks</a>
+                    <a class="navbar-item has-text-light" href="{% url 'admin_liste:depart_retour' %}">Listes</a>
                 </div>
                 <div class="navbar-end">
                     <div class="navbar-item has-dropdown is-hoverable">
@@ -64,6 +71,7 @@
         </div>
     </div>
 </section>
+
 <style>
 .short-input {
     width: 80px; /* Ajustez la largeur selon vos besoins */
@@ -90,9 +98,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+
 <script>
+// Fonction pour gérer l'incrémentation et la décrémentation
 document.addEventListener("DOMContentLoaded", () => {
-    // Fonction pour gérer l'incrémentation et la décrémentation
     function incrementDecrementInputNumber(button, increment) {
         const input = button.closest('.field').querySelector('input[type="number"]');
         const currentValue = parseInt(input.value) || 0;
