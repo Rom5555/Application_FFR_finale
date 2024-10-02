@@ -100,9 +100,13 @@ def produit_list(request):
                    'delete_produit_form': delete_produit_form, 'success_message': success_message})
 
 
+from django.http import JsonResponse
+from django.views.decorators.http import require_http_methods
+
 @user_passes_test(is_admin)
+@require_http_methods(["GET", "POST"])
 def add_produit(request):
-    gestion_stock= Gestion_stock()
+    gestion_stock = Gestion_stock()
     save_error = False
     is_create = True
     add_produit_form = ProduitForm()
@@ -127,24 +131,51 @@ def add_produit(request):
                 print("ID du stock:", id_stock)
 
                 gestion_stock.add_produit_stock()
-                add_produit_form = ProduitForm()
 
-                # Stocker le message de succès dans la session
-                messages.success(request, 'Le produit a été ajouté avec succès.')
-
-                # Rediriger vers la liste des produits
-                return redirect('admin_stock:produit_list')
+                if request.is_ajax():
+                    return JsonResponse({
+                        'success': True,
+                        'message': 'Le produit a été ajouté avec succès.',
+                        'product': {
+                            'nom_produit': nom_produit,
+                            'quantite': quantite,
+                            'id_stock': id_stock
+                        }
+                    })
+                else:
+                    messages.success(request, 'Le produit a été ajouté avec succès.')
+                    return redirect('admin_stock:produit_list')
 
             except Exception as e:
                 print(e)
                 save_error = True
+                if request.is_ajax():
+                    return JsonResponse({
+                        'success': False,
+                        'message': str(e)
+                    })
 
-    # Si l'ajout du produit a échoué, ne pas stocker de message de succès dans la session
     if save_error:
-        messages.error(request, 'Erreur lors de l\'ajout du produit.')
+        error_message = 'Erreur lors de l\'ajout du produit.'
+        if request.is_ajax():
+            return JsonResponse({
+                'success': False,
+                'message': error_message
+            })
+        else:
+            messages.error(request, error_message)
 
-    return render(request, 'produit_list.html',
-                  {'add_produit_form': add_produit_form, 'save_error': save_error, 'is_create': is_create})
+    if request.is_ajax():
+        return JsonResponse({
+            'success': False,
+            'message': 'Méthode non autorisée ou formulaire invalide.'
+        })
+
+    return render(request, 'produit_list.html', {
+        'add_produit_form': add_produit_form,
+        'save_error': save_error,
+        'is_create': is_create
+    })
 
 @user_passes_test(is_admin)
 def delete_produit(request):
