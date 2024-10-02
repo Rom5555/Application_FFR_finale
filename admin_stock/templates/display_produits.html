@@ -3,25 +3,6 @@
 
 {% block content %}
 
-{% extends 'admin_base/base.html' %}
-{% load crispy_forms_tags %}
-
-{% block content %}
-
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#3273dc">
-    <meta name="color-scheme" content="light">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" content="Application privée de gestion logistique">
-    <title>Application logistique service medical FFR</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v6.1.1/js/all.js"></script>
-    <script src="https://unpkg.com/htmx.org@^1.7.0/dist/htmx.min.js"></script>
-</head>
-
 <div class="card mb-4" style="box-shadow: 0 4px 8px rgba(50, 115, 220, 0.2);">
     <div class="card-content">
         <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
@@ -55,7 +36,7 @@
                 <div class="control">
                     <div class="select">
                         <select name="id_stock">
-                            <option value="" >stock</option>
+                            <option value="">Stock</option>
                             {% for stock in liste_stocks %}
                                 <option value="{{ stock.id_stock }}" {% if selected_stock_id == stock.id_stock %} selected {% endif %}>{{ stock.nom_stock }}</option>
                             {% endfor %}
@@ -93,11 +74,11 @@
                                     {% csrf_token %}
                                      <div class="field is-grouped">
                                         <div class="control">
-                                        <button type="button" class="button is-small decrement-button">-</button>
-                                    </div>
-                                    <div class="control">
-                                        <button type="button" class="button is-small increment-button">+</button>
-                                    </div>
+                                            <button type="button" class="button is-small decrement-button">-</button>
+                                        </div>
+                                        <div class="control">
+                                            <button type="button" class="button is-small increment-button">+</button>
+                                        </div>
                                         <div class="control">
                                             <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
                                                 value="{{ produit.quantite_stock }}" class="input is-small short-input" min="0">
@@ -108,9 +89,7 @@
                                     <div class="field is-grouped">
                                         <div class="control">
                                             <button class="button is-primary is-focused is-small has-text-light" name="quantity_updated" type="submit">
-                                                    <span class="icon is-small">
-                                                        <i class="fas fa-check"></i>
-                                                    </span></button>
+                                                <span class="icon is-small"><i class="fas fa-check"></i></span></button>
                                         </div>
                                     </div>
                                     </form>
@@ -124,18 +103,18 @@
     </div>
 {% endif %}
 
-<div id="successNotification" class="notification is-small is-link" style= "display: none; position: fixed; bottom: 0px; right: 0px ;">
-  Quantité mise à jour.
+<div id="successNotification" class="notification is-small is-link" style= "display: none; position: fixed; bottom: 0px; right: 0px;">
+    Quantité mise à jour.
 </div>
 
 {% if messages %}
-  {% for message in messages %}
-    <div class="notification is-danger">
-      {{ message }}
-    </div>
-  {% endfor %}
+    {% for message in messages %}
+        <div class="notification is-danger">{{ message }}</div>
+    {% endfor %}
 {% endif %}
 
+<script>
+// Script pour gérer la mise à jour des quantités
 document.addEventListener("DOMContentLoaded", () => {
     // Get all forms with the 'hx-post' attribute
     let forms = document.querySelectorAll('[hx-post]');
@@ -172,6 +151,22 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    // Increment and decrement quantity functionality
+    document.querySelectorAll('.increment-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const input = button.closest('form').querySelector('input[type=number]');
+            input.value = parseInt(input.value) + 1;
+        });
+    });
+
+    document.querySelectorAll('.decrement-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const input = button.closest('form').querySelector('input[type=number]');
+            input.value = Math.max(0, parseInt(input.value) - 1);
+        });
+    });
 });
 </script>
+
 {% endblock %}
