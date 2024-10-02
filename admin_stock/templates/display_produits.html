@@ -103,19 +103,40 @@
     </div>
 {% endif %}
 
-<div id="successNotification" class="notification is-small is-link" style= "display: none; position: fixed; bottom: 0px; right: 0px;">
+
+<div id="messageContainer" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="notification is-{{ message.tags }} is-light" style="margin-bottom: 10px;">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<div id="successNotification" class="notification is-small is-link" style="display: none; position: fixed; bottom: 20px; right: 20px;">
     Quantité mise à jour.
 </div>
 
-{% if messages %}
-    {% for message in messages %}
-        <div class="notification is-danger">{{ message }}</div>
-    {% endfor %}
-{% endif %}
-
 <script>
-// Script pour gérer la mise à jour des quantités
 document.addEventListener("DOMContentLoaded", () => {
+    // Fonction pour faire disparaître les messages
+    function fadeOutMessages() {
+        const messageContainer = document.getElementById('messageContainer');
+        if (messageContainer) {
+            setTimeout(() => {
+                messageContainer.style.transition = 'opacity 0.5s';
+                messageContainer.style.opacity = '0';
+                setTimeout(() => {
+                    messageContainer.remove();
+                }, 500);
+            }, 5000);
+        }
+    }
+
+    // Appeler la fonction pour faire disparaître les messages
+    fadeOutMessages();
+
     // Get all forms with the 'hx-post' attribute
     let forms = document.querySelectorAll('[hx-post]');
 
@@ -139,11 +160,17 @@ document.addEventListener("DOMContentLoaded", () => {
             // Check if the response was successful
             if (response.ok) {
                 // Show success notification
-                document.getElementById('successNotification').style.display = 'block';
+                const successNotification = document.getElementById('successNotification');
+                successNotification.style.display = 'block';
 
-                // Hide success notification after 3 seconds
+                // Hide success notification after 2 seconds
                 setTimeout(() => {
-                    document.getElementById('successNotification').style.display = 'none';
+                    successNotification.style.transition = 'opacity 0.5s';
+                    successNotification.style.opacity = '0';
+                    setTimeout(() => {
+                        successNotification.style.display = 'none';
+                        successNotification.style.opacity = '1';
+                    }, 500);
                 }, 2000);
             } else {
                 // Display the error message
@@ -168,5 +195,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
+
 
 {% endblock %}
