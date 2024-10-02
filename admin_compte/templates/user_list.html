@@ -67,6 +67,12 @@
     </div>
 </div>
 
+{% if messages %}
+    {% for message in messages %}
+        <div class="notification is-success">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+
 <script>
     function confirmDelete(userId) {
         if (confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur?")) {
