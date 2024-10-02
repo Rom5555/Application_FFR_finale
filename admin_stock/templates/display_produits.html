@@ -3,97 +3,131 @@
 
 {% block content %}
 
-<div class="box">
-<h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
-    <span class="icon has-text-primary is-large">
-        <i class="fas fa-box-open"></i>
-    </span>
-    <span class="ml-3">Gestion des stocks</span>
-</h1>
+{% extends 'admin_base/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#3273dc">
+    <meta name="color-scheme" content="light">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Application privée de gestion logistique">
+    <title>Application logistique service medical FFR</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v6.1.1/js/all.js"></script>
+    <script src="https://unpkg.com/htmx.org@^1.7.0/dist/htmx.min.js"></script>
+</head>
+
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(50, 115, 220, 0.2);">
+    <div class="card-content">
+        <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
+            <span class="icon has-text-primary is-large">
+                <i class="fas fa-box-open"></i>
+            </span>
+            <span class="ml-3">Gestion des stocks</span>
+        </h1>
+    </div>
 </div>
 
-<div class="box">
-<h2 class="subtitle is-4 has-text-link mb-6">Choisir un stock</h2>
-<form action="{% url 'admin_stock:display_produits'%}" method="post" class="mb-5">
-    {% csrf_token %}
-    <div class="field is-grouped is-justify-content-center">
-        <div class="control">
-            <div class="select">
-                <select name="id_stock">
-                    <option value="" >stock</option>
-                    {% for stock in liste_stocks %}
-                        <option value="{{ stock.id_stock }}" {% if selected_stock_id == stock.id_stock %} selected {% endif %}>{{ stock.nom_stock }}</option>
-                    {% endfor %}
-                </select>
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(72, 199, 116, 0.2);">
+    <div class="card-content">
+        <div class="columns is-vcentered">
+            <div class="column">
+                <h2 class="subtitle is-4 has-text-link">Produits</h2>
+            </div>
+            <div class="column is-narrow">
+                <a href="{% url 'admin_stock:produit_list' %}" class="button is-link is-focused">Gérer</a>
             </div>
         </div>
-        <div class="control">
-            <button class="button has-background-white has-text-link is-focused" type="submit">Afficher</button>
+    </div>
+</div>
+
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(255, 221, 87, 0.2);">
+    <div class="card-content">
+        <h2 class="subtitle is-4 has-text-link mb-4">Choisir un stock</h2>
+        <form action="{% url 'admin_stock:display_produits'%}" method="post" class="mb-5">
+            {% csrf_token %}
+            <div class="field is-grouped">
+                <div class="control">
+                    <div class="select">
+                        <select name="id_stock">
+                            <option value="" >stock</option>
+                            {% for stock in liste_stocks %}
+                                <option value="{{ stock.id_stock }}" {% if selected_stock_id == stock.id_stock %} selected {% endif %}>{{ stock.nom_stock }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="control">
+                    <button class="button has-background-white has-text-link is-focused" type="submit">Afficher</button>
+                </div>
+            </div>
+            <input type="hidden" name="selected_stock_id" value="{{ selected_stock_id }}">
+        </form>
+    </div>
+</div>
+
+{% if produitsStock %}
+    <div class="card mb-4" style="box-shadow: 0 4px 8px rgba(50, 115, 220, 0.2);">
+        <div class="card-content">
+            <h2 class="subtitle is-5 has-text-link mb-4">{{ selected_stock_nom }}</h2>
+            <div class="table-container">
+                <table class="table is-striped is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>Produit</th>
+                            <th>Quantité</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for produit in produitsStock %}
+                            <tr>
+                                <td>{{ produit.nom_produit }}</td>
+                                <td>
+                                    <form hx-post="{% url 'admin_stock:update_quantity' id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
+                                    {% csrf_token %}
+                                     <div class="field is-grouped">
+                                        <div class="control">
+                                        <button type="button" class="button is-small decrement-button">-</button>
+                                    </div>
+                                    <div class="control">
+                                        <button type="button" class="button is-small increment-button">+</button>
+                                    </div>
+                                        <div class="control">
+                                            <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
+                                                value="{{ produit.quantite_stock }}" class="input is-small short-input" min="0">
+                                        </div>
+                                    </div>
+                                    </td>
+                                <td>
+                                    <div class="field is-grouped">
+                                        <div class="control">
+                                            <button class="button is-primary is-focused is-small has-text-light" name="quantity_updated" type="submit">
+                                                    <span class="icon is-small">
+                                                        <i class="fas fa-check"></i>
+                                                    </span></button>
+                                        </div>
+                                    </div>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-    <input type="hidden" name="selected_stock_id" value="{{ selected_stock_id }}">
-</form>
-</div>
-{% if produitsStock %}
-    <div class="box">
-    <h2 class="subtitle is-5 has-text-link mb-6">{{ selected_stock_nom }}</h2>
-    <div class="table-container">
-        <table class="table is-striped is-fullwidth">
-            <thead>
-                <tr>
-                    <th>Produit</th>
-                    <th>Quantité</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for produit in produitsStock %}
-                    <tr>
-                        <td>{{ produit.nom_produit }}</td>
-                            <td>
-                                <form hx-post="{% url 'admin_stock:update_quantity' id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
-                                {% csrf_token %}
-                                 <div class="field is-grouped">
-                                    <div class="control">
-                                    <button type="button" class="button is-small decrement-button">-</button>
-                                </div>
-                                <div class="control">
-                                    <button type="button" class="button is-small increment-button">+</button>
-                                </div>
-                                    <div class="control">
-                                        <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
-                                            value="{{ produit.quantite_stock }}" class="input is-small short-input" min="0">
-                                    </div>
-                                </div>
-                                </td>
-                            <td>
-                                <div class="field is-grouped">
-                                    <div class="control">
-                                        <button class="button is-primary is-focused is-small has-text-light" name="quantity_updated" type="submit">
-                                                <span class="icon is-small">
-                                                    <i class="fas fa-check"></i>
-                                                </span></button>
-                                    </div>
-                                </div>
-                                </form>
-                            </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-   </div>
 {% endif %}
+
 <div id="successNotification" class="notification is-small is-link" style= "display: none; position: fixed; bottom: 0px; right: 0px ;">
   Quantité mise à jour.
 </div>
-<div class="box">
-<div class="field is-grouped is-justify-content-center">
-    <div class="control">
-        <a href="{% url 'admin_stock:produit_list' %}" class="button is-link is-focused">Ajouter/Supprimer produit</a>
-    </div>
-</div>
-</div>
+
 {% if messages %}
   {% for message in messages %}
     <div class="notification is-danger">
@@ -101,7 +135,7 @@
     </div>
   {% endfor %}
 {% endif %}
-<script>
+
 document.addEventListener("DOMContentLoaded", () => {
     // Get all forms with the 'hx-post' attribute
     let forms = document.querySelectorAll('[hx-post]');
