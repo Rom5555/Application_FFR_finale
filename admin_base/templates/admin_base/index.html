@@ -1,6 +1,19 @@
 {% extends 'admin_base/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#3273dc">
+    <meta name="color-scheme" content="light">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Application privée de gestion logistique">
+    <title>Application logistique service medical FFR</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v6.1.1/js/all.js"></script>
+    <script src="https://unpkg.com/htmx.org@^1.7.0/dist/htmx.min.js"></script>
+</head>
 
 <div class="container my-6">
     <div class="columns is-centered">
@@ -10,7 +23,7 @@
                     <span class="icon has-text-warning is-large" style="font-size: 2.5rem;">
                         <i class="fas fa-users"></i>
                     </span>
-                    <h2 class="title is-4 mt-2 has-text-warning">Gestion Comptes</h2>
+                    <h2 class="subtitle is-4 mt-2 has-text-link">Gestion Comptes</h2>
                     <a href="{% url 'admin_compte:user_list' %}" class="button is-warning is-light">Acceder</a>
                 </div>
             </div>
@@ -20,7 +33,7 @@
                     <span class="icon has-text-success is-large" style="font-size: 2.5rem;">
                         <i class="fas fa-box"></i>
                     </span>
-                    <h2 class="title is-4 mt-2 has-text-success">Gestion Stocks</h2>
+                    <h2 class="subtitle is-4 mt-2 has-text-link">Gestion Stocks</h2>
                     <a href="{% url 'admin_stock:display_produits' %}" class="button is-success is-light">Acceder</a>
                 </div>
             </div>
@@ -30,7 +43,7 @@
                     <span class="icon has-text-info is-large" style="font-size: 2.5rem;">
                         <i class="fas fa-clipboard-list"></i>
                     </span>
-                    <h2 class="title is-4 mt-2 has-text-info">Gestion Listes</h2>
+                    <h2 class="subtitle is-4 mt-2 has-text-link">Gestion Listes</h2>
                     <a href="{% url 'admin_liste:depart_retour' %}" class="button is-info is-light">Acceder</a>
                 </div>
             </div>
