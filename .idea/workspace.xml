@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4d51fe39-c218-481b-9867-434961d1031b" name="Changes" comment="Application_FFR_V9">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_base/templates/admin_base/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_base/templates/admin_base/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/templates/depart_retour.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/templates/depart_retour.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,22 +142,6 @@
       <workItem from="1716298749322" duration="2647000" />
       <workItem from="1716372307168" duration="1722000" />
       <workItem from="1716374374822" duration="368000" />
-    </task>
-    <task id="LOCAL-00176" summary="Application_FFR_V9">
-      <option name="closed" value="true" />
-      <created>1719884811230</created>
-      <option name="number" value="00176" />
-      <option name="presentableId" value="LOCAL-00176" />
-      <option name="project" value="LOCAL" />
-      <updated>1719884811230</updated>
-    </task>
-    <task id="LOCAL-00177" summary="Application_FFR_V9">
-      <option name="closed" value="true" />
-      <created>1719885390382</created>
-      <option name="number" value="00177" />
-      <option name="presentableId" value="LOCAL-00177" />
-      <option name="project" value="LOCAL" />
-      <updated>1719885390382</updated>
     </task>
     <task id="LOCAL-00178" summary="Application_FFR_V9">
       <option name="closed" value="true" />
@@ -535,7 +519,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727862546423</updated>
     </task>
-    <option name="localTasksCounter" value="225" />
+    <task id="LOCAL-00225" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727864907129</created>
+      <option name="number" value="00225" />
+      <option name="presentableId" value="LOCAL-00225" />
+      <option name="project" value="LOCAL" />
+      <updated>1727864907129</updated>
+    </task>
+    <task id="LOCAL-00226" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727864938804</created>
+      <option name="number" value="00226" />
+      <option name="presentableId" value="LOCAL-00226" />
+      <option name="project" value="LOCAL" />
+      <updated>1727864938804</updated>
+    </task>
+    <option name="localTasksCounter" value="227" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
