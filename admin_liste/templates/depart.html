@@ -3,97 +3,108 @@
 
 {% block content %}
 
-<div class="box">
-<h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
-    <span class="icon is-large has-text-warning">
-        <i class="fas fa-plane-departure"></i>
-    </span>
-    <span class="ml-3">Preparer un depart</span>
-</h1>
-</div>
-<div class="box">
-<h2 class="subtitle is-4 has-text-link mb-6">Construire un deplacement</h2>
-<form action="{% url 'admin_liste:depart' %}" method="post" class="mb-5">
-{% csrf_token %}
-    <div class="container">
-    {% crispy equipe_form %}
-    <button class="button is-primary has-text-light mt-5" type="submit">Valider le deplacement</button>
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(255, 221, 87, 0.2);">
+    <div class="card-content">
+        <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
+            <span class="icon is-large has-text-warning">
+                <i class="fas fa-plane-departure"></i>
+            </span>
+            <span class="ml-3">Preparer un depart</span>
+        </h1>
     </div>
-</form>
+</div>
+
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(50, 115, 220, 0.2);">
+    <div class="card-content">
+        <h2 class="subtitle is-4 has-text-link mb-6">Construire un deplacement</h2>
+        <form action="{% url 'admin_liste:depart' %}" method="post" class="mb-5">
+        {% csrf_token %}
+            <div class="container">
+            {% crispy equipe_form %}
+            <button class="button is-primary has-text-light mt-5" type="submit">Valider le deplacement</button>
+            </div>
+        </form>
+    </div>
 </div>
 
 {% if produits_stock %}
-<div class="box">
-<h2 class="subtitle is-4 has-text-link mb-6">Construire la liste depart</h2>
-    <h2 class="subtitle is-5 has-text-centered has-text-link mb-6">{{ selected_stock_nom }}</h2>
-    <div class="table-container">
-        <table class="table is-striped is-fullwidth">
-            <thead>
-                <tr>
-                    <th>Produit</th>
-                    <th>Stock</th>
-                    <th>Depart</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for produit in produits_stock %}
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(72, 199, 116, 0.2);">
+    <div class="card-content">
+        <h2 class="subtitle is-4 has-text-link mb-6">Construire la liste depart</h2>
+        <h2 class="subtitle is-5 has-text-centered has-text-link mb-6">{{ selected_stock_nom }}</h2>
+        <div class="table-container">
+            <table class="table is-striped is-fullwidth">
+                <thead>
                     <tr>
-                        <td>{{ produit.nom_produit }}</td>
-                        <td>{{ produit.quantite_stock }}</td>
-                        <td>
+                        <th>Produit</th>
+                        <th>Stock</th>
+                        <th>Depart</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produit in produits_stock %}
+                        <tr>
+                            <td>{{ produit.nom_produit }}</td>
+                            <td>{{ produit.quantite_stock }}</td>
+                            <td>
                                 <form hx-post="{% url 'admin_liste:remplir_liste_depart' id_liste_depart=id_liste_depart id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
                                 {% csrf_token %}
-                                 <div class="field is-grouped">
-                                    <div class="control">
-                                    <button type="button" class="button is-small decrement-button">-</button>
-                                </div>
-                                <div class="control">
-                                    <button type="button" class="button is-small increment-button">+</button>
-                                </div>
-                                    <div class="control">
-                                        <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
-                                            value="{{ produit.quantite_depart }}" class="input is-small short-input" min="0" max="{{ produit.quantite_stock }}">
+                                    <div class="field is-grouped">
+                                        <div class="control">
+                                            <button type="button" class="button is-small decrement-button">-</button>
+                                        </div>
+                                        <div class="control">
+                                            <button type="button" class="button is-small increment-button">+</button>
+                                        </div>
+                                        <div class="control">
+                                            <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
+                                                value="{{ produit.quantite_depart }}" class="input is-small short-input" min="0" max="{{ produit.quantite_stock }}">
+                                        </div>
                                     </div>
-                                </div>
-                                </td>
+                            </td>
                             <td>
                                 <div class="field is-grouped">
                                     <div class="control">
                                         <button class="button is-primary is-focused is-small has-text-light" name="quantity_updated" type="submit">
-                                                <span class="icon is-small">
-                                                    <i class="fas fa-check"></i>
-                                                </span></button>                                    </div>
+                                            <span class="icon is-small">
+                                                <i class="fas fa-check"></i>
+                                            </span>
+                                        </button>
+                                    </div>
                                 </div>
                                 </form>
                             </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-   </div>
+</div>
 {% endif %}
-<div id="successNotification" class="notification is-small is-link" style= "display: none; position: fixed; bottom: 0px; right: 0px ;">
+
+<div id="successNotification" class="notification is-small is-link" style="display: none; position: fixed; bottom: 0px; right: 0px;">
   Quantité mise à jour.
 </div>
 <div id="errorNotification" class="notification is-small is-danger" style="display: none; position: fixed; bottom: 0px; right: 0px;">
     Une erreur est survenue.
 </div>
+
 {% if utilisateur_choice_form %}
-
-<div class="box">
-    <h2 class="subtitle is-4 has-text-link mb-6">Attribuer la liste à un utilisateur</h2>
-    <form action="{% url 'admin_liste:create_liste_utilisateur' id_liste_depart=id_liste_depart %}" method="post">
-        {% csrf_token %}
-        <div class="container">
-        {% crispy utilisateur_choice_form %}
-        <button class="button is-focused is-primary has-text-light mt-5" type="submit">Valider (mise à jour du stock)</button>
-        </div>
-    </form>
-<div id="message-container"></div>
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(255, 99, 71, 0.2);">
+    <div class="card-content">
+        <h2 class="subtitle is-4 has-text-link mb-6">Attribuer la liste à un utilisateur</h2>
+        <form action="{% url 'admin_liste:create_liste_utilisateur' id_liste_depart=id_liste_depart %}" method="post">
+            {% csrf_token %}
+            <div class="container">
+            {% crispy utilisateur_choice_form %}
+            <button class="button is-focused is-primary has-text-light mt-5" type="submit">Valider (mise à jour du stock)</button>
+            </div>
+        </form>
+        <div id="message-container"></div>
+    </div>
 </div>
-
 {% endif %}
 
 <script>
