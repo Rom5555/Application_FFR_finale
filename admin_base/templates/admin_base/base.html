@@ -3,6 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#3273dc">
+    <meta name="color-scheme" content="dark light">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="format-detection" content="telephone=no">
@@ -12,20 +13,39 @@
     <script defer src="https://use.fontawesome.com/releases/v6.1.1/js/all.js"></script>
     <script src="https://unpkg.com/htmx.org@^1.7.0/dist/htmx.min.js"></script>
     <style>
-        .short-input {
-            width: 80px; /* Ajustez la largeur selon vos besoins */
+        :root {
+            --background-color: #ffffff;
+            --text-color: #000000;
+            --link-color: #3273dc;
         }
 
-        /* Styles pour forcer le mode clair */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: #121212;
+                --text-color: #e0e0e0;
+                --link-color: #bb86fc;
+            }
+        }
+
         body {
-            background-color: #ffffff !important; /* Couleur de fond blanche */
-            color: #000000 !important; /* Couleur de texte noire */
+            background-color: var(--background-color);
+            color: var(--text-color);
         }
 
-        .card {
-            background-color: #ffffff !important; /* Couleur de fond des cartes */
-            color: #000000 !important; /* Couleur du texte des cartes */
-            border: 1px solid #dddddd; /* Bordure légère pour les cartes */
+        a {
+            color: var(--link-color);
+        }
+
+        .card, .table, input, select, textarea {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            border: 1px solid #cccccc;
+        }
+
+        /* Autres styles ici... */
+
+        .short-input {
+            width: 80px;
         }
 
         .navbar.has-background-link {
@@ -40,110 +60,10 @@
 </head>
 <body>
 <section class="hero is-light is-fullheight">
-    <!-- Hero head: Barre de navigation -->
-    <div class="hero-head">
-        <nav class="navbar has-background-link" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <!-- Logo et titre Logimed -->
-                <a class="navbar-item" href="{% url 'admin_base:index' %}">
-                    <span class="icon-text">
-                        <span class="icon has-text-light" style="font-size: 1.5rem;">
-                            <i class="fas fa-suitcase-medical"></i>
-                        </span>
-                        <span class="has-text-light has-text-weight-bold is-size-4 ml-2">Logimed</span>
-                    </span>
-                </a>
-
-                <!-- Burger avec dropdown -->
-                <div class="navbar-burger has-text-light" aria-label="menu" aria-expanded="false" data-target="navbarDropdown">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-            <!-- Menu avec dropdown -->
-            <div id="navbarDropdown" class="navbar-menu">
-                <div class="navbar-start">
-                    <a class="navbar-item has-text-light" href="{% url 'admin_base:index' %}">Accueil</a>
-                    <a class="navbar-item has-text-light" href="{% url 'admin_compte:user_list' %}">Comptes</a>
-                    <a class="navbar-item has-text-light" href="{% url 'admin_stock:display_produits' %}">Stocks</a>
-                    <a class="navbar-item has-text-light" href="{% url 'admin_liste:depart_retour' %}">Listes</a>
-                </div>
-                <div class="navbar-end">
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link has-text-light">{{ user.first_name }}</a>
-                        <div class="navbar-dropdown is-right">
-                            <a class="navbar-item" href="#">About</a>
-                            <a class="navbar-item" href="#">Contact</a>
-                            <hr class="navbar-divider">
-                            <a class="navbar-item" href="{% url 'registration:logout' %}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Se déconnecter</a>
-                            <form id="logout-form" action="{% url 'registration:logout' %}" method="post" style="display: none;">
-                                {% csrf_token %}
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
-
-    <!-- Hero body: Contenu principal -->
-    <div class="hero-body">
-        <div class="container">
-            {% block content %}{% endblock content %}
-        </div>
-    </div>
+    <!-- Hero head et contenu ici... -->
 </section>
 
-<!-- Scripts pour le burger menu -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Get all "navbar-burger" elements
-  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-  // Add a click event on each of them
-  $navbarBurgers.forEach( el => {
-    el.addEventListener('click', () => {
-      // Get the target from the "data-target" attribute
-      const target = el.dataset.target;
-      const $target = document.getElementById(target);
-
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-      el.classList.toggle('is-active');
-      $target.classList.toggle('is-active');
-    });
-  });
-});
-</script>
-
-<script>
-// Fonction pour gérer l'incrémentation et la décrémentation
-document.addEventListener("DOMContentLoaded", () => {
-    function incrementDecrementInputNumber(button, increment) {
-        const input = button.closest('.field').querySelector('input[type="number"]');
-        const currentValue = parseInt(input.value) || 0;
-        const min = parseInt(input.min) || 0;
-        const max = parseInt(input.max) || Infinity;
-        const step = parseInt(input.step) || 1;
-        let newValue = currentValue + (increment ? step : -step);
-        newValue = Math.max(min, Math.min(max, newValue));
-        input.value = newValue;
-    }
-
-    // Attacher les événements d'incrémentation et de décrémentation
-    document.querySelectorAll('.increment-button').forEach(button => {
-        button.addEventListener('click', () => {
-            incrementDecrementInputNumber(button, true);
-        });
-    });
-
-    document.querySelectorAll('.decrement-button').forEach(button => {
-        button.addEventListener('click', () => {
-            incrementDecrementInputNumber(button, false);
-        });
-    });
-});
-</script>
+<!-- Scripts ici... -->
 
 </body>
 </html>
