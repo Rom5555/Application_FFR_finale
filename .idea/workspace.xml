@@ -33,12 +33,12 @@
     }
   }
 }</component>
-  <component name="GitLabMergeRequestsSettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "first": "https://gitlab.com/Rom5555/application_ffr_finale_v2.git",
-    "second": "9415b98e-1f60-4cba-b066-4ffe3a75ccb5"
+  <component name="GitLabMergeRequestsSettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;first&quot;: &quot;https://gitlab.com/Rom5555/application_ffr_finale_v2.git&quot;,
+    &quot;second&quot;: &quot;9415b98e-1f60-4cba-b066-4ffe3a75ccb5&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -141,22 +141,6 @@
       <workItem from="1716298749322" duration="2647000" />
       <workItem from="1716372307168" duration="1722000" />
       <workItem from="1716374374822" duration="368000" />
-    </task>
-    <task id="LOCAL-00196" summary="Application_FFR_V9">
-      <option name="closed" value="true" />
-      <created>1720920859759</created>
-      <option name="number" value="00196" />
-      <option name="presentableId" value="LOCAL-00196" />
-      <option name="project" value="LOCAL" />
-      <updated>1720920859760</updated>
-    </task>
-    <task id="LOCAL-00197" summary="Application_FFR_V9">
-      <option name="closed" value="true" />
-      <created>1726058717874</created>
-      <option name="number" value="00197" />
-      <option name="presentableId" value="LOCAL-00197" />
-      <option name="project" value="LOCAL" />
-      <updated>1726058717874</updated>
     </task>
     <task id="LOCAL-00198" summary="Application_FFR_V9">
       <option name="closed" value="true" />
@@ -534,7 +518,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727886296270</updated>
     </task>
-    <option name="localTasksCounter" value="245" />
+    <task id="LOCAL-00245" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727937726781</created>
+      <option name="number" value="00245" />
+      <option name="presentableId" value="LOCAL-00245" />
+      <option name="project" value="LOCAL" />
+      <updated>1727937726781</updated>
+    </task>
+    <task id="LOCAL-00246" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727937829167</created>
+      <option name="number" value="00246" />
+      <option name="presentableId" value="LOCAL-00246" />
+      <option name="project" value="LOCAL" />
+      <updated>1727937829167</updated>
+    </task>
+    <option name="localTasksCounter" value="247" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
