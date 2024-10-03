@@ -3,6 +3,8 @@
 
 {% block content %}
 
+{% block content %}
+
 <div class="card mb-4" style="box-shadow: 0 4px 8px rgba(50, 115, 220, 0.2);">
     <div class="card-content">
         <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
@@ -14,41 +16,47 @@
     </div>
 </div>
 
-<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(72, 199, 116, 0.2);">
-    <div class="card-content">
-        <div class="columns is-vcentered">
-            <div class="column">
-                <h2 class="subtitle is-4 has-text-link">Ajouter/Supprimer produits</h2>
-            </div>
-            <div class="column is-narrow">
-                <a href="{% url 'admin_stock:produit_list' %}" class="button is-link is-focused">Gerer</a>
+<div class="columns is-desktop"> <!-- Cette classe permet d'avoir des colonnes côte à côte sur desktop -->
+    <div class="column is-half-desktop"> <!-- Prend la moitié de la largeur sur desktop -->
+        <div class="card mb-4" style="box-shadow: 0 4px 8px rgba(72, 199, 116, 0.2);">
+            <div class="card-content">
+                <div class="columns is-vcentered">
+                    <div class="column">
+                        <h2 class="subtitle is-4 has-text-link">Ajouter/Supprimer produits</h2>
+                    </div>
+                    <div class="column is-narrow">
+                        <a href="{% url 'admin_stock:produit_list' %}" class="button is-link is-focused">Gerer</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(255, 221, 87, 0.2);">
-    <div class="card-content">
-        <h2 class="subtitle is-4 has-text-link mb-4">Choisir un stock</h2>
-        <form action="{% url 'admin_stock:display_produits'%}" method="post" class="mb-5">
-            {% csrf_token %}
-            <div class="field is-grouped">
-                <div class="control">
-                    <div class="select">
-                        <select name="id_stock">
-                            <option value="">Stock</option>
-                            {% for stock in liste_stocks %}
-                                <option value="{{ stock.id_stock }}" {% if selected_stock_id == stock.id_stock %} selected {% endif %}>{{ stock.nom_stock }}</option>
-                            {% endfor %}
-                        </select>
+    <div class="column is-half-desktop"> <!-- Prend la moitié de la largeur sur desktop -->
+        <div class="card mb-4" style="box-shadow: 0 4px 8px rgba(255, 221, 87, 0.2);">
+            <div class="card-content">
+                <h2 class="subtitle is-4 has-text-link mb-4">Choisir un stock</h2>
+                <form action="{% url 'admin_stock:display_produits'%}" method="post" class="mb-5">
+                    {% csrf_token %}
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <div class="select">
+                                <select name="id_stock">
+                                    <option value="">Stock</option>
+                                    {% for stock in liste_stocks %}
+                                        <option value="{{ stock.id_stock }}" {% if selected_stock_id == stock.id_stock %} selected {% endif %}>{{ stock.nom_stock }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control">
+                            <button class="button has-background-white has-text-link is-focused" type="submit">Afficher</button>
+                        </div>
                     </div>
-                </div>
-                <div class="control">
-                    <button class="button has-background-white has-text-link is-focused" type="submit">Afficher</button>
-                </div>
+                    <input type="hidden" name="selected_stock_id" value="{{ selected_stock_id }}">
+                </form>
             </div>
-            <input type="hidden" name="selected_stock_id" value="{{ selected_stock_id }}">
-        </form>
+        </div>
     </div>
 </div>
 
@@ -103,7 +111,6 @@
     </div>
 {% endif %}
 
-
 <div id="messageContainer" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
     {% if messages %}
         {% for message in messages %}
@@ -117,6 +124,8 @@
 <div id="successNotification" class="notification is-small is-link" style="display: none; position: fixed; bottom: 20px; right: 20px;">
     Quantité mise à jour.
 </div>
+
+{% endblock content %}
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
