@@ -103,10 +103,10 @@ def produit_list(request):
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 
+
 @user_passes_test(is_admin)
 @require_http_methods(["GET", "POST"])
 def add_produit(request):
-    gestion_stock = Gestion_stock()
     save_error = False
     is_create = True
     add_produit_form = ProduitForm()
@@ -121,18 +121,25 @@ def add_produit(request):
             id_stock = add_produit_form.cleaned_data["id_stock"]
 
             try:
-                gestion_stock.produit.nom = nom_produit
-                gestion_stock.produit.quantite_en_stock = quantite
-                gestion_stock.stock.id = id_stock
+                with transaction.atomic():
+                    # Vérifier si le produit existe déjà
+                    if Produit.objects.filter(nom_produit=nom_produit).exists():
+                        raise IntegrityError("Ce produit existe déjà.")
 
-                # Afficher les valeurs récupérées dans la console
-                print("Nom du produit:", nom_produit)
-                print("Quantité:", quantite)
-                print("ID du stock:", id_stock)
+                    # Créer le nouveau produit
+                    produit = Produit.objects.create(nom_produit=nom_produit)
 
-                gestion_stock.add_produit_stock()
+                    # Récupérer le stock
+                    stock = Stock.objects.get(id=id_stock)
 
-                if request.is_ajax():
+                    # Créer l'association stock-produit
+                    StockProduit.objects.create(
+                        produit=produit,
+                        stock=stock,
+                        quantite=quantite
+                    )
+
+                if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                     return JsonResponse({
                         'success': True,
                         'message': 'Le produit a été ajouté avec succès.',
@@ -146,30 +153,27 @@ def add_produit(request):
                     messages.success(request, 'Le produit a été ajouté avec succès.')
                     return redirect('admin_stock:produit_list')
 
-            except Exception as e:
-                print(e)
+            except IntegrityError as e:
                 save_error = True
-                if request.is_ajax():
+                error_message = str(e)
+            except Exception as e:
+                save_error = True
+                error_message = f"Erreur lors de l'ajout du produit : {str(e)}"
+
+            if save_error:
+                if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                     return JsonResponse({
                         'success': False,
-                        'message': str(e)
-                    })
+                        'message': error_message
+                    }, status=400)
+                else:
+                    messages.error(request, error_message)
 
-    if save_error:
-        error_message = 'Erreur lors de l\'ajout du produit.'
-        if request.is_ajax():
-            return JsonResponse({
-                'success': False,
-                'message': error_message
-            })
-        else:
-            messages.error(request, error_message)
-
-    if request.is_ajax():
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         return JsonResponse({
             'success': False,
             'message': 'Méthode non autorisée ou formulaire invalide.'
-        })
+        }, status=400)
 
     return render(request, 'produit_list.html', {
         'add_produit_form': add_produit_form,
