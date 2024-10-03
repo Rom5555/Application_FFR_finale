@@ -14,10 +14,10 @@
     </div>
 </div>
 
-<div class="columns is-desktop"> <!-- Cette classe permet d'avoir des colonnes côte à côte sur desktop -->
-    <div class="column is-half-desktop"> <!-- Prend la moitié de la largeur sur desktop -->
-        <div class="card mb-4" style="box-shadow: 0 4px 8px rgba(72, 199, 116, 0.2);">
-            <div class="card-content">
+<div class="columns is-desktop">
+    <div class="column is-half-desktop">
+        <div class="card mb-4 is-flex is-flex-direction-column" style="box-shadow: 0 4px 8px rgba(72, 199, 116, 0.2); height: 100%;">
+            <div class="card-content is-flex-grow-1">
                 <div class="columns is-vcentered">
                     <div class="column">
                         <h2 class="subtitle is-4 has-text-link">Ajouter/Supprimer produits</h2>
@@ -30,9 +30,9 @@
         </div>
     </div>
 
-    <div class="column is-half-desktop"> <!-- Prend la moitié de la largeur sur desktop -->
-        <div class="card mb-4" style="box-shadow: 0 4px 8px rgba(255, 221, 87, 0.2);">
-            <div class="card-content">
+    <div class="column is-half-desktop">
+        <div class="card mb-4 is-flex is-flex-direction-column" style="box-shadow: 0 4px 8px rgba(255, 221, 87, 0.2); height: 100%;">
+            <div class="card-content is-flex-grow-1">
                 <h2 class="subtitle is-4 has-text-link mb-4">Choisir un stock</h2>
                 <form action="{% url 'admin_stock:display_produits'%}" method="post" class="mb-5">
                     {% csrf_token %}
@@ -202,4 +202,4 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
-{% endblock %}
+{% endblock content %}
