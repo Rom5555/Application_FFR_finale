@@ -40,7 +40,7 @@ deploy:
 
   environment:
     name: production
-    url: http://10.0.2.11:22
+    url: http://10.0.2.11:8000
   only:
     - main
   tags:
