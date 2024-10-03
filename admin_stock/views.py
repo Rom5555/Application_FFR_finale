@@ -7,12 +7,6 @@ from .forms import *
 import logging
 from admin_stock.business.components.gestion_stock import Gestion_stock
 logger = logging.getLogger("django")
-from django.http import JsonResponse
-from django.views.decorators.http import require_http_methods
-from django.db import transaction, IntegrityError
-from .models import Produit, Stock, AssociationStockProduit  # Assurez-vous d'importer vos modèles
-from .forms import ProduitForm
-
 
 # Gestion stock
 
@@ -109,6 +103,15 @@ def produit_list(request):
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 
+from django.contrib import messages
+from django.contrib.auth.decorators import user_passes_test
+from django.http import JsonResponse
+from django.shortcuts import render, redirect
+from django.views.decorators.http import require_http_methods
+from django.db import transaction, IntegrityError
+from .models import Produit, Stock, AssociationStockProduit
+from .forms import ProduitForm
+
 
 @user_passes_test(is_admin)
 @require_http_methods(["GET", "POST"])
@@ -136,12 +139,12 @@ def add_produit(request):
                     produit = Produit.objects.create(nom_produit=nom_produit)
 
                     # Récupérer le stock
-                    stock = Stock.objects.get(id=id_stock)
+                    stock = Stock.objects.get(id_stock=id_stock)
 
                     # Créer l'association stock-produit
                     AssociationStockProduit.objects.create(
-                        produit=produit,
-                        stock=stock,
+                        id_produit=produit,
+                        id_stock=stock,
                         quantite=quantite
                     )
 

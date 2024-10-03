@@ -31442,3 +31442,5 @@ IndexError: list index out of range
 2024-09-11 14:05:35,133 django.utils.autoreload INFO Watching for file changes with StatReloader
 2024-09-11 14:05:42,982 django.utils.autoreload INFO C:\Users\Ro\PycharmProjects\Application_FFR_finale_V1\registration\views.py changed, reloading.
 2024-09-11 14:05:44,045 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-10-03 09:40:52,522 django.utils.autoreload INFO Watching for file changes with StatReloader
+2024-10-03 09:41:16,676 django.utils.autoreload INFO Watching for file changes with StatReloader
