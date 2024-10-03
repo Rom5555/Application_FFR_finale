@@ -3,7 +3,6 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#3273dc">
-    <meta name="color-scheme" content="light only">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="format-detection" content="telephone=no">
@@ -13,32 +12,30 @@
     <script defer src="https://use.fontawesome.com/releases/v6.1.1/js/all.js"></script>
     <script src="https://unpkg.com/htmx.org@^1.7.0/dist/htmx.min.js"></script>
     <style>
-    .short-input {
-        width: 80px;
-    }
+        .short-input {
+            width: 80px; /* Ajustez la largeur selon vos besoins */
+        }
 
-    :root {
-        color-scheme: light only;
-    }
+        /* Styles pour forcer le mode clair */
+        body {
+            background-color: #ffffff !important; /* Couleur de fond blanche */
+            color: #000000 !important; /* Couleur de texte noire */
+        }
 
-    body {
-        background-color: #f5f5f5 !important;
-        color: #4a4a4a !important;
-    }
+        .card {
+            background-color: #ffffff !important; /* Couleur de fond des cartes */
+            color: #000000 !important; /* Couleur du texte des cartes */
+            border: 1px solid #dddddd; /* Bordure légère pour les cartes */
+        }
 
-    .card {
-        background-color: #ffffff !important;
-        color: #4a4a4a !important;
-    }
+        .navbar.has-background-link {
+            background-color: #3273dc !important;
+        }
 
-    .navbar.has-background-link {
-        background-color: #3273dc !important;
-    }
-
-    .navbar-item.has-text-light,
-    .navbar-link.has-text-light {
-        color: #ffffff !important;
-    }
+        .navbar-item.has-text-light,
+        .navbar-link.has-text-light {
+            color: #ffffff !important;
+        }
     </style>
 </head>
 <body>
@@ -74,9 +71,7 @@
                 </div>
                 <div class="navbar-end">
                     <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link has-text-light">
-                            {{ user.first_name }}
-                        </a>
+                        <a class="navbar-link has-text-light">{{ user.first_name }}</a>
                         <div class="navbar-dropdown is-right">
                             <a class="navbar-item" href="#">About</a>
                             <a class="navbar-item" href="#">Contact</a>
