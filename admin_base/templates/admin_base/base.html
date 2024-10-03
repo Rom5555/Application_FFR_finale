@@ -15,13 +15,13 @@
     <style>
         /* Styles de base */
         body {
-            background-color: #f5f5f5;
-            color: #4a4a4a;
+            background-color: #f5f5f5; /* Fond clair */
+            color: #4a4a4a; /* Texte sombre */
         }
 
         .card {
-            background-color: #ffffff;
-            color: #4a4a4a;
+            background-color: #ffffff; /* Fond des cartes */
+            color: #4a4a4a; /* Texte dans les cartes */
         }
 
         .short-input {
@@ -31,13 +31,13 @@
         /* Mode sombre */
         @media (prefers-color-scheme: dark) {
             body {
-                background-color: #121212; /* Fond sombre */
-                color: #e0e0e0; /* Texte clair */
+                background-color: #181818; /* Fond sombre */
+                color: #ffffff; /* Texte clair */
             }
 
             .card {
-                background-color: #1e1e1e; /* Fond des cartes */
-                color: #e0e0e0; /* Texte clair dans les cartes */
+                background-color: #242424; /* Fond des cartes */
+                color: #ffffff; /* Texte dans les cartes */
                 border: 1px solid #333333; /* Bordure plus claire */
             }
 
@@ -47,6 +47,7 @@
 
             a {
                 color: #bb86fc; /* Couleur des liens en mode sombre */
+                text-decoration: underline; /* Souligner les liens pour plus de visibilité */
             }
 
             input, select, textarea {
@@ -56,8 +57,8 @@
             }
 
             table, th, td {
-                background-color: #1e1e1e; /* Fond des tableaux */
-                color: #e0e0e0; /* Texte clair dans les tableaux */
+                background-color: #242424; /* Fond des tableaux */
+                color: #ffffff; /* Texte clair dans les tableaux */
                 border-color: #333333; /* Bordure claire pour les tableaux */
             }
 
