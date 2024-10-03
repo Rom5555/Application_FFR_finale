@@ -106,75 +106,36 @@ from django.views.decorators.http import require_http_methods
 @user_passes_test(is_admin)
 @require_http_methods(["GET", "POST"])
 def add_produit(request):
-    gestion_stock = Gestion_stock()
-    save_error = False
-    is_create = True
-    add_produit_form = ProduitForm()
-
     if request.method == 'POST':
-        is_create = False
         add_produit_form = ProduitForm(request.POST)
-
         if add_produit_form.is_valid():
             nom_produit = add_produit_form.cleaned_data["nom_produit"]
             quantite = add_produit_form.cleaned_data["quantite"]
             id_stock = add_produit_form.cleaned_data["id_stock"]
 
             try:
+                gestion_stock = Gestion_stock()
                 gestion_stock.produit.nom = nom_produit
                 gestion_stock.produit.quantite_en_stock = quantite
                 gestion_stock.stock.id = id_stock
 
-                # Afficher les valeurs récupérées dans la console
-                print("Nom du produit:", nom_produit)
-                print("Quantité:", quantite)
-                print("ID du stock:", id_stock)
+                print(f"Nom du produit: {nom_produit}")
+                print(f"Quantité: {quantite}")
+                print(f"ID du stock: {id_stock}")
 
                 gestion_stock.add_produit_stock()
 
-                if request.is_ajax():
-                    return JsonResponse({
-                        'success': True,
-                        'message': 'Le produit a été ajouté avec succès.',
-                        'product': {
-                            'nom_produit': nom_produit,
-                            'quantite': quantite,
-                            'id_stock': id_stock
-                        }
-                    })
-                else:
-                    messages.success(request, 'Le produit a été ajouté avec succès.')
-                    return redirect('admin_stock:produit_list')
+                messages.success(request, 'Le produit a été ajouté avec succès.')
+                return redirect('admin_stock:produit_list')
 
             except Exception as e:
-                print(e)
-                save_error = True
-                if request.is_ajax():
-                    return JsonResponse({
-                        'success': False,
-                        'message': str(e)
-                    })
-
-    if save_error:
-        error_message = 'Erreur lors de l\'ajout du produit.'
-        if request.is_ajax():
-            return JsonResponse({
-                'success': False,
-                'message': error_message
-            })
-        else:
-            messages.error(request, error_message)
-
-    if request.is_ajax():
-        return JsonResponse({
-            'success': False,
-            'message': 'Méthode non autorisée ou formulaire invalide.'
-        })
+                print(f"Erreur lors de l'ajout du produit : {e}")
+                messages.error(request, f'Erreur lors de l\'ajout du produit : {e}')
+    else:
+        add_produit_form = ProduitForm()
 
     return render(request, 'produit_list.html', {
         'add_produit_form': add_produit_form,
-        'save_error': save_error,
-        'is_create': is_create
     })
 
 @user_passes_test(is_admin)

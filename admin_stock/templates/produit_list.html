@@ -70,60 +70,10 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     function confirmDelete(id_produit) {
         return confirm("Êtes-vous sûr de vouloir supprimer ce produit?");
     }
-
-    $(document).ready(function() {
-        $('#add-produit-form').on('submit', function(e) {
-            e.preventDefault();
-            $.ajax({
-                type: 'POST',
-                url: $(this).attr('action'),
-                data: $(this).serialize(),
-                success: function(response) {
-                    if (response.success) {
-                        // Add the new product to the table
-                        $('#product-table tbody').append(
-                            '<tr>' +
-                            '<td>' + response.product.nom_produit + '</td>' +
-                            '<td>' +
-                            '<form id="delete-form-' + response.product.id_produit + '" action="{% url 'admin_stock:delete_produit' %}" method="post" onsubmit="return confirmDelete(\'' + response.product.id_produit + '\')">' +
-                            '{% csrf_token %}' +
-                            '<input type="hidden" name="id_produit" value="' + response.product.id_produit + '">' +
-                            '<button class="button is-danger is-small" type="submit">' +
-                            '<span class="icon"><i class="fas fa-times"></i></span>' +
-                            '</button>' +
-                            '</form>' +
-                            '</td>' +
-                            '</tr>'
-                        );
-                        // Show success message
-                        $('#messageContainer').html('<div class="notification is-success is-light" style="margin-bottom: 10px;">' + response.message + '</div>');
-                        // Clear the form
-                        $('#add-produit-form')[0].reset();
-                    } else {
-                        // Show error message
-                        $('#messageContainer').html('<div class="notification is-danger is-light" style="margin-bottom: 10px;">' + response.message + '</div>');
-                    }
-                    // Hide the message after 3 seconds
-                    setTimeout(function() {
-                        $('#messageContainer').empty();
-                    }, 3000);
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.error("AJAX error: " + textStatus + ' : ' + errorThrown);
-                    var errorMessage = "Une erreur s'est produite lors de l'ajout du produit. Détails : " + textStatus;
-                    $('#messageContainer').html('<div class="notification is-danger is-light" style="margin-bottom: 10px;">' + errorMessage + '</div>');
-                    setTimeout(function() {
-                    $('#messageContainer').empty();
-                    }, 5000);
-}
-            });
-        });
-    });
 </script>
 
 {% endblock content %}
