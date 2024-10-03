@@ -113,12 +113,14 @@
                         $('#messageContainer').empty();
                     }, 3000);
                 },
-                error: function() {
-                    $('#messageContainer').html('<div class="notification is-danger is-light" style="margin-bottom: 10px;">Une erreur s\'est produite lors de l\'ajout du produit.</div>');
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error("AJAX error: " + textStatus + ' : ' + errorThrown);
+                    var errorMessage = "Une erreur s'est produite lors de l'ajout du produit. Détails : " + textStatus;
+                    $('#messageContainer').html('<div class="notification is-danger is-light" style="margin-bottom: 10px;">' + errorMessage + '</div>');
                     setTimeout(function() {
-                        $('#messageContainer').empty();
-                    }, 3000);
-                }
+                    $('#messageContainer').empty();
+                    }, 5000);
+}
             });
         });
     });
