@@ -7,6 +7,12 @@ from .forms import *
 import logging
 from admin_stock.business.components.gestion_stock import Gestion_stock
 logger = logging.getLogger("django")
+from django.http import JsonResponse
+from django.views.decorators.http import require_http_methods
+from django.db import transaction, IntegrityError
+from .models import Produit, Stock, AssociationStockProduit  # Assurez-vous d'importer vos modèles
+from .forms import ProduitForm
+
 
 # Gestion stock
 
@@ -133,7 +139,7 @@ def add_produit(request):
                     stock = Stock.objects.get(id=id_stock)
 
                     # Créer l'association stock-produit
-                    StockProduit.objects.create(
+                    AssociationStockProduit.objects.create(
                         produit=produit,
                         stock=stock,
                         quantite=quantite
