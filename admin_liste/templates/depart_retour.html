@@ -2,35 +2,59 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div class="box">
-<h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
-    <span class="icon has-text-info">
-        <i class="fas fa-clipboard-list"></i>
-    </span><span class="ml-3">Gestion des listes</span></h1>
+<div class="container my-6">
+    <div class="columns is-centered">
+        <div class="column is-full"> <!-- Prend toute la largeur -->
+            <div class="card mb-4" style="box-shadow: 0 4px 8px rgba(50, 115, 220, 0.2);">
+                <div class="card-content has-text-centered">
+                    <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
+                        <span class="icon has-text-info">
+                            <i class="fas fa-clipboard-list"></i>
+                        </span>
+                        <span class="ml-4">Gestion des listes</span>
+                    </h1>
+                </div>
+            </div>
+
+            <div class="columns is-multiline"> <!-- Colonnes pour les cartes -->
+                <div class="column is-full-mobile is-one-third-tablet is-one-third-desktop"> <!-- Responsive -->
+                    <div class="card mb-4" style="box-shadow: 0 4px 8px rgba(255, 221, 87, 0.2);">
+                        <div class="card-content has-text-centered">
+                            <span class="icon has-text-warning is-large" style="font-size: 2.5rem;">
+                                <i class="fas fa-plane-departure"></i>
+                            </span>
+                            <h2 class="subtitle is-4 mt-2 has-text-link">Depart</h2>
+                            <a href="{% url 'admin_liste:depart' %}" class="button is-warning is-light">Acceder</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-full-mobile is-one-third-tablet is-one-third-desktop"> <!-- Responsive -->
+                    <div class="card mb-4" style="box-shadow: 0 4px 8px rgba(72, 199, 116, 0.2);">
+                        <div class="card-content has-text-centered">
+                            <span class="icon has-text-success is-large" style="font-size: 2.5rem;">
+                                <i class="fas fa-plane-arrival"></i>
+                            </span>
+                            <h2 class="subtitle is-4 mt-2 has-text-link">Retour</h2>
+                            <a href="{% url 'admin_liste:retour' %}" class="button is-success is-light">Acceder</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-full-mobile is-one-third-tablet is-one-third-desktop"> <!-- Responsive -->
+                    <div class="card mb-4" style="box-shadow: 0 4px 8px rgba(50, 115, 220, 0.2);">
+                        <div class="card-content has-text-centered">
+                            <span class="icon has-text-info is-large" style="font-size: 2.5rem;">
+                                <i class="fas fa-archive"></i>
+                            </span>
+                            <h2 class="subtitle is-4 mt-2 has-text-link">Archives</h2>
+                            <a href="{% url 'admin_liste:recherche_archive' %}" class="button is-info is-light">Acceder</a>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- Fin des colonnes pour les cartes -->
+        </div> <!-- Fin de la colonne principale -->
+    </div> <!-- Fin des colonnes -->
 </div>
 
-<div class="box">
-    <div class="columns is-centered">
-            <div class="column is-half has-text-centered">
-                <a href="{% url 'admin_liste:depart' %}" class="button is-outlined is-link is-large is-fullwidth mb-5">
-                    <span class="icon has-text-warning">
-                    <i class="fas fa-plane-departure"></i>
-                    </span>
-                    <span>Depart</span>
-                </a>
-                <a href="{% url 'admin_liste:retour' %}" class="button is-outlined is-link is-large is-fullwidth mb-5">
-                    <span class="icon has-text-primary">
-                        <i class="fas fa-plane-arrival"></i>
-                    </span>
-                    <span>Retour</span>
-                </a>
-                <a href="{% url 'admin_liste:recherche_archive' %}" class="button is-outlined is-link is-large is-fullwidth mb-5">
-                    <span class="icon has-text-info">
-                        <i class="fas fa-archive"></i>
-                    </span>
-                    <span>Archives</span>
-                </a>
-            </div>
-        </div>
-    </div>
 {% endblock content %}

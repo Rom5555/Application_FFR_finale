@@ -42,6 +42,6 @@ build-image:
     #name: production
     #url: http://10.0.2.11:8000
   #only:
-    #- master
+    #- main
   #tags:
     #- runner-ffr-tag

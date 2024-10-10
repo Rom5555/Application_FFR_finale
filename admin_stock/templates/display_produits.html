@@ -3,106 +3,148 @@
 
 {% block content %}
 
-<div class="box">
-<h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
-    <span class="icon has-text-primary is-large">
-        <i class="fas fa-box-open"></i>
-    </span>
-    <span class="ml-3">Gestion des stocks</span>
-</h1>
-</div>
-
-<div class="box">
-<h2 class="subtitle is-4 has-text-link mb-6">Choisir un stock</h2>
-<form action="{% url 'admin_stock:display_produits'%}" method="post" class="mb-5">
-    {% csrf_token %}
-    <div class="field is-grouped is-justify-content-center">
-        <div class="control">
-            <div class="select">
-                <select name="id_stock">
-                    <option value="" >stock</option>
-                    {% for stock in liste_stocks %}
-                        <option value="{{ stock.id_stock }}" {% if selected_stock_id == stock.id_stock %} selected {% endif %}>{{ stock.nom_stock }}</option>
-                    {% endfor %}
-                </select>
+<div class="columns is-desktop mt-5"> <!-- Ajout d'une marge supérieure pour l'ensemble des colonnes -->
+    <div class="column is-full"> <!-- Prend toute la largeur -->
+        <div class="card mb-4" style="box-shadow: 0 4px 8px rgba(50, 115, 220, 0.2);">
+            <div class="card-content">
+                <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
+                    <span class="icon has-text-primary is-large">
+                        <i class="fas fa-box-open"></i>
+                    </span>
+                    <span class="ml-3">Gestion des stocks</span>
+                </h1>
             </div>
         </div>
-        <div class="control">
-            <button class="button has-background-white has-text-link is-focused" type="submit">Afficher</button>
-        </div>
-    </div>
-    <input type="hidden" name="selected_stock_id" value="{{ selected_stock_id }}">
-</form>
-</div>
-{% if produitsStock %}
-    <div class="box">
-    <h2 class="subtitle is-5 has-text-link mb-6">{{ selected_stock_nom }}</h2>
-    <div class="table-container">
-        <table class="table is-striped is-fullwidth">
-            <thead>
-                <tr>
-                    <th>Produit</th>
-                    <th>Quantité</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for produit in produitsStock %}
-                    <tr>
-                        <td>{{ produit.nom_produit }}</td>
-                            <td>
-                                <form hx-post="{% url 'admin_stock:update_quantity' id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
-                                {% csrf_token %}
-                                 <div class="field is-grouped">
-                                    <div class="control">
-                                    <button type="button" class="button is-small decrement-button">-</button>
+
+        <div class="columns is-multiline"> <!-- Colonnes pour les cartes -->
+            <div class="column is-half-desktop">
+                <div class="card mb-5" style="box-shadow: 0 4px 8px rgba(72, 199, 116, 0.2); height: 100%;">
+                    <div class="card-content">
+                        <h2 class="subtitle is-4 has-text-link">Ajouter/Supprimer produits</h2>
+                        <div class="columns is-vcentered">
+                            <div class="column">
+                                <a href="{% url 'admin_stock:produit_list' %}" class="button is-link is-focused">Gérer</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-half-desktop">
+                <div class="card mb-5" style="box-shadow: 0 4px 8px rgba(255, 221, 87, 0.2); height: 100%;">
+                    <div class="card-content">
+                        <h2 class="subtitle is-4 has-text-link mb-4">Choisir un stock</h2>
+                        <form action="{% url 'admin_stock:display_produits'%}" method="post" class="mb-5">
+                            {% csrf_token %}
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    <div class="select">
+                                        <select name="id_stock">
+                                            <option value="">Stock</option>
+                                            {% for stock in liste_stocks %}
+                                                <option value="{{ stock.id_stock }}" {% if selected_stock_id == stock.id_stock %} selected {% endif %}>{{ stock.nom_stock }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="control">
-                                    <button type="button" class="button is-small increment-button">+</button>
+                                    <button class="button has-background-white has-text-link is-focused" type="submit">Afficher</button>
                                 </div>
-                                    <div class="control">
-                                        <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
-                                            value="{{ produit.quantite_stock }}" class="input is-small short-input" min="0">
+                            </div>
+                            <input type="hidden" name="selected_stock_id" value="{{ selected_stock_id }}">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Fin des colonnes pour les cartes -->
+    </div> <!-- Fin de la colonne principale -->
+</div> <!-- Fin des colonnes -->
+
+{% if produitsStock %}
+    <div class="card mb-4" style="box-shadow: 0 4px 8px rgba(50, 115, 220, 0.2);">
+        <div class="card-content">
+            <h2 class="subtitle is-5 has-text-link mb-4">{{ selected_stock_nom }}</h2>
+            <div class="table-container">
+                <table class="table is-striped is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>Produit</th>
+                            <th>Quantité</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for produit in produitsStock %}
+                            <tr>
+                                <td>{{ produit.nom_produit }}</td>
+                                <td>
+                                    <form hx-post="{% url 'admin_stock:update_quantity' id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
+                                    {% csrf_token %}
+                                     <div class="field is-grouped">
+                                        <div class="control">
+                                            <button type="button" class="button is-small decrement-button">-</button>
+                                        </div>
+                                        <div class="control">
+                                            <button type="button" class="button is-small increment-button">+</button>
+                                        </div>
+                                        <div class="control">
+                                            <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
+                                                value="{{ produit.quantite_stock }}" class="input is-small short-input" min="0">
+                                        </div>
                                     </div>
-                                </div>
+                                    </td>
+                                <td>
+                                    <div class="field is-grouped">
+                                        <div class="control">
+                                            <button class="button is-primary is-focused is-small has-text-light" name="quantity_updated" type="submit">
+                                                <span class="icon is-small"><i class="fas fa-check"></i></span></button>
+                                        </div>
+                                    </div>
+                                    </form>
                                 </td>
-                            <td>
-                                <div class="field is-grouped">
-                                    <div class="control">
-                                        <button class="button is-primary is-focused is-small has-text-light" name="quantity_updated" type="submit">
-                                                <span class="icon is-small">
-                                                    <i class="fas fa-check"></i>
-                                                </span></button>
-                                    </div>
-                                </div>
-                                </form>
-                            </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-   </div>
 {% endif %}
-<div id="successNotification" class="notification is-small is-link" style= "display: none; position: fixed; bottom: 0px; right: 0px ;">
-  Quantité mise à jour.
+
+<div id="messageContainer" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="notification is-{{ message.tags }} is-light" style="margin-bottom: 10px;">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
 </div>
-<div class="box">
-<div class="field is-grouped is-justify-content-center">
-    <div class="control">
-        <a href="{% url 'admin_stock:produit_list' %}" class="button is-link is-focused">Ajouter/Supprimer produit</a>
-    </div>
+
+<div id="successNotification" class="notification is-small is-link" style="display: none; position: fixed; bottom: 20px; right: 20px;">
+    Quantité mise à jour.
 </div>
-</div>
-{% if messages %}
-  {% for message in messages %}
-    <div class="notification is-danger">
-      {{ message }}
-    </div>
-  {% endfor %}
-{% endif %}
+
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+    // Fonction pour faire disparaître les messages
+    function fadeOutMessages() {
+        const messageContainer = document.getElementById('messageContainer');
+        if (messageContainer) {
+            setTimeout(() => {
+                messageContainer.style.transition = 'opacity 0.5s';
+                messageContainer.style.opacity = '0';
+                setTimeout(() => {
+                    messageContainer.remove();
+                }, 500);
+            }, 5000);
+        }
+    }
+
+    // Appeler la fonction pour faire disparaître les messages
+    fadeOutMessages();
+
     // Get all forms with the 'hx-post' attribute
     let forms = document.querySelectorAll('[hx-post]');
 
@@ -126,11 +168,17 @@ document.addEventListener("DOMContentLoaded", () => {
             // Check if the response was successful
             if (response.ok) {
                 // Show success notification
-                document.getElementById('successNotification').style.display = 'block';
+                const successNotification = document.getElementById('successNotification');
+                successNotification.style.display = 'block';
 
-                // Hide success notification after 3 seconds
+                // Hide success notification after 2 seconds
                 setTimeout(() => {
-                    document.getElementById('successNotification').style.display = 'none';
+                    successNotification.style.transition = 'opacity 0.5s';
+                    successNotification.style.opacity = '0';
+                    setTimeout(() => {
+                        successNotification.style.display = 'none';
+                        successNotification.style.opacity = '1';
+                    }, 500);
                 }, 2000);
             } else {
                 // Display the error message
@@ -138,6 +186,23 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    // Increment and decrement quantity functionality
+    document.querySelectorAll('.increment-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const input = button.closest('form').querySelector('input[type=number]');
+            input.value = parseInt(input.value) + 1;
+        });
+    });
+
+    document.querySelectorAll('.decrement-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const input = button.closest('form').querySelector('input[type=number]');
+            input.value = Math.max(0, parseInt(input.value) - 1);
+        });
+    });
 });
 </script>
-{% endblock %}
+
+
+{% endblock content %}

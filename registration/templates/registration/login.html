@@ -16,8 +16,13 @@
 <form method="POST" action="{% url 'login' %}">
     {% csrf_token %}
     <div class="container has-text-centered mt-6">
-        <p class="title">
-            Logimed
+        <p class="title has-text-link">
+            <span class="icon-text">
+                        <span class="icon mr-4" style="font-size: 2.5rem;">
+                            <i class="fas fa-suitcase-medical"></i>
+                        </span>
+                <span>Logimed</span>
+            </span>
         </p>
         <p class="subtitle">
             Bienvenue

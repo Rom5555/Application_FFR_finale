@@ -3,82 +3,89 @@
 
 {% block content %}
 
-<div class="box">
-<h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
-    <span class="icon">
-                    <i class="fas fa-clipboard-list has-text-info"></i>
-                    </span>
-                    <span class="ml-4">Ma liste</span></h1>
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(255, 221, 87, 0.2);">
+    <div class="card-content">
+        <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
+            <span class="icon">
+                <i class="fas fa-clipboard-list has-text-info"></i>
+            </span>
+            <span class="ml-4">Ma liste</span>
+        </h1>
+    </div>
 </div>
 
-
 {% if produits_liste_utilisateur %}
-<div class="box">
-    <div class="table-container">
-        <table class="table is-striped is-fullwidth">
-            <thead>
-                <tr>
-                    <th>Produit</th>
-                    <th>Depart</th>
-                    <th>Retour</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for produit in produits_liste_utilisateur %}
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(50, 115, 220, 0.2);">
+    <div class="card-content">
+        <div class="table-container">
+            <table class="table is-striped is-fullwidth">
+                <thead>
                     <tr>
-                        <td>{{ produit.nom_produit }}</td>
-                        <td>{{ produit.quantite_depart }}</td>
-                        <td>
-                                <form hx-post="{% url 'user_liste:remplir_liste_retour' id_liste_utilisateur=id_liste_utilisateur id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">                                {% csrf_token %}
-                                <div class="field is-grouped">
-                                    <div class="control">
-                                    <button type="button" class="button is-small decrement-button">-</button>
+                        <th>Produit</th>
+                        <th>Depart</th>
+                        <th>Retour</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produit in produits_liste_utilisateur %}
+                        <tr>
+                            <td>{{ produit.nom_produit }}</td>
+                            <td>{{ produit.quantite_depart }}</td>
+                            <td>
+                                <form hx-post="{% url 'user_liste:remplir_liste_retour' id_liste_utilisateur=id_liste_utilisateur id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
+                                    {% csrf_token %}
+                                    <div class="field is-grouped">
+                                        <div class="control">
+                                            <button type="button" class="button is-small decrement-button">-</button>
+                                        </div>
+                                        <div class="control">
+                                            <button type="button" class="button is-small increment-button">+</button>
+                                        </div>
+                                        <div class="control">
+                                            <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
+                                                value="{{ produit.quantite_retour }}" class="input is-small short-input" min="0" max={{ produit.quantite_depart }}>
+                                        </div>
                                     </div>
-                                    <div class="control">
-                                    <button type="button" class="button is-small increment-button">+</button>
-                                    </div>
-                                    <div class="control">
-                                        <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
-                                            value="{{ produit.quantite_retour }}" class="input is-small short-input" min="0" max={{ produit.quantite_depart }}>
-                                    </div>
-                                </div>
-                                </td>
+                            </td>
                             <td>
                                 <div class="field is-grouped">
                                     <div class="control">
-                                                <button class="button is-primary is-focused is-small has-text-light" name="quantity_updated" type="submit">
-                                                <span class="icon is-small">
-                                                    <i class="fas fa-check"></i>
-                                                </span>
-                                                </button>
+                                        <button class="button is-primary is-focused is-small has-text-light" name="quantity_updated" type="submit">
+                                            <span class="icon is-small">
+                                                <i class="fas fa-check"></i>
+                                            </span>
+                                        </button>
                                     </div>
                                 </div>
-                            </form>
+                                </form>
                             </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
-<div id="successNotification" class="notification is-small is-link" style= "display: none; position: fixed; bottom: 0px; right: 0px ;">
-  Quantité mise à jour.
+
+<div id="successNotification" class="notification is-small is-link" style="display: none; position: fixed; bottom: 0px; right: 0px;">
+    Quantité mise à jour.
 </div>
 <div id="errorNotification" class="notification is-small is-danger" style="display: none; position: fixed; bottom: 0px; right: 0px;">
     Une erreur est survenue.
 </div>
 
-
 {% endif %}
-<div class="box">
-    <div class="field is-grouped is-justify-content-center">
-    <div class="control">
-    <a class="button is-link is-focused" href="{% url 'user_liste:index_utilisateur' %}">Retour à l'acceuil</a>
+
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(72, 199, 116, 0.2);">
+    <div class="card-content">
+        <div class="field is-grouped is-justify-content-center">
+            <div class="control">
+                <a class="button is-link is-focused" href="{% url 'user_liste:index_utilisateur' %}">Retour à l'accueil</a>
+            </div>
+        </div>
     </div>
 </div>
-</div>
-
 
 
 <script>
