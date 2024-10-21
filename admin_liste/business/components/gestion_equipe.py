@@ -3,7 +3,7 @@ from ..entities.equipe import Equipe
 from .ifonction_get import Ifonction_get
 
 
-class Gestion_equipe(Ifonction_get):
+class GestionEquipe(Ifonction_get):
 
     def __init__(self):
         self.equipe = Equipe()

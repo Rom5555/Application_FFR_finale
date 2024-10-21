@@ -4,7 +4,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
 import logging
-from admin_liste.business.components.gestion_liste_utilisateur import Gestion_liste_utilisateur
+from admin_liste.business.components.gestion_liste_utilisateur import GestionListeUtilisateur
 logger = logging.getLogger("django")
 
 #Partie Utilisateur
@@ -17,7 +17,7 @@ def index_utilisateur(request):
 @user_passes_test(is_standard_user)
 def ma_liste(request):
 
-    gestion_liste_utilisateur = Gestion_liste_utilisateur()
+    gestion_liste_utilisateur = GestionListeUtilisateur()
     produits_liste_utilisateur = []
     id_liste_utilisateur = 0
     utilisateur = request.user
@@ -39,7 +39,7 @@ def ma_liste(request):
 
 @user_passes_test(is_standard_user)
 def remplir_liste_retour(request, id_liste_utilisateur,id_produit):
-    gestion_liste_utilisateur = Gestion_liste_utilisateur()
+    gestion_liste_utilisateur = GestionListeUtilisateur()
     if request.method == 'POST':
         if id_produit:
             quantite_retour_key = f'quantity_{id_produit}'

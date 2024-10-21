@@ -3,9 +3,9 @@ import os
 
 class Data_deplacement:
     def __init__(self):
-        self._HOST = os.environ.get('POSTGRES_HOST', 'db')
+        self._HOST = os.environ.get('POSTGRES_HOST', '127.0.0.1')
         self._DATABASE = os.environ.get('POSTGRES_DB', 'application_ffr_db')
-        self._USER = os.environ.get('POSTGRES_USER', 'rom')
+        self._USER = os.environ.get('POSTGRES_USER', 'dev')
         self._PASSWORD = os.environ.get('POSTGRES_PASSWORD', 'ballon')
         self._PORT = int(os.environ.get('POSTGRES_PORT', 5432))
 

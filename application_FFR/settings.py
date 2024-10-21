@@ -89,9 +89,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': config('POSTGRES_DB', default='application_ffr_db'),
-        'USER': config('POSTGRES_USER', default='rom'),
+        'USER': config('POSTGRES_USER', default='dev'),
         'PASSWORD': config('POSTGRES_PASSWORD', default='ballon'),
-        'HOST': config('POSTGRES_HOST', default='db'),
+        'HOST': config('POSTGRES_HOST', default='127.0.0.1'),
         'PORT': config('POSTGRES_PORT', default='5432'),
     },
     'application_FFR_V5_db': {
@@ -165,7 +165,7 @@ LOGGING = {
         'file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': 'C:\\Users\\rfaure\\PycharmProjects\\Application_FFR_finale_V2\\debug.log',
+            'filename': 'C:\\Users\\Ro\\PycharmProjects\\Application_FFR_finale_V3\\debug.log',
             'formatter': 'simple'
         },
         'console': {
@@ -201,10 +201,10 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='webmaster@your-domain.com')
 
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#SESSION_COOKIE_SECURE = True
+#CSRF_COOKIE_SECURE = True
+#SECURE_SSL_REDIRECT = True
+#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Security settings for production
 #SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

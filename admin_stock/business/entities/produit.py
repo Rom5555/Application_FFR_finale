@@ -1,5 +1,5 @@
 from .stock import Stock
-from admin_liste.business.entities.liste_depart import Liste_depart
+from admin_liste.business.entities.modele_liste import ModeleListe
 from admin_liste.business.entities.liste_utilisateur import Liste_utilisateur
 
 class Produit:
@@ -10,7 +10,7 @@ class Produit:
         self.nom = ""
         self.stock = Stock()
         self.quantite_en_stock = 0
-        self.liste_depart = Liste_depart()
+        self.modele_liste = ModeleListe()
         self.liste_utilisateur = Liste_utilisateur()
         self.quantite_depart = 0
         self.quantite_retour = 0
@@ -64,12 +64,12 @@ class Produit:
         self._quantite_retour = value
 
     @property
-    def liste_depart(self):
-        return self._liste_depart
+    def modele_liste(self):
+        return self._modele_liste
 
-    @liste_depart.setter
-    def liste_depart(self, value):
-        self._liste_depart = value
+    @modele_liste.setter
+    def modele_liste(self, value):
+        self._modele_liste = value
 
     @property
     def liste_utilisateur(self):

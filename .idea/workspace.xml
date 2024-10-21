@@ -5,8 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d51fe39-c218-481b-9867-434961d1031b" name="Changes" comment="Application_FFR_V9">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/business/components/gestion_equipe.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/components/gestion_equipe.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/business/components/gestion_liste_depart.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/components/gestion_modele_liste.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/business/components/gestion_liste_utilisateur.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/components/gestion_liste_utilisateur.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/business/entities/liste_depart.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/entities/modele_liste.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/business/entities/liste_utilisateur.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/entities/liste_utilisateur.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/data/data_deplacement.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/data/data_deplacement.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/data/data_equipe.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/data/data_equipe.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/data/data_liste_depart.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/data/data_modele_liste.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/data/data_liste_utilisateur.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/data/data_liste_utilisateur.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/templates/archive.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/templates/archive.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/templates/depart.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/templates/depart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/templates/depart_retour.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/templates/depart_retour.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_stock/business/entities/produit.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/business/entities/produit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_stock/data/data_stock.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/data/data_stock.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin_stock/templates/display_produits.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/templates/display_produits.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_stock/templates/produit_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/templates/produit_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etude/database/scripts/command_0.log" beforeDir="false" afterPath="$PROJECT_DIR$/etude/database/scripts/command_0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etude/database/scripts/command_1.log" beforeDir="false" afterPath="$PROJECT_DIR$/etude/database/scripts/command_1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etude/database/scripts/command_2.log" beforeDir="false" afterPath="$PROJECT_DIR$/etude/database/scripts/command_2.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etude/database/scripts/generate.py" beforeDir="false" afterPath="$PROJECT_DIR$/etude/database/scripts/generate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_connection_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_connection_db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_liste/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_liste/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +45,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -51,6 +80,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.data_stock.executor&quot;: &quot;Run&quot;,
     &quot;Python.generate.executor&quot;: &quot;Run&quot;,
     &quot;Python.manage.executor&quot;: &quot;Run&quot;,
     &quot;Python.manage.py.executor&quot;: &quot;Run&quot;,
@@ -70,6 +100,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ro\PycharmProjects\Application_FFR_finale_V3\admin_liste\templates" />
       <recent name="C:\Users\romfa\Dev\Application_FFR_V9\application_FFR\registration" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -108,7 +139,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-0e3be3396995-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.23339.19" />
+        <option value="bundled-python-sdk-babbdf50b680-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.15989.155" />
       </set>
     </attachedChunks>
   </component>

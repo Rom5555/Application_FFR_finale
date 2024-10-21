@@ -4,7 +4,7 @@ connection = None
 
 try:
     connection = psycopg2.connect(
-        dbname="application_FFR_V5_db",
+        dbname="application_ffr_db",
         user="dev",
         password="ballon",
         host="127.0.0.1",

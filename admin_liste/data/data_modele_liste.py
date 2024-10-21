@@ -1,11 +1,11 @@
 import psycopg2
 import os
 
-class Data_liste_depart:
+class DataModeleListe:
     def __init__(self):
-        self._HOST = os.environ.get('POSTGRES_HOST', 'db')
+        self._HOST = os.environ.get('POSTGRES_HOST', '127.0.0.1')
         self._DATABASE = os.environ.get('POSTGRES_DB', 'application_ffr_db')
-        self._USER = os.environ.get('POSTGRES_USER', 'rom')
+        self._USER = os.environ.get('POSTGRES_USER', 'dev')
         self._PASSWORD = os.environ.get('POSTGRES_PASSWORD', 'ballon')
         self._PORT = int(os.environ.get('POSTGRES_PORT', 5432))
 
@@ -37,9 +37,9 @@ class Data_liste_depart:
                 connection.close()
                 print('Connection à la base de données fermée.')
 
-    def create_liste_depart(self,id_equipe,id_deplacement):
+    def create_modele_liste(self,nom_modele_liste, type_rugby, nombre_joueurs_min, nombre_joueurs_max, duree_deplacement_min, duree_deplacement_max, nombre_match_min, nombre_match_max):
 
-        sql = "INSERT INTO public.liste_depart(id_equipe,id_deplacement) VALUES (%s,%s) ON CONFLICT (id_equipe,id_deplacement) DO NOTHING;"
+        sql = "INSERT INTO public.modele_liste(nom_modele_liste, type_rugby, nombre_joueurs_min, nombre_joueurs_max, duree_deplacement_min, duree_deplacement_max, nombre_match_min, nombre_match_max) VALUES (%s,%s,%s,%s,%s,%s,%s,%s) ON CONFLICT (type_rugby,nombre_joueurs_max, duree_deplacement_max, nombre_match_max) DO NOTHING;"
 
         connection = None
         try:
@@ -47,7 +47,7 @@ class Data_liste_depart:
             connection = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER, password=self._PASSWORD, port=self._PORT)
             # create a new cursor
             cursor = connection.cursor()
-            val=(id_equipe,id_deplacement)
+            val = (nom_modele_liste, type_rugby, nombre_joueurs_min, nombre_joueurs_max, duree_deplacement_min, duree_deplacement_max, nombre_match_min, nombre_match_max)
             cursor.execute(sql,val)
             rows_affected=cursor.rowcount
 
@@ -70,9 +70,9 @@ class Data_liste_depart:
             if connection is not None:
                 connection.close()
 
-    def create_association_liste_depart_produit(self,id_liste_depart,id_produit,quantite_depart):
+    def create_association_modele_liste_produit(self,id_modele_liste,id_produit,quantite_depart):
 
-        sql = "INSERT INTO public.association_liste_depart_produit(id_liste_depart,id_produit,quantite_depart,quantite_retour) VALUES (%s,%s,%s,0) ON CONFLICT (id_liste_depart,id_produit) DO NOTHING;"
+        sql = "INSERT INTO public.association_modele_liste_produit(id_modele_liste,id_produit,quantite_depart,quantite_retour) VALUES (%s,%s,%s,0) ON CONFLICT (id_modele_liste,id_produit) DO NOTHING;"
 
         connection = None
         try:
@@ -80,7 +80,7 @@ class Data_liste_depart:
             connection = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER, password=self._PASSWORD, port=self._PORT)
             # create a new cursor
             cursor = connection.cursor()
-            val=(id_liste_depart,id_produit,quantite_depart)
+            val=(id_modele_liste,id_produit,quantite_depart)
             cursor.execute(sql,val)
             rows_affected=cursor.rowcount
 
@@ -104,9 +104,9 @@ class Data_liste_depart:
                 connection.close()
 
 
-    def test_association_produit_liste(self,id_liste_depart,id_produit):
+    def test_association_produit_liste(self,id_modele_liste,id_produit):
 
-        sql = "SELECT id_association_liste_depart_produit FROM association_liste_depart_produit WHERE association_liste_depart_produit.id_liste_depart = %s AND id_produit = %s;"
+        sql = "SELECT id_association_modele_liste_produit FROM association_modele_liste_produit WHERE association_modele_liste_produit.id_modele_liste = %s AND id_produit = %s;"
 
         connection = None
         try:
@@ -114,7 +114,7 @@ class Data_liste_depart:
             connection = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER, password=self._PASSWORD, port=self._PORT)
             # create a new cursor
             cursor = connection.cursor()
-            val=(id_liste_depart, id_produit)
+            val=(id_modele_liste, id_produit)
             cursor.execute(sql, val)
 
             row=cursor.fetchone()
@@ -140,9 +140,9 @@ class Data_liste_depart:
 
 
 
-    def update_liste_depart(self,quantite_depart,id_liste_depart,id_produit):
+    def update_modele_liste(self,quantite_depart,id_modele_liste,id_produit):
 
-        sql = "UPDATE association_liste_depart_produit SET quantite_depart=%s WHERE association_liste_depart_produit.id_liste_depart = %s AND id_produit = %s;"
+        sql = "UPDATE association_modele_liste_produit SET quantite_depart=%s WHERE association_modele_liste_produit.id_modele_liste = %s AND id_produit = %s;"
 
         connection = None
         try:
@@ -150,7 +150,7 @@ class Data_liste_depart:
             connection = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER, password=self._PASSWORD, port=self._PORT)
             # create a new cursor
             cursor = connection.cursor()
-            val=(quantite_depart,id_liste_depart, id_produit)
+            val=(quantite_depart,id_modele_liste, id_produit)
             cursor.execute(sql, val)
 
 
@@ -169,9 +169,9 @@ class Data_liste_depart:
                 connection.close()
 
 
-    def delete_association_liste_depart_produit(self,id_liste_depart,id_produit):
+    def delete_association_modele_liste_produit(self,id_modele_liste,id_produit):
 
-        sql = "DELETE FROM association_liste_depart_produit WHERE (quantite_depart IS NULL OR quantite_depart = 0) AND id_liste_depart = %s AND id_produit = %s;"
+        sql = "DELETE FROM association_modele_liste_produit WHERE (quantite_depart IS NULL OR quantite_depart = 0) AND id_modele_liste = %s AND id_produit = %s;"
 
         connection = None
         try:
@@ -179,7 +179,7 @@ class Data_liste_depart:
             connection = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER, password=self._PASSWORD, port=self._PORT)
             # create a new cursor
             cursor = connection.cursor()
-            val=(id_liste_depart, id_produit)
+            val=(id_modele_liste, id_produit)
             cursor.execute(sql, val)
             rows_affected = cursor.rowcount
 
@@ -203,9 +203,9 @@ class Data_liste_depart:
                 connection.close()
 
 
-    def get_id_liste_depart(self,id_equipe,id_deplacement):
+    def get_id_modele_liste(self,nom_modele_liste):
 
-        sql = "SELECT * FROM liste_depart WHERE (id_equipe,id_deplacement) = (%s,%s);"
+        sql = "SELECT * FROM modele_liste WHERE nom_modele_liste = %s;"
 
         connection = None
         try:
@@ -214,7 +214,7 @@ class Data_liste_depart:
             # create a new cursor
             cursor = connection.cursor()
 
-            cursor.execute(sql,(id_equipe,id_deplacement))
+            cursor.execute(sql,(nom_modele_liste,))
             row = cursor.fetchone()
 
             return row
@@ -231,9 +231,9 @@ class Data_liste_depart:
             if connection is not None:
                 connection.close()
 
-    def get_liste_depart(self,id_liste_depart):
+    def get_id_multiples_parametres(self,type_rugby, nombre_joueurs_min, nombre_joueurs_max, duree_deplacement_min, duree_deplacement_max, nombre_match_min, nombre_match_max):
 
-        sql = "SELECT association_liste_depart_produit.id_liste_depart,stock.id_stock,stock.nom_stock,produit.id_produit,produit.nom_produit,association_liste_depart_produit.quantite_depart,association_liste_depart_produit.quantite_retour FROM association_liste_depart_produit JOIN produit ON association_liste_depart_produit.id_produit = produit.id_produit JOIN association_stock_produit ON association_stock_produit.id_produit=produit.id_produit JOIN stock ON stock.id_stock=association_stock_produit.id_stock WHERE association_liste_depart_produit.id_liste_depart = %s ORDER BY produit.id_produit;"
+        sql = "SELECT * FROM modele_liste WHERE type_rugby = %s AND nombre_joueurs_min = %s AND nombre_joueurs_max = %s AND duree_deplacement_min = %s AND duree_deplacement_max = %s AND nombre_match_min = %s AND nombre_match_max = %s;"
 
         connection = None
         try:
@@ -242,7 +242,38 @@ class Data_liste_depart:
             # create a new cursor
             cursor = connection.cursor()
 
-            cursor.execute(sql,(id_liste_depart,))
+            cursor.execute(sql,(type_rugby, nombre_joueurs_min, nombre_joueurs_max, duree_deplacement_min, duree_deplacement_max, nombre_match_min, nombre_match_max,))
+            row = cursor.fetchone()
+
+            return row
+            # commit the changes to the database
+            connection.commit()
+            # close communication with the database
+            cursor.close()
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            print("Erreur create_liste")
+            print(sql)
+            print(error)
+        finally:
+            if connection is not None:
+                connection.close()
+
+
+
+
+    def get_modele_liste(self,id_modele_liste):
+
+        sql = "SELECT association_modele_liste_produit.id_modele_liste,stock.id_stock,stock.nom_stock,produit.id_produit,produit.nom_produit,association_modele_liste_produit.quantite_depart,association_modele_liste_produit.quantite_retour FROM association_modele_liste_produit JOIN produit ON association_modele_liste_produit.id_produit = produit.id_produit JOIN association_stock_produit ON association_stock_produit.id_produit=produit.id_produit JOIN stock ON stock.id_stock=association_stock_produit.id_stock WHERE association_modele_liste_produit.id_modele_liste = %s ORDER BY produit.id_produit;"
+
+        connection = None
+        try:
+            # obtention de la connexion à la base de données
+            connection = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER, password=self._PASSWORD, port=self._PORT)
+            # create a new cursor
+            cursor = connection.cursor()
+
+            cursor.execute(sql,(id_modele_liste,))
             rows = cursor.fetchall()
 
             return rows
@@ -259,9 +290,9 @@ class Data_liste_depart:
             if connection is not None:
                 connection.close()
 
-    def test_exist(self,id_equipe,id_deplacement):
+    def test_exist(self,id_modele_liste):
 
-        sql = "SELECT EXISTS (SELECT 1 FROM liste_depart WHERE id_equipe = %s AND id_deplacement = %s);"
+        sql = "SELECT EXISTS (SELECT * FROM modele_liste WHERE id_modele_liste= %s);"
 
         connection = None
         try:
@@ -269,7 +300,7 @@ class Data_liste_depart:
             connection = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER, password=self._PASSWORD, port=self._PORT)
             # create a new cursor
             cursor = connection.cursor()
-            val = (id_equipe,id_deplacement)
+            val = (id_modele_liste,)
             cursor.execute(sql,val)
             res = cursor.fetchone()
 
@@ -287,9 +318,9 @@ class Data_liste_depart:
             if connection is not None:
                 connection.close()
 
-    def get_all_liste_depart(self):
+    def get_all_modele_liste(self):
 
-        sql = "SELECT liste_depart.id_liste_depart,equipe.type_rugby,equipe.genre,equipe.categorie_age,deplacement.nombre_joueurs,deplacement.duree_deplacement FROM liste_depart JOIN equipe ON liste_depart.id_equipe = equipe.id_equipe JOIN deplacement ON liste_depart.id_deplacement=deplacement.id_deplacement;"
+        sql = "SELECT * FROM modele_liste;"
 
         connection = None
         try:

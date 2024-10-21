@@ -16,12 +16,12 @@
 
 <div class="card mb-4" style="box-shadow: 0 4px 8px rgba(50, 115, 220, 0.2);">
     <div class="card-content">
-        <h2 class="subtitle is-4 has-text-link mb-6">Construire un deplacement</h2>
+        <h2 class="subtitle is-4 has-text-link mb-6">Creation de la liste utilisateur</h2>
         <form action="{% url 'admin_liste:depart' %}" method="post" class="mb-5">
         {% csrf_token %}
             <div class="container">
-            {% crispy equipe_form %}
-            <button class="button is-primary has-text-light mt-5" type="submit">Valider le deplacement</button>
+            {% crispy equipe_utilisateur_form %}
+            <button class="button is-primary has-text-light mt-5" type="submit">Valider</button>
             </div>
         </form>
     </div>
@@ -48,7 +48,7 @@
                             <td>{{ produit.nom_produit }}</td>
                             <td>{{ produit.quantite_stock }}</td>
                             <td>
-                                <form hx-post="{% url 'admin_liste:remplir_liste_depart' id_liste_depart=id_liste_depart id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
+                                <form hx-post="{% url 'admin_liste:remplir_liste_utilisateur' id_liste_utilisateur=id_liste_utilisateur id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
                                 {% csrf_token %}
                                     <div class="field is-grouped">
                                         <div class="control">
@@ -82,7 +82,30 @@
         </div>
     </div>
 </div>
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(255, 99, 71, 0.2);">
+    <div class="card-content">
+        <h2 class="subtitle is-4 has-text-link mb-6">Mettre à jour le stock</h2>
+        <form action="{% url 'admin_liste:create_liste_utilisateur' id_liste_utilisateur=id_liste_utilisateur %}" method="post">
+            {% csrf_token %}
+            <div class="container">
+            <button id="submitStockUpdate" class="button is-focused is-primary has-text-light mt-5" type="submit">Valider</button>
+            </div>
+        </form>
+        <div id="message-container"></div>
+    </div>
+</div>
+
 {% endif %}
+
+<div id="messages-container" style="position: fixed; bottom: 0px; right: 0px;">
+    {% if messages %}
+        {% for message in messages %}
+        <div class="notification {% if message.tags %}is-{{ message.tags }}{% endif %} mb-2">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
 
 <div id="successNotification" class="notification is-small is-link" style="display: none; position: fixed; bottom: 0px; right: 0px;">
   Quantité mise à jour.
@@ -91,117 +114,85 @@
     Une erreur est survenue.
 </div>
 
-{% if utilisateur_choice_form %}
-<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(255, 99, 71, 0.2);">
-    <div class="card-content">
-        <h2 class="subtitle is-4 has-text-link mb-6">Attribuer la liste à un utilisateur</h2>
-        <form action="{% url 'admin_liste:create_liste_utilisateur' id_liste_depart=id_liste_depart %}" method="post">
-            {% csrf_token %}
-            <div class="container">
-            {% crispy utilisateur_choice_form %}
-            <button class="button is-focused is-primary has-text-light mt-5" type="submit">Valider (mise à jour du stock)</button>
-            </div>
-        </form>
-        <div id="message-container"></div>
-    </div>
-</div>
-{% endif %}
-
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    // Get all forms with the 'hx-post' attribute
+    // Gestion des messages flash
+    const messagesContainer = document.getElementById('messages-container');
+    if (messagesContainer) {
+        setTimeout(() => {
+            messagesContainer.style.display = 'none';
+        }, 2000);
+    }
+
+    // Gestion des formulaires hx-post pour chaque produit
     let forms = document.querySelectorAll('[hx-post]');
 
-    // Loop through each form and add submit event listener
     forms.forEach((form) => {
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
 
-            // Prepare the form data
             let formData = new FormData(form);
 
-            // Send the form data asynchronously
-            let response = await fetch(form.getAttribute('hx-post'), {
-                method: 'POST',
-                body: formData
-            });
+            try {
+                let response = await fetch(form.getAttribute('hx-post'), {
+                    method: 'POST',
+                    body: formData
+                });
 
-            // Parse the response as plain text
-            let responseText = await response.text();
-
-            // Check if the response was successful
-            if (response.ok) {
-                // Show success notification
-                document.getElementById('successNotification').style.display = 'block';
-
-                // Hide success notification after 3 seconds
-                setTimeout(() => {
-                    document.getElementById('successNotification').style.display = 'none';
-                }, 2000);
-            } else {
-                // Display the error message
-                // Parse the response as JSON
-                let responseJson = await response.json();
-
-                // Display the error message
-                let errorNotification = document.getElementById('errorNotification');
-                errorNotification.innerHTML = responseJson.message;
-                errorNotification.style.display = 'block';
-
-                // Hide error notification after 3 seconds
-                setTimeout(() => {
-                    errorNotification.style.display = 'none';
-                }, 2000);
+                if (response.ok) {
+                    document.getElementById('successNotification').style.display = 'block';
+                    setTimeout(() => {
+                        document.getElementById('successNotification').style.display = 'none';
+                    }, 2000);
+                } else {
+                    let errorNotification = document.getElementById('errorNotification');
+                    errorNotification.innerHTML = 'Une erreur est survenue.';
+                    errorNotification.style.display = 'block';
+                    setTimeout(() => {
+                        errorNotification.style.display = 'none';
+                    }, 2000);
+                }
+            } catch (error) {
+                alert('Erreur réseau : ' + error.message);
             }
         });
     });
 
+    // Gestion du bouton de soumission final
+    const submitButton = document.getElementById('submitStockUpdate');
 
-    const utilisateurForm = document.querySelector('form[action="{% url 'admin_liste:create_liste_utilisateur' id_liste_depart=id_liste_depart %}"]');
-    utilisateurForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
+    if (submitButton) {
+        submitButton.addEventListener('click', async (event) => {
+            event.preventDefault();
 
-        // Vérification des quantités de départ par rapport aux quantités de stock
-        const quantiteForms = document.querySelectorAll('[name^="quantity_"]');
-        let isValid = true;
-        quantiteForms.forEach((quantiteForm) => {
-            const quantiteDepart = parseInt(quantiteForm.value);
-            const quantiteStock = parseInt(quantiteForm.max);
-            if (quantiteDepart > quantiteStock) {
-                isValid = false;
-                // Affichez un message d'erreur à l'utilisateur ou faites une autre action appropriée
-                alert("La quantité de départ ne peut pas dépasser la quantité de stock.");
+            const form = submitButton.closest('form');
+            let formData = new FormData(form);
+
+            try {
+                let response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                // Essayer d'obtenir la réponse JSON
+                try {
+                    let jsonResponse = await response.json();
+                    alert(JSON.stringify(jsonResponse));
+                } catch (jsonError) {
+                    alert('La réponse n\'est pas au format JSON.');
+                }
+
+                if (response.ok) {
+                    window.location.href = "{% url 'admin_liste:depart_retour' %}";
+                } else {
+                    alert('Une erreur est survenue');
+                }
+            } catch (error) {
+                alert('Erreur réseau : ' + error.message);
             }
         });
-
-        // Si toutes les quantités de départ sont valides, soumettez le formulaire utilisateur_choice_form
-        if (isValid) {
-            let formData = new FormData(utilisateurForm);
-            let response = await fetch(utilisateurForm.getAttribute('action'), {
-                method: 'POST',
-                body: formData
-            });
-
-            let data = await response.json();
-            alert(data.message);
-            if (response.ok) {
-                // Optionnellement, vous pouvez rediriger ou effectuer d'autres actions en cas de succès
-                window.location.href = '{% url "admin_base:index" %}';
-            }
-        }
-    });
-
-    {% if message %}
-    alert("{{ message }}");
-    {% endif %}
+    }
 });
-
-
-
-
-
-
-
 </script>
 
 {% endblock %}

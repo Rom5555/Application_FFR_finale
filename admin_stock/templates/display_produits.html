@@ -61,57 +61,70 @@
 </div> <!-- Fin des colonnes -->
 
 {% if produitsStock %}
-    <div class="card mb-4" style="box-shadow: 0 4px 8px rgba(50, 115, 220, 0.2);">
-        <div class="card-content">
-            <h2 class="subtitle is-5 has-text-link mb-4">{{ selected_stock_nom }}</h2>
-            <div class="table-container">
-                <table class="table is-striped is-fullwidth">
-                    <thead>
-                        <tr>
-                            <th>Produit</th>
-                            <th>Quantité</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for produit in produitsStock %}
-                            <tr>
-                                <td>{{ produit.nom_produit }}</td>
-                                <td>
-                                    <form hx-post="{% url 'admin_stock:update_quantity' id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
-                                    {% csrf_token %}
-                                     <div class="field is-grouped">
-                                        <div class="control">
-                                            <button type="button" class="button is-small decrement-button">-</button>
-                                        </div>
-                                        <div class="control">
-                                            <button type="button" class="button is-small increment-button">+</button>
-                                        </div>
-                                        <div class="control">
-                                            <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
-                                                value="{{ produit.quantite_stock }}" class="input is-small short-input" min="0">
-                                        </div>
-                                    </div>
-                                    </td>
-                                <td>
-                                    <div class="field is-grouped">
-                                        <div class="control">
-                                            <button class="button is-primary is-focused is-small has-text-light" name="quantity_updated" type="submit">
-                                                <span class="icon is-small"><i class="fas fa-check"></i></span></button>
-                                        </div>
-                                    </div>
-                                    </form>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+ <div class="modal is-active" id="stockModal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">{{ selected_stock_nom }}</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <div class="table-container">
+        <table class="table is-striped is-fullwidth">
+          <thead>
+            <tr>
+              <th>Produit</th>
+              <th>Quantité</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for produit in produitsStock %}
+              <tr>
+                <td>{{ produit.nom_produit }}</td>
+                <td>
+                  <form hx-post="{% url 'admin_stock:update_quantity' id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
+                    {% csrf_token %}
+                    <div class="field is-grouped">
+                      <div class="control">
+                        <button type="button" class="button is-small decrement-button">-</button>
+                      </div>
+                      <div class="control">
+                        <button type="button" class="button is-small increment-button">+</button>
+                      </div>
+                      <div class="control">
+                        <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
+                          value="{{ produit.quantite_stock }}" class="input is-small short-input" min="0">
+                      </div>
+                    </div>
+                </td>
+                <td>
+                  <div class="field is-grouped">
+                    <div class="control">
+                      <button class="button is-primary is-focused is-small has-text-light" name="quantity_updated" type="submit">
+                        <span class="icon is-small"><i class="fas fa-check"></i></span>
+                      </button>
+                    </div>
+                  </div>
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    <div id="successNotification" class="notification is-small is-link" style="display: none; position: fixed; bottom: 20px; right: 20px;">
+    Quantité mise à jour.
     </div>
+    </section>
+    <footer class="modal-card-foot">
+    </footer>
+  </div>
+</div>
+
 {% endif %}
 
-<div id="messageContainer" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+<div id="messageContainer" style="position: fixed; bottom: 20px; right: 20px;">
     {% if messages %}
         {% for message in messages %}
             <div class="notification is-{{ message.tags }} is-light" style="margin-bottom: 10px;">
@@ -119,10 +132,6 @@
             </div>
         {% endfor %}
     {% endif %}
-</div>
-
-<div id="successNotification" class="notification is-small is-link" style="display: none; position: fixed; bottom: 20px; right: 20px;">
-    Quantité mise à jour.
 </div>
 
 
@@ -186,21 +195,29 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+ // Fonction pour fermer les modals
+  function closeModal($el) {
+    $el.classList.remove('is-active');
+  }
 
-    // Increment and decrement quantity functionality
-    document.querySelectorAll('.increment-button').forEach(button => {
-        button.addEventListener('click', () => {
-            const input = button.closest('form').querySelector('input[type=number]');
-            input.value = parseInt(input.value) + 1;
-        });
-    });
+  // Fermer le modal avec un clic
+  (document.querySelectorAll('.modal-background, .delete') || []).forEach(($close) => {
+    const $target = $close.closest('.modal');
 
-    document.querySelectorAll('.decrement-button').forEach(button => {
-        button.addEventListener('click', () => {
-            const input = button.closest('form').querySelector('input[type=number]');
-            input.value = Math.max(0, parseInt(input.value) - 1);
-        });
+    $close.addEventListener('click', () => {
+      closeModal($target);
     });
+  });
+
+  // Fermer avec la touche "Escape"
+  document.addEventListener('keydown', (event) => {
+    if (event.key === "Escape") {
+      (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+        closeModal($modal);
+      });
+    }
+  });
+
 });
 </script>
 

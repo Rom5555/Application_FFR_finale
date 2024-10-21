@@ -15,15 +15,15 @@ if __name__ == '__main__':
 
     # adapter les valeurs en rapport avec la configuration de votre environnement
     # de développement
-    SERVER = "165.22.65.214"
+    SERVER = "127.0.0.1"
     PORT = 5432
-    USER = "rom"
+    USER = "dev"
     PASSWORD = "ballon"
-    SCRIPTS_DIRECTORY = "C:\\Users\\Ro\\PycharmProjects\\Application_FFR_finale_V1\\etude\\database\\scripts\\"
+    SCRIPTS_DIRECTORY = "C:\\Users\\Ro\\PycharmProjects\\Application_FFR_finale_V3\\etude\\database\\scripts\\"
     DATABASE = "application_ffr_db"
     POSTGRESQL_BIN = "C:\\Program Files\\PostgreSQL\\13\\bin"
 
-    SCRIPT_00 = "00_create_tables.sql"
+    #SCRIPT_00 = "00_create_tables.sql"
     SCRIPT_01 = "01_stock_insert.sql"
     SCRIPT_02 = "02_consommable_insert.sql"
     SCRIPT_03 = "03_association_stock_consommable_insert.sql"
@@ -31,10 +31,10 @@ if __name__ == '__main__':
 
     scripts = []
 
-    #scripts.append(SCRIPT_01)
+    scripts.append(SCRIPT_01)
     scripts.append(SCRIPT_02)
     scripts.append(SCRIPT_03)
-    #scripts.append(SCRIPT_04)
+    scripts.append(SCRIPT_04)
 
     # configuration spécifique pour Windows
     os.chdir(POSTGRESQL_BIN) # on se déplace dans le répertoire des binaires de postgresql (évite de configurer une variable d'environnement sous Windows

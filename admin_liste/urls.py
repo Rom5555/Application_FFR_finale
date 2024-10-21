@@ -4,10 +4,12 @@ from . import views
 app_name = 'admin_liste'
 
 urlpatterns = [
-
+    path('recherche_modele_liste/', views.recherche_modele_liste, name='recherche_modele_liste'),
+    path('create_modele_liste/', views.create_modele_liste, name='create_modele_liste'),
+    path('remplir_modele_liste/<int:id_modele_liste>/<int:id_produit>/', views.remplir_modele_liste, name='remplir_modele_liste'),
     path('depart/', views.depart, name='depart'),
-    path('remplir_liste_depart/<int:id_liste_depart>/<int:id_produit>/', views.remplir_liste_depart, name='remplir_liste_depart'),
-    path('create_liste_utilisateur/<int:id_liste_depart>/', views.create_liste_utilisateur, name='create_liste_utilisateur'),
+    path('remplir_liste_utilisateur/<int:id_liste_utilisateur>/<int:id_produit>/', views.remplir_liste_utilisateur, name='remplir_liste_utilisateur'),
+    path('create_liste_utilisateur/<int:id_liste_utilisateur>/', views.create_liste_utilisateur, name='create_liste_utilisateur'),
     path('depart_retour/', views.depart_retour, name='depart_retour'),
     path('retour/', views.retour, name='retour'),
     path('verifier_liste_retour/<int:id_liste_utilisateur>/<int:id_produit>/', views.verifier_liste_retour, name='verifier_liste_retour'),
