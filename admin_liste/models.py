@@ -48,18 +48,17 @@ class Equipe(models.Model):
 class ModeleListe(models.Model):
     id_modele_liste = models.SmallAutoField(primary_key=True)
     nom_modele_liste = models.CharField(max_length=20, blank=True, null=True, unique=True)
-    type_rugby = models.SmallIntegerField(blank=True, null=True)
+    id_equipe = models.ForeignKey(Equipe, models.DO_NOTHING, db_column='id_equipe', blank=True, null=True)
     nombre_joueurs_min = models.SmallIntegerField(blank=True, null=True)
     nombre_joueurs_max = models.SmallIntegerField(blank=True, null=True)
     duree_deplacement_min = models.SmallIntegerField(blank=True, null=True)
     duree_deplacement_max = models.SmallIntegerField(blank=True, null=True)
-    nombre_match_min = models.SmallIntegerField(blank=True, null=True)
-    nombre_match_max = models.SmallIntegerField(blank=True, null=True)
+    nombre_match = models.SmallIntegerField(blank=True, null=True)
 
     class Meta:
         managed = True
         db_table = 'modele_liste'
-        unique_together = (('type_rugby', 'nombre_joueurs_max','duree_deplacement_max','nombre_match_max'),)
+        unique_together = (('id_equipe', 'nombre_joueurs_max','duree_deplacement_max','nombre_match'),)
 
     def __str__(self):
         return self.nom_modele_liste or f"ModeleListe {self.id_modele_liste}"
@@ -74,7 +73,7 @@ class ListeUtilisateur(models.Model):
     nombre_match = models.SmallIntegerField(blank=True, null=True)
     date_liste = models.DateField(blank=True, null=True)
     destination = models.CharField(max_length=30, blank=True, null=True)
-    en_cours = models.BooleanField(blank=True, null=True)
+    statut = models.CharField(max_length=20, blank=True, null=False)
 
     class Meta:
         managed = True

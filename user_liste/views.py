@@ -8,14 +8,10 @@ from admin_liste.business.components.gestion_liste_utilisateur import GestionLis
 logger = logging.getLogger("django")
 
 #Partie Utilisateur
-@user_passes_test(is_standard_user)
-def index_utilisateur(request):
-    template = loader.get_template('index_utilisateur.html')
-    context = {}
-    return HttpResponse(template.render(context, request))
+
 
 @user_passes_test(is_standard_user)
-def ma_liste(request):
+def display_ma_liste(request):
 
     gestion_liste_utilisateur = GestionListeUtilisateur()
     produits_liste_utilisateur = []
@@ -24,15 +20,19 @@ def ma_liste(request):
     # Vérifier si l'utilisateur est authentifié
     if utilisateur.is_authenticated:
         # Récupérer l'ID de l'utilisateur
-        gestion_liste_utilisateur.utilisateur.id = int(utilisateur.id)
-        print(gestion_liste_utilisateur.utilisateur.id)
-        gestion_liste_utilisateur.liste_utilisateur.id = gestion_liste_utilisateur.get_id_liste_utilisateur_en_cours()
-        produits_liste_utilisateur = gestion_liste_utilisateur.get_1()
-        id_liste_utilisateur = gestion_liste_utilisateur.liste_utilisateur.id
+        gestion_liste_utilisateur.liste_utilisateur.utilisateur.id = int(utilisateur.id)
+        print("l'id user est", gestion_liste_utilisateur.liste_utilisateur.utilisateur.id)
+        ma_liste = gestion_liste_utilisateur.get_id_ma_liste()
+        print(ma_liste)
+        if ma_liste:
 
-        context = {'produits_liste_utilisateur': produits_liste_utilisateur,'id_liste_utilisateur': id_liste_utilisateur}
+            gestion_liste_utilisateur.liste_utilisateur.id = ma_liste['id_liste_utilisateur']
+            produits_liste_utilisateur = gestion_liste_utilisateur.get_1()
+            id_liste_utilisateur = gestion_liste_utilisateur.liste_utilisateur.id
 
-        return render(request, 'ma_liste.html', context)
+            context = {'ma_liste': ma_liste,'produits_liste_utilisateur': produits_liste_utilisateur,'id_liste_utilisateur': id_liste_utilisateur}
+
+            return render(request, 'ma_liste.html', context)
 
     else:
         return redirect('registration:login')

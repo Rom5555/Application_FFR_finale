@@ -184,7 +184,7 @@ LOGGING = {
 }
 
 
-LOGIN_REDIRECT_URL = '/user_liste/index_utilisateur/'
+LOGIN_REDIRECT_URL = '/user_liste/display_ma_liste/'
 
 LOGIN_REDIRECT_URL_FOR_ADMIN = '/admin_base/index/'
 

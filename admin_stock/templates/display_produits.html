@@ -65,7 +65,7 @@
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-      <p class="modal-card-title">{{ selected_stock_nom }}</p>
+      <p class="modal-card-title has-text-link">{{ selected_stock_nom }}</p>
       <button class="delete" aria-label="close"></button>
     </header>
     <section class="modal-card-body">
@@ -73,7 +73,7 @@
         <table class="table is-striped is-fullwidth">
           <thead>
             <tr>
-              <th>Produit</th>
+              <th class="product-name-column">Produit</th>
               <th>Quantité</th>
               <th></th>
             </tr>
@@ -81,9 +81,9 @@
           <tbody>
             {% for produit in produitsStock %}
               <tr>
-                <td>{{ produit.nom_produit }}</td>
-                <td>
-                  <form hx-post="{% url 'admin_stock:update_quantity' id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
+                <td class="product-name-column">{{ produit.nom_produit }}</td>
+                <td {% if produit.quantite_stock < 5 and selected_stock_nom == 'CONSOMMABLE' %}class="has-background-danger-light has-text-danger"{% endif %}>
+                    <form hx-post="{% url 'admin_stock:update_quantity' id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
                     {% csrf_token %}
                     <div class="field is-grouped">
                       <div class="control">
@@ -113,13 +113,13 @@
           </tbody>
         </table>
       </div>
-    <div id="successNotification" class="notification is-small is-link" style="display: none; position: fixed; bottom: 20px; right: 20px;">
-    Quantité mise à jour.
-    </div>
     </section>
     <footer class="modal-card-foot">
     </footer>
   </div>
+     <div id="successNotification" class="notification is-small is-link" style="display: none; position: fixed; bottom: 20px; right: 20px;">
+    Quantité mise à jour.
+    </div>
 </div>
 
 {% endif %}
@@ -134,92 +134,6 @@
     {% endif %}
 </div>
 
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    // Fonction pour faire disparaître les messages
-    function fadeOutMessages() {
-        const messageContainer = document.getElementById('messageContainer');
-        if (messageContainer) {
-            setTimeout(() => {
-                messageContainer.style.transition = 'opacity 0.5s';
-                messageContainer.style.opacity = '0';
-                setTimeout(() => {
-                    messageContainer.remove();
-                }, 500);
-            }, 5000);
-        }
-    }
-
-    // Appeler la fonction pour faire disparaître les messages
-    fadeOutMessages();
-
-    // Get all forms with the 'hx-post' attribute
-    let forms = document.querySelectorAll('[hx-post]');
-
-    // Loop through each form and add submit event listener
-    forms.forEach((form) => {
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-
-            // Prepare the form data
-            let formData = new FormData(form);
-
-            // Send the form data asynchronously
-            let response = await fetch(form.getAttribute('hx-post'), {
-                method: 'POST',
-                body: formData
-            });
-
-            // Parse the response as plain text
-            let responseText = await response.text();
-
-            // Check if the response was successful
-            if (response.ok) {
-                // Show success notification
-                const successNotification = document.getElementById('successNotification');
-                successNotification.style.display = 'block';
-
-                // Hide success notification after 2 seconds
-                setTimeout(() => {
-                    successNotification.style.transition = 'opacity 0.5s';
-                    successNotification.style.opacity = '0';
-                    setTimeout(() => {
-                        successNotification.style.display = 'none';
-                        successNotification.style.opacity = '1';
-                    }, 500);
-                }, 2000);
-            } else {
-                // Display the error message
-                form.querySelector('#message').innerHTML = responseText;
-            }
-        });
-    });
- // Fonction pour fermer les modals
-  function closeModal($el) {
-    $el.classList.remove('is-active');
-  }
-
-  // Fermer le modal avec un clic
-  (document.querySelectorAll('.modal-background, .delete') || []).forEach(($close) => {
-    const $target = $close.closest('.modal');
-
-    $close.addEventListener('click', () => {
-      closeModal($target);
-    });
-  });
-
-  // Fermer avec la touche "Escape"
-  document.addEventListener('keydown', (event) => {
-    if (event.key === "Escape") {
-      (document.querySelectorAll('.modal') || []).forEach(($modal) => {
-        closeModal($modal);
-      });
-    }
-  });
-
-});
-</script>
 
 
 {% endblock content %}

@@ -1,4 +1,4 @@
-
+from .equipe import Equipe
 
 class ModeleListe:
     # ------------------------------
@@ -7,13 +7,13 @@ class ModeleListe:
     def __init__(self):
         self.id = 1
         self.nom_modele_liste = ""
-        self.type_rugby = 15
+        self.equipe = Equipe()
         self.nombre_joueurs_min = 1
         self.nombre_joueurs_max = 1
         self.duree_deplacement_min = 1
         self.duree_deplacement_max = 1
-        self.nombre_match_min = 1
-        self.nombre_match_max = 1
+        self.nombre_match = 1
+
 
     # ------------------------------
     # propriétés
@@ -35,12 +35,12 @@ class ModeleListe:
         self._nom_modele_liste = value
 
     @property
-    def type_rugby(self):
-        return self._type_rugby
+    def equipe(self):
+        return self._equipe
 
-    @type_rugby.setter
-    def type_rugby(self,value):
-        self._type_rugby = value
+    @equipe.setter
+    def equipe(self,value):
+        self._equipe = value
 
 
     @property
@@ -76,19 +76,12 @@ class ModeleListe:
         self._duree_deplacement_max = value
 
     @property
-    def nombre_match_min(self):
-        return self._nombre_match_min
+    def nombre_match(self):
+        return self._nombre_match
 
-    @nombre_match_min.setter
-    def nombre_match_min(self, value):
-        self._nombre_match_min = value
+    @nombre_match.setter
+    def nombre_match(self, value):
+        self._nombre_match = value
 
-    @property
-    def nombre_match_max(self):
-        return self._nombre_match_max
-
-    @nombre_match_max.setter
-    def nombre_match_max(self, value):
-        self._nombre_match_max = value
 
 

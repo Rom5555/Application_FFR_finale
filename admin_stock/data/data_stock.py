@@ -316,7 +316,7 @@ class Data_stock:
     def add_produit_stock(self,nom,id_stock, quantite):
 
 
-        sql = "WITH nouveau_produit AS (INSERT INTO produit(nom_produit) VALUES(%s) ON CONFLICT (nom_produit) DO NOTHING RETURNING id_produit) INSERT INTO association_stock_produit(id_stock,id_produit,quantite) SELECT %s,id_produit,%s FROM nouveau_produit;"
+        sql = "WITH nouveau_produit AS (INSERT INTO produit (id_produit, nom_produit) VALUES ( COALESCE((SELECT MAX(id_produit) FROM produit) + 1, 1),%s) ON CONFLICT (nom_produit) DO NOTHING RETURNING id_produit) INSERT INTO association_stock_produit (id_stock, id_produit, quantite) SELECT %s, id_produit, %s FROM nouveau_produit;"
 
 
 
@@ -411,31 +411,6 @@ class Data_stock:
             if connection is not None:
                 connection.close()
 
-    def valider_liste_retour(self, id_liste_utilisateur):
-
-        sql = "UPDATE liste_utilisateur SET en_cours = False WHERE id_liste_utilisateur = (%s);"
-
-        connection = None
-        try:
-            # obtention de la connexion à la base de données
-            connection = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER,
-                                          password=self._PASSWORD, port=self._PORT)
-            # create a new cursor
-            cursor = connection.cursor()
-
-            cursor.execute(sql, (id_liste_utilisateur,))
-
-            # commit the changes to the database
-            connection.commit()
-            # close communication with the database
-            cursor.close()
-
-        except (Exception, psycopg2.DatabaseError) as error:
-            print("Erreur validation liste retour")
-            print(error)
-        finally:
-            if connection is not None:
-                connection.close()
 
     def get_all_stocks_produits(self):
         sql = "SELECT stock.id_stock, stock.nom_stock, produit.id_produit, produit.nom_produit, association_stock_produit.quantite " \

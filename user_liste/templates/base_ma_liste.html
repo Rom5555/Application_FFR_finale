@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#3273dc">
-    <meta name="color-scheme" content="light">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="format-detection" content="telephone=no">
@@ -12,15 +12,81 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v6.1.1/js/all.js"></script>
     <script src="https://unpkg.com/htmx.org@^1.7.0/dist/htmx.min.js"></script>
+    <style>
+        /* Styles de base */
+        body {
+            background-color: #f5f5f5; /* Fond clair */
+            color: #4a4a4a; /* Texte sombre */
+        }
+
+        .card {
+            background-color: #ffffff; /* Fond des cartes */
+            color: #4a4a4a; /* Texte dans les cartes */
+        }
+
+        .short-input {
+            width: 60px;
+        }
+
+        .product-name-column {
+            max-width: 120px; /* Réduit à 120px, ajustez selon vos besoins */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+
+
+        /* Mode sombre */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #181818; /* Fond sombre */
+        color: #e0e0e0; /* Texte plus clair */
+    }
+
+    .card {
+        background-color: #242424; /* Fond des cartes */
+        color: #e0e0e0; /* Texte clair */
+        border: 1px solid #444444; /* Bordure plus claire */
+    }
+
+    .navbar.has-background-link {
+        background-color: #3c7ed1 !important; /* Couleur de la barre de navigation plus claire */
+    }
+
+    a {
+        color: #d1aaff; /* Couleur des liens plus claire */
+        text-decoration: underline; /* Souligner les liens pour plus de visibilité */
+    }
+
+    input, select, textarea {
+        background-color: #333333; /* Fond des champs de formulaire */
+        color: #e0e0e0; /* Texte clair dans les champs */
+        border: 1px solid #666666; /* Bordure plus claire pour les champs */
+    }
+
+    table, th, td {
+        background-color: #242424; /* Fond des tableaux */
+        color: #e0e0e0; /* Texte clair dans les tableaux */
+        border-color: #444444; /* Bordure plus claire pour les tableaux */
+    }
+
+    thead th {
+        background-color: #3c3c3c; /* Fond plus clair pour les en-têtes de tableau */
+        color: #ffffff; /* Texte blanc pour les en-têtes */
+    }
+}
+
+
+    </style>
 </head>
 <body>
-<section class="hero is-light is-fullheight">
+<section class="hero is-fullheight">
     <!-- Hero head: Barre de navigation -->
     <div class="hero-head">
         <nav class="navbar has-background-link" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-                <!-- Logo et titre Logimed -->
-                <a class="navbar-item" href="{% url 'user_liste:index_utilisateur' %}">
+                <a class="navbar-item" href="#">
                     <span class="icon-text">
                         <span class="icon has-text-light" style="font-size: 1.5rem;">
                             <i class="fas fa-suitcase-medical"></i>
@@ -29,21 +95,16 @@
                     </span>
                 </a>
 
-                <!-- Burger avec dropdown -->
                 <div class="navbar-burger has-text-light" aria-label="menu" aria-expanded="false" data-target="navbarDropdown">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
             </div>
-            <!-- Menu avec le lien Accueil -->
             <div id="navbarDropdown" class="navbar-menu">
                 <div class="navbar-end">
-                    <a class="navbar-item has-text-light" href="{% url 'user_liste:index_utilisateur' %}">Accueil</a>
                     <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link has-text-light">
-                            {{ user.first_name }}
-                        </a>
+                        <a class="navbar-link has-text-light">{{ user.first_name }}</a>
                         <div class="navbar-dropdown is-right">
                             <a class="navbar-item" href="#">About</a>
                             <a class="navbar-item" href="#">Contact</a>
@@ -67,57 +128,107 @@
     </div>
 </section>
 
-<style>
-.short-input {
-    width: 80px; /* Ajustez la largeur selon vos besoins */
-}
-</style>
-<!-- Scripts pour le burger menu -->
 <script>
+// Code JavaScript pour le menu burger et l'incrémentation/décrémentation
 document.addEventListener('DOMContentLoaded', () => {
-  // Get all "navbar-burger" elements
   const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-  // Add a click event on each of them
-  $navbarBurgers.forEach( el => {
+  $navbarBurgers.forEach(el => {
     el.addEventListener('click', () => {
-      // Get the target from the "data-target" attribute
       const target = el.dataset.target;
       const $target = document.getElementById(target);
-
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
       el.classList.toggle('is-active');
       $target.classList.toggle('is-active');
     });
   });
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    // Fonction pour gérer l'incrémentation et la décrémentation
-    function incrementDecrementInputNumber(button, increment) {
-        const input = button.closest('.field').querySelector('input[type="number"]');
-        const currentValue = parseInt(input.value) || 0;
-        const min = parseInt(input.min) || 0;
-        const max = parseInt(input.max) || Infinity;
-        const step = parseInt(input.step) || 1;
-        let newValue = currentValue + (increment ? step : -step);
-        newValue = Math.max(min, Math.min(max, newValue));
-        input.value = newValue;
+
+  function incrementDecrementInputNumber(button, increment) {
+    const input = button.closest('.field').querySelector('input[type="number"]');
+    const currentValue = parseInt(input.value) || 0;
+    const min = parseInt(input.min) || 0;
+    const max = parseInt(input.max) || Infinity;
+    const step = parseInt(input.step) || 1;
+    let newValue = currentValue + (increment ? step : -step);
+    newValue = Math.max(min, Math.min(max, newValue));
+    input.value = newValue;
+  }
+
+  document.querySelectorAll('.increment-button').forEach(button => {
+    button.addEventListener('click', () => incrementDecrementInputNumber(button, true));
+  });
+
+  document.querySelectorAll('.decrement-button').forEach(button => {
+    button.addEventListener('click', () => incrementDecrementInputNumber(button, false));
+  });
+
+  const messagesContainer = document.getElementById('messages-container');
+    if (messagesContainer) {
+        // Faire disparaître les messages après 2 secondes
+        setTimeout(() => {
+            messagesContainer.style.display = 'none';
+        }, 2000);
     }
 
-    // Attacher les événements d'incrémentation et de décrémentation
-    document.querySelectorAll('.increment-button').forEach(button => {
-        button.addEventListener('click', () => {
-            incrementDecrementInputNumber(button, true);
+    let forms = document.querySelectorAll('[hx-post]');
+
+    // Loop through each form and add submit event listener
+    forms.forEach((form) => {
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            // Prepare the form data
+            let formData = new FormData(form);
+
+            // Send the form data asynchronously
+            let response = await fetch(form.getAttribute('hx-post'), {
+                method: 'POST',
+                body: formData
+            });
+
+            // Check if the response was successful
+            if (response.ok) {
+                // Show success notification
+                document.getElementById('successNotification').style.display = 'block';
+
+                // Hide success notification after 3 seconds
+                setTimeout(() => {
+                    document.getElementById('successNotification').style.display = 'none';
+                }, 2000);
+            } else {
+                // Display the error message
+                let errorNotification = document.getElementById('errorNotification');
+                errorNotification.innerHTML = 'Une erreur est survenue.';
+                errorNotification.style.display = 'block';
+
+                // Hide error notification after 3 seconds
+                setTimeout(() => {
+                    errorNotification.style.display = 'none';
+                }, 2000);
+            }
         });
     });
 
-    document.querySelectorAll('.decrement-button').forEach(button => {
-        button.addEventListener('click', () => {
-            incrementDecrementInputNumber(button, false);
-        });
+ // Fonction pour fermer les modals
+  function closeModal($el) {
+    $el.classList.remove('is-active');
+  }
+
+  // Fermer le modal avec un clic
+  (document.querySelectorAll('.modal-background, .delete') || []).forEach(($close) => {
+    const $target = $close.closest('.modal');
+
+    $close.addEventListener('click', () => {
+      closeModal($target);
     });
+  });
+
+  // Fermer avec la touche "Escape"
+  document.addEventListener('keydown', (event) => {
+    if (event.key === "Escape") {
+      (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+        closeModal($modal);
+      });
+    }
+  });
 });
 </script>
 

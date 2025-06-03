@@ -29,6 +29,7 @@ def recherche_modele_liste(request):
     # Recuperer toute les modeles_liste
 
     modeles_liste = gestion_modele_liste.get_all()
+    gestion_equipe = GestionEquipe()
     produits_stock = []
     produits_liste = []
     id_modele_liste = 0
@@ -41,6 +42,8 @@ def recherche_modele_liste(request):
         gestion_modele_liste.modele_liste.id = request.POST.get('id_modele_liste')
         produits_liste = gestion_modele_liste.get_1()
         id_modele_liste = gestion_modele_liste.modele_liste.id
+        gestion_equipe.equipe.id = gestion_modele_liste.modele_liste.equipe
+        nom_equipe=gestion_equipe.get_1()
 
         nom_modele_liste = request.POST.get('nom_modele_liste')
 
@@ -68,8 +71,11 @@ def recherche_modele_liste(request):
 @user_passes_test(is_admin)
 def create_modele_liste(request):
     gestion_modele_liste = GestionModeleListe()
+    gestion_equipe = GestionEquipe()
+    gestion_stock = Gestion_stock()
     produits_stock = []
     produits_liste = []
+    stocks = []
     id_modele_liste = 0
 
     if request.method == 'POST':
@@ -81,7 +87,6 @@ def create_modele_liste(request):
             fields_to_check = [
                 ('nombre_joueurs_min', 'nombre_joueurs_max'),
                 ('duree_deplacement_min', 'duree_deplacement_max'),
-                ('nombre_match_min', 'nombre_match_max')
             ]
 
             has_error = False
@@ -96,13 +101,17 @@ def create_modele_liste(request):
             if not has_error:
                 # Procédez à la création du modèle de liste
                 gestion_modele_liste.modele_liste.nom_modele_liste = cleaned_data['nom_modele_liste']
-                gestion_modele_liste.modele_liste.type_rugby = cleaned_data['type_rugby']
+                gestion_equipe.equipe.type_rugby = modele_liste_form.cleaned_data['type_rugby']
+                gestion_equipe.equipe.genre = modele_liste_form.cleaned_data['genre']
+                gestion_equipe.equipe.categorie_age = modele_liste_form.cleaned_data['categorie_age']
+
+                gestion_modele_liste.modele_liste.equipe.id = gestion_equipe.get_id()
+
                 gestion_modele_liste.modele_liste.nombre_joueurs_min = cleaned_data['nombre_joueurs_min']
                 gestion_modele_liste.modele_liste.nombre_joueurs_max = cleaned_data['nombre_joueurs_max']
                 gestion_modele_liste.modele_liste.duree_deplacement_min = cleaned_data['duree_deplacement_min']
                 gestion_modele_liste.modele_liste.duree_deplacement_max = cleaned_data['duree_deplacement_max']
-                gestion_modele_liste.modele_liste.nombre_match_min = cleaned_data['nombre_match_min']
-                gestion_modele_liste.modele_liste.nombre_match_max = cleaned_data['nombre_match_max']
+                gestion_modele_liste.modele_liste.nombre_match = cleaned_data['nombre_match']
 
                 if gestion_modele_liste.get_id() is None:
                     gestion_modele_liste.create()
@@ -112,6 +121,7 @@ def create_modele_liste(request):
                 produits_liste = gestion_modele_liste.get_1()
                 id_modele_liste = gestion_modele_liste.modele_liste.id
 
+                stocks = gestion_stock.get_all()
                 produits_stock = gestion_modele_liste.get_liste_vierge()
 
                 for produit_stock in produits_stock:
@@ -129,6 +139,7 @@ def create_modele_liste(request):
 
     context = {
         'modele_liste_form': modele_liste_form,
+        'stocks': stocks,
         'produits_stock': produits_stock,
         'produits_liste': produits_liste,
         'id_modele_liste': id_modele_liste,
@@ -181,14 +192,56 @@ def remplir_modele_liste(request, id_modele_liste, id_produit):
             return JsonResponse({"message": "Aucun ID d'association de stock-produit spécifié dans la requête"}, status=400)
     return JsonResponse({"message": "Méthode de requête invalide"}, status=405)
 
+@user_passes_test(is_admin)
+def display_liste_en_preparation(request):
 
+    gestion_stock = Gestion_stock()
+    gestion_modele_liste = GestionModeleListe()
+    gestion_liste_utilisateur = GestionListeUtilisateur()
+    listes_en_preparation = gestion_liste_utilisateur.get_listes_en_preparation()
+    print(listes_en_preparation)
+    stocks = gestion_stock.get_all()
+    produits_stock = []
+    produits_liste = []
+    id_liste_utilisateur = 0
+
+    if request.method == 'POST':
+
+        gestion_liste_utilisateur.liste_utilisateur.id = request.POST.get('id_liste_utilisateur')
+        print(gestion_liste_utilisateur.liste_utilisateur.id)
+        id_liste_utilisateur = gestion_liste_utilisateur.liste_utilisateur.id
+        produits_liste = gestion_liste_utilisateur.get_1()
+        produits_stock = gestion_modele_liste.get_liste_vierge()
+
+        for produit_stock in produits_stock:
+            for produit_liste in produits_liste:
+                if produit_stock['id_produit'] == produit_liste['id_produit']:
+                    produit_stock['quantite_depart'] = produit_liste['quantite_depart']
+                    produit_stock['quantite_retour'] = produit_liste['quantite_retour']
+                    break
+
+    else:
+        messages.error(request, "Probleme avec la liste selectionnée")
+
+
+    context = {
+        'listes_en_preparation': listes_en_preparation,
+        'stocks': stocks,
+        'produits_stock': produits_stock,
+        'produits_liste': produits_liste,
+        'id_liste_utilisateur': id_liste_utilisateur,
+    }
+
+    return render(request, 'preparer_liste.html', context)
 
 @user_passes_test(is_admin)
-def depart(request):
+def create_liste(request):
     # Initialisation de vos classes métier
     gestion_equipe = GestionEquipe()
     gestion_modele_liste = GestionModeleListe()
     gestion_liste_utilisateur = GestionListeUtilisateur()
+    gestion_stock = Gestion_stock()
+    stocks = gestion_stock.get_all()
     produits_stock = []
     produits_liste = []
     id_modele_liste = 0
@@ -203,8 +256,8 @@ def depart(request):
             gestion_equipe.equipe.type_rugby = equipe_utilisateur_form.cleaned_data['type_rugby']
             gestion_equipe.equipe.genre = equipe_utilisateur_form.cleaned_data['genre']
             gestion_equipe.equipe.categorie_age = equipe_utilisateur_form.cleaned_data['categorie_age']
-
             gestion_liste_utilisateur.liste_utilisateur.equipe.id = gestion_equipe.get_id()
+
             gestion_liste_utilisateur.liste_utilisateur.nombre_joueurs = equipe_utilisateur_form.cleaned_data['nombre_joueurs']
             gestion_liste_utilisateur.liste_utilisateur.duree_deplacement = equipe_utilisateur_form.cleaned_data['duree_deplacement']
             gestion_liste_utilisateur.liste_utilisateur.nombre_match = equipe_utilisateur_form.cleaned_data['nombre_match']
@@ -212,29 +265,29 @@ def depart(request):
             gestion_liste_utilisateur.liste_utilisateur.date = equipe_utilisateur_form.cleaned_data['date_depart']
             gestion_liste_utilisateur.liste_utilisateur.destination = equipe_utilisateur_form.cleaned_data['destination']
 
-            type_rugby = int(gestion_equipe.equipe.type_rugby)
+            id_equipe = gestion_liste_utilisateur.liste_utilisateur.equipe.id
             nombre_joueurs = gestion_liste_utilisateur.liste_utilisateur.nombre_joueurs
             duree_deplacement = gestion_liste_utilisateur.liste_utilisateur.duree_deplacement
             nombre_match = gestion_liste_utilisateur.liste_utilisateur.nombre_match
 
             if gestion_liste_utilisateur.test_liste_en_cours():
                 messages.error(request, "Une liste est déjà en cours pour cet utilisateur")
-                return redirect('admin_liste:depart')
+                return redirect('admin_liste:create_liste')
 
             modeles_liste = gestion_modele_liste.get_all()
             modele_trouve = False
             for modele in modeles_liste:
-                if (modele['type_rugby'] == type_rugby and
+                if (modele['id_equipe'] == id_equipe and
                     modele['nombre_joueurs_min'] <= nombre_joueurs <= modele['nombre_joueurs_max'] and
                     modele['duree_deplacement_min'] <= duree_deplacement <= modele['duree_deplacement_max'] and
-                    modele['nombre_match_min'] <= nombre_match <= modele['nombre_match_max']):
+                    modele['nombre_match'] == nombre_match):
                     id_modele_liste = modele['id_modele_liste']
                     modele_trouve = True
                     break
 
             if not modele_trouve:
                 messages.error(request, "Aucun modèle de liste ne correspond aux critères.")
-                return redirect('admin_liste:depart')
+                return redirect('admin_liste:create_liste')
 
             gestion_liste_utilisateur.liste_utilisateur.modele_liste.id = id_modele_liste
             gestion_liste_utilisateur.create()
@@ -262,12 +315,13 @@ def depart(request):
     context = {
         'equipes': equipes,
         'equipe_utilisateur_form': equipe_utilisateur_form,
+        'stocks': stocks,
         'produits_stock': produits_stock,
         'produits_liste': produits_liste,
         'id_liste_utilisateur': id_liste_utilisateur,
     }
 
-    return render(request, 'depart.html', context)
+    return render(request, 'create_liste.html', context)
 
 @user_passes_test(is_admin)
 def remplir_liste_utilisateur(request, id_liste_utilisateur, id_produit):
@@ -286,6 +340,7 @@ def remplir_liste_utilisateur(request, id_liste_utilisateur, id_produit):
                 gestion_stock.produit.id = id_produit
                 produit = gestion_stock.get_stock_1_produit()
                 print(produit)
+
 
                 if int(produit['quantite_stock']) >= int(quantite_depart):
                     try:
@@ -321,30 +376,31 @@ def remplir_liste_utilisateur(request, id_liste_utilisateur, id_produit):
     return JsonResponse({"message":'Méthode de requête invalide'}, status=405)
 
 @user_passes_test(is_admin)
-def create_liste_utilisateur(request, id_liste_utilisateur):
-
+def envoyer_liste(request, id_liste_utilisateur):
     gestion_stock = Gestion_stock()
     gestion_liste_utilisateur = GestionListeUtilisateur()
 
     if request.method == 'POST':
-        # Création d'une instance du formulaire avec les données soumises par l'utilisateur
-
         gestion_liste_utilisateur.liste_utilisateur.id = id_liste_utilisateur
-        gestion_liste_utilisateur.get_1()
-
         produits_liste_utilisateur = gestion_liste_utilisateur.get_1()
-        print(produits_liste_utilisateur)
 
         for produit in produits_liste_utilisateur:
+            gestion_stock.produit.id = produit['id_produit']
+            produit_stock = gestion_stock.get_stock_1_produit()
+
+            if int(produit_stock['quantite_stock']) < int(produit['quantite_depart']):
+                return JsonResponse({
+                    "message": f"La quantité demandée pour le produit {produit['id_produit']} dépasse le stock disponible."}, status=400)
+
+        # Si toutes les quantités sont valides, on met à jour le stock
+
             gestion_stock.retirer_quantite_stock(produit['quantite_depart'], produit['id_produit'])
 
-                    # Construire le message de réponse
+        gestion_liste_utilisateur.envoyer_liste()
+        return JsonResponse({"message": "Le stock a été mis à jour avec succès."}, status=200)
 
+    return redirect('preparer_liste')
 
-        return JsonResponse({"message":'Le stock a ete mis à jour avec succes.'}, status=200)
-
-        # Si la méthode n'est pas POST, renvoyer une redirection vers l'index
-    return redirect('depart')
 
 
 @user_passes_test(is_admin)
@@ -354,29 +410,23 @@ def liste_utilisateur_creee(request):
 
 
 @user_passes_test(is_admin)
-def retour(request):
+def display_listes_envoyees(request):
+
     gestion_liste_utilisateur = GestionListeUtilisateur()
+    listes_envoyees = gestion_liste_utilisateur.get_listes_envoyees()
+    print(listes_envoyees)
     produits_liste_utilisateur = []
     id_liste_utilisateur = 0
 
     if request.method == 'POST':
-        # Création d'une instance du formulaire avec les données soumises par l'utilisateur
-        liste_utilisateur_form = ListeUtilisateurForm(request.POST)
 
-        # Vérification si le formulaire est valide
-        if liste_utilisateur_form.is_valid():
-            # Récupération des données du formulaire
-            id_utilisateur = liste_utilisateur_form.cleaned_data['utilisateur']
-            gestion_liste_utilisateur.utilisateur.id = int(id_utilisateur)
-            gestion_liste_utilisateur.liste_utilisateur.id = gestion_liste_utilisateur.get_id_liste_utilisateur_en_cours()
-            produits_liste_utilisateur = gestion_liste_utilisateur.get_1()
-            id_liste_utilisateur = gestion_liste_utilisateur.liste_utilisateur.id
-    else:
-        liste_utilisateur_form = ListeUtilisateurForm()
+        gestion_liste_utilisateur.liste_utilisateur.id = request.POST.get('id_liste_utilisateur')
+        id_liste_utilisateur = gestion_liste_utilisateur.liste_utilisateur.id
+        produits_liste_utilisateur = gestion_liste_utilisateur.get_1()
 
-    context = {'liste_utilisateur_form': liste_utilisateur_form, 'produits_liste_utilisateur': produits_liste_utilisateur, 'id_liste_utilisateur': id_liste_utilisateur}
+    context = {'listes_envoyees': listes_envoyees, 'produits_liste_utilisateur': produits_liste_utilisateur, 'id_liste_utilisateur': id_liste_utilisateur}
 
-    return render(request, 'retour.html', context)
+    return render(request, 'retour_liste.html', context)
 
 
 @user_passes_test(is_admin)
@@ -460,9 +510,9 @@ def recherche_archive(request):
             gestion_modele_liste.modele_liste.duree_deplacement_min = duree_deplacement_min
             gestion_modele_liste.modele_liste.duree_deplacement_max = duree_deplacement_max
 
-            nombre_match_min, nombre_match_max = map(int, cleaned_data['nombre_match'].split('-'))
-            gestion_modele_liste.modele_liste.nombre_match_min = nombre_match_min
-            gestion_modele_liste.modele_liste.nombre_match_max = nombre_match_max
+            nombre_match = int(cleaned_data['nombre_match'])
+            gestion_modele_liste.modele_liste.nombre_match = nombre_match
+
 
             gestion_modele_liste.modele_liste.id = gestion_modele_liste.get_id_multiples_parametres()
 

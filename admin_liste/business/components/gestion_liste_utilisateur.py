@@ -31,12 +31,12 @@ class GestionListeUtilisateur(Ifonction_get,Ifonction_create,Ifonction_update):
 
         self._data_liste_utilisateur.create_association_liste_utilisateur_produit(self.liste_utilisateur.id, self.liste_utilisateur.modele_liste.id)
 
-    def get_id_liste_utilisateur_en_cours(self):
+    def get_id_ma_liste(self):
 
-        row = self._data_liste_utilisateur.get_id_liste_utilisateur_en_cours(self.liste_utilisateur.utilisateur.id)
-        if row:
-            print(row)
-            return row[0]
+        ma_liste = self._data_liste_utilisateur.get_id_ma_liste(self.liste_utilisateur.utilisateur.id)
+        if ma_liste:
+            print(ma_liste)
+            return ma_liste
         else:
             return None
 
@@ -95,6 +95,9 @@ class GestionListeUtilisateur(Ifonction_get,Ifonction_create,Ifonction_update):
     def valider_liste_retour(self):
         return self._data_liste_utilisateur.valider_liste_retour(self.liste_utilisateur.id)
 
+    def envoyer_liste(self):
+        return self._data_liste_utilisateur.envoyer_liste(self.liste_utilisateur.id)
+
     def get_listes_archivees(self):
 
         listes_archivees = self._data_liste_utilisateur.get_listes_archivees(self.liste_utilisateur.modele_liste.id)
@@ -112,3 +115,15 @@ class GestionListeUtilisateur(Ifonction_get,Ifonction_create,Ifonction_update):
     def test_association_produit_liste(self):
 
         return self._data_liste_utilisateur.test_association_produit_liste(self.liste_utilisateur.id, self.produit.id)
+
+    def get_listes_en_preparation(self):
+
+        listes_en_preparation = self._data_liste_utilisateur.get_listes_en_preparation()
+
+        return listes_en_preparation
+
+    def get_listes_envoyees(self):
+
+        listes_envoyees = self._data_liste_utilisateur.get_listes_envoyees()
+
+        return listes_envoyees

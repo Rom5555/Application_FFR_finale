@@ -19,7 +19,7 @@ class Liste_utilisateur:
         self.nombre_match = 1
         self.destination = ""
         self.date = date(2024,1,22)
-        self.en_cours = True
+        self.statut = None
 
     # ------------------------------
     # propriétés
@@ -105,11 +105,11 @@ class Liste_utilisateur:
 
 
     @property
-    def en_cours(self):
-        return self._en_cours
+    def statut(self):
+        return self._statut
 
-    @en_cours.setter
-    def en_cours(self, value):
-        self._en_cours = value
+    @statut.setter
+    def statut(self, value):
+        self._statut = value
 
    

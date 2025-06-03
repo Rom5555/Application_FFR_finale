@@ -7,23 +7,35 @@ from crispy_forms.layout import Layout, Field, Div
 
 
 class ModeleListeForm(forms.Form):
-    TYPE_RUGBY_CHOICES = [('7', 'Rugby à 7'), ('15', 'Rugby à 15')]
 
     nom_modele_liste = forms.CharField(max_length=20, required=True, label="Nom du modèle de liste")
-    type_rugby = forms.ChoiceField(choices=TYPE_RUGBY_CHOICES, required=True, label="Type de rugby")
+    type_rugby = forms.ChoiceField(choices=[], label="Type de rugby")
+    genre = forms.ChoiceField(choices=[], label="Genre")
+    categorie_age = forms.ChoiceField(choices=[], label="Catégorie d'âge")
     nombre_joueurs_min = forms.IntegerField(required=True, label="joueurs min")
     nombre_joueurs_max = forms.IntegerField(required=True, label="joueurs max")
     duree_deplacement_min = forms.IntegerField(required=True, label="duree min")
     duree_deplacement_max = forms.IntegerField(required=True, label="duree max")
-    nombre_match_min = forms.IntegerField(required=True, label="matchs min")
-    nombre_match_max = forms.IntegerField(required=True, label="matchs max")
+    nombre_match = forms.IntegerField(required=True, label="matchs")
+
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+        # Initialisation des choix pour EquipeForm
+        self.fields['type_rugby'].choices = self.get_type_rugby_choices()
+        self.fields['genre'].choices = self.get_genre_choices()
+        self.fields['categorie_age'].choices = self.get_categorie_age_choices()
+
         self.helper = FormHelper()
         self.helper.layout = Layout(
             Field('nom_modele_liste'),
-            Field('type_rugby'),
+            Div(
+                Div(Field('type_rugby', css_class='input'), css_class='column is-third'),
+                Div(Field('genre', css_class='input'), css_class='column is-third'),
+                Div(Field('categorie_age', css_class='input'), css_class='column is-third'),
+                css_class='columns'
+            ),
             Div(
                 Div(Field('nombre_joueurs_min'), css_class='column is-half'),
                 Div(Field('nombre_joueurs_max'), css_class='column is-half'),
@@ -35,12 +47,27 @@ class ModeleListeForm(forms.Form):
                 css_class='columns'
             ),
             Div(
-                Div(Field('nombre_match_min'), css_class='column is-half'),
-                Div(Field('nombre_match_max'), css_class='column is-half'),
+                Div(Field('nombre_match'), css_class='column is-half'),
                 css_class='columns'
             ),
         )
+    def get_type_rugby_choices(self):
+        gestion_equipe = GestionEquipe()
+        equipes = gestion_equipe.get_all()
+        unique_values = set(equipe['type_rugby'] for equipe in equipes)
+        return [(value, value) for value in unique_values]
 
+    def get_genre_choices(self):
+        gestion_equipe = GestionEquipe()
+        equipes = gestion_equipe.get_all()
+        unique_values = set(equipe['genre'] for equipe in equipes)
+        return [(value, value) for value in unique_values]
+
+    def get_categorie_age_choices(self):
+        gestion_equipe = GestionEquipe()
+        equipes = gestion_equipe.get_all()
+        unique_values = set(equipe['categorie_age'] for equipe in equipes)
+        return [(value, value) for value in unique_values]
 
 
 class EquipeUtilisateurForm(forms.Form):
@@ -216,15 +243,31 @@ class ArchiveForm(forms.Form):
     def get_nombre_match_choices(self):
         gestion_modele_liste = GestionModeleListe()
         modeles_liste = gestion_modele_liste.get_all()
-        unique_values = set((modele['nombre_match_min'], modele['nombre_match_max']) for modele in modeles_liste)
-        return [(f"{min}-{max}", f"{min} - {max} matchs") for min, max in unique_values]
+        unique_values = set(modele['nombre_match'] for modele in modeles_liste)  # Correction ici
+        return [(value, f"{value} matchs") for value in sorted(unique_values)]
 
     def clean(self):
         cleaned_data = super().clean()
-        for field in ['nombre_joueurs', 'duree_deplacement', 'nombre_match']:
+
+        # Vérification des plages min/max
+        for field in ['nombre_joueurs', 'duree_deplacement']:
             value = cleaned_data.get(field)
             if value:
-                min_val, max_val = map(int, value.split('-'))
-                if min_val >= max_val:
-                    raise forms.ValidationError(f"La valeur minimale doit être inférieure à la valeur maximale pour {field}.")
+                try:
+                    min_val, max_val = map(int, value.split('-'))
+                    if min_val >= max_val:
+                        self.add_error(field, "La valeur minimale doit être inférieure à la valeur maximale.")
+                except ValueError:
+                    self.add_error(field, "Format invalide, attendez-vous à 'min-max'.")
+
+        # Vérification de nombre_match
+        nombre_match = cleaned_data.get('nombre_match')
+        if nombre_match:
+            try:
+                nombre_match = int(nombre_match)
+                if nombre_match <= 0:
+                    self.add_error('nombre_match', "Le nombre de matchs doit être supérieur à 0.")
+            except ValueError:
+                self.add_error('nombre_match', "Valeur invalide pour le nombre de matchs.")
+
         return cleaned_data

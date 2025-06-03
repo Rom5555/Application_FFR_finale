@@ -25,8 +25,17 @@
         }
 
         .short-input {
-            width: 80px;
+            width: 60px;
         }
+
+        .product-name-column {
+            max-width: 120px; /* Réduit à 120px, ajustez selon vos besoins */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+
 
         /* Mode sombre */
         @media (prefers-color-scheme: dark) {
@@ -154,6 +163,97 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.decrement-button').forEach(button => {
     button.addEventListener('click', () => incrementDecrementInputNumber(button, false));
   });
+
+  const messagesContainer = document.getElementById('messages-container');
+    if (messagesContainer) {
+        // Faire disparaître les messages après 2 secondes
+        setTimeout(() => {
+            messagesContainer.style.display = 'none';
+        }, 2000);
+    }
+
+    let forms = document.querySelectorAll('[hx-post]');
+
+    // Loop through each form and add submit event listener
+    forms.forEach((form) => {
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            // Prepare the form data
+            let formData = new FormData(form);
+
+            // Send the form data asynchronously
+            let response = await fetch(form.getAttribute('hx-post'), {
+                method: 'POST',
+                body: formData
+            });
+
+            // Check if the response was successful
+            if (response.ok) {
+                // Show success notification
+                document.getElementById('successNotification').style.display = 'block';
+
+                // Hide success notification after 3 seconds
+                setTimeout(() => {
+                    document.getElementById('successNotification').style.display = 'none';
+                }, 2000);
+            } else {
+                // Display the error message
+                let errorNotification = document.getElementById('errorNotification');
+                errorNotification.innerHTML = 'Une erreur est survenue.';
+                errorNotification.style.display = 'block';
+
+                // Hide error notification after 3 seconds
+                setTimeout(() => {
+                    errorNotification.style.display = 'none';
+                }, 2000);
+            }
+        });
+    });
+
+ // Fonction pour fermer les modals
+  function closeModal($el) {
+    $el.classList.remove('is-active');
+  }
+
+  // Fermer le modal avec un clic
+  (document.querySelectorAll('.modal-background, .delete') || []).forEach(($close) => {
+    const $target = $close.closest('.modal');
+
+    $close.addEventListener('click', () => {
+      closeModal($target);
+    });
+  });
+
+  // Fermer avec la touche "Escape"
+  document.addEventListener('keydown', (event) => {
+    if (event.key === "Escape") {
+      (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+        closeModal($modal);
+      });
+    }
+  });
+    const submitForm = document.getElementById('submitStockUpdate');
+    submitForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        let formData = new FormData(submitForm);
+        let response = await fetch(submitForm.getAttribute('action'), {
+            method: 'POST',
+            body: formData
+        });
+
+        let data = await response.json();
+        alert(data.message);
+        if (response.ok) {
+            window.location.href = '{% url "admin_liste:depart_retour" %}';
+        }
+    });
+
+    {% if message %}
+    alert("{{ message }}");
+    {% endif %}
+
 });
 </script>
 

@@ -3,7 +3,7 @@ stages:
   - deploy
 
 variables:
-  REGISTRY_PROJECT_PATH: registry.gitlab.com/rom5555/application_ffr_finale_v2:latest
+  REGISTRY_PROJECT_PATH: registry.gitlab.com/rom5555/application_ffr_finale_v3:latest
 
 build-image:
   image: docker:20.10

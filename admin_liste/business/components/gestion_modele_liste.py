@@ -28,7 +28,7 @@ class GestionModeleListe(Ifonction_get,Ifonction_create,Ifonction_update):
 
     def create(self):
 
-        self._data_modele_liste.create_modele_liste(self.modele_liste.nom_modele_liste, self.modele_liste.type_rugby, self.modele_liste.nombre_joueurs_min, self.modele_liste.nombre_joueurs_max,self.modele_liste.duree_deplacement_min, self.modele_liste.duree_deplacement_max,self.modele_liste.nombre_match_min, self.modele_liste.nombre_match_max)
+        self._data_modele_liste.create_modele_liste(self.modele_liste.nom_modele_liste, self.modele_liste.equipe.id, self.modele_liste.nombre_joueurs_min, self.modele_liste.nombre_joueurs_max,self.modele_liste.duree_deplacement_min, self.modele_liste.duree_deplacement_max,self.modele_liste.nombre_match)
 
     def create_association_modele_liste_produit(self):
 
@@ -55,7 +55,7 @@ class GestionModeleListe(Ifonction_get,Ifonction_create,Ifonction_update):
             return None
 
     def get_id_multiples_parametres(self):
-        row = self._data_modele_liste.get_id_multiples_parametres(self.modele_liste.type_rugby, self.modele_liste.nombre_joueurs_min,self.modele_liste.nombre_joueurs_max, self.modele_liste.duree_deplacement_min, self.modele_liste.duree_deplacement_max, self.modele_liste.nombre_match_min, self.modele_liste.nombre_match_max)
+        row = self._data_modele_liste.get_id_multiples_parametres(self.modele_liste.equipe.id, self.modele_liste.nombre_joueurs_min,self.modele_liste.nombre_joueurs_max, self.modele_liste.duree_deplacement_min, self.modele_liste.duree_deplacement_max, self.modele_liste.nombre_match)
         if row:
             print(row)
             return row[0]
@@ -92,22 +92,8 @@ class GestionModeleListe(Ifonction_get,Ifonction_create,Ifonction_update):
 
     def get_all(self):
 
-        rows = self._data_modele_liste.get_all_modele_liste()
-        modeles_listes = []
-        for row in rows:
-            modele_liste = {
-
-                "id_modele_liste": row[0],
-                "nom_modele_liste": row[1],
-                "type_rugby": row[2],
-                "nombre_joueurs_min": row[3],
-                "nombre_joueurs_max": row[4],
-                "duree_deplacement_min": row[5],
-                "duree_deplacement_max": row[6],
-                "nombre_match_min": row[7],
-                "nombre_match_max": row[8],
-            }
-            modeles_listes.append(modele_liste)
+        modeles_listes = self._data_modele_liste.get_all_modele_liste()
+        
         return modeles_listes
 
     def build_modele_liste(self):

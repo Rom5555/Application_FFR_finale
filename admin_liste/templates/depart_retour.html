@@ -2,10 +2,15 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div class="container my-6">
-    <div class="columns is-centered">
+<style>
+    .title-card-margin {
+        margin-bottom: 3rem !important;
+    }
+</style>
+
+<div class="columns is-centered">
         <div class="column is-full"> <!-- Prend toute la largeur -->
-            <div class="card mb-4" style="box-shadow: 0 4px 8px rgba(50, 115, 220, 0.2);">
+            <div class="card title-card-margin" style="box-shadow: 0 4px 8px rgba(50, 115, 220, 0.2);">
                 <div class="card-content has-text-centered">
                     <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
                         <span class="icon has-text-info">
@@ -36,7 +41,7 @@
                                 <i class="fas fa-plane-departure"></i>
                             </span>
                             <h2 class="subtitle is-4 mt-2 has-text-link">Depart</h2>
-                            <a href="{% url 'admin_liste:depart' %}" class="button is-warning is-light">Acceder</a>
+                            <a href="{% url 'admin_liste:display_liste_en_preparation' %}" class="button is-warning is-light">Acceder</a>
                         </div>
                     </div>
                 </div>
@@ -48,7 +53,7 @@
                                 <i class="fas fa-plane-arrival"></i>
                             </span>
                             <h2 class="subtitle is-4 mt-2 has-text-link">Retour</h2>
-                            <a href="{% url 'admin_liste:retour' %}" class="button is-success is-light">Acceder</a>
+                            <a href="{% url 'admin_liste:display_listes_envoyees' %}" class="button is-success is-light">Acceder</a>
                         </div>
                     </div>
                 </div>
@@ -67,6 +72,6 @@
             </div> <!-- Fin des colonnes pour les cartes -->
         </div> <!-- Fin de la colonne principale -->
     </div> <!-- Fin des colonnes -->
-</div>
+
 
 {% endblock content %}

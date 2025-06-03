@@ -40,7 +40,7 @@ class Data_liste_utilisateur:
 
     def create_liste_utilisateur(self,id_utilisateur,id_modele_liste,id_equipe, nombre_joueurs, duree_deplacement, nombre_match, date_liste,destination):
 
-        sql = "INSERT INTO public.liste_utilisateur(id_utilisateur,id_modele_liste,id_equipe, nombre_joueurs, duree_deplacement, nombre_match, date_liste, destination,en_cours) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,TRUE) ON CONFLICT (id_utilisateur,id_modele_liste,date_liste) DO NOTHING;"
+        sql = "INSERT INTO public.liste_utilisateur(id_utilisateur,id_modele_liste,id_equipe, nombre_joueurs, duree_deplacement, nombre_match, date_liste, destination, statut) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s) ON CONFLICT (id_utilisateur,id_modele_liste,date_liste) DO NOTHING;"
 
         connection = None
         try:
@@ -48,7 +48,7 @@ class Data_liste_utilisateur:
             connection = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER, password=self._PASSWORD, port=self._PORT)
             # create a new cursor
             cursor = connection.cursor()
-            val=(id_utilisateur,id_modele_liste,id_equipe, nombre_joueurs, duree_deplacement, nombre_match, date_liste,destination)
+            val=(id_utilisateur,id_modele_liste,id_equipe, nombre_joueurs, duree_deplacement, nombre_match, date_liste,destination,"en_preparation")
             cursor.execute(sql,val)
             rows_affected=cursor.rowcount
 
@@ -191,6 +191,8 @@ class Data_liste_utilisateur:
             if connection is not None:
                 connection.close()
 
+
+
     def get_liste_utilisateur(self,id_liste_utilisateur):
 
         sql = "SELECT association_liste_utilisateur_produit.id_liste_utilisateur,stock.id_stock,stock.nom_stock,produit.id_produit,produit.nom_produit,association_liste_utilisateur_produit.quantite_depart,association_liste_utilisateur_produit.quantite_retour FROM association_liste_utilisateur_produit JOIN produit ON association_liste_utilisateur_produit.id_produit = produit.id_produit JOIN association_stock_produit ON association_stock_produit.id_produit=produit.id_produit JOIN stock ON stock.id_stock=association_stock_produit.id_stock WHERE association_liste_utilisateur_produit.id_liste_utilisateur = %s;"
@@ -285,7 +287,7 @@ class Data_liste_utilisateur:
 
     def update_retour(self,quantite_retour,id_liste_utilisateur,id_produit):
 
-        sql = "UPDATE association_liste_utilisateur_produit SET quantite_retour=%s WHERE association_liste_utilisateur_produit.id_liste_utilisateur = %s AND id_produit = %s;"
+        sql = "UPDATE association_liste_utilisateur_produit SET quantite_retour=%s WHERE id_liste_utilisateur = %s AND id_produit = %s;"
 
         connection = None
         try:
@@ -311,37 +313,42 @@ class Data_liste_utilisateur:
             if connection is not None:
                 connection.close()
 
-    def get_id_liste_utilisateur_en_cours(self,id_utilisateur):
 
-        sql = "SELECT * FROM liste_utilisateur WHERE (id_utilisateur,en_cours) = (%s,True);"
+    def get_id_ma_liste(self, id_utilisateur):
+        sql = "SELECT * FROM liste_utilisateur WHERE (id_utilisateur, statut) = (%s, %s);"
 
         connection = None
         try:
-            # obtention de la connexion à la base de données
-            connection = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER, password=self._PASSWORD, port=self._PORT)
-            # create a new cursor
-            cursor = connection.cursor()
+            connection = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER,
+                                          password=self._PASSWORD, port=self._PORT)
+            cursor = connection.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
-            cursor.execute(sql,(id_utilisateur,))
+            cursor.execute(sql, (id_utilisateur, "envoyee"))
             row = cursor.fetchone()
-            print(row)
-            return row
-            # commit the changes to the database
-            connection.commit()
-            # close communication with the database
-            cursor.close()
+
+            if row:
+                # Convertir le résultat en dictionnaire
+                result = dict(row)
+                print(result)
+                return result
+            else:
+                return None
 
         except (Exception, psycopg2.DatabaseError) as error:
-            print("Erreur get_liste_utilisateur_en_cours")
+            print("Erreur get_id_ma_liste")
             print(sql)
             print(error)
+            return None
         finally:
-            if connection is not None:
+            if cursor:
+                cursor.close()
+            if connection:
                 connection.close()
 
-    def valider_liste_retour(self, id_liste_utilisateur):
 
-        sql = "UPDATE liste_utilisateur SET en_cours = False WHERE id_liste_utilisateur = (%s);"
+    def envoyer_liste(self, id_liste_utilisateur):
+
+        sql = "UPDATE liste_utilisateur SET statut = %s WHERE id_liste_utilisateur = (%s);"
 
         connection = None
         try:
@@ -351,7 +358,34 @@ class Data_liste_utilisateur:
             # create a new cursor
             cursor = connection.cursor()
 
-            cursor.execute(sql, (id_liste_utilisateur,))
+            cursor.execute(sql, ("envoyee", id_liste_utilisateur,))
+
+            # commit the changes to the database
+            connection.commit()
+            # close communication with the database
+            cursor.close()
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            print("Erreur validation liste retour")
+            print(error)
+        finally:
+            if connection is not None:
+                connection.close()
+
+
+    def valider_liste_retour(self, id_liste_utilisateur):
+
+        sql = "UPDATE liste_utilisateur SET statut = %s WHERE id_liste_utilisateur = (%s);"
+
+        connection = None
+        try:
+            # obtention de la connexion à la base de données
+            connection = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER,
+                                          password=self._PASSWORD, port=self._PORT)
+            # create a new cursor
+            cursor = connection.cursor()
+
+            cursor.execute(sql, ("retournee", id_liste_utilisateur,))
 
             # commit the changes to the database
             connection.commit()
@@ -367,7 +401,7 @@ class Data_liste_utilisateur:
 
     def test_liste_en_cours(self,id_utilisateur):
 
-        sql = "SELECT id_liste_utilisateur FROM liste_utilisateur WHERE id_utilisateur = %s AND en_cours = True;"
+        sql = "SELECT id_liste_utilisateur FROM liste_utilisateur WHERE id_utilisateur = %s AND (statut = %s OR statut = %s);"
 
         connection = None
         try:
@@ -375,7 +409,7 @@ class Data_liste_utilisateur:
             connection = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER, password=self._PASSWORD, port=self._PORT)
             # create a new cursor
             cursor = connection.cursor()
-            val=(id_utilisateur,)
+            val=(id_utilisateur, "en_preparation", "envoyee")
             cursor.execute(sql, val)
 
             row=cursor.fetchone()
@@ -403,7 +437,7 @@ class Data_liste_utilisateur:
     from psycopg2 import extras
 
     def get_listes_archivees(self, id_modele_liste):
-        sql = "SELECT id_liste_utilisateur, id_utilisateur, id_equipe, id_modele_liste, nombre_joueurs, duree_deplacement, nombre_match, date_liste, destination, en_cours FROM liste_utilisateur WHERE id_modele_liste = %s;"
+        sql = "SELECT id_liste_utilisateur, id_utilisateur, id_equipe, id_modele_liste, nombre_joueurs, duree_deplacement, nombre_match, date_liste, destination, statut FROM liste_utilisateur WHERE id_modele_liste = %s AND statut = %s;"
 
         connection = None
         try:
@@ -414,7 +448,7 @@ class Data_liste_utilisateur:
             # create a new cursor that returns dictionaries
             cursor = connection.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
-            cursor.execute(sql, (id_modele_liste,))
+            cursor.execute(sql, (id_modele_liste, "retournee",))
             rows = cursor.fetchall()
 
             # Convert each row to a regular dictionary
@@ -438,7 +472,7 @@ class Data_liste_utilisateur:
     from psycopg2 import extras
 
     def get_date_destination(self, id_liste_utilisateur):
-        sql = "SELECT id_liste_utilisateur, id_utilisateur, id_equipe, id_modele_liste,nombre_joueurs, duree_deplacement, nombre_match, date_liste, destination, en_cours FROM liste_utilisateur WHERE id_liste_utilisateur = %s;"
+        sql = "SELECT id_liste_utilisateur, id_utilisateur, id_equipe, id_modele_liste,nombre_joueurs, duree_deplacement, nombre_match, date_liste, destination, statut FROM liste_utilisateur WHERE id_liste_utilisateur = %s;"
 
         connection = None
         cursor = None
@@ -506,4 +540,68 @@ class Data_liste_utilisateur:
             print(error)
         finally:
             if connection is not None:
+                connection.close()
+
+    def get_listes_en_preparation(self):
+        sql = "SELECT id_liste_utilisateur, id_utilisateur, id_equipe, id_modele_liste, nombre_joueurs, duree_deplacement, nombre_match, date_liste, destination FROM liste_utilisateur WHERE statut = %s;"
+
+        connection = None
+        try:
+            # obtention de la connexion à la base de données
+            connection = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER,
+                                          password=self._PASSWORD, port=self._PORT)
+
+            # create a new cursor that returns dictionaries
+            cursor = connection.cursor(cursor_factory=psycopg2.extras.DictCursor)
+
+            cursor.execute(sql, ("en_preparation",))
+            rows = cursor.fetchall()
+
+            # Convert each row to a regular dictionary
+            result = [dict(row) for row in rows]
+
+            print(result)
+            return result
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            print("Erreur get_listes_archivees")
+            print(sql)
+            print(error)
+            return []  # Return an empty list in case of error
+        finally:
+            if cursor:
+                cursor.close()
+            if connection:
+                connection.close()
+
+    def get_listes_envoyees(self):
+        sql = "SELECT id_liste_utilisateur, id_utilisateur, id_equipe, id_modele_liste, nombre_joueurs, duree_deplacement, nombre_match, date_liste, destination FROM liste_utilisateur WHERE statut = %s;"
+
+        connection = None
+        try:
+            # obtention de la connexion à la base de données
+            connection = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER,
+                                          password=self._PASSWORD, port=self._PORT)
+
+            # create a new cursor that returns dictionaries
+            cursor = connection.cursor(cursor_factory=psycopg2.extras.DictCursor)
+
+            cursor.execute(sql, ("envoyee",))
+            rows = cursor.fetchall()
+
+            # Convert each row to a regular dictionary
+            result = [dict(row) for row in rows]
+
+            print(result)
+            return result
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            print("Erreur get_listes_envoyees")
+            print(sql)
+            print(error)
+            return []  # Return an empty list in case of error
+        finally:
+            if cursor:
+                cursor.close()
+            if connection:
                 connection.close()

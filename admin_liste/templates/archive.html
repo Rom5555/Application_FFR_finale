@@ -38,8 +38,8 @@
                     <tr>
                         <th>Date</th>
                         <th>Destination</th>
-                        <th>En cours</th>
-                        <th>Action</th>
+                        <th>Statut</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,7 +47,7 @@
                     <tr>
                         <td>{{ liste_utilisateur.date_liste }}</td>
                         <td>{{ liste_utilisateur.destination }}</td>
-                        <td>{{ liste_utilisateur.en_cours }}</td>
+                        <td>{{ liste_utilisateur.statut }}</td>
                         <td>
                             <!-- Formulaire pour afficher les produits dans le modal -->
                             <form id="form-liste-{{ liste_utilisateur.id_liste_utilisateur }}" action="{% url 'admin_liste:display_archive' %}" method="post">

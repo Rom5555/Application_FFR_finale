@@ -1,4 +1,5 @@
 import psycopg2
+from psycopg2 import extras
 import os
 
 class DataModeleListe:
@@ -37,9 +38,9 @@ class DataModeleListe:
                 connection.close()
                 print('Connection à la base de données fermée.')
 
-    def create_modele_liste(self,nom_modele_liste, type_rugby, nombre_joueurs_min, nombre_joueurs_max, duree_deplacement_min, duree_deplacement_max, nombre_match_min, nombre_match_max):
+    def create_modele_liste(self,nom_modele_liste, type_rugby, nombre_joueurs_min, nombre_joueurs_max, duree_deplacement_min, duree_deplacement_max, nombre_match):
 
-        sql = "INSERT INTO public.modele_liste(nom_modele_liste, type_rugby, nombre_joueurs_min, nombre_joueurs_max, duree_deplacement_min, duree_deplacement_max, nombre_match_min, nombre_match_max) VALUES (%s,%s,%s,%s,%s,%s,%s,%s) ON CONFLICT (type_rugby,nombre_joueurs_max, duree_deplacement_max, nombre_match_max) DO NOTHING;"
+        sql = "INSERT INTO public.modele_liste(nom_modele_liste, id_equipe, nombre_joueurs_min, nombre_joueurs_max, duree_deplacement_min, duree_deplacement_max, nombre_match) VALUES (%s,%s,%s,%s,%s,%s,%s) ON CONFLICT (type_rugby,nombre_joueurs_max, duree_deplacement_max, nombre_match) DO NOTHING;"
 
         connection = None
         try:
@@ -47,7 +48,7 @@ class DataModeleListe:
             connection = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER, password=self._PASSWORD, port=self._PORT)
             # create a new cursor
             cursor = connection.cursor()
-            val = (nom_modele_liste, type_rugby, nombre_joueurs_min, nombre_joueurs_max, duree_deplacement_min, duree_deplacement_max, nombre_match_min, nombre_match_max)
+            val = (nom_modele_liste, type_rugby, nombre_joueurs_min, nombre_joueurs_max, duree_deplacement_min, duree_deplacement_max, nombre_match)
             cursor.execute(sql,val)
             rows_affected=cursor.rowcount
 
@@ -231,9 +232,9 @@ class DataModeleListe:
             if connection is not None:
                 connection.close()
 
-    def get_id_multiples_parametres(self,type_rugby, nombre_joueurs_min, nombre_joueurs_max, duree_deplacement_min, duree_deplacement_max, nombre_match_min, nombre_match_max):
+    def get_id_multiples_parametres(self,id_equipe, nombre_joueurs_min, nombre_joueurs_max, duree_deplacement_min, duree_deplacement_max, nombre_match):
 
-        sql = "SELECT * FROM modele_liste WHERE type_rugby = %s AND nombre_joueurs_min = %s AND nombre_joueurs_max = %s AND duree_deplacement_min = %s AND duree_deplacement_max = %s AND nombre_match_min = %s AND nombre_match_max = %s;"
+        sql = "SELECT * FROM modele_liste WHERE id_equipe = %s AND nombre_joueurs_min = %s AND nombre_joueurs_max = %s AND duree_deplacement_min = %s AND duree_deplacement_max = %s AND nombre_match = %s;"
 
         connection = None
         try:
@@ -242,7 +243,7 @@ class DataModeleListe:
             # create a new cursor
             cursor = connection.cursor()
 
-            cursor.execute(sql,(type_rugby, nombre_joueurs_min, nombre_joueurs_max, duree_deplacement_min, duree_deplacement_max, nombre_match_min, nombre_match_max,))
+            cursor.execute(sql,(id_equipe, nombre_joueurs_min, nombre_joueurs_max, duree_deplacement_min, duree_deplacement_max, nombre_match,))
             row = cursor.fetchone()
 
             return row
@@ -327,12 +328,15 @@ class DataModeleListe:
             # obtention de la connexion à la base de données
             connection = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER, password=self._PASSWORD, port=self._PORT)
             # create a new cursor
-            cursor = connection.cursor()
+            cursor = connection.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
             cursor.execute(sql)
             rows = cursor.fetchall()
 
-            return rows
+            # Convert each row to a regular dictionary
+            result = [dict(row) for row in rows]
+
+            return result
             # commit the changes to the database
             connection.commit()
             # close communication with the database

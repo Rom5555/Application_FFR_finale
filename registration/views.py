@@ -13,7 +13,7 @@ class CustomLoginView(LoginView):
         if user.is_superuser:
             return reverse_lazy('admin_base:index')  # Rediriger l'administrateur vers la page d'administration
         else:
-            return reverse_lazy('user_liste:index_utilisateur')  # Rediriger l'utilisateur standard vers une autre page après la connexion'utilisateur standard vers une autre page après la connexion
+            return reverse_lazy('user_liste:display_ma_liste')  # Rediriger l'utilisateur standard vers une autre page après la connexion'utilisateur standard vers une autre page après la connexion
 
 
 class RegisterView(CreateView):
