@@ -1,0 +1,110 @@
+{% extends 'admin_base/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(255, 221, 87, 0.2);">
+    <div class="card-content">
+        <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
+            <span class="icon is-large has-text-success">
+                <i class="fas fa-file-alt"></i>
+            </span>
+            <span class="ml-3">Creer un modele de liste</span>
+        </h1>
+    </div>
+</div>
+
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(50, 115, 220, 0.2);">
+    <div class="card-content">
+        <h2 class="subtitle is-4 has-text-link mb-6">Construire une liste type</h2>
+        <form action="{% url 'admin_liste:create_modele_liste' %}" method="post" class="mb-5">
+            {% csrf_token %}
+            <div class="container">
+                {% crispy modele_liste_form %}
+                <button class="button is-primary has-text-light mt-5" type="submit">Valider le déplacement</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% if produits_stock %}
+
+<div class="modal is-active" id="modeleModal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title has-text-link">{{ nom_modele_liste }}</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <div class="table-container">
+        <table class="table is-striped is-fullwidth is-narrow">
+          <thead>
+            <tr>
+              <th class="product-name-column">Produit</th>
+              <th style="width: 60px;">Stock</th>
+              <th>Départ</th>
+              <th style="width: 40px;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for produit in produits_stock %}
+              <tr>
+                <td class="product-name-column" title="{{ produit.nom_produit }}">{{ produit.nom_produit }}</td>
+                <td>{{ produit.quantite_stock }}</td>
+                  <td>
+                  <form hx-post="{% url 'admin_liste:remplir_modele_liste' id_modele_liste=id_modele_liste id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
+                    {% csrf_token %}
+                    <div class="field is-grouped is-marginless">
+                      <div class="control">
+                        <button type="button" class="button is-small decrement-button">-</button>
+                      </div>
+                      <div class="control">
+                        <button type="button" class="button is-small increment-button">+</button>
+                      </div>
+                      <div class="control">
+                        <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
+                               value="{{ produit.quantite_depart }}" class="input is-small short-input" min="0" max="{{ produit.quantite_stock }}">
+                      </div>
+                    </div>
+                </td>
+                <td>
+                  <div class="field is-grouped">
+                    <div class="control">
+                        <button name="quantity_updated" type="submit" class="icon has-text-primary is-hovered is-clickable" style="background: none; border: none;">
+                            <i class="fas fa-check"></i>
+                        </button>
+                    </div>
+                  </div>
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <footer class="modal-card-foot">
+    </footer>
+  </div>
+    <div id="successNotification" class="notification is-small is-link" style="display: none; position: fixed; bottom: 20px; right: 20px;">
+  Quantité mise à jour.
+</div>
+<div id="errorNotification" class="notification is-small is-danger" style="display: none; position: fixed; bottom: 0px; right: 0px;">
+  Une erreur est survenue.
+</div>
+</div>
+
+{% endif %}
+
+<div id="messages-container" style="position: fixed; bottom: 0px; right: 0px;">
+    {% if messages %}
+        {% for message in messages %}
+        <div class="notification {% if message.tags %}is-{{ message.tags }}{% endif %} mb-2">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+{% endblock %}
