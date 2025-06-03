@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#3273dc">
+    <meta name="color-scheme" content="light">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Application privée de gestion logistique">
+    <title>Logistique service medical</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v6.1.1/js/all.js"></script>
+</head>
+<body>
+<form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div class="container has-text-centered mt-6">
+        <p class="title has-text-link">
+            <span class="icon-text">
+                        <span class="icon mr-4" style="font-size: 2.5rem;">
+                            <i class="fas fa-suitcase-medical"></i>
+                        </span>
+                <span>Logimed</span>
+            </span>
+        </p>
+        <p class="subtitle">
+            Bienvenue
+        </p>
+
+                <div class="box mx-6 has-text-left">
+                    <div class="block">
+                        <label class="label">{{ form.username.label_tag }}</label>
+                        <input class="input" type="text" placeholder="Identifiant" name="username"></input>
+                    </div>
+                    <div class="block">
+                        <label class="label">{{ form.password.label_tag }}</label>
+                        <input class="input" type="password" placeholder="Identifiant" name="password"></input>
+                    </div>
+                    <div class="field is-grouped is-grouped-centered">
+                    <div class="control">
+                            <button class="button is-info is-small" type="submit" value="login">Se connecter</button>
+                    </div>
+                    <div class="control">
+                            <a href="{% url 'registration:password_reset' %}" class="button is-text is-small">Mot de passe oublié ?</a>
+                    </div>
+                    </div>
+                    {{ form.non_field_errors }}
+                </div>
+            </div>
+
+</form>
+</body>
+</html>

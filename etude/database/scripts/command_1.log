@@ -1,0 +1,133 @@
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (1,'TENSOCLUB_10cm');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (2,'TENSOCLUB_8cm');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (3,'TENSOCLUB_6cm');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (4,'TENSOCLUB_3cm');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (5,'STRAPPAL');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (6,'TENSOPLUS_10cm');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (7,'TENSOPLUS_8cm');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (8,'ELASTLIGHT_7_cm');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (9,'ELASTLIGHT_5cm');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (10,'LEUCOTAPEK_7_BLEU');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (11,'LEUCOTAPEK_5_BLEU');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (12,'LEUCOTAPEK_2_BLEU');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (13,'LEUCOTAPE_P_BEIGE');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (14,'KINESIOLOGYTAPE_BLEU_ROULEAU_32m');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (15,'KINESIOLOGYTAPE_ROSE_ROULEAU_32m');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (16,'ELASTOMOUSSE_10cm');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (17,'ELASTOMOUSSE_7cm');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (18,'INOGUAN');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (19,'KAMOL');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (20,'CLIPTOL');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (21,'CIRCULATONIC');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (22,'TIGRIDOL');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (23,'BIODAL');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (24,'ARNICADOL');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (25,'BIOSPRINTER');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (26,'DERMACREM');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (27,'BAUME_DU_TIGRE');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (28,'VICKS');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (29,'PLAQUE_THERMOFORMABLE');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (30,'HUILE_CAMPHREE');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (31,'HUILE_WELEDA');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (32,'BIOFREZZE');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (33,'ARGILE_TUBE');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (34,'COMPRESSES_NON_STERILES_10');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (35,'COMPRESSES_NON_STERILES_7,5');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (36,'COMPEED_grande');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (37,'COMPEED_petite');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (38,'EMPLATRES_ST_BERNARD');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (39,'COALGAN');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (40,'BLOXANG');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (41,'STERISTRIP');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (42,'BOMBE_DE_FROID');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (43,'TENSOSPRAY');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (44,'VASELINE_POT');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (45,'VASELINE_TUBE');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (46,'TALC');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (47,'REMOVE_sachets');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (48,'SPRAY_REMOVE_MUELLER');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (49,'TEINTURE_BENJOIN');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (50,'FILM_CRAMER');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (51,'SYNTHOL');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (52,'PANSEMENT_OPSITE');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (53,'CISEAUX_BOUTS_RONDS');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (54,'COUPE_ONGLES');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (55,'PINCE_A_EPILER');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (56,'RASOIRS_JETABLES');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (57,'CHATERTON_NOIR');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (58,'VESSIES_DE_GLACE');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (59,'GEL_ANTIBACTERIEN');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (60,'GANTS_NON_STERILES_6_7');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (61,'GANTS_NON_STERILES_7_8');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (62,'GANTS_NON_STERILES_8_9');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (63,'ORTHOGEL_CRAMER');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (64,'CRAMER_PLAQUE_MOUSSE');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (65,'TRIMONAWAX_spray');
+INSERT 0 1
+INSERT INTO public.produit(id_produit,nom_produit) VALUES (66,'HANDWASCH_LOTION');
+INSERT 0 1
+	

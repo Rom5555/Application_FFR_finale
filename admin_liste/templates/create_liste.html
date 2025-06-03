@@ -1,0 +1,113 @@
+{% extends 'admin_base/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(50, 115, 220, 0.2);">
+    <div class="card-content">
+        <h2 class="subtitle is-4 has-text-link mb-6">Creation d'une nouvelle liste utilisateur</h2>
+        <form action="{% url 'admin_liste:create_liste' %}" method="post" class="mb-5">
+        {% csrf_token %}
+            <div class="container">
+            {% crispy equipe_utilisateur_form %}
+            <button class="button is-primary has-text-light mt-5" type="submit">Valider</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% if produits_stock %}
+
+<div class="modal is-active" id="modeleModal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title has-text-link">Preparer la liste</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+        {% for stock in stocks %}
+        <h2 class="subtitle is-5">{{ stock.nom_stock }}</h2>
+      <div class="table-container">
+        <table class="table is-striped is-fullwidth is-narrow">
+          <thead>
+            <tr>
+              <th class="product-name-column">Produit</th>
+              <th>Stock</th>
+              <th>Départ</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for produit in produits_stock %}
+              {% if produit.id_stock == stock.id_stock %}
+              <tr>
+                <td class="product-name-column" title="{{ produit.nom_produit }}">{{ produit.nom_produit }}</td>
+                <td>{{ produit.quantite_stock }}</td>
+                  <td>
+                  <form hx-post="{% url 'admin_liste:remplir_liste_utilisateur' id_liste_utilisateur=id_liste_utilisateur id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
+                    {% csrf_token %}
+                    <div class="field is-grouped is-marginless">
+                      <div class="control">
+                        <button type="button" class="button is-small decrement-button">-</button>
+                      </div>
+                      <div class="control">
+                        <button type="button" class="button is-small increment-button">+</button>
+                      </div>
+                      <div class="control">
+                        <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
+                               value="{{ produit.quantite_depart }}" class="input is-small short-input" min="0" max="{{ produit.quantite_stock }}">
+                      </div>
+                    </div>
+                </td>
+                <td>
+                  <div class="field is-grouped">
+                    <div class="control">
+                        <button name="quantity_updated" type="submit" class="icon has-text-primary is-hovered is-clickable" style="background: none; border: none;">
+                            <i class="fas fa-check"></i>
+                        </button>
+                    </div>
+                  </div>
+                  </form>
+                </td>
+              </tr>
+                {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+          {% endfor %}
+      </div>
+    </section>
+    <footer class="modal-card-foot">
+        <h2 class="subtitle is-4 has-text-link mb-6">Mettre à jour le stock</h2>
+        <form id="submitStockUpdate" action="{% url 'admin_liste:envoyer_liste' id_liste_utilisateur=id_liste_utilisateur %}" method="post">
+            {% csrf_token %}
+            <div class="container">
+            <button class="button is-focused is-primary has-text-light mt-5" type="submit">Valider</button>
+            </div>
+        </form>
+        <div id="message-container"></div>
+    </footer>
+  </div>
+    <div id="successNotification" class="notification is-small is-link" style="display: none; position: fixed; bottom: 20px; right: 20px;">
+  Quantité mise à jour.
+</div>
+<div id="errorNotification" class="notification is-small is-danger" style="display: none; position: fixed; bottom: 20px; right: 20px;">
+  Une erreur est survenue.
+</div>
+</div>
+
+{% endif %}
+
+<div id="messages-container" style="position: fixed; bottom: 20px; right: 20px;z-index: 9999;">
+    {% if messages %}
+        {% for message in messages %}
+        <div class="notification {% if message.tags %}is-{{ message.tags }}{% endif %} mb-2">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+{% endblock %}

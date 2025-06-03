@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#3273dc">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Application privée de gestion logistique">
+    <title>Application logistique service medical FFR</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v6.1.1/js/all.js"></script>
+    <script src="https://unpkg.com/htmx.org@^1.7.0/dist/htmx.min.js"></script>
+    <style>
+        /* Styles de base */
+        body {
+            background-color: #f5f5f5; /* Fond clair */
+            color: #4a4a4a; /* Texte sombre */
+        }
+
+        .card {
+            background-color: #ffffff; /* Fond des cartes */
+            color: #4a4a4a; /* Texte dans les cartes */
+        }
+
+        .short-input {
+            width: 60px;
+        }
+
+        .product-name-column {
+            max-width: 120px; /* Réduit à 120px, ajustez selon vos besoins */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+
+
+        /* Mode sombre */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #181818; /* Fond sombre */
+                color: #ffffff; /* Texte clair */
+            }
+
+            .card {
+                background-color: #242424; /* Fond des cartes */
+                color: #ffffff; /* Texte dans les cartes */
+                border: 1px solid #333333; /* Bordure plus claire */
+            }
+
+            .navbar.has-background-link {
+                background-color: #2c5aa0 !important; /* Couleur de la barre de navigation */
+            }
+
+            a {
+                color: #bb86fc; /* Couleur des liens en mode sombre */
+                text-decoration: underline; /* Souligner les liens pour plus de visibilité */
+            }
+
+            input, select, textarea {
+                background-color: #333333; /* Fond des champs de formulaire */
+                color: #ffffff; /* Texte clair dans les champs */
+                border: 1px solid #555555; /* Bordure claire pour les champs */
+            }
+
+            table, th, td {
+                background-color: #242424; /* Fond des tableaux */
+                color: #ffffff; /* Texte clair dans les tableaux */
+                border-color: #333333; /* Bordure claire pour les tableaux */
+            }
+
+            thead th {
+                background-color: #2c2c2c; /* Fond plus clair pour les en-têtes de tableau */
+                color: #ffffff; /* Texte blanc pour les en-têtes */
+            }
+        }
+    </style>
+</head>
+<body>
+<section class="hero is-fullheight">
+    <!-- Hero head: Barre de navigation -->
+    <div class="hero-head">
+        <nav class="navbar has-background-link" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="{% url 'admin_base:index' %}">
+                    <span class="icon-text">
+                        <span class="icon has-text-light" style="font-size: 1.5rem;">
+                            <i class="fas fa-suitcase-medical"></i>
+                        </span>
+                        <span class="has-text-light has-text-weight-bold is-size-4 ml-2">Logimed</span>
+                    </span>
+                </a>
+
+                <div class="navbar-burger has-text-light" aria-label="menu" aria-expanded="false" data-target="navbarDropdown">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div id="navbarDropdown" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item has-text-light" href="{% url 'admin_base:index' %}">Accueil</a>
+                    <a class="navbar-item has-text-light" href="{% url 'admin_compte:user_list' %}">Comptes</a>
+                    <a class="navbar-item has-text-light" href="{% url 'admin_stock:display_produits' %}">Stocks</a>
+                    <a class="navbar-item has-text-light" href="{% url 'admin_liste:depart_retour' %}">Listes</a>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link has-text-light">{{ user.first_name }}</a>
+                        <div class="navbar-dropdown is-right">
+                            <a class="navbar-item" href="#">About</a>
+                            <a class="navbar-item" href="#">Contact</a>
+                            <hr class="navbar-divider">
+                            <a class="navbar-item" href="{% url 'registration:logout' %}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Se déconnecter</a>
+                            <form id="logout-form" action="{% url 'registration:logout' %}" method="post" style="display: none;">
+                                {% csrf_token %}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hero body: Contenu principal -->
+    <div class="hero-body">
+        <div class="container">
+            {% block content %}{% endblock content %}
+        </div>
+    </div>
+</section>
+
+<script>
+// Code JavaScript pour le menu burger et l'incrémentation/décrémentation
+document.addEventListener('DOMContentLoaded', () => {
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+  $navbarBurgers.forEach(el => {
+    el.addEventListener('click', () => {
+      const target = el.dataset.target;
+      const $target = document.getElementById(target);
+      el.classList.toggle('is-active');
+      $target.classList.toggle('is-active');
+    });
+  });
+
+  function incrementDecrementInputNumber(button, increment) {
+    const input = button.closest('.field').querySelector('input[type="number"]');
+    const currentValue = parseInt(input.value) || 0;
+    const min = parseInt(input.min) || 0;
+    const max = parseInt(input.max) || Infinity;
+    const step = parseInt(input.step) || 1;
+    let newValue = currentValue + (increment ? step : -step);
+    newValue = Math.max(min, Math.min(max, newValue));
+    input.value = newValue;
+  }
+
+  document.querySelectorAll('.increment-button').forEach(button => {
+    button.addEventListener('click', () => incrementDecrementInputNumber(button, true));
+  });
+
+  document.querySelectorAll('.decrement-button').forEach(button => {
+    button.addEventListener('click', () => incrementDecrementInputNumber(button, false));
+  });
+
+  const messagesContainer = document.getElementById('messages-container');
+    if (messagesContainer) {
+        // Faire disparaître les messages après 2 secondes
+        setTimeout(() => {
+            messagesContainer.style.display = 'none';
+        }, 2000);
+    }
+
+    let forms = document.querySelectorAll('[hx-post]');
+
+    // Loop through each form and add submit event listener
+    forms.forEach((form) => {
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            // Prepare the form data
+            let formData = new FormData(form);
+
+            // Send the form data asynchronously
+            let response = await fetch(form.getAttribute('hx-post'), {
+                method: 'POST',
+                body: formData
+            });
+
+            // Check if the response was successful
+            if (response.ok) {
+                // Show success notification
+                document.getElementById('successNotification').style.display = 'block';
+
+                // Hide success notification after 3 seconds
+                setTimeout(() => {
+                    document.getElementById('successNotification').style.display = 'none';
+                }, 2000);
+            } else {
+                // Display the error message
+                let errorNotification = document.getElementById('errorNotification');
+                errorNotification.innerHTML = 'Une erreur est survenue.';
+                errorNotification.style.display = 'block';
+
+                // Hide error notification after 3 seconds
+                setTimeout(() => {
+                    errorNotification.style.display = 'none';
+                }, 2000);
+            }
+        });
+    });
+
+ // Fonction pour fermer les modals
+  function closeModal($el) {
+    $el.classList.remove('is-active');
+  }
+
+  // Fermer le modal avec un clic
+  (document.querySelectorAll('.modal-background, .delete') || []).forEach(($close) => {
+    const $target = $close.closest('.modal');
+
+    $close.addEventListener('click', () => {
+      closeModal($target);
+    });
+  });
+
+  // Fermer avec la touche "Escape"
+  document.addEventListener('keydown', (event) => {
+    if (event.key === "Escape") {
+      (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+        closeModal($modal);
+      });
+    }
+  });
+    const submitForm = document.getElementById('submitStockUpdate');
+    submitForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        let formData = new FormData(submitForm);
+        let response = await fetch(submitForm.getAttribute('action'), {
+            method: 'POST',
+            body: formData
+        });
+
+        let data = await response.json();
+        alert(data.message);
+        if (response.ok) {
+            window.location.href = '{% url "admin_liste:depart_retour" %}';
+        }
+    });
+
+    {% if message %}
+    alert("{{ message }}");
+    {% endif %}
+
+});
+</script>
+
+</body>
+</html>

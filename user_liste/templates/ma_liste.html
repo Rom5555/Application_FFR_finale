@@ -1,0 +1,132 @@
+{% extends 'base_ma_liste.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(255, 221, 87, 0.2);">
+    <div class="card-content">
+        <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
+            <span class="icon">
+                <i class="fas fa-clipboard-list has-text-info"></i>
+            </span>
+            <span class="ml-4">Ma liste</span>
+        </h1>
+    </div>
+</div>
+
+
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(72, 199, 116, 0.2);">
+    <div class="card-content">
+        <div class="table-container">
+            <table class="table is-striped is-fullwidth">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Destination</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ ma_liste.date_liste }}</td>
+                        <td>{{ ma_liste.destination }}</td>
+                        <td>
+                            <!-- Formulaire pour afficher les produits dans le modal -->
+                            <form id="form-liste-{{ liste_utilisateur.id_liste_utilisateur }}" action="{% url 'user_liste:display_ma_liste' %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="id_liste_utilisateur" value="{{ liste_utilisateur.id_liste_utilisateur }}">
+                                <button class="button is-small is-link is-outlined" type="submit">
+                                    <span class="icon is-small">
+                                        <i class="fas fa-eye"></i>
+                                    </span>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+{% if produits_liste_utilisateur %}
+
+<div class="modal is-active" id="modeleModal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title has-text-link">Liste des Produits</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <div class="table-container">
+        <table class="table is-striped is-fullwidth">
+          <thead>
+            <tr>
+              <th>Produit</th>
+              <th>Départ</th>
+              <th>Retour</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for produit in produits_liste_utilisateur %}
+              <tr>
+                <td>{{ produit.nom_produit }}</td>
+                <td>{{ produit.quantite_depart }}</td>
+                <td>
+                  <form hx-post="{% url 'user_liste:remplir_liste_retour' id_liste_utilisateur=id_liste_utilisateur id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
+                    {% csrf_token %}
+                    <div class="field is-grouped">
+                      <div class="control">
+                        <button type="button" class="button is-small decrement-button">-</button>
+                      </div>
+                      <div class="control">
+                        <button type="button" class="button is-small increment-button">+</button>
+                      </div>
+                      <div class="control">
+                        <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
+                               value="{{ produit.quantite_retour }}" class="input is-small short-input" min="0" max="{{ produit.quantite_depart }}">
+                      </div>
+                    </div>
+                </td>
+                <td>
+                  <div class="field is-grouped">
+                    <div class="control">
+                      <button class="button is-primary is-focused is-small has-text-light" name="quantity_updated" type="submit">
+                        <span class="icon is-small">
+                          <i class="fas fa-check"></i>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <footer class="modal-card-foot">
+        <div class="field is-grouped is-justify-content-center">
+        </div>
+       </footer>
+    </div>
+
+  <!-- Notifications de succès et d'erreur -->
+  <div id="successNotification" class="notification is-small is-link" style="display: none; position: fixed; bottom: 20px; right: 20px;">
+    Quantité mise à jour.
+  </div>
+  <div id="errorNotification" class="notification is-small is-danger" style="display: none; position: fixed; bottom: 20px; right: 20px;">
+    Une erreur est survenue.
+  </div>
+
+</div>
+
+{% endif %}
+
+
+{% endblock %}

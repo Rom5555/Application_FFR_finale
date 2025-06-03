@@ -5,8 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d51fe39-c218-481b-9867-434961d1031b" name="Changes" comment="Application_FFR_V9">
+      <change afterPath="$PROJECT_DIR$/admin_liste/templates/create_liste.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin_liste/templates/retour_liste.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application_FFR/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_base/templates/admin_base/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_base/templates/admin_base/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_compte/templates/user_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_compte/templates/user_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_compte/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_compte/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/business/components/gestion_liste_utilisateur.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/components/gestion_liste_utilisateur.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/business/components/gestion_modele_liste.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/components/gestion_modele_liste.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/business/entities/liste_utilisateur.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/entities/liste_utilisateur.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/business/entities/modele_liste.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/business/entities/modele_liste.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/data/data_liste_utilisateur.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/data/data_liste_utilisateur.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/data/data_modele_liste.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/data/data_modele_liste.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/templates/archive.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/templates/archive.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/templates/create_liste_utilisateur.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/templates/depart.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/templates/depart_retour.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/templates/depart_retour.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/templates/retour.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_liste/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_liste/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_stock/data/data_stock.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/data/data_stock.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_stock/templates/display_produits.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/templates/display_produits.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_stock/templates/produit_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_stock/templates/produit_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_FFR/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/application_FFR/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_liste/templates/base_ma_liste.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_liste/templates/base_ma_liste.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_liste/templates/index_utilisateur.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_liste/templates/ma_liste.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_liste/templates/ma_liste.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_liste/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_liste/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_liste/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_liste/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +56,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitLabMergeRequestFiltersHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPENED&quot;,
+    &quot;assignee&quot;: {
+      &quot;type&quot;: &quot;org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue&quot;,
+      &quot;username&quot;: &quot;Rom5555&quot;,
+      &quot;fullname&quot;: &quot;Rom5555&quot;
+    }
+  }
+}</component>
+  <component name="GitLabMergeRequestsSettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;first&quot;: &quot;https://gitlab.com/Rom5555/application_ffr_finale_v2.git&quot;,
+    &quot;second&quot;: &quot;9415b98e-1f60-4cba-b066-4ffe3a75ccb5&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -35,25 +83,31 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.data_stock.executor&quot;: &quot;Run&quot;,
+    &quot;Python.generate.executor&quot;: &quot;Run&quot;,
     &quot;Python.manage.executor&quot;: &quot;Run&quot;,
     &quot;Python.manage.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_connection_db.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/romfa/Dev/Application_FFR_V9&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ro/PycharmProjects/Application_FFR_finale_V3_deploy&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ro\PycharmProjects\Application_FFR_finale_V3\admin_liste\templates" />
       <recent name="C:\Users\romfa\Dev\Application_FFR_V9\application_FFR\registration" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\romfa\Dev\Application_FFR_finale_V1" />
       <recent name="C:\Users\romfa\Dev\Application_FFR_V9\application_FFR\registration\templates\registration" />
       <recent name="C:\Users\romfa\Dev\Application_FFR_V9\application_FFR\registration\templates" />
       <recent name="C:\Users\romfa\Dev\Application_FFR_V9\application_FFR\admin_base\templates" />
@@ -70,13 +124,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.12 (Application_FFR_V9)" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/application_FFR/manage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
       <option name="PARAMETERS" value="runserver" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -89,11 +142,14 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-09665e90c3a7-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13763.11" />
+        <option value="bundled-python-sdk-babbdf50b680-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.15989.155" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Ro\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="4d51fe39-c218-481b-9867-434961d1031b" name="Changes" comment="" />
@@ -116,50 +172,426 @@
       <workItem from="1716295871710" duration="181000" />
       <workItem from="1716296079268" duration="805000" />
       <workItem from="1716297854216" duration="13000" />
+      <workItem from="1716298684700" duration="58000" />
+      <workItem from="1716298749322" duration="2647000" />
+      <workItem from="1716372307168" duration="1722000" />
+      <workItem from="1716374374822" duration="368000" />
     </task>
-    <task id="LOCAL-00001" summary="Application_FFR_V9">
+    <task id="LOCAL-00225" summary="Application_FFR_V9">
       <option name="closed" value="true" />
-      <created>1715806151963</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
+      <created>1727864907129</created>
+      <option name="number" value="00225" />
+      <option name="presentableId" value="LOCAL-00225" />
       <option name="project" value="LOCAL" />
-      <updated>1715806151963</updated>
+      <updated>1727864907129</updated>
     </task>
-    <task id="LOCAL-00002" summary="Application_FFR_V9">
+    <task id="LOCAL-00226" summary="Application_FFR_V9">
       <option name="closed" value="true" />
-      <created>1715845441079</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
+      <created>1727864938804</created>
+      <option name="number" value="00226" />
+      <option name="presentableId" value="LOCAL-00226" />
       <option name="project" value="LOCAL" />
-      <updated>1715845441079</updated>
+      <updated>1727864938804</updated>
     </task>
-    <task id="LOCAL-00003" summary="Application_FFR_V9">
+    <task id="LOCAL-00227" summary="Application_FFR_V9">
       <option name="closed" value="true" />
-      <created>1715845592154</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
+      <created>1727865946175</created>
+      <option name="number" value="00227" />
+      <option name="presentableId" value="LOCAL-00227" />
       <option name="project" value="LOCAL" />
-      <updated>1715845592154</updated>
+      <updated>1727865946175</updated>
     </task>
-    <task id="LOCAL-00004" summary="Application_FFR_V9">
+    <task id="LOCAL-00228" summary="Application_FFR_V9">
       <option name="closed" value="true" />
-      <created>1716295900076</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
+      <created>1727870426922</created>
+      <option name="number" value="00228" />
+      <option name="presentableId" value="LOCAL-00228" />
       <option name="project" value="LOCAL" />
-      <updated>1716295900076</updated>
+      <updated>1727870426922</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00229" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727871326418</created>
+      <option name="number" value="00229" />
+      <option name="presentableId" value="LOCAL-00229" />
+      <option name="project" value="LOCAL" />
+      <updated>1727871326418</updated>
+    </task>
+    <task id="LOCAL-00230" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727872482691</created>
+      <option name="number" value="00230" />
+      <option name="presentableId" value="LOCAL-00230" />
+      <option name="project" value="LOCAL" />
+      <updated>1727872482691</updated>
+    </task>
+    <task id="LOCAL-00231" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727873549712</created>
+      <option name="number" value="00231" />
+      <option name="presentableId" value="LOCAL-00231" />
+      <option name="project" value="LOCAL" />
+      <updated>1727873549712</updated>
+    </task>
+    <task id="LOCAL-00232" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727873770320</created>
+      <option name="number" value="00232" />
+      <option name="presentableId" value="LOCAL-00232" />
+      <option name="project" value="LOCAL" />
+      <updated>1727873770320</updated>
+    </task>
+    <task id="LOCAL-00233" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727874571644</created>
+      <option name="number" value="00233" />
+      <option name="presentableId" value="LOCAL-00233" />
+      <option name="project" value="LOCAL" />
+      <updated>1727874571644</updated>
+    </task>
+    <task id="LOCAL-00234" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727874824493</created>
+      <option name="number" value="00234" />
+      <option name="presentableId" value="LOCAL-00234" />
+      <option name="project" value="LOCAL" />
+      <updated>1727874824493</updated>
+    </task>
+    <task id="LOCAL-00235" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727875101900</created>
+      <option name="number" value="00235" />
+      <option name="presentableId" value="LOCAL-00235" />
+      <option name="project" value="LOCAL" />
+      <updated>1727875101900</updated>
+    </task>
+    <task id="LOCAL-00236" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727876152099</created>
+      <option name="number" value="00236" />
+      <option name="presentableId" value="LOCAL-00236" />
+      <option name="project" value="LOCAL" />
+      <updated>1727876152099</updated>
+    </task>
+    <task id="LOCAL-00237" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727876443256</created>
+      <option name="number" value="00237" />
+      <option name="presentableId" value="LOCAL-00237" />
+      <option name="project" value="LOCAL" />
+      <updated>1727876443256</updated>
+    </task>
+    <task id="LOCAL-00238" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727876653224</created>
+      <option name="number" value="00238" />
+      <option name="presentableId" value="LOCAL-00238" />
+      <option name="project" value="LOCAL" />
+      <updated>1727876653224</updated>
+    </task>
+    <task id="LOCAL-00239" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727877613298</created>
+      <option name="number" value="00239" />
+      <option name="presentableId" value="LOCAL-00239" />
+      <option name="project" value="LOCAL" />
+      <updated>1727877613298</updated>
+    </task>
+    <task id="LOCAL-00240" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727879737621</created>
+      <option name="number" value="00240" />
+      <option name="presentableId" value="LOCAL-00240" />
+      <option name="project" value="LOCAL" />
+      <updated>1727879737621</updated>
+    </task>
+    <task id="LOCAL-00241" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727882077987</created>
+      <option name="number" value="00241" />
+      <option name="presentableId" value="LOCAL-00241" />
+      <option name="project" value="LOCAL" />
+      <updated>1727882077987</updated>
+    </task>
+    <task id="LOCAL-00242" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727883629124</created>
+      <option name="number" value="00242" />
+      <option name="presentableId" value="LOCAL-00242" />
+      <option name="project" value="LOCAL" />
+      <updated>1727883629124</updated>
+    </task>
+    <task id="LOCAL-00243" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727884173722</created>
+      <option name="number" value="00243" />
+      <option name="presentableId" value="LOCAL-00243" />
+      <option name="project" value="LOCAL" />
+      <updated>1727884173722</updated>
+    </task>
+    <task id="LOCAL-00244" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727886296270</created>
+      <option name="number" value="00244" />
+      <option name="presentableId" value="LOCAL-00244" />
+      <option name="project" value="LOCAL" />
+      <updated>1727886296270</updated>
+    </task>
+    <task id="LOCAL-00245" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727937726781</created>
+      <option name="number" value="00245" />
+      <option name="presentableId" value="LOCAL-00245" />
+      <option name="project" value="LOCAL" />
+      <updated>1727937726781</updated>
+    </task>
+    <task id="LOCAL-00246" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727937829167</created>
+      <option name="number" value="00246" />
+      <option name="presentableId" value="LOCAL-00246" />
+      <option name="project" value="LOCAL" />
+      <updated>1727937829167</updated>
+    </task>
+    <task id="LOCAL-00247" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727938234802</created>
+      <option name="number" value="00247" />
+      <option name="presentableId" value="LOCAL-00247" />
+      <option name="project" value="LOCAL" />
+      <updated>1727938234803</updated>
+    </task>
+    <task id="LOCAL-00248" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727938373530</created>
+      <option name="number" value="00248" />
+      <option name="presentableId" value="LOCAL-00248" />
+      <option name="project" value="LOCAL" />
+      <updated>1727938373530</updated>
+    </task>
+    <task id="LOCAL-00249" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727939211127</created>
+      <option name="number" value="00249" />
+      <option name="presentableId" value="LOCAL-00249" />
+      <option name="project" value="LOCAL" />
+      <updated>1727939211127</updated>
+    </task>
+    <task id="LOCAL-00250" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727940042558</created>
+      <option name="number" value="00250" />
+      <option name="presentableId" value="LOCAL-00250" />
+      <option name="project" value="LOCAL" />
+      <updated>1727940042558</updated>
+    </task>
+    <task id="LOCAL-00251" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727940335790</created>
+      <option name="number" value="00251" />
+      <option name="presentableId" value="LOCAL-00251" />
+      <option name="project" value="LOCAL" />
+      <updated>1727940335790</updated>
+    </task>
+    <task id="LOCAL-00252" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727941334116</created>
+      <option name="number" value="00252" />
+      <option name="presentableId" value="LOCAL-00252" />
+      <option name="project" value="LOCAL" />
+      <updated>1727941334116</updated>
+    </task>
+    <task id="LOCAL-00253" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727943088605</created>
+      <option name="number" value="00253" />
+      <option name="presentableId" value="LOCAL-00253" />
+      <option name="project" value="LOCAL" />
+      <updated>1727943088605</updated>
+    </task>
+    <task id="LOCAL-00254" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727943409438</created>
+      <option name="number" value="00254" />
+      <option name="presentableId" value="LOCAL-00254" />
+      <option name="project" value="LOCAL" />
+      <updated>1727943409438</updated>
+    </task>
+    <task id="LOCAL-00255" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727943677285</created>
+      <option name="number" value="00255" />
+      <option name="presentableId" value="LOCAL-00255" />
+      <option name="project" value="LOCAL" />
+      <updated>1727943677285</updated>
+    </task>
+    <task id="LOCAL-00256" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727946948301</created>
+      <option name="number" value="00256" />
+      <option name="presentableId" value="LOCAL-00256" />
+      <option name="project" value="LOCAL" />
+      <updated>1727946948301</updated>
+    </task>
+    <task id="LOCAL-00257" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727949760175</created>
+      <option name="number" value="00257" />
+      <option name="presentableId" value="LOCAL-00257" />
+      <option name="project" value="LOCAL" />
+      <updated>1727949760175</updated>
+    </task>
+    <task id="LOCAL-00258" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727950399977</created>
+      <option name="number" value="00258" />
+      <option name="presentableId" value="LOCAL-00258" />
+      <option name="project" value="LOCAL" />
+      <updated>1727950399977</updated>
+    </task>
+    <task id="LOCAL-00259" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727950826220</created>
+      <option name="number" value="00259" />
+      <option name="presentableId" value="LOCAL-00259" />
+      <option name="project" value="LOCAL" />
+      <updated>1727950826220</updated>
+    </task>
+    <task id="LOCAL-00260" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727951033675</created>
+      <option name="number" value="00260" />
+      <option name="presentableId" value="LOCAL-00260" />
+      <option name="project" value="LOCAL" />
+      <updated>1727951033675</updated>
+    </task>
+    <task id="LOCAL-00261" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727951523660</created>
+      <option name="number" value="00261" />
+      <option name="presentableId" value="LOCAL-00261" />
+      <option name="project" value="LOCAL" />
+      <updated>1727951523660</updated>
+    </task>
+    <task id="LOCAL-00262" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727951739135</created>
+      <option name="number" value="00262" />
+      <option name="presentableId" value="LOCAL-00262" />
+      <option name="project" value="LOCAL" />
+      <updated>1727951739135</updated>
+    </task>
+    <task id="LOCAL-00263" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727952259245</created>
+      <option name="number" value="00263" />
+      <option name="presentableId" value="LOCAL-00263" />
+      <option name="project" value="LOCAL" />
+      <updated>1727952259245</updated>
+    </task>
+    <task id="LOCAL-00264" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727952616434</created>
+      <option name="number" value="00264" />
+      <option name="presentableId" value="LOCAL-00264" />
+      <option name="project" value="LOCAL" />
+      <updated>1727952616434</updated>
+    </task>
+    <task id="LOCAL-00265" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727952783381</created>
+      <option name="number" value="00265" />
+      <option name="presentableId" value="LOCAL-00265" />
+      <option name="project" value="LOCAL" />
+      <updated>1727952783381</updated>
+    </task>
+    <task id="LOCAL-00266" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727953134501</created>
+      <option name="number" value="00266" />
+      <option name="presentableId" value="LOCAL-00266" />
+      <option name="project" value="LOCAL" />
+      <updated>1727953134501</updated>
+    </task>
+    <task id="LOCAL-00267" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727956156453</created>
+      <option name="number" value="00267" />
+      <option name="presentableId" value="LOCAL-00267" />
+      <option name="project" value="LOCAL" />
+      <updated>1727956156453</updated>
+    </task>
+    <task id="LOCAL-00268" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727956432213</created>
+      <option name="number" value="00268" />
+      <option name="presentableId" value="LOCAL-00268" />
+      <option name="project" value="LOCAL" />
+      <updated>1727956432213</updated>
+    </task>
+    <task id="LOCAL-00269" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727956979974</created>
+      <option name="number" value="00269" />
+      <option name="presentableId" value="LOCAL-00269" />
+      <option name="project" value="LOCAL" />
+      <updated>1727956979974</updated>
+    </task>
+    <task id="LOCAL-00270" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727957559936</created>
+      <option name="number" value="00270" />
+      <option name="presentableId" value="LOCAL-00270" />
+      <option name="project" value="LOCAL" />
+      <updated>1727957559936</updated>
+    </task>
+    <task id="LOCAL-00271" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727957866288</created>
+      <option name="number" value="00271" />
+      <option name="presentableId" value="LOCAL-00271" />
+      <option name="project" value="LOCAL" />
+      <updated>1727957866288</updated>
+    </task>
+    <task id="LOCAL-00272" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1727958555579</created>
+      <option name="number" value="00272" />
+      <option name="presentableId" value="LOCAL-00272" />
+      <option name="project" value="LOCAL" />
+      <updated>1727958555579</updated>
+    </task>
+    <task id="LOCAL-00273" summary="Application_FFR_V9">
+      <option name="closed" value="true" />
+      <created>1729521147822</created>
+      <option name="number" value="00273" />
+      <option name="presentableId" value="LOCAL-00273" />
+      <option name="project" value="LOCAL" />
+      <updated>1729521147823</updated>
+    </task>
+    <option name="localTasksCounter" value="274" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Application_FFR_V9" />
     <option name="LAST_COMMIT_MESSAGE" value="Application_FFR_V9" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Application_FFR_finale_V1$manage.coverage" NAME="manage Coverage Results" MODIFIED="1716373551728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/Application_FFR_V9$manage.coverage" NAME="manage Coverage Results" MODIFIED="1716296110263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

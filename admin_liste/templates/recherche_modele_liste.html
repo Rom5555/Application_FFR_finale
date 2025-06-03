@@ -1,0 +1,153 @@
+{% extends 'admin_base/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(255, 221, 87, 0.2);">
+    <div class="card-content">
+        <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
+            <span class="icon is-large has-text-success">
+                <i class="fas fa-file-alt"></i>
+            </span>
+            <span class="ml-3">Modele de liste</span>
+        </h1>
+    </div>
+</div>
+
+
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(72, 199, 116, 0.2);">
+    <div class="card-content">
+        <div class="is-flex is-justify-content-space-between is-align-items-center">
+            <h1 class="subtitle is-5 has-text-link mb-5">Rechercher</h1>
+            <!-- Bouton pour créer un nouveau modèle -->
+            <a href="{% url 'admin_liste:create_modele_liste' %}" class="button is-primary is-outlined mb-5">
+                <span class="icon">
+                    <i class="fas fa-plus"></i>
+                </span>
+                <span>Nouveau</span>
+            </a>
+        </div>
+        <div class="table-container">
+            <table class="table is-striped is-fullwidth">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Equipe</th>
+                        <th>Joueurs</th>
+                        <th>Jours</th>
+                        <th>Matchs</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for modele in modeles_liste %}
+                    <tr>
+                        <td>{{ modele.nom_modele_liste }}</td>
+                        <td>{{ modele.id_equipe }}</td>
+                        <td>{{ modele.nombre_joueurs_min }} - {{ modele.nombre_joueurs_max }}</td>
+                        <td>{{ modele.duree_deplacement_min }} - {{ modele.duree_deplacement_max }}</td>
+                        <td>{{ modele.nombre_match }}</td>
+                        <td>
+                            <!-- Formulaire pour afficher les produits dans le modal -->
+                            <form id="form-liste-{{ modele.id_modele_liste }}" action="{% url 'admin_liste:recherche_modele_liste' %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="id_modele_liste" value="{{ modele.id_modele_liste }}">
+                                <input type="hidden" name="nom_modele_liste" value="{{ modele.nom_modele_liste }}">
+                                <button class="button is-small is-link is-outlined" type="submit">
+                                    <span class="icon is-small">
+                                        <i class="fas fa-eye"></i>
+                                    </span>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% if produits_stock %}
+
+<div class="modal is-active" id="modeleModal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title has-text-link">{{ nom_modele_liste }}</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <div class="table-container">
+        <table class="table is-striped is-fullwidth is-narrow">
+          <thead>
+            <tr>
+              <th class="product-name-column">Produit</th>
+              <th>Stock</th>
+              <th>Départ</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for produit in produits_stock %}
+              <tr>
+                <td class="product-name-column" title="{{ produit.nom_produit }}">{{ produit.nom_produit }}</td>
+                <td>{{ produit.quantite_stock }}</td>
+                  <td>
+                  <form hx-post="{% url 'admin_liste:remplir_modele_liste' id_modele_liste=id_modele_liste id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
+                    {% csrf_token %}
+                    <div class="field is-grouped is-marginless">
+                      <div class="control">
+                        <button type="button" class="button is-small decrement-button">-</button>
+                      </div>
+                      <div class="control">
+                        <button type="button" class="button is-small increment-button">+</button>
+                      </div>
+                      <div class="control">
+                        <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
+                               value="{{ produit.quantite_depart }}" class="input is-small short-input" min="0" max="{{ produit.quantite_stock }}">
+                      </div>
+                    </div>
+                </td>
+                <td>
+                  <div class="field is-grouped">
+                    <div class="control">
+                        <button name="quantity_updated" type="submit" class="icon has-text-primary is-hovered is-clickable" style="background: none; border: none;">
+                            <i class="fas fa-check"></i>
+                        </button>
+                    </div>
+                  </div>
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <footer class="modal-card-foot">
+    </footer>
+  </div>
+    <div id="successNotification" class="notification is-small is-link" style="display: none; position: fixed; bottom: 20px; right: 20px;">
+  Quantité mise à jour.
+</div>
+<div id="errorNotification" class="notification is-small is-danger" style="display: none; position: fixed; bottom: 20px; right: 20px;">
+  Une erreur est survenue.
+</div>
+</div>
+
+{% endif %}
+
+<div id="messages-container" style="position: fixed; bottom: 0px; right: 0px;">
+    {% if messages %}
+        {% for message in messages %}
+        <div class="notification {% if message.tags %}is-{{ message.tags }}{% endif %} mb-2">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+
+{% endblock %}

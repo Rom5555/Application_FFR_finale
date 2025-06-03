@@ -1,0 +1,139 @@
+{% extends 'admin_base/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="columns is-desktop mt-5"> <!-- Ajout d'une marge supérieure pour l'ensemble des colonnes -->
+    <div class="column is-full"> <!-- Prend toute la largeur -->
+        <div class="card mb-4" style="box-shadow: 0 4px 8px rgba(50, 115, 220, 0.2);">
+            <div class="card-content">
+                <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
+                    <span class="icon has-text-primary is-large">
+                        <i class="fas fa-box-open"></i>
+                    </span>
+                    <span class="ml-3">Gestion des stocks</span>
+                </h1>
+            </div>
+        </div>
+
+        <div class="columns is-multiline"> <!-- Colonnes pour les cartes -->
+            <div class="column is-half-desktop">
+                <div class="card mb-5" style="box-shadow: 0 4px 8px rgba(72, 199, 116, 0.2); height: 100%;">
+                    <div class="card-content">
+                        <h2 class="subtitle is-4 has-text-link">Ajouter/Supprimer produits</h2>
+                        <div class="columns is-vcentered">
+                            <div class="column">
+                                <a href="{% url 'admin_stock:produit_list' %}" class="button is-link is-focused">Gérer</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-half-desktop">
+                <div class="card mb-5" style="box-shadow: 0 4px 8px rgba(255, 221, 87, 0.2); height: 100%;">
+                    <div class="card-content">
+                        <h2 class="subtitle is-4 has-text-link mb-4">Choisir un stock</h2>
+                        <form action="{% url 'admin_stock:display_produits'%}" method="post" class="mb-5">
+                            {% csrf_token %}
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    <div class="select">
+                                        <select name="id_stock">
+                                            <option value="">Stock</option>
+                                            {% for stock in liste_stocks %}
+                                                <option value="{{ stock.id_stock }}" {% if selected_stock_id == stock.id_stock %} selected {% endif %}>{{ stock.nom_stock }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <button class="button has-background-white has-text-link is-focused" type="submit">Afficher</button>
+                                </div>
+                            </div>
+                            <input type="hidden" name="selected_stock_id" value="{{ selected_stock_id }}">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Fin des colonnes pour les cartes -->
+    </div> <!-- Fin de la colonne principale -->
+</div> <!-- Fin des colonnes -->
+
+{% if produitsStock %}
+ <div class="modal is-active" id="stockModal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title has-text-link">{{ selected_stock_nom }}</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <div class="table-container">
+        <table class="table is-striped is-fullwidth">
+          <thead>
+            <tr>
+              <th class="product-name-column">Produit</th>
+              <th>Quantité</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for produit in produitsStock %}
+              <tr>
+                <td class="product-name-column">{{ produit.nom_produit }}</td>
+                <td {% if produit.quantite_stock < 5 and selected_stock_nom == 'CONSOMMABLE' %}class="has-background-danger-light has-text-danger"{% endif %}>
+                    <form hx-post="{% url 'admin_stock:update_quantity' id_produit=produit.id_produit %}" hx-target="#message_{{ produit.id_produit }}" hx-swap="outerHTML">
+                    {% csrf_token %}
+                    <div class="field is-grouped">
+                      <div class="control">
+                        <button type="button" class="button is-small decrement-button">-</button>
+                      </div>
+                      <div class="control">
+                        <button type="button" class="button is-small increment-button">+</button>
+                      </div>
+                      <div class="control">
+                        <input type="number" id="quantity_{{ produit.id_produit }}" name="quantity_{{ produit.id_produit }}"
+                          value="{{ produit.quantite_stock }}" class="input is-small short-input" min="0">
+                      </div>
+                    </div>
+                </td>
+                <td>
+                  <div class="field is-grouped">
+                    <div class="control">
+                      <button class="button is-primary is-focused is-small has-text-light" name="quantity_updated" type="submit">
+                        <span class="icon is-small"><i class="fas fa-check"></i></span>
+                      </button>
+                    </div>
+                  </div>
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <footer class="modal-card-foot">
+    </footer>
+  </div>
+     <div id="successNotification" class="notification is-small is-link" style="display: none; position: fixed; bottom: 20px; right: 20px;">
+    Quantité mise à jour.
+    </div>
+</div>
+
+{% endif %}
+
+<div id="messageContainer" style="position: fixed; bottom: 20px; right: 20px;">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="notification is-{{ message.tags }} is-light" style="margin-bottom: 10px;">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+
+
+{% endblock content %}

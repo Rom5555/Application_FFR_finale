@@ -1,0 +1,23 @@
+{% extends 'admin_base/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container my-6">
+    <div class="columns is-centered">
+        <div class="column is-full">
+            <!-- Formulaire pour ajouter un utilisateur -->
+            <div class="card" style="box-shadow: 0 4px 8px rgba(72, 199, 116, 0.2);">
+                <div class="card-content">
+                    <h2 class="subtitle is-4 has-text-link mb-3 has-text-left">Ajouter un utilisateur</h2>
+                    <form method="post" action="{% url 'admin_compte:add_user' %}">
+                        {% csrf_token %}
+                        {% crispy add_user_form %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

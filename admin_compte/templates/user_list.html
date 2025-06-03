@@ -1,0 +1,84 @@
+{% extends 'admin_base/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(255, 221, 87, 0.2);">
+    <div class="card-content">
+        <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
+            <span class="icon has-text-primary">
+                <i class="fas fa-users"></i>
+            </span>
+            <span class="ml-4">Gestion des utilisateurs</span>
+        </h1>
+    </div>
+</div>
+
+
+            <!-- Affichage de la liste des utilisateurs -->
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(50, 115, 220, 0.2);">
+    <div class="card-content">
+        <div class="is-flex is-justify-content-space-between is-align-items-center">
+            <h1 class="subtitle is-5 has-text-link mb-5">Listes des utilisateurs</h1>
+            <!-- Bouton pour créer un nouveau modèle -->
+            <a href="{% url 'admin_compte:add_user' %}" class="button is-primary is-outlined mb-5">
+                <span class="icon">
+                    <i class="fas fa-plus"></i>
+                </span>
+                <span>Nouveau</span>
+            </a>
+        </div>
+        <div class="table-container">
+            <table class="table is-striped is-fullwidth">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Nom d'utilisateur</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.last_name }}</td>
+                        <td>{{ user.first_name }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            <form id="delete-form-{{ user.id }}" action="{% url 'admin_compte:delete_user' %}" method="post" style="display: inline;">
+                                {% csrf_token %}
+                                <input type="hidden" name="user_id" value="{{ user.id }}">
+                                <button class="button is-danger is-small" onclick="confirmDelete('{{ user.id }}')">
+                                    <span class="icon is-small"><i class="fas fa-times"></i></span>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="messages-container" style="position: fixed; bottom: 20px; right: 20px;z-index: 9999;">
+    {% if messages %}
+        {% for message in messages %}
+        <div class="notification {% if message.tags %}is-{{ message.tags }}{% endif %} mb-2">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<script>
+    function confirmDelete(userId) {
+        if (confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur?")) {
+            document.getElementById('delete-form-' + userId).submit();
+        }
+    }
+</script>
+
+{% endblock %}

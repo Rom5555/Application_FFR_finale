@@ -1,0 +1,136 @@
+{% extends 'admin_base/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(255, 221, 87, 0.2);">
+    <div class="card-content">
+        <h1 class="subtitle is-3 has-text-link has-text-centered mb-5 is-flex is-align-items-center is-justify-content-center">
+            <span class="icon has-text-info">
+                <i class="fas fa-archive"></i>
+            </span>
+            <span class="ml-4">Archives</span>
+        </h1>
+    </div>
+</div>
+
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(50, 115, 220, 0.2);">
+    <div class="card-content">
+        <h2 class="subtitle is-4 has-text-link mb-6">Récupérer les listes archivées</h2>
+        {% if archive_form %}
+            <form action="{% url 'admin_liste:recherche_archive' %}" method="post" class="mb-5">
+                {% csrf_token %}
+                <div class="container">
+                    {% crispy archive_form %}
+                    <button class="button is-primary has-text-light" type="submit">Rechercher</button>
+                </div>
+            </form>
+        {% endif %}
+    </div>
+</div>
+
+{% if listes_archivees %}
+<div class="card mb-4" style="box-shadow: 0 4px 8px rgba(72, 199, 116, 0.2);">
+    <div class="card-content">
+        <div class="table-container">
+            <table class="table is-striped is-fullwidth">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Destination</th>
+                        <th>Statut</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for liste_utilisateur in listes_archivees %}
+                    <tr>
+                        <td>{{ liste_utilisateur.date_liste }}</td>
+                        <td>{{ liste_utilisateur.destination }}</td>
+                        <td>{{ liste_utilisateur.statut }}</td>
+                        <td>
+                            <!-- Formulaire pour afficher les produits dans le modal -->
+                            <form id="form-liste-{{ liste_utilisateur.id_liste_utilisateur }}" action="{% url 'admin_liste:display_archive' %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="id_liste_utilisateur" value="{{ liste_utilisateur.id_liste_utilisateur }}">
+                                <button class="button is-small is-link is-outlined" type="submit">
+                                    <span class="icon is-small">
+                                        <i class="fas fa-eye"></i>
+                                    </span>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if produits_liste_utilisateur %}
+<!-- Modal pour afficher les produits de la liste sélectionnée -->
+<div class="modal is-active">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">{{ liste_selectionnee.date_liste }}, {{ liste_selectionnee.destination }}</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <div class="table-container">
+            <table class="table is-striped is-fullwidth">
+                <thead>
+                    <tr>
+                        <th>Produit</th>
+                        <th>Départ</th>
+                        <th>Retour</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produit in produits_liste_utilisateur %}
+                        <tr>
+                            <td>{{ produit.nom_produit }}</td>
+                            <td>{{ produit.quantite_depart }}</td>
+                            <td>{{ produit.quantite_retour }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <footer class="modal-card-foot">
+    </footer>
+  </div>
+</div>
+{% endif %}
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Fonction pour fermer les modals
+  function closeModal($el) {
+    $el.classList.remove('is-active');
+  }
+
+  // Fermer le modal avec un clic
+  (document.querySelectorAll('.modal-background, .delete') || []).forEach(($close) => {
+    const $target = $close.closest('.modal');
+
+    $close.addEventListener('click', () => {
+      closeModal($target);
+    });
+  });
+
+  // Fermer avec la touche "Escape"
+  document.addEventListener('keydown', (event) => {
+    if (event.key === "Escape") {
+      (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+        closeModal($modal);
+      });
+    }
+  });
+});
+</script>
+
+{% endblock %}
